@@ -105,7 +105,7 @@
                                  </div>-->
 
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <div class="col-md-8 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">
                             Login
@@ -115,7 +115,7 @@
                             Forgot Your Password?
                         </a>
                     </div>
-                </div> 
+                </div> -->
 <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
 <!--       <select name='language'required >
    <option value='' >Plaese Select</option>
