@@ -56,7 +56,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary form button" style="background-color:#1b6b36; border:#1b6b36;">
                                     Reset Password
                                 </button>
                             </div>

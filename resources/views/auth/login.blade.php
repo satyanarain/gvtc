@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale('') }}" >
-
-    <head>
-
-
-
-        <meta charset="utf-8">
+<head>
+ <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,18 +19,7 @@
     </head>
 
     <body>
-
-
-
-
-
-
-
-
-
-
-
-        <div class="container">
+<div class="container">
             <div class="info">
                 <!--<h1 style="color:#324b30;">GVTC LOGIN</h1>-->
                 <!--<span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span>-->
@@ -83,7 +68,7 @@
 
 
                     <div class="col-md-6">
-                        <input id="password" type="password" placeholder="password" class="form-control" name="password" required>
+                        <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
 
                         @if ($errors->has('password'))
                         <span class="help-block">
@@ -92,17 +77,15 @@
                         @endif
                     </div>
                 </div>
-
-
-                <!--<div class="form-group">
-                                     <div class="col-md-6 col-md-offset-4">
+                  <div class="form-group">
+                                     <div class="col-md-6 col-md-offset-4" style="color:#ffffff; ">
                                          <div class="checkbox">
                                              <label>
-                                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                                 <input type="checkbox" class="customInput" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                              </label>
                                          </div>
                                      </div>
-                                 </div>-->
+                                 </div>
 
 
                 <div class="form-group">
@@ -110,8 +93,8 @@
                         <button type="submit" class="btn btn-primary">
                             Login
                         </button>
-                        <span>&nbsp;</span>
-                        <a class="btn btn-link" style="color:#ffffff" href="{{ route('password.request') }}">
+                        
+                        <a class="btn btn-link" style="color:#ffffff;" href="{{ route('password.request') }}">
                             Forgot Your Password?
                         </a>
                     </div>
@@ -133,3 +116,4 @@
     </body>
 
 </html>
+

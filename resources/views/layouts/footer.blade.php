@@ -74,4 +74,8 @@
     })
   })
 </script>
-
+<script type="text/javascript">
+$('#calendar').datepicker({
+todayHighlight: true
+   });
+</script> 

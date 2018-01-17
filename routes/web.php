@@ -66,6 +66,11 @@ Route::resource('migration', 'MigrationController');
 //api
 Route::get('apilist/index', 'ApibaseController@index')->name('Apibase.index');
 Route::resource('apilist','ApibaseController');
+//method
+Route::resource('method','MethodController');
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 /* Form */
+body{font-family:arial; }
 .form {
   position: relative;
   z-index: 1;
@@ -10,8 +11,8 @@
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  text-align: center;
 }
+a:hover{color:#b3b3b3; text-decoration: underline;}
 .form .thumbnail {
   background: #FFFFFF;
   width: 150px;
@@ -55,11 +56,13 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 18px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-bottom:15px;
 }
+.btn-link{ text-decoration: none;}
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -144,3 +147,4 @@ body:before {
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+.customInput{ width:auto !important;}

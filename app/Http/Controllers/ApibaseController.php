@@ -30,7 +30,7 @@ class ApibaseController extends Controller
     $arradata =DB::table($tbl_name)->select('*')->get();
     $final_data=array('message'=>'success','listdata'=>$arradata);
     //$result = $arradata->toArray();
-    $arra= json_encode($final_data);
+    $arra= addslashes(json_encode($final_data));
   }else{
         
       $arra=json_encode(array('message'=>'failed','listdat'=>''));  
