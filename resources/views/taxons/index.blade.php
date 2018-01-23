@@ -1,5 +1,6 @@
 @extends('taxons.base')
 @section('action-content')
+<?php $session_lan= Session::get('language_val'); ?> 
     <!-- Main content -->
     
     <section class="content">
@@ -10,7 +11,7 @@
           <h3 class="box-title">Taxon Code Log</h3>
         </div>
         <div class="col-sm-4" >
- <a class="btn btn-primary btn-template" href="{{ route('taxons.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;Add</a>
+ <a class="btn btn-primary btn-template" href="{{ route('taxons.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
 </div>
     </div>
   </div>

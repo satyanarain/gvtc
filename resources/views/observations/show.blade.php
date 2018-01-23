@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Water Log</h3>
+              <h3 class="box-title">View Observation</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -27,7 +27,7 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">View Observation</label>
+                  <label for="exampleInputEmail1">Observation Code</label>
                   <input type="text" readonly  value="{{ $observation->observation_code }}"  class="form-control" >
                  
                   </div>  

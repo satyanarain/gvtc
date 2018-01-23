@@ -1,4 +1,5 @@
 @extends('layouts.app-template')
+
 @section('content')
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->

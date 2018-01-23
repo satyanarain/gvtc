@@ -12,19 +12,7 @@
         </div>
         <div class="col-sm-4" >
           <a class="btn btn-primary btn-template" href="{{ route('admin-unit.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;
- <?php
-          
-            
-           $language = Auth::user()->language;
-           
-            
-            if($language=='en')
-            {?>
-                @lang('menu.add') 
-          <?php  }else
-            {?>
-                    @lang('menu.addfr')
-           <?php } ?>
+ @lang('menu.add', array(),Session::get('language_val'))
          
               </a>
         </div>
