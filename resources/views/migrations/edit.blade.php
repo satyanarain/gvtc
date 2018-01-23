@@ -21,8 +21,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('migration_title') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Migration</label>
+                <div class="form-group{{ $errors->has('migration_title') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Migration</label>
                   <input type="text" name="migration_title" value="{{ $migrations->migration_title }}" required  class="form-control" id="country" placeholder="Migration">
                  @if ($errors->has('migration_title'))
                                     <span class="help-block">
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('birds_migrating_population') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Birds Migrating Populations</label>
+                  <div class="form-group{{ $errors->has('birds_migrating_population') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Birds Migrating Populations</label>
                   <input type="text" name="birds_migrating_population" value="{{ $migrations->birds_migrating_population }}" required  class="form-control" id="birds_migrating_population" placeholder="Birds Migrating Populations">
                  @if ($errors->has('status'))
                                     <span class="help-block">

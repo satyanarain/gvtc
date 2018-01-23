@@ -1,3 +1,4 @@
+<?php $session_lan= Session::get('language_val'); ?>
 <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -23,9 +24,9 @@
           <!-- Tasks: style can be found in dropdown.less -->
          
           <!-- User Account: style can be found in dropdown.less -->
-          <?php
-          $user_pro_image = Auth::user()->profilepicture;
-          ?>
+          <?php $user_pro_image = Auth::user()->profilepicture; ?>
+        <!--laguage chanage-->
+        
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset ("profilepicture/$user_pro_image") }}" class="user-image" alt="User Image">
@@ -37,6 +38,7 @@
                 <img src="{{ asset ("profilepicture/$user_pro_image") }}" class="img-circle" alt="User Image">
                 
                 <p>
+                    
                   {{ ucfirst(Auth::user()->username) }}
                 
                 </p>
@@ -46,7 +48,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{ route('user-management.show', Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{ route('user-management.show', Auth::user()->id) }}" class="btn btn-default btn-flat">@lang('menu.profile', array(),$session_lan)</a>
                 </div>
                 <div class="pull-right">
                 
@@ -54,7 +56,7 @@
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">  
                       
-                      Sign out</a>
+                     @lang('menu.sign_out', array(),$session_lan) </a>
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

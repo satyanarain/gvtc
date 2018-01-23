@@ -8,7 +8,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Water Log</h3>
+              <h3 class="box-title">View Endenism</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

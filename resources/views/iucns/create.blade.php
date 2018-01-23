@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">IUCN Threat Codes Mangement</h3>
+              <h3 class="box-title">Create IUCN Threat Codes</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -23,8 +23,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">IUCN Threat Code </label>
+                <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">IUCN Threat Code </label>
                   <input type="text" name="iucn_threat_code" value="{{ old('iucn_threat_code') }}" required  class="form-control" id="iucn_threat_code" placeholder="IUCN Threat Code">
                  @if ($errors->has('iucn_threat_code'))
                                     <span class="help-block">
@@ -34,8 +34,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">IUCN Code Description</label>
+                  <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">IUCN Code Description</label>
                   <input type="textarea" name="iucn_code_description" value="{{ old('iucn_code_description') }}" required  class="form-control" id="IUCN Code Description" placeholder="IUCN Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block">

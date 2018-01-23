@@ -76,7 +76,7 @@ class ObservationController extends Controller
         ]);
 
     Session::flash('flash_message', "Observation Created Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('observations.index');
+    return redirect()->route('observation.index');
 
     }
     
@@ -97,7 +97,7 @@ class ObservationController extends Controller
             //return redirect()->intended('/water');
         }
 
-        return view('observations/show', ['methods' => $observations]);
+        return view('observations/show', ['observation' => $observations]);
         
         
     }
@@ -110,13 +110,13 @@ class ObservationController extends Controller
      */
     public function edit($id)
     {
-        $method = Method::find($id);
+        $observartions = Observation::find($id);
         // Redirect to taxon list if updating taxon wasn't existed
-       if ($method == null || count($method) == 0) {
+       if ($observartions == null || count($observartions) == 0) {
            
         }
 
-        return view('methods/edit', ['methods' => $method]);
+        return view('observations/edit', ['observartion' => $observartions]);
     }
 
     /**
@@ -129,7 +129,7 @@ class ObservationController extends Controller
     public function update(Request $request, $id)
     {
        
-        $water = Method::findOrFail($id);
+        $observartions = Observation::findOrFail($id);
         $constraints = [
             'observation_code' => 'required',
             'code_description'=> 'required'
@@ -142,19 +142,19 @@ class ObservationController extends Controller
         
        
         $input = [
-            'observation_code' => $request['method_code'],
+            'observation_code' => $request['observation_code'],
             'code_description' => $request['code_description']
           
         ];
         
       
         $this->validate($request, $constraints);
-        Method::where('id', $id)
+        Observation::where('id', $id)
             ->update($input);
         
       
-    Session::flash('flash_message', "Method  Updated Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('method.index');
+    Session::flash('flash_message', "Observation  Updated Successfully."); //Snippet in Master.blade.php 
+    return redirect()->route('observation.index');
     }
 
     /**
@@ -165,8 +165,8 @@ class ObservationController extends Controller
      */
     public function destroy($id)
     {
-     Method::where('id', $id)->delete();
-     return redirect()->route('method.index');   
+     Observation::where('id', $id)->delete();
+     return redirect()->route('observation.index');   
     }
 
     /**

@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Endenism Management</h3>
+              <h3 class="box-title">Create Endenism</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -23,8 +23,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Endenism</label>
+                <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Endenism</label>
                   <input type="text" name="endenism" value="{{ old('endenism') }}" required  class="form-control" id="endenism" placeholder="Endenism">
                  @if ($errors->has('endenism'))
                                     <span class="help-block">
@@ -34,8 +34,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">status</label>
+                  <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">status</label>
                   <input type="textarea" name="status" value="{{ old('status') }}" required  class="form-control" id="status" placeholder="Status">
                  @if ($errors->has('status'))
                                     <span class="help-block">

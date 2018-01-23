@@ -87,7 +87,7 @@ float: right !important;
 }
 
 /** The Spacing **/
-.btn-breadcrumb .btn {padding:6px 12px 6px 24px;}
+.btn-breadcrumb .btn {padding:6px 12px 6px 24px;font-size:15px;}
 .btn-breadcrumb .btn:first-child {padding:6px 6px 6px 10px;}
 .btn-breadcrumb .btn:last-child {padding:6px 18px 6px 24px;}
 
@@ -136,3 +136,8 @@ float: right !important;
     border-color: #1b6b36 !important;
 }
 .btn-bred{ background-color: #222d32 !important;}
+
+    .form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}

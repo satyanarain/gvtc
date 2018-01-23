@@ -1,4 +1,4 @@
-@extends('methods.base')
+@extends('observations.base')
 
 @section('action-content')
 
@@ -9,32 +9,32 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">List of Method</h3>
+              <h3 class="box-title">Update Observation</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-
-{!! Form::model($methods, ['method' => 'PATCH','route' => ['method.update', $methods['id']],'files'=>true,'enctype' => 'multipart/form-data']) !!}
+<?php //print_r($observartion); die; ?>
+{!! Form::model($observartion, ['method' => 'PATCH','route' => ['observation.update', $observartion['id']],'files'=>true,'enctype' => 'multipart/form-data']) !!}
             
  
                <div class="box-body">
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('method_code') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Method Code</label>
-                  <input type="text" name="method_code" value="{{ $methods->method_code }}" required  class="form-control" id="method_code" placeholder="Method Code">
+                <div class="form-group{{ $errors->has('observation_code') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Observation Code</label>
+                  <input type="text" name="observation_code" value="{{ $observartion->observation_code }}" required  class="form-control" id="observation_code" placeholder="Method Code">
                  @if ($errors->has('method_code'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('method_code') }}</strong>
+                                        <strong>{{ $errors->first('observation_code') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Code Description</label>
-                  <input type="text" name="code_description" value="{{ $methods->code_description }}" required  class="form-control" id="water_habitat_usage" placeholder="Code Description">
+                  <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Code Description</label>
+                  <input type="text" name="code_description" value="{{ $observartion->code_description }}" required  class="form-control" id="water_habitat_usage" placeholder="Code Description">
                  @if ($errors->has('code_description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('code_description') }}</strong>

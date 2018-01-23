@@ -70,6 +70,12 @@ Route::resource('apilist','ApibaseController');
 Route::resource('method','MethodController');
 //observation
 Route::resource('observation','ObservationController');
+//age
+Route::resource('age','AgeController');
+//Abundance
+Route::resource('abundance','AbundanceController');
+//Observer
+Route::resource('observer','ObserverController');
 
 
 

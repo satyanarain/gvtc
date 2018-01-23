@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">List of Water Use</h3>
+              <h3 class="box-title">Update Endenism</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -21,8 +21,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Endemism</label>
+                <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Endemism</label>
                   <input type="text" name="endenism" value="{{ $endenisms->endenism }}" required  class="form-control" id="endemism" placeholder="Endemism">
                  @if ($errors->has('endemism'))
                                     <span class="help-block">
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Status</label>
+                  <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Status</label>
                   <input type="text" name="status" value="{{ $endenisms->status }}" required  class="form-control" id="status" placeholder="Status">
                  @if ($errors->has('status'))
                                     <span class="help-block">

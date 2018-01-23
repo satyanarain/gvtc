@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update Taxon</h3>
+              <h3 class="box-title">Update Taxon Code</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -21,8 +21,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Taxon Code</label>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Taxon Code</label>
                   <input type="text" name="taxon_code" value="{{ $taxon->taxon_code }}" required  class="form-control" id="taxon_code" placeholder="Taxon Code">
                  @if ($errors->has('taxon_code'))
                                     <span class="help-block">
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Taxon Code Description</label>
+                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Taxon Code Description</label>
                   <input type="textarea" name="taxon_code_description" value="{{ $taxon->taxon_code_description }}" required  class="form-control" id="taxon_code_description" placeholder="Taxon Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block">

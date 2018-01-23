@@ -22,41 +22,47 @@
   @endfor </ul> -->
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
-<?php $link = route('home'); ?>
+<?php 
+$link = route('home');
+$count=0;
+?>
 @for($i = 1; $i <= count(Request::segments()); $i++) 
 @if($i < count(Request::segments()) & $i > 0) <?php
 $link .= "/" . Request::segment($i);
 $arra = explode('/', $link);
 $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
+ 
+if(is_numeric(Request::segment($i))){ 
+    
+}else{
 ?> 
-<!-- <a href="#" class="btn btn-success visible-lg-block visible-md-block">Snippets</a>
-<a href="#" class="btn btn-success visible-lg-block visible-md-block">Breadcrumbs text</a>
- <a href="#" class="btn btn-success visible-lg-block visible-md-block">Section</a>
-                        <a href="#" class="btn btn-success visible-lg-block visible-md-block">Category</a>
-                        <div class="btn btn-default visible-xs-block hidden-xs visible-sm-block ">...</div>
-                        <div class="btn btn-primary"><b>Item Actual</b></div>-->
-<a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block">{{ucfirst(Request::segment($i))}}</a> 
-@else <div class="btn btn-success">{{ucfirst(Request::segment($i))}}</div>
+<a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
+    {{ucfirst(Request::segment($i))}}
+</a> 
+<?php } ?>
+@else 
+<?php 
+    if(is_numeric(Request::segment($i))){ 
+    
+}else{
+    ?>
+<div class="btn btn-primary btn-success">
+
+    
+    {{ title_case(str_replace('','',(Request::segment($i)))) }}
+    </div>
+    
+   <?php
+}
+
+?>  
+
 @endif 
+<?php $count++; ?>
 @endfor
 </div>
-
-
-        <!--        <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
-                   <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
-                    <a href="#" class="btn btn-success visible-lg-block visible-md-block">Snippets</a>
-                    <a href="#" class="btn btn-success visible-lg-block visible-md-block">Breadcrumbs text</a>
-                    <a href="#" class="btn btn-success visible-lg-block visible-md-block">Section</a>
-                    <a href="#" class="btn btn-success visible-lg-block visible-md-block">Category</a>
-                    <div class="btn btn-default visible-xs-block hidden-xs visible-sm-block ">...</div>
-                    <div class="btn btn-primary"><b>Item Actual</b></div>     
-                
-                  </div>-->
 </section>
 @yield('action-content')
 <!-- /.content -->
 </div>
 @endsection
-
-
-

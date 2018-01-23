@@ -12,9 +12,33 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
-    'add'             => 'Add',
-    'addfr'             => 'Ajouter',
+    'profile'=>'Profile',
+    'sign_out'=>'Sign out',
+    
+    'users_log'=>'Users Log',
+    'manage_users'=>'Manage Users',
+    
+    //action
+    'add' => 'Add',
+    'delete'  => 'Delete',
+    'update'  => 'Update',
+    'view'  => 'View',
+    
+    //leftpanel
+    'dashboard'=> 'Dashboard',
+    'online'=>'online',
+    'manage_users'=> 'Manage Users',
+    'manage_masters'=>'Manage Masters',
+    'taxon'=>'Taxon',
+    'iucn'=>'IUCN',
+    'national_threat'=>'National Threat',
+    'range'=>'Range',
+    'growth_form'=>'Growth Form',
+    'observer'=>'Observer',
+ 
+    
+    
+    
      'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',

@@ -23,8 +23,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('observation_code') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Observation Code</label>
+                <div class="form-group{{ $errors->has('observation_code') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Observation Code</label>
                   <input type="text" name="observation_code" value="{{ old('observation_code') }}" required  class="form-control" id="water_use" placeholder="Observation Code">
                  @if ($errors->has('observation_code'))
                                     <span class="help-block">
@@ -34,8 +34,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Code Description</label>
+                  <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Code Description</label>
                   <input type="text" name="code_description" value="{{ old('code_description') }}" required  class="form-control" id="code_description" placeholder="Code Description">
                  @if ($errors->has('code_description'))
                                     <span class="help-block">

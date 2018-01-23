@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">List of Forest</h3>
+              <h3 class="box-title">Update Forest</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -21,8 +21,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('forest_use') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Forest Use</label>
+                <div class="form-group{{ $errors->has('forest_use') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Forest Use</label>
                   <input type="text" name="forest_use" value="{{ $forests->forest_use }}" required  class="form-control" id="forest_use" placeholder="Forest Use">
                  @if ($errors->has('forest_use'))
                                     <span class="help-block">
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('forest_habitat_usage') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Forest Habitat Usage</label>
+                  <div class="form-group{{ $errors->has('forest_habitat_usage') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Forest Habitat Usage</label>
                   <input type="text" name="forest_habitat_usage" value="{{ $forests->forest_habitat_usage }}" required  class="form-control" id="forest_habitat_usage" placeholder="Forest Habitat Usage">
                  @if ($errors->has('forest_habitat_usage'))
                                     <span class="help-block">

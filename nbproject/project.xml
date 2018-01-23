@@ -5,5 +5,10 @@
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
             <name>gvtc</name>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>chanage</word>
+            <word>php</word>
+            <word>ViewObservers</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

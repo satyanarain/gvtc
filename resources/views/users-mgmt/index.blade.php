@@ -1,16 +1,17 @@
 @extends('users-mgmt.base')
 @section('action-content')
     <!-- Main content -->
-    
+<?php $session_lan= Session::get('language_val'); ?>   
     <section class="content">
       <div class="box">
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Users Log</h3>
+          <h3 class="box-title">@lang('menu.users_log', array(),$session_lan)</h3>
         </div>
         <div class="col-sm-4" >
-          <a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;Add</a>
+
+          <a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
         </div>
     </div>
   </div>
@@ -54,7 +55,7 @@
    @if ($user->name != Auth::user()->name)
 <button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;Delete</button>        
  @endif   
- <button type="submit" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Manage Permissions</button>
+ <button type="submit" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</button>
                        
                     </form>
                       

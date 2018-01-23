@@ -21,8 +21,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('range') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Range</label>
+                <div class="form-group{{ $errors->has('range') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Range</label>
                   <input type="text" name="range" value="{{ $range->range }}" required  class="form-control" id="taxon_code" placeholder="Range">
                  @if ($errors->has('range'))
                                     <span class="help-block">
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Taxon Code Description</label>
+                  <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Taxon Code Description</label>
                   <input type="textarea" name="range_within_the_albertine_rift" value="{{ $range->range_within_the_albertine_rift }}" required  class="form-control" id="taxon_code_description" placeholder="IUCN Code Description">
                  @if ($errors->has('range_within_the_albertine_rift'))
                                     <span class="help-block">

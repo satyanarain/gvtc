@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update user</h3>
+              <h3 class="box-title">Update User Profile</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -25,8 +25,8 @@
                  
                   
                   <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} col-md-12">
-                  <label for="exampleInputEmail1">Username</label>
-                  <input type="text" name="username"  readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter Username" id="username" >
+                  <label for="exampleInputEmail1">User Name</label>
+                  <input type="text" name="username"  readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter User Name" id="username" >
                  @if ($errors->has('username'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>
@@ -41,8 +41,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Name</label>
                   <input type="text" name="name" value="{{ $user->name }}" required  class="form-control" id="name" placeholder="Enter name">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -52,8 +52,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Address</label>
+                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Address</label>
                   <input type="textarea" name="address" value="{{ $user->address }}" required  class="form-control" id="name" placeholder="Enter address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
@@ -69,8 +69,8 @@
                   
                   
                   
-                   <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Mobile Number</label>
+                   <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Mobile Number</label>
                   <input type="text" name="mobilenumber" value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
                  @if ($errors->has('mobilenumber'))
                                     <span class="help-block">
@@ -82,8 +82,8 @@
                   
                   
                   
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Email Address</label>
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Email Address</label>
                   <input type="email" name="email" value="{{ $user->email }}" required  class="form-control" id="email" placeholder="Enter email">
                @if ($errors->has('email'))
                                     <span class="help-block">
@@ -97,8 +97,8 @@
                  
                   
                   <div class="form-row"> 
-                  <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Department</label>
+                  <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Department</label>
                   <input type="text" name="department" value="{{ $user->department}}" required  class="form-control" id="department" placeholder="Enter Department">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -108,8 +108,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Designation</label>
+                  <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Designation</label>
                   <input type="text" name="designation" value="{{ $user->designation}}" required  class="form-control" id="designation" placeholder="Enter Designation">
                  @if ($errors->has('name'))
                                     <span class="help-block">

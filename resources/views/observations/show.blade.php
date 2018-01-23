@@ -1,4 +1,4 @@
-@extends('methods.base')
+@extends('observations.base')
 
 @section('action-content')
 
@@ -22,20 +22,20 @@
                 <div class="form-row">
                     
                     
-                    
+
                     
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Method Code</label>
-                  <input type="text" readonly  value="{{ $methods->method_code }}"  class="form-control" >
+                  <label for="exampleInputEmail1">View Observation</label>
+                  <input type="text" readonly  value="{{ $observation->observation_code }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Code Description</label>
-                  <input  value="{{ $methods->code_description }}" readonly=""  class="form-control">
+                  <input  value="{{ $observation->code_description }}" readonly=""  class="form-control">
                 
                   </div>  
                   

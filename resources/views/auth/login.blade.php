@@ -17,6 +17,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     </head>
+    <?php
+    
+
+
+
+    
+    
+    ?>
 
     <body>
 <div class="container">
@@ -105,6 +113,15 @@
    <option value='en'>English</option>
    <option value='fr'>French</option>
 </select>-->
+<div class="col-md-6 col-md-offset-4">
+      <div class="col-sm-6 col-md-4">
+        <select id="lanuage" name="lanuage" class="form-control">
+            <option value="en">English</option>
+            <option value="fr">French</option>
+        </select> 
+      </div>
+    </div>             
+                
             </form>
         </div>
 

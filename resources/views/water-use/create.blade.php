@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Water Management</h3>
+              <h3 class="box-title">Create Water</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -23,8 +23,8 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('water_use') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Water Use</label>
+                <div class="form-group{{ $errors->has('water_use') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Water Use</label>
                   <input type="text" name="water_use" value="{{ old('water_use') }}" required  class="form-control" id="water_use" placeholder="Water Use">
                  @if ($errors->has('water_use'))
                                     <span class="help-block">
@@ -34,8 +34,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('water_habitat_usage') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Water/wetland habitat usage</label>
+                  <div class="form-group{{ $errors->has('water_habitat_usage') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Water/wetland habitat usage</label>
                   <input type="textarea" name="water_habitat_usage" value="{{ old('water_habitat_usage') }}" required  class="form-control" id="water_habitat_usage" placeholder="Water/wetland habitat usage">
                  @if ($errors->has('water_habitat_usage'))
                                     <span class="help-block">

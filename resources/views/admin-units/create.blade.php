@@ -34,8 +34,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Admin Code</label>
+                  <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Admin Code</label>
                   <input type="textarea" name="admincode" value="{{ old('admincode') }}" required  class="form-control" id="admincode" placeholder="Admin Code">
                  @if ($errors->has('status'))
                                     <span class="help-block">

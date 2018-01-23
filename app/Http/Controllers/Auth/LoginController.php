@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use DB;
+use Session;
 use Auth;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -49,11 +49,16 @@ class LoginController extends Controller
     }
     
     public function login(Request $request)     {
-        $this->validate($request, ['username' => 'required', 'password' => 'required']);    
+    $this->validate($request, ['username' => 'required', 'password' => 'required',]);    
         Auth::attempt(['username' => $request['username'], 'password' => $request['password']]);    
         if(!Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) { 
             return redirect()->back()->with('fail', 'Either username or password is incorrect!');  
-            }else         {              return redirect('/home');         }   
+            }else{
+             Session::put('language_val', $request['lanuage']);
+             return redirect('/home');
+             //print_r($request->all());
+             
+             }   
             }
     
     

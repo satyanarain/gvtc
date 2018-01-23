@@ -21,7 +21,7 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6">
+                <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1">Country</label>
                   <input type="text" name="country" value="{{ $adminunits->country }}"   class="form-control" id="country" placeholder="Country">
                  @if ($errors->has('country'))
@@ -32,8 +32,8 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Admin Code</label>
+                  <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Admin Code</label>
                   <input type="text" name="admincode" value="{{ $adminunits->admincode }}" required  class="form-control" id="status" placeholder="Admin Code">
                  @if ($errors->has('status'))
                                     <span class="help-block">
