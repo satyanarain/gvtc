@@ -19,6 +19,7 @@ $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
 if(is_numeric(Request::segment($i))){ 
     
 }else{
+    
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
     {{ucfirst(Request::segment($i))}}

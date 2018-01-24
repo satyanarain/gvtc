@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Admin Unit Management</h3>
+              <h3 class="box-title">Add Admin Unit</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -91,7 +91,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Create</button>
+                <button type="submit" class="btn btn-primary btn-sub">Save</button>
               </div>
             </form>
           </div>

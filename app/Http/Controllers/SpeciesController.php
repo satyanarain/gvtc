@@ -122,10 +122,10 @@ class SpeciesController extends Controller
         if ($species == null || count($species) == 0) {
             return redirect()->intended('/species');
         }
-        $species = Species::with(['taxon'])->find($id);
-        echo '<pre>';
-        print_r($species);
-        die;
+        //$species = Species::with(['taxon'])->find($id);
+       // echo '<pre>';
+      //  print_r($species);
+       // die;
         return view('species/show', ['species' => $species]);
         
         

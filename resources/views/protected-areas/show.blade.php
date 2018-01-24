@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Protected Area Log</h3>
+              <h3 class="box-title">View Protected Area</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

@@ -20,9 +20,12 @@ $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
 if(is_numeric(Request::segment($i))){ 
     
 }else{
+    $title = str_replace('iucns','IUCN threat code',(Request::segment($i)));
+    $title = str_replace('create','Create',$title);
+    
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-    {{ucfirst(Request::segment($i))}}
+      {{ ucwords($title) }}
 </a> 
 <?php } ?>
 @else 
@@ -30,11 +33,14 @@ if(is_numeric(Request::segment($i))){
     if(is_numeric(Request::segment($i))){ 
     
 }else{
+    $title = str_replace('iucns','IUCN threat code',(Request::segment($i)));
+    $title = str_replace('create','Create',$title);
+    
     ?>
 <div class="btn btn-primary btn-success">
 
     
-    {{ title_case(str_replace('','',(Request::segment($i)))) }}
+    {{ ucwords($title) }}
     </div>
     
    <?php

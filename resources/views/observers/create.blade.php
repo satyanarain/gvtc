@@ -167,7 +167,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Create</button>
+                <button type="submit" class="btn btn-primary btn-sub">Save</button>
               </div>
             </form>
           </div>

@@ -20,9 +20,10 @@ $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
 if(is_numeric(Request::segment($i))){ 
     
 }else{
+   $title = str_replace('nationals','National Threat Code',(Request::segment($i)));  
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-    {{ucfirst(Request::segment($i))}}
+    {{ title_case($title) }}
 </a> 
 <?php } ?>
 @else 
@@ -30,11 +31,12 @@ if(is_numeric(Request::segment($i))){
     if(is_numeric(Request::segment($i))){ 
     
 }else{
+     $title = str_replace('nationals','National Threat Code',(Request::segment($i)));
     ?>
 <div class="btn btn-primary btn-success">
 
     
-    {{ title_case(str_replace('','',(Request::segment($i)))) }}
+    {{ title_case($title) }}
     </div>
     
    <?php

@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Range Log</h3>
+              <h3 class="box-title">View Range</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
