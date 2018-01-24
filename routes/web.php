@@ -27,8 +27,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('user-management/search', 'UserManagementController@search')->name('user-management.search');
 //usermangement
-Route::get('user-management/index', 'UserManagementController@index')->name('users-mgmt.index');
+//Route::get('user-management/index', 'UserManagementController@index')->name('users-mgmt.index');
+
 Route::resource('user-management', 'UserManagementController');
+Route::get('/user-management/viewprofile/{id}', 'UserManagementController@viewprofile');
 //taxon
 //Route::get('taxons/index', 'TaxonController@index')->name('taxons.index');
 Route::resource('taxons','TaxonController');
@@ -76,6 +78,8 @@ Route::resource('age','AgeController');
 Route::resource('abundance','AbundanceController');
 //Observer
 Route::resource('observer','ObserverController');
+//specie
+Route::resource('species','SpeciesController');
 
 
 

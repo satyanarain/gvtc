@@ -48,7 +48,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{ route('user-management.show', Auth::user()->id) }}" class="btn btn-default btn-flat">@lang('menu.profile', array(),$session_lan)</a>
+                  <a href="<?php echo "/user-management/viewprofile/".Auth::user()->id; ?>" class="btn btn-default btn-flat">View @lang('menu.profile', array(),$session_lan)</a>
                 </div>
                 <div class="pull-right">
                 

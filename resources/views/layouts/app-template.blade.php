@@ -60,6 +60,7 @@ $session_lan= Session::get('language_val');?>
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script src="{{ asset ("/js/validation.js") }}"></script>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">

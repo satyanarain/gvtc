@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Model;
 
-class Taxon extends Authenticatable
+class Species extends Authenticatable
 {
     use Notifiable;
 
@@ -23,16 +23,16 @@ class Taxon extends Authenticatable
      * @var array
      */
    protected $fillable = [
-        'taxon_code','taxon_code_description',
+        'taxon_id','order','family','genus','species','species_author','subspecies','subspecies_author','species_author','common_name','iucn_threat_id','range_id',
+        'growth_id','forestuse_id','wateruse_id','endenisms_id','migration_tbl_id'
     ];
+//   public function taxon(){
+//       
+//       
+//       return $this->belongsTo('App\Taxon');
+//       
+//   }
 
-    public function species(){
-       return $this->hasMany('App\Species');
-       
-       
-       
-   }
-   
     /**
      * The attributes that should be hidden for arrays.
      *

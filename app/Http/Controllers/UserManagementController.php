@@ -65,8 +65,9 @@ class UserManagementController extends Controller
 
            $destinationPath = public_path('userdocument');
            $extension = Input::file('photoid')->getClientOriginalExtension();
-           $filephoto = uniqid() . '_useridproof_' . $extension;
+           $filephoto = uniqid() . '_useridproof.'.$extension;
            Input::file('photoid')->move($destinationPath, $filephoto);
+           
        }
        
        
@@ -75,7 +76,7 @@ class UserManagementController extends Controller
 
            $destinationPath = public_path('profilepicture');
            $extension = Input::file('profilepicture')->getClientOriginalExtension();
-           $fileprofile = uniqid() . '_userprofile_' . $extension;
+           $fileprofile = uniqid() . '_userprofile.' . $extension;
            Input::file('profilepicture')->move($destinationPath, $fileprofile);
        }
       $password_auto=mt_rand(1,100000000);
@@ -130,6 +131,17 @@ class UserManagementController extends Controller
         }
         return view('users-mgmt/profile', ['user' => $user]);
     }
+    
+    
+    public function viewprofile($id)
+    {
+         $user = User::find($id);
+        // Redirect to user list if updating user wasn't existed
+        if ($user == null || count($user) == 0) {
+           // return redirect()->intended('/user-management');
+        }
+        return view('users-mgmt/view_profile', ['user' => $user]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -179,7 +191,7 @@ class UserManagementController extends Controller
 
            $destinationPath = public_path('profilepicture');
            $extension = Input::file('profilepicture')->getClientOriginalExtension();
-           $fileprofile = uniqid() . '_userprofile_' . $extension;
+           $fileprofile = uniqid() . '_userprofile.' . $extension;
            Input::file('profilepicture')->move($destinationPath, $fileprofile);
        }
        
@@ -188,7 +200,7 @@ class UserManagementController extends Controller
 
            $destinationPath = public_path('userdocument');
            $extension = Input::file('photoid')->getClientOriginalExtension();
-           $filephoto = uniqid() . '_useridproof_' . $extension;
+           $filephoto = uniqid() . '_useridproof.' . $extension;
            Input::file('photoid')->move($destinationPath, $filephoto);
        }
         

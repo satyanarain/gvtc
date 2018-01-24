@@ -122,20 +122,23 @@
                   <div class="form-row">
                   <div class="form-group{{ $errors->has('photoid') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">Photo ID</label>
-                  <input type="file" name="photoid"    class="" id="photoid" >
+                  <input type="file" name="photoid" accept=".pdf,.jpg,.jpeg,.png,.gif"  id="documents1" onchange="validFile(this,1)"   class="" id="photoid" >
                  @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('photoid') }}</strong>
                                     </span>
                                 @endif
-                  <img src="{{ asset("userdocument/$user->photoid") }}" height="80px" width="80px" /> 
-                  <input type="hidden" name="edit_userdocument" value="{{ $user->photoid }}" />
+<!--                  <img src="{{ asset("userdocument/$user->photoid") }}" height="80px" width="80px" /> -->
+                  <?php if($user->photoid!='default_document.png'){ ?>
+                 <a target="_blank" href="{{ asset("userdocument/$user->photoid") }}">Document</a>
+                  <?php } ?>
+                  <input type="hidden"  name="edit_userdocument" value="{{ $user->photoid }}" />
                   </div>  
                  
                   
                   <div class="form-group{{ $errors->has('profilepicture') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">Profile Picture</label>
-                  <input type="file" name="profilepicture"    class="" id="profilepicture" >
+                  <input type="file" name="profilepicture"   accept=".jpg,.jpeg,.png,.gif"  id="documents2" onchange="validFile(this,2)" class=""  >
                  @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('profilepicture') }}</strong>

@@ -126,7 +126,7 @@
                   <div class="form-row">
                   <div class="form-group{{ $errors->has('photoid') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" >Photo ID</label>
-                  <input type="file" name="photoid"    class="" id="photoid" >
+                  <input accept=".pdf,.jpg,.jpeg,.png,.gif"  id="documents1" onchange="validFile(this,1)" type="file" name="photoid"    class=""  >
                  @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('photoid') }}</strong>
@@ -137,7 +137,7 @@
                   
                   <div class="form-group{{ $errors->has('profilepicture') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" >Profile Picture</label>
-                  <input type="file" name="profilepicture"    class="" id="profilepicture" >
+                  <input  accept=".jpg,.jpeg,.png,.gif"  id="documents2" onchange="validImg(this)" type="file" name="profilepicture"    class=""  >
                  @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('profilepicture') }}</strong>

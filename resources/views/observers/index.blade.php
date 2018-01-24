@@ -27,7 +27,7 @@
                 <tr>
                   <th style="display:none">id</th> 
                   <th>Observer ID</th>
-                  <th>Tittle</th>
+                  <th>Title</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Action</th>

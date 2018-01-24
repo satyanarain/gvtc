@@ -55,7 +55,7 @@
    @if ($user->name != Auth::user()->name)
 <button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;Delete</button>        
  @endif   
- <button type="submit" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</button>
+ <a  href="#" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
                        
                     </form>
                       

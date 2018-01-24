@@ -28,7 +28,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Tittle</label>
+                  <label for="exampleInputEmail1">Title</label>
                   <input  value="{{ $observers->tittle }}" readonly=""  class="form-control">
                 
                   </div>  

@@ -28,6 +28,7 @@ return [
     'dashboard'=> 'Dashboard',
     'online'=>'online',
     'manage_users'=> 'Manage Users',
+    'manage_tables'=>'Manage Tables',
     'manage_masters'=>'Manage Masters',
     'taxon'=>'Taxon',
     'iucn'=>'IUCN',

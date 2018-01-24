@@ -9,7 +9,21 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">User Profile</h3>
+                
+             <div class="row">
+        <div class="col-sm-8">
+          <h3 class="box-title">User Profile</h3>
+        </div>
+        <div class="col-sm-4" >
+
+          <a class="btn btn-primary btn-template" href="{{ route('user-management.edit', ['id' => $user->id]) }}"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
+          
+      
+          
+        </div>
+    </div>   
+                
+             
             </div>
             <!-- /.box-header -->
             <!-- form start -->

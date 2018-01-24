@@ -50,7 +50,10 @@ class ObserverController extends Controller
      */
     public function create()
     {
-        return view('observers/create');
+       $last_observeid= Observer::latest()->first();
+        return view('observers/create',['last_observeid' => $last_observeid['id']+1]);
+        
+        
     }
 
     /**
