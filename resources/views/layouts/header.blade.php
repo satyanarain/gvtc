@@ -1,7 +1,7 @@
 <?php $session_lan= Session::get('language_val'); ?>
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       
       <span class="logo-mini"><img src="{{ asset('images/gvtclogo.jpg') }}"/></span>
@@ -14,9 +14,11 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
+      <div class="new_logo_holder"></div>
       <div class="navbar-custom-menu">
+          
         <ul class="nav navbar-nav">
+            
           <!-- Messages: style can be found in dropdown.less-->
          
           <!-- Notifications: style can be found in dropdown.less -->

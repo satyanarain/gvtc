@@ -33,13 +33,13 @@ $user_pro_image = Auth::user()->profilepicture;
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
           
-        <li class=""><a href="#"><span class="glyphicon glyphicon-record"></span><span>Record Distribution</span></a></li>  
+        <li class=""><a href="#"><i class="glyphicon glyphicon-record"></i><span>Record Distribution</span></a></li>  
           
        
        
        <li class="treeview" >
           <a href="#">
-            <span class="glyphicon glyphicon-th"></span>
+            <i class="glyphicon glyphicon-th"></i>
             <span>@lang('menu.manage_tables', array(),$session_lan)</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -91,7 +91,7 @@ $user_pro_image = Auth::user()->profilepicture;
           </ul>
         </li>
       <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
-      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><i class="fa fa-bar-chart"></i>Reporting</span></a></li>   
+      <li class=""><a href="{{ url('user-management/') }}"> <i class="fa fa-bar-chart"></i> <span>Reports</span></a>  </li>   
        
        
      <li class="treeview" >

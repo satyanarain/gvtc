@@ -23,7 +23,7 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th>
-                  <th>User</th>
+                  <th>User Name</th>
                   <th> Name</th>
                   <th>Email</th>
                   <th>Department</th>
@@ -53,7 +53,7 @@
                 <a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
    @if ($user->name != Auth::user()->name)
-<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;Delete</button>        
+<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>        
  @endif   
  <a  href="#" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
                        
@@ -67,7 +67,7 @@
               
               
                 </tbody>
-                
+                  <p> <img src="{{ asset('images/gvtcLogolong.jpg') }}"/> <p>
               </table>
             </div>
             <!-- /.box-body -->

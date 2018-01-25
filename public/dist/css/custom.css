@@ -141,3 +141,11 @@ float: right !important;
   content:"*";
   color:red;
 }
+
+
+
+#example1 th:last-child, #example1 td:last-child {
+    text-align:center;
+
+}
+

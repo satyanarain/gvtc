@@ -79,4 +79,20 @@
 $('#calendar').datepicker({
 todayHighlight: true
    });
+//$(document).ready(function(){
+//    $(".sidebar-toggle").on("click",function(){
+//        //if($(".logo-lg").is(':visible'))
+//        if($('body').hasClass('sidebar-collapse'))
+//        {
+//            $(".new_logo_holder").html('');
+//            //alert('if');
+//            //$(".new_logo_holder").html('<span class="logo-lg"><img src="{{ asset('images/gvtcLogolong.jpg') }}"/></span>');
+//        }else{
+//            //$(".new_logo_holder").html('');
+//            //alert('else');
+//            $(".new_logo_holder").html('<span class="logo-lg"><img src="{{ asset('images/gvtcLogolong.jpg') }}"/></span>');
+//        }
+//    })
+//})
+
 </script> 
