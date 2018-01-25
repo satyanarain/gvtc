@@ -22,7 +22,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('observer_id') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Observer Id</label>
+                  <label for="exampleInputEmail1" class="control-label">Observer ID</label>
                   <input type="text" name="observer_id" readonly="" value="{{ $observers->observer_id }}" required  class="form-control" id="observer_id" placeholder="Taxon Code">
                  @if ($errors->has('taxon_code'))
                                     <span class="help-block">
@@ -34,7 +34,7 @@
                   
                   <div class="form-group{{ $errors->has('tittle') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Title</label>
-                  <input type="textarea" name="tittle" value="{{ $observers->tittle }}" required  class="form-control" id="taxon_code_description" placeholder="Tittle">
+                  <input type="textarea" name="tittle" value="{{ $observers->tittle }}" required  class="form-control" id="taxon_code_description" placeholder="Title">
                  @if ($errors->has('tittle'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tittle') }}</strong>

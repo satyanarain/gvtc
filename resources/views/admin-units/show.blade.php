@@ -22,7 +22,11 @@
                     
                     
                     
-                    
+                    <div class="col-md-6">
+                  <label for="exampleInputEmail1">Admin Unit Name</label>
+                  <input  value="{{ $adminunits->name }}" readonly=""  class="form-control">
+                
+                  </div>  
                     
                   
                 <div class=" col-md-6">
@@ -32,11 +36,7 @@
                   </div>  
                   
                   
-                  <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Admin Code</label>
-                  <input  value="{{ $adminunits->admincode }}" readonly=""  class="form-control">
-                
-                  </div>  
+                   
                   
                 </div> 
                    
@@ -44,21 +44,17 @@
                     
                     
                     
-                    
-                    
-                  
-                <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Designation </label>
-                  <input type="text" readonly  value="{{ $adminunits->designation }}"  class="form-control" >
-                 
-                  </div>  
-                  
-                  
-                  <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input  value="{{ $adminunits->name }}" readonly=""  class="form-control">
+                    <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Admin Unit Type</label>
+                  <input  value="{{ $adminunits->admincode }}" readonly=""  class="form-control">
                 
-                  </div>  
+                  </div> 
+                    
+                  
+               
+                  
+                  
+                  
                   
                 </div> 
                   

@@ -30,9 +30,9 @@
                   <th>Family</th>
                   <th>Genus</th>
                   <th>Species</th>
-                  <th>SpeciesAuthor</th>
+                  <th>Species Author</th>
                   <th>Subspecies</th>
-                  <th>SubspeciesAuthor</th>
+                  <th>Subspecies Author</th>
                   <th>Common Name</th>
                   <th>Action</th>
                  

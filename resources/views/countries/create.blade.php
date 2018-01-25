@@ -24,8 +24,8 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('range') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Range</label>
-                  <input type="text" name="range" value="{{ old('range') }}" required  class="form-control" id="range" placeholder="Range">
+                  <label for="exampleInputEmail1"  class="control-label">Country Code</label>
+                  <input type="text" name="range" value="{{ old('range') }}" required  class="form-control" id="range" placeholder="Country Code">
                  @if ($errors->has('range'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('range') }}</strong>
@@ -35,8 +35,8 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Range within the Albertine Rift</label>
-                  <input type="textarea" name="range_within_albertine_rift" value="{{ old('range_within_albertine_rift') }}" required  class="form-control" id="range_within_albertine_rift" placeholder="Range within the Albertine Rift">
+                  <label for="exampleInputEmail1"  class="control-label">Country Code Description</label>
+                  <input type="textarea" name="range_within_albertine_rift" value="{{ old('range_within_albertine_rift') }}" required  class="form-control" id="range_within_albertine_rift" placeholder="Country Code Description">
                  @if ($errors->has('range_within_albertine_rift'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('range_within_albertine_rift') }}</strong>

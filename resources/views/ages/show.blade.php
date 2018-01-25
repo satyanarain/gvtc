@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">View Age</h3>
+              <h3 class="box-title">View Age Group</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -27,7 +27,7 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Age Code</label>
+                  <label for="exampleInputEmail1">Age Group</label>
                   <input type="text" readonly  value="{{ $ages->age_group }}"  class="form-control" >
                  
                   </div>  

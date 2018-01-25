@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Forest</h3>
+              <h3 class="box-title">Add Forest Used</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -24,8 +24,8 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('forest_use') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Forest Use</label>
-                  <input type="text" name="forest_use" value="{{ old('forest_use') }}" required  class="form-control" id="range" placeholder="Forest Use">
+                  <label for="exampleInputEmail1" class="control-label">Forest Used</label>
+                  <input type="text" name="forest_use" value="{{ old('forest_use') }}" required  class="form-control" id="range" placeholder="Forest Used">
                  @if ($errors->has('forest_use'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('forest_use') }}</strong>

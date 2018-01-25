@@ -27,15 +27,15 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Designation Code </label>
-                  <input type="text" readonly  value="{{ $protectedarea->designation_code }}"  class="form-control" >
+                  <label for="exampleInputEmail1">Protected Area Name </label>
+                  <input type="text" readonly  value="{{ $protectedarea->protected_area_name }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Code Description</label>
-                  <input  value="{{ $protectedarea->code_description }}" readonly=""  class="form-control">
+                  <label for="exampleInputEmail1">Country</label>
+                  <input  value="{{ $protectedarea->country }}" readonly=""  class="form-control">
                 
                   </div>  
                   
@@ -50,8 +50,8 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" readonly  value="{{ $protectedarea->name }}"  class="form-control" >
+                  <label for="exampleInputEmail1">Protected Area Code</label>
+                  <input type="text" readonly  value="{{ $protectedarea->protected_area_code }}"  class="form-control" >
                  
                   </div>  
                   

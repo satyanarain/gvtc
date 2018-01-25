@@ -33,8 +33,8 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Taxon Code Description</label>
-                  <input type="textarea" name="range_within_the_albertine_rift" value="{{ $range->range_within_the_albertine_rift }}" required  class="form-control" id="taxon_code_description" placeholder="IUCN Code Description">
+                  <label for="exampleInputEmail1" class="control-label">Range Code Description</label>
+                  <input type="textarea" name="range_within_the_albertine_rift" value="{{ $range->range_within_the_albertine_rift }}" required  class="form-control" id="taxon_code_description" placeholder="Range Code Description">
                  @if ($errors->has('range_within_the_albertine_rift'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('range_within_the_albertine_rift') }}</strong>

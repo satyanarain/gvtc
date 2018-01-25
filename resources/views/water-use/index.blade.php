@@ -8,7 +8,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Water Log </h3>
+          <h3 class="box-title">Water Used Log </h3>
         </div>
         <div class="col-sm-4" >
           <a class="btn btn-primary btn-template" href="{{ route('water.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;
@@ -27,8 +27,8 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Forest Use </th>
-                  <th>Forest Habitat Usage</th>
+                  <th>Water Used </th>
+                  <th>Water/Wetland Habitat Usage</th>
                 
                   <th>Action</th>
                  

@@ -26,7 +26,7 @@
                 <tr>
                   <th style="display:none">id</th>  
                   <th>Range</th>
-                  <th>Range within the Albertine Rift</th>
+                  <th>Range Code Description</th>
                   <th>Action</th>
                  
                 </tr>

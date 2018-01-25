@@ -26,14 +26,14 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Forest Use </label>
+                  <label for="exampleInputEmail1">Endemism</label>
                   <input type="text" readonly  value="{{ $endenisms->endenism }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Forest Habitat Usage</label>
+                  <label for="exampleInputEmail1">Status</label>
                   <input  value="{{ $endenisms->status }}" readonly=""  class="form-control">
                 
                   </div>  

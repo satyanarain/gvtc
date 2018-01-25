@@ -34,7 +34,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Range within the Albertine Rift</label>
+                  <label for="exampleInputEmail1">Range Code Description</label>
                   <input  value="{{ $range->range_within_the_albertine_rift }}" readonly=""  class="form-control">
                 
                   </div>  

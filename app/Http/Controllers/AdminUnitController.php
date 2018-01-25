@@ -76,7 +76,6 @@ class AdminUnitController extends Controller
      AdminUnit::create([
             'country' => $request['country'],
             'admincode' => $request['admincode'],
-            'designation' => $request['designation'],
             'name' => $request['name'],
             
         ]);
@@ -152,7 +151,6 @@ class AdminUnitController extends Controller
         $input = [
             'country' => $request['country'],
             'admincode' => $request['admincode'],
-            'designation' => $request['designation'],
             'name' => $request['name']
         ];
         
@@ -190,10 +188,11 @@ class AdminUnitController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        //'country' => 'required|unique:adminunits',
+        'country' => 'required',
         'admincode' => 'required',
+         'name' => 'required'  
         //'designation' => 'required',
-        //'name' => 'required'
+       
         
     ]);
     }

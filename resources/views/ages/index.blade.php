@@ -8,7 +8,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Age Log</h3>
+          <h3 class="box-title">Age Group Log</h3>
         </div>
         <div class="col-sm-4" >
           <a class="btn btn-primary btn-template" href="{{ route('age.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;

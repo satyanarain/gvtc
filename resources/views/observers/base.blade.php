@@ -31,7 +31,7 @@ if(is_numeric(Request::segment($i))){
     if(is_numeric(Request::segment($i))){ 
     
 }else{
-    $title = str_replace('observer','bserver',(Request::segment($i)));
+    $title = str_replace('observer','Observers',(Request::segment($i)));
     ?>
 <div class="btn btn-primary btn-success">
 

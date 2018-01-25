@@ -26,9 +26,9 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Designation Code </th>
-                  <th>Code Description</th>
-                  <th>Name</th>
+                  <th>Protected Area Name</th>
+                  <th>Country</th>
+                  <th>Protected Area Code</th>
                   <th>Action</th>
                  
                 </tr>
@@ -40,9 +40,9 @@
                 
                 <tr>
                   <td style="display:none">{{ $protectedarea['id'] }}</td>  
-                  <td>{{ $protectedarea['designation_code'] }}</td>
-                  <td>{{ $protectedarea['code_description'] }}</td>
-                  <td>{{ $protectedarea['name'] }}</td>
+                  <td>{{ $protectedarea['protected_area_name'] }}</td>
+                  <td>{{ $protectedarea['country'] }}</td>
+                  <td>{{ $protectedarea['protected_area_code'] }}</td>
                  
                   <td>
                       

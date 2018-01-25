@@ -35,8 +35,8 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">National Threat Code Description</label>
-                  <input type="textarea" name="range_within_the_albertine_rift" value="{{ old('range_within_the_albertine_rift') }}" required  class="form-control" id="range_within_the_albertine_rift" placeholder="Range within the Albertine Rift">
+                  <label for="exampleInputEmail1" class="control-label">Range Code Description</label>
+                  <input type="textarea" name="range_within_the_albertine_rift" value="{{ old('range_within_the_albertine_rift') }}" required  class="form-control" id="range_within_the_albertine_rift" placeholder="Range Code Description">
                  @if ($errors->has('range_within_the_albertine_rift'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('range_within_the_albertine_rift') }}</strong>

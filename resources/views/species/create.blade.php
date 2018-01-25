@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Create Species</h3>
+              <h3 class="box-title">Add Species</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -92,7 +92,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Subspecies</label>
+                  <label for="exampleInputEmail1"  class="control-label">Sub-species</label>
                   <input type="text" name="subspecies" value="{{ old('subspecies') }}" required  class="form-control" id="subspecies" placeholder="Subspecies">
                  @if ($errors->has('subspecies'))
                                     <span class="help-block">
@@ -103,7 +103,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Subspecies Author</label>
+                  <label for="exampleInputEmail1" class="control-label">Sub-species Author</label>
                   <input type="text" name="subspecies_author" value="{{ old('subspecies_author') }}" required  class="form-control" id="subspecies_author" placeholder="Subspecies Author">
                  @if ($errors->has('subspecies_author'))
                                     <span class="help-block">
@@ -129,7 +129,7 @@
                   
                   <div class="form-group col-md-6 required">
                       
-                  {!! Form::label('iucn_threat_id','IUCNThreatCode',['class'=>'control-label']) !!}
+                  {!! Form::label('iucn_threat_id','IUCN Threat Code',['class'=>'control-label']) !!}
                   {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control']) !!}   
                   </div>  
                   
@@ -146,7 +146,7 @@
                   
                   <div class="form-group col-md-6 required">
                       
-                  {!! Form::label('GrowthForm','GrowthForm',['class'=>'control-label']) !!}
+                  {!! Form::label('GrowthForm','Growth Form',['class'=>'control-label']) !!}
                   {!! Form::select('growth_id',$growthrecordsql,null,['class'=>'form-control']) !!}     
                    </div>  
                   
@@ -156,7 +156,7 @@
                   
                 <div class="form-group col-md-6 required">
                     
-                  {!! Form::label('ForestUse','ForestUse',['class'=>'control-label']) !!}
+                  {!! Form::label('ForestUse','Forest Use',['class'=>'control-label']) !!}
                   {!! Form::select('forestuse_id',$forestusesql,null,['class'=>'form-control']) !!}    
                   
                   </div>  
@@ -164,7 +164,7 @@
                   
                   <div class="form-group col-md-6 required">
                       
-                   {!! Form::label('WaterUse','WaterUse',['class'=>'control-label']) !!}
+                   {!! Form::label('WaterUse','Water Use',['class'=>'control-label']) !!}
                   {!! Form::select('wateruse_id',$waterusesql,null,['class'=>'form-control']) !!}     
                   
                   </div>  

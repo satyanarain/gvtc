@@ -27,14 +27,14 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Range </label>
+                  <label for="exampleInputEmail1">Country Code </label>
                   <input type="text" readonly  value="{{ $countries->range }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Range within the Albertine Rift</label>
+                  <label for="exampleInputEmail1">Country Code Description</label>
                   <input  value="{{ $countries->range_within_albertine_rift }}" readonly=""  class="form-control">
                 
                   </div>  

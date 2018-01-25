@@ -35,7 +35,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">status</label>
+                  <label for="exampleInputEmail1" class="control-label">Status</label>
                   <input type="textarea" name="status" value="{{ old('status') }}" required  class="form-control" id="status" placeholder="Status">
                  @if ($errors->has('status'))
                                     <span class="help-block">

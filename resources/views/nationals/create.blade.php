@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add National Threat</h3>
+              <h3 class="box-title">Add National Threat Code</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

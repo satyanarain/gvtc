@@ -26,8 +26,8 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Forest Use </th>
-                  <th>Forest Habitat Usage</th>
+                  <th>Endenism</th>
+                  <th>Status</th>
                 
                   <th>Action</th>
                  

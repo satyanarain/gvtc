@@ -23,8 +23,20 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Country</label>
+                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Admin Unit Name</label>
+                  <input type="textarea" name="name" value="{{ old('name') }}"   class="form-control" id="name" placeholder="Admin Unit Name">
+                 @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                  </div>    
+                    
+                    
+                    
+                <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Country</label>
                   <input type="text" name="country" value="{{ old('country') }}"   class="form-control" id="country" placeholder="Country">
                  @if ($errors->has('country'))
                                     <span class="help-block">
@@ -34,8 +46,16 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Admin Code</label>
+                  
+                  
+                </div> 
+                  
+                  
+                   
+                 <div class="form-row">
+                  
+                <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Admin Unit Type</label>
                   <input type="textarea" name="admincode" value="{{ old('admincode') }}" required  class="form-control" id="admincode" placeholder="Admin Code">
                  @if ($errors->has('status'))
                                     <span class="help-block">
@@ -44,32 +64,8 @@
                                 @endif
                   </div>  
                   
-                </div> 
-                  
                   
                    
-                 <div class="form-row">
-                  
-                <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Designation</label>
-                  <input type="text" name="designation" value="{{ old('designation') }}"   class="form-control" id="designation" placeholder="Designation">
-                 @if ($errors->has('country'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('designation') }}</strong>
-                                    </span>
-                                @endif
-                  </div>  
-                  
-                  
-                  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="textarea" name="name" value="{{ old('name') }}"   class="form-control" id="name" placeholder="Name">
-                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                  </div>  
                   
                 </div>  
                   

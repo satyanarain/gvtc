@@ -71,12 +71,12 @@ class ProtectedAreaController extends Controller
      
      $this->validateInput($request);
      ProtectedArea::create([
-            'designation_code' => $request['designation_code'],
-            'code_description' => $request['code_description'],
-            'name' => $request['name']
+            'protected_area_name' => $request['protected_area_name'],
+            'country' => $request['country'],
+            'protected_area_code' => $request['protected_area_code']
             
         ]);
-    Session::flash('flash_message', "Designation Code Created Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Protected Areas Code Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('protected-area.index');
     
     }
@@ -132,8 +132,9 @@ class ProtectedAreaController extends Controller
        
         $range = ProtectedArea::findOrFail($id);
         $constraints = [
-            'designation_code' => 'required',
-            'code_description'=> 'required',
+            'protected_area_name' => 'required',
+            'country'=> 'required',
+            'protected_area_code'=> 'required',
         
             
             ];
@@ -144,9 +145,9 @@ class ProtectedAreaController extends Controller
         
        
         $input = [
-            'designation_code' => $request['designation_code'],
-            'code_description' => $request['code_description'],
-            'name' => $request['name']
+            'protected_area_name' => $request['protected_area_name'],
+            'country' => $request['country'],
+            'protected_area_code' => $request['protected_area_code']
         ];
         
       
@@ -156,7 +157,7 @@ class ProtectedAreaController extends Controller
         
         
         
-    Session::flash('flash_message', "Designation Code Updated Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Protected Areas  Code Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('protected-area.index');
     }
 
@@ -183,8 +184,9 @@ class ProtectedAreaController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'designation_code' => 'required|unique:protected_areas',
-        'code_description' => 'required'
+        'protected_area_name' => 'required',
+        'country' => 'required',
+        'protected_area_code' => 'required',
        
         
     ]);

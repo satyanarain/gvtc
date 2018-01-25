@@ -26,12 +26,10 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
+                  <th>Admin Unit Name</th>
                   <th>Country</th>
-                  <th>AdminCode</th>
-                  <th>Designation</th>
-                  <th>Name</th>
-                
-                  <th>Action</th>
+                 <th>Admin Unit Type</th>
+                    <th>Action</th>
                  
                 </tr>
                 </thead>
@@ -42,10 +40,10 @@
                 
                 <tr>
                   <td style="display:none">{{ $adminunit['id'] }}</td>  
-                  <td>{{ $adminunit['country'] }}</td>
-                  <td>{{ $adminunit['admincode'] }}</td>
-                  <td>{{ $adminunit['designation'] }}</td>
                   <td>{{ $adminunit['name'] }}</td>
+                  <td>{{ $adminunit['country'] }}</td>
+                
+                  <td>{{ $adminunit['admincode'] }}</td>
                 
                  <?php //print_r($endenism); die; ?>
                   <td>

@@ -8,7 +8,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">IUCN Threat Log</h3>
+          <h3 class="box-title">IUCN Threat Code Log</h3>
         </div>
         <div class="col-sm-4" >
           <a class="btn btn-primary btn-template" href="{{ route('iucns.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>

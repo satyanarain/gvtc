@@ -23,23 +23,27 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('designation_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Designation Code</label>
-                  <input type="text" name="designation_code" value="{{ old('designation_code') }}" required  class="form-control" id="designation_code" placeholder="Designation Code">
-                 @if ($errors->has('designation_code'))
+                
+                 
+                    
+                   <div class="form-group{{ $errors->has('protected_area_name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Protected Area Name</label>
+                  <input type="text" name="protected_area_name" value="{{ old('protected_area_name') }}" required   class="form-control" id="range" placeholder="Protected Area Name">
+                 @if ($errors->has('growth_form'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('designation_code') }}</strong>
+                                        <strong>{{ $errors->first('protected_area_name') }}</strong>
                                     </span>
                                 @endif
                   </div>  
+                    
+                    
                   
-                  
-                  <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Code Description</label>
-                  <input type="textarea" name="code_description" value="{{ old('code_description') }}" required  class="form-control" id="code_description" placeholder="Code Description">
-                 @if ($errors->has('plants_growth_form'))
+                  <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Country</label>
+                  <input type="textarea" name="country" value="{{ old('country') }}" required  class="form-control" id="country" placeholder="Country">
+                 @if ($errors->has('country'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('code_description') }}</strong>
+                                        <strong>{{ $errors->first('country') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -49,16 +53,16 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" value="{{ old('name') }}"   class="form-control" id="range" placeholder="Name">
-                 @if ($errors->has('growth_form'))
+                 
+                  <div class="form-group{{ $errors->has('protected_area_code') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Protected Area Code</label>
+                  <input type="text" name="protected_area_code" value="{{ old('protected_area_code') }}" required  class="form-control" id="protected_area_code" placeholder="Protected Area Code">
+                 @if ($errors->has('protected_area_code'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('protected_area_code') }}</strong>
                                     </span>
                                 @endif
                   </div>  
-                  
                   
                   
                   

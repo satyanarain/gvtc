@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update IUCN Threat</h3>
+              <h3 class="box-title">Update IUCN Threat Code</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -33,7 +33,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">IUCN Code Description</label>
+                  <label for="exampleInputEmail1" class="control-label">IUCN Threat Code Description</label>
                   <input type="textarea" name="iucn_code_description" value="{{ $iucn->iucn_code_description }}" required  class="form-control" id="taxon_code_description" placeholder="IUCN Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block" >

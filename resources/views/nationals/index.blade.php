@@ -7,7 +7,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">National Threat Log</h3>
+          <h3 class="box-title">National Threat Code Log</h3>
         </div>
         <div class="col-sm-4" >
           <a class="btn btn-primary btn-template" href="{{ route('nationals.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add">&nbsp;<span class="glyphicon glyphicon-plus" title="Add"></span>Add</a>

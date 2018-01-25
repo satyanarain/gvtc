@@ -71,7 +71,7 @@
                   
                    <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Mobile Number</label>
-                  <input type="text" name="mobilenumber" value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
+                  <input type="text" name="mobilenumber" readonly="" value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
                  @if ($errors->has('mobilenumber'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobilenumber') }}</strong>
@@ -84,7 +84,7 @@
                   
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Email Address</label>
-                  <input type="email" name="email" value="{{ $user->email }}" required  class="form-control" id="email" placeholder="Enter email">
+                  <input type="email" name="email" readonly="" value="{{ $user->email }}" required  class="form-control" id="email" placeholder="Enter email">
                @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>

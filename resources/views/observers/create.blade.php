@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Observer Mangement</h3>
+              <h3 class="box-title">Add Observer</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -36,7 +36,7 @@
                   
                   <div class="form-group{{ $errors->has('tittle') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Title</label>
-                  <input type="textarea" name="tittle" value="{{ old('tittle') }}" required  class="form-control" id="tittle" placeholder="Tittle">
+                  <input type="textarea" name="tittle" value="{{ old('tittle') }}" required  class="form-control" id="tittle" placeholder="Title">
                  @if ($errors->has('tittle'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tittle') }}</strong>
