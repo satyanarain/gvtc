@@ -33,7 +33,7 @@
                   <th>Species Author</th>
                   <th>Subspecies</th>
                   <th>Subspecies Author</th>
-                  <th>Common Name</th>
+                 
                   <th>Action</th>
                  
                 </tr>
@@ -52,7 +52,7 @@
                   <td>{{ $specie['species_author'] }}</td>
                   <td>{{ $specie['subspecies'] }}</td>
                   <td>{{ $specie['subspecies_author'] }}</td>
-                  <td>{{ $specie['common_name'] }}</td>
+
                  
                   <td>
                    

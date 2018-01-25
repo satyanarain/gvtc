@@ -67,7 +67,7 @@
               
               
                 </tbody>
-                  <p> <img src="{{ asset('images/gvtcLogolong.jpg') }}"/> <p>
+                 
               </table>
             </div>
             <!-- /.box-body -->

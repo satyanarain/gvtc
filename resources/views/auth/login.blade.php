@@ -86,7 +86,7 @@
                     </div>
                 </div>
                   <div class="form-group">
-                                     <div class="col-md-6 col-md-offset-4" style="color:#ffffff; ">
+                                     <div class="col-md-6 col-md-offset-4" style="color:#ffffff;text-align:right; ">
                                          <div class="checkbox">
                                              <label>
                                                  <input type="checkbox" class="customInput" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -102,7 +102,7 @@
                             Login
                         </button>
                         
-                        <a class="btn btn-link" style="color:#ffffff;" href="{{ route('password.request') }}">
+                        <a class="btn btn-link" style="color:#ffffff; float: left;width: 100%;text-align: center;" href="{{ route('password.request') }}">
                             Forgot Your Password?
                         </a>
                     </div>
@@ -113,9 +113,9 @@
    <option value='en'>English</option>
    <option value='fr'>French</option>
 </select>-->
-<div class="col-md-6 col-md-offset-4">
+                <div class="col-md-6 col-md-offset-4" style="text-align: center;">
       <div class="col-sm-6 col-md-4">
-        <select id="lanuage" name="lanuage" class="form-control">
+          <select id="lanuage" name="lanuage" class="form-control" style="margin-top:5px;">
             <option value="en">English</option>
             <option value="fr">French</option>
         </select> 
