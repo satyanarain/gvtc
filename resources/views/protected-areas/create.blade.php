@@ -29,7 +29,7 @@
                    <div class="form-group{{ $errors->has('protected_area_name') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Protected Area Name</label>
                   <input type="text" name="protected_area_name" value="{{ old('protected_area_name') }}" required   class="form-control" id="range" placeholder="Protected Area Name">
-                 @if ($errors->has('growth_form'))
+                 @if ($errors->has('protected_area_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('protected_area_name') }}</strong>
                                     </span>

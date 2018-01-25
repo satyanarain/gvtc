@@ -135,11 +135,10 @@ class AdminUnitController extends Controller
        
         $range = AdminUnit::findOrFail($id);
         $constraints = [
-            //'country' => 'required',
-            'admincode'=> 'required',
-           // 'designation'=> 'required',
-          //  'name'=> 'required',
-            
+          
+        'country' => 'required',
+        'admincode' => 'required',
+         'name' => 'required'
             
             ];
        
@@ -188,9 +187,9 @@ class AdminUnitController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'country' => 'required',
+        'name' => 'required|unique:adminunits',
         'admincode' => 'required',
-         'name' => 'required'  
+         'country' => 'required'  
         //'designation' => 'required',
        
         

@@ -30,7 +30,7 @@ $user_pro_image = Auth::user()->profilepicture;
       
       
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-link"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
+       <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
           
         <li class=""><a href="#"><span class="glyphicon glyphicon-record"></span><span>Record Distribution</span></a></li>  
@@ -39,7 +39,7 @@ $user_pro_image = Auth::user()->profilepicture;
        
        <li class="treeview" >
           <a href="#">
-            <i class="glyphicon glyphicon-wrench"></i>
+            <span class="glyphicon glyphicon-th"></span>
             <span>@lang('menu.manage_tables', array(),$session_lan)</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -85,18 +85,18 @@ $user_pro_image = Auth::user()->profilepicture;
            //print_r($arra);
           @endphp
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra1)){ echo "display: block";} ?>">
-      <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Species</span></a></li> 
-      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Gazetteer</span></a></li>  
+      <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-globe"></span>  <span>Species</span></a></li> 
+      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><span class="glyphicon glyphicon-fire"></span>  <span>Gazetteer</span></a></li>  
       <li class="{{ Request::segment(1) == 'observer'? 'active' : '' }}"><a href="{{ url('observer/') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>Observers</span></a></li>  
           </ul>
         </li>
-      <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><span class="glyphicon glyphicon-user"></span> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
-      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>Reporting</span></a></li>   
+      <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
+      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><i class="fa fa-bar-chart"></i>Reporting</span></a></li>   
        
        
      <li class="treeview" >
           <a href="#">
-            <i class="glyphicon glyphicon-wrench"></i>
+            <i class="fa fa-gear"></i>
             <span>Settings</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

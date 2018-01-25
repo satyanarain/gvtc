@@ -184,7 +184,7 @@ class ProtectedAreaController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'protected_area_name' => 'required',
+        'protected_area_name' => 'required|unique:protected_areas',
         'country' => 'required',
         'protected_area_code' => 'required',
        
