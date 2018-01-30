@@ -10,6 +10,9 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Update IUCN Threat Code</h3>
+                   <div class="pull-right">
+<a href="{{ route('iucns.index') }}" class="btn btn-default"> Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

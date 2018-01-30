@@ -2,6 +2,7 @@
 
 @section('action-content')
 
+    
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -23,7 +24,7 @@
                 <div class="form-group col-md-6 required">
 
                   {!! Form::label('Taxon','Taxon',['class'=>'control-label']) !!}
-                  {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control']) !!}
+                  {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}
                   </div>  
                   
                   
@@ -77,9 +78,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('species_author') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('species_author') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1" class="control-label">Species Author</label>
-                  <input type="text" name="species_author" value="{{ old('species_author') }}" required  class="form-control" id="species_author" placeholder="Species Author">
+                  <input type="text" name="species_author" value="{{ old('species_author') }}"   class="form-control" id="species_author" placeholder="Species Author">
                  @if ($errors->has('species_author'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('species_author') }}</strong>
@@ -91,9 +92,9 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">Sub-species</label>
-                  <input type="text" name="subspecies" value="{{ old('subspecies') }}" required  class="form-control" id="subspecies" placeholder="Subspecies">
+                  <input type="text" name="subspecies" value="{{ old('subspecies') }}"   class="form-control" id="subspecies" placeholder="Subspecies">
                  @if ($errors->has('subspecies'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('subspecies') }}</strong>
@@ -102,9 +103,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Sub-species Author</label>
-                  <input type="text" name="subspecies_author" value="{{ old('subspecies_author') }}" required  class="form-control" id="subspecies_author" placeholder="Subspecies Author">
+                  <input type="text" name="subspecies_author" value="{{ old('subspecies_author') }}"   class="form-control" id="subspecies_author" placeholder="Subspecies Author">
                  @if ($errors->has('subspecies_author'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('subspecies_author') }}</strong>
@@ -116,9 +117,9 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">Common Name</label>
-                  <input type="text" name="common_name" value="{{ old('common_name') }}" required  class="form-control" id="taxon_code" placeholder="Common Name">
+                  <input type="text" name="common_name" value="{{ old('common_name') }}"   class="form-control" id="taxon_code" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('common_name') }}</strong>
@@ -127,45 +128,62 @@
                   </div>  
                   
                   
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-6 ">
                       
                   {!! Form::label('iucn_threat_id','IUCN Threat Code',['class'=>'control-label']) !!}
-                  {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control']) !!}   
+                  {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!}   
                   </div>  
                   
                 </div> 
                   
                   <div class="form-row">
-                  
-                <div class="form-group col-md-6 required">
+                   <script type="text/javascript">
+                $(function () {
+                    $('#lstFruits').multiselect({
+                        includeSelectAllOption: true
+                    });
+                    $('#btnSelected').click(function () {
+                        var selected = $("#lstFruits option:selected");
+                        alert(selected);
+                        var message = "";
+                        selected.each(function () {
+                            message += $(this).text() + " " + $(this).val() + "\n";
+                        });
+                        alert(message);
+                    });
+                });
+             </script>
+   
+                <div class="form-group col-md-6 ">
                   {!! Form::label('Range','Range',['class'=>'control-label']) !!}
-                  {!! Form::select('range_id',$rangerecordsql,null,['class'=>'form-control']) !!} 
+                  {!! Form::select('range_id',$rangerecordsql,null,['class'=>'form-control','id'=>"lstFruits",'multiple'=>"multiple",'placeholder'=>'Select Range']) !!} 
                   
                   </div>  
+                 
+    
                   
-                  
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-6 " id="growth_id_div" style='display:none;'>
                       
-                  {!! Form::label('GrowthForm','Growth Form',['class'=>'control-label']) !!}
-                  {!! Form::select('growth_id',$growthrecordsql,null,['class'=>'form-control']) !!}     
+                  {!! Form::label('Growth Form','Growth Form',['class'=>'control-label']) !!}
+                  {!! Form::select('growth_id',$growthrecordsql,null,['class'=>'form-control','placeholder'=>'Select Growth Form','id' => 'growth_id']) !!}     
                    </div>  
                   
                 </div> 
                   
                   <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
+                <div class="form-group col-md-6 ">
                     
                   {!! Form::label('ForestUse','Forest Use',['class'=>'control-label']) !!}
-                  {!! Form::select('forestuse_id',$forestusesql,null,['class'=>'form-control']) !!}    
+                  {!! Form::select('forestuse_id',$forestusesql,null,['class'=>'form-control','placeholder'=>'Select Forest Use']) !!}    
                   
                   </div>  
                   
                   
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-6 ">
                       
                    {!! Form::label('WaterUse','Water Use',['class'=>'control-label']) !!}
-                  {!! Form::select('wateruse_id',$waterusesql,null,['class'=>'form-control']) !!}     
+                  {!! Form::select('wateruse_id',$waterusesql,null,['class'=>'form-control','placeholder'=>'Select Water Use']) !!}     
                   
                   </div>  
                   
@@ -173,17 +191,17 @@
                   
                        <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
+                <div class="form-group col-md-6 ">
                     
                    {!! Form::label('Endemism','Endemism',['class'=>'control-label']) !!}
-                  {!! Form::select('endenisms_id',$endemismsql,null,['class'=>'form-control']) !!}    
+                  {!! Form::select('endenisms_id',$endemismsql,null,['class'=>'form-control','placeholder'=>'Select Endemism']) !!}    
                  
                   </div>  
                   
                   
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-6 ">
                     {!! Form::label('Migration','Migration',['class'=>'control-label']) !!}
-                  {!! Form::select('migration_tbl_id',$migrationsql,null,['class'=>'form-control']) !!}    
+                  {!! Form::select('migration_tbl_id',$migrationsql,null,['class'=>'form-control','placeholder'=>'Select Migration']) !!}    
                       
                       
                       
@@ -224,3 +242,4 @@
 
 
 @endsection
+

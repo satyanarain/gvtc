@@ -44,7 +44,9 @@ $session_lan= Session::get('language_val');?>
   <link rel="stylesheet" href={{ asset("/bower_components/bootstrap-daterangepicker/daterangepicker.css") }}>
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href={{ asset("/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css") }}>
-
+  <script src="{{ asset ("/bower_components/jquery/dist/jquery.min.js") }}"></script>
+  <script src="{{ asset ("/bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

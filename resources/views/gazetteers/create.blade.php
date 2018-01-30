@@ -1,4 +1,4 @@
-@extends('species.base')
+@extends('gazetteers.base')
 
 @section('action-content')
 
@@ -9,30 +9,34 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Create Species</h3>
+              <h3 class="box-title">Create Gazetteer</h3>
+              <div class="pull-right">
+<a href="{{ route('gazetteer.index') }}" class="btn btn-default"> Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
            
-            <form role="form" method="POST" action="{{ route('species.store') }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ route('gazetteer.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <div class="box-body">
-                  
+              
+<input type="hidden" name="gazeteer_id" readonly="" value="{{ 'GVTCGZ0'.$last_gazeteerid }}" required  class="form-control" id="observer_id" placeholder="Observer ID">                  
                 <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
+                <div class="form-group col-md-6">
 
-                  {!! Form::label('Taxon','Taxon',['class'=>'control-label']) !!}
-                  {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control']) !!}
+                  {!! Form::label('Country','Country',['class'=>'control-label']) !!}
+                  {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country']) !!}
                   </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Order</label>
-                  <input type="text" name="order" value="{{ old('order') }}" required  class="form-control" id="order" placeholder="Order">
-                 @if ($errors->has('order'))
+                  <label for="exampleInputEmail1" class="control-label">Place</label>
+                  <input type="text" name="place" value="{{ old('place') }}" required   class="form-control" id="place" placeholder="Place">
+                 @if ($errors->has('place'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('order') }}</strong>
+                                        <strong>{{ $errors->first('place') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -41,23 +45,23 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('family') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Family</label>
-                  <input type="text" name="family" value="{{ old('family') }}" required  class="form-control" id="family" placeholder="Family">
-                 @if ($errors->has('family'))
+                <div class="form-group{{ $errors->has('details') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Details</label>
+                  <input type="text" name="details" value="{{ old('details') }}"   class="form-control" id="details" placeholder="Details">
+                 @if ($errors->has('details'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('family') }}</strong>
+                                        <strong>{{ $errors->first('details') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('genus') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Genus</label>
-                  <input type="text" name="genus" value="{{ old('genus') }}" required  class="form-control" id="genus" placeholder="Genus">
-                 @if ($errors->has('genus'))
+                  <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1" class="control-label">Eastings</label>
+                  <input type="text" name="eastings" value="{{ old('eastings') }}"   class="form-control" id="eastings" placeholder="Eastings">
+                 @if ($errors->has('eastings'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('genus') }}</strong>
+                                        <strong>{{ $errors->first('eastings') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -66,23 +70,23 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('species') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Species</label>
-                  <input type="text" name="species" value="{{ old('species') }}" required  class="form-control" id="species" placeholder="Species">
+                <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Northings</label>
+                  <input type="text" name="northings" value="{{ old('northings') }}"   class="form-control" id="species" placeholder="Northings">
                  @if ($errors->has('species'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('species') }}</strong>
+                                        <strong>{{ $errors->first('northings') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('species_author') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Species Author</label>
-                  <input type="text" name="species_author" value="{{ old('species_author') }}" required  class="form-control" id="species_author" placeholder="Species Author">
-                 @if ($errors->has('species_author'))
+                  <div class="form-group{{ $errors->has('zone') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1" class="control-label">Zone</label>
+                  <input type="text" name="zone" value="{{ old('zone') }}"   class="form-control" id="zone" placeholder="Zone">
+                 @if ($errors->has('zone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('species_author') }}</strong>
+                                        <strong>{{ $errors->first('zone') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -91,23 +95,23 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Subspecies</label>
-                  <input type="text" name="subspecies" value="{{ old('subspecies') }}" required  class="form-control" id="subspecies" placeholder="Subspecies">
-                 @if ($errors->has('subspecies'))
+                <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Datum</label>
+                  <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum">
+                 @if ($errors->has('datum'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('subspecies') }}</strong>
+                                        <strong>{{ $errors->first('datum') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Subspecies Author</label>
-                  <input type="text" name="subspecies_author" value="{{ old('subspecies_author') }}" required  class="form-control" id="subspecies_author" placeholder="Subspecies Author">
-                 @if ($errors->has('subspecies_author'))
+                  <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Longitude</label>
+                  <input type="text" name="longitude" value="{{ old('longitude') }}" required  class="form-control" id="longitude" placeholder="Longitude">
+                 @if ($errors->has('longitude'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('subspecies_author') }}</strong>
+                                        <strong>{{ $errors->first('longitude') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -116,84 +120,168 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name</label>
-                  <input type="text" name="common_name" value="{{ old('common_name') }}" required  class="form-control" id="taxon_code" placeholder="Common Name">
-                 @if ($errors->has('common_name'))
+                <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Latitude</label>
+                  <input type="text" name="latitude" value="{{ old('latitude') }}" required  class="form-control" id="latitude" placeholder="Latitude">
+                 @if ($errors->has('latitude'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('common_name') }}</strong>
+                                        <strong>{{ $errors->first('latitude') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-2 ">
                       
-                  {!! Form::label('iucn_threat_id','IUCNThreatCode',['class'=>'control-label']) !!}
-                  {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control']) !!}   
+                  {!! Form::label('day','Day',['class'=>'control-label']) !!}
+                  <select name='day' class="form-control">
+                      <option value="">Select Day</option>
+                    <?php for($i=1;$i<=31;$i++){ ?>  
+                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php } ?>
+                  </select>
                   </div>  
-                  
+               
                 </div> 
                   
                   <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
-                  {!! Form::label('Range','Range',['class'=>'control-label']) !!}
-                  {!! Form::select('range_id',$rangerecordsql,null,['class'=>'form-control']) !!} 
+                <div class="form-group col-md-2 ">
+                  {!! Form::label('Month','Month',['class'=>'control-label']) !!}
+                  {!! Form::select('month',[
+                    'January' => 'January',
+                    'February' => 'February',
+                    'March' => 'March',
+                    'April' => 'April',
+                    'May' => 'May',
+                    'June' => 'June',
+                    'July' => 'July',
+                    'August' => 'August',
+                    'September' => 'September',
+                    'October' => 'October',
+                    'November' => 'November',
+                    'December' => 'December',
+                    ],null,['class'=>'form-control','placeholder'=>'Select Month']) !!} 
+                </div>  
+          
                   
-                  </div>  
-                  
-                  
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-2 ">
                       
-                  {!! Form::label('GrowthForm','GrowthForm',['class'=>'control-label']) !!}
-                  {!! Form::select('growth_id',$growthrecordsql,null,['class'=>'form-control']) !!}     
+                  {!! Form::label('Year','Year',['class'=>'control-label']) !!}
+                 <select name='year' class="form-control" paceholder='sfdgfdg'>
+                      <option value="">select Year</option>
+                    <?php for($i=1950;$i<=2050;$i++){ ?>  
+                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php } ?>
+                  </select>
+                      
                    </div>  
                   
                 </div> 
                   
                   <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
-                    
-                  {!! Form::label('ForestUse','ForestUse',['class'=>'control-label']) !!}
-                  {!! Form::select('forestuse_id',$forestusesql,null,['class'=>'form-control']) !!}    
                   
-                  </div>  
-                  
-                  
-                  <div class="form-group col-md-6 required">
+                 
+                       <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Habitat</label>
+                  <input type="text" name="habitat" value="{{ old('habitat') }}"   class="form-control" id="habitat" placeholder="Habitat">
+                 @if ($errors->has('habitat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('habitat') }}</strong>
+                                    </span>
+                                @endif
+                  </div> 
+                   
                       
-                   {!! Form::label('WaterUse','WaterUse',['class'=>'control-label']) !!}
-                  {!! Form::select('wateruse_id',$waterusesql,null,['class'=>'form-control']) !!}     
+                      
+                      <div class="form-group{{ $errors->has('altitude') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Altitude</label>
+                  <input type="text" name="altitude" value="{{ old('altitude') }}"   class="form-control" id="altitude" placeholder="Altitude">
+                 @if ($errors->has('altitude'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('altitude') }}</strong>
+                                    </span>
+                                @endif
+                  </div> 
+                      
                   
-                  </div>  
+                  
                   
                 </div> 
                   
                        <div class="form-row">
                   
-                <div class="form-group col-md-6 required">
-                    
-                   {!! Form::label('Endemism','Endemism',['class'=>'control-label']) !!}
-                  {!! Form::select('endenisms_id',$endemismsql,null,['class'=>'form-control']) !!}    
-                 
-                  </div>  
-                  
-                  
-                  <div class="form-group col-md-6 required">
-                    {!! Form::label('Migration','Migration',['class'=>'control-label']) !!}
-                  {!! Form::select('migration_tbl_id',$migrationsql,null,['class'=>'form-control']) !!}    
-                      
-                      
+                <div class="form-group{{ $errors->has('slope') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Slope</label>
+                  <input type="text" name="slope" value="{{ old('slope') }}"   class="form-control" id="slope" placeholder="Slope">
+                 @if ($errors->has('slope'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('slope') }}</strong>
+                                    </span>
+                                @endif
+                  </div> 
                       
                   
+                  
+                <div class="form-group{{ $errors->has('aspect') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Aspect</label>
+                  <input type="text" name="aspect" value="{{ old('aspect') }}"   class="form-control" id="aspect" placeholder="Aspect">
+                 @if ($errors->has('aspect'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('aspect') }}</strong>
+                                    </span>
+                                @endif
                   </div>  
                   
                 </div> 
                   
+                        <div class="form-row">
+                  
+                
+                      
                   
                   
+                <div class="form-group{{ $errors->has('soil') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Soil</label>
+                  <input type="text" name="soil" value="{{ old('soil') }}"   class="form-control" id="soil" placeholder="Soil">
+                 @if ($errors->has('soil'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('soil') }}</strong>
+                                    </span>
+                                @endif
+                  </div> 
+                            
+                    <div class="form-group col-md-6 ">
+                {!! Form::label('ProtectedArea','Protected Area',['class'=>'control-label']) !!}
+                  {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Selecte Protected Area']) !!}
+                  </div>         
+                            
+                            
+                  
+                </div> 
+                  
+                  
+                   <div class="form-row">
+                  
+                <div class="form-group col-md-6 ">
+                {!! Form::label('AdminUnit','Admin Unit',['class'=>'control-label']) !!}
+                  {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Selecte Admin Unit']) !!}
+                  </div> 
+                      
+                  
+                  
+                <div class="form-group{{ $errors->has('remarks') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">Remarks</label>
+                  <input type="text" name="remarks" value="{{ old('remarks') }}"   class="form-control" id="remarks" placeholder="Remarks">
+                 @if ($errors->has('aspect'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('remarks') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div> 
                   
                 
                  
@@ -209,7 +297,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Create</button>
+                <button type="submit" class="btn btn-primary btn-sub">Save</button>
               </div>
             </form>
           </div>

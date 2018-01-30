@@ -28,7 +28,7 @@
                   
                 <div class=" col-md-6">
                   <label for="exampleInputEmail1">Taxon Code </label>
-                  <input type="text" readonly  value="{{ $species->taxon_id }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $species->taxon_code }}"  class="form-control" >
                  
                   </div>  
                   

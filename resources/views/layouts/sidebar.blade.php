@@ -81,12 +81,12 @@ $user_pro_image = Auth::user()->profilepicture;
             </span>
           </a>
            @php
-           $arra1=array('observer','species');
+           $arra1=array('observer','species','gazetteer');
            //print_r($arra);
           @endphp
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra1)){ echo "display: block";} ?>">
       <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-globe"></span>  <span>Species</span></a></li> 
-      <li class="{{ Request::segment(1) == ''? 'active' : '' }}"><a href="{{ url('#') }}"><span class="glyphicon glyphicon-fire"></span>  <span>Gazetteer</span></a></li>  
+      <li class="{{ Request::segment(1) == 'gazetteer'? 'active' : '' }}"><a href="{{ url('gazetteer/') }}"><span class="glyphicon glyphicon-fire"></span>  <span>Gazetteer</span></a></li>  
       <li class="{{ Request::segment(1) == 'observer'? 'active' : '' }}"><a href="{{ url('observer/') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>Observers</span></a></li>  
           </ul>
         </li>

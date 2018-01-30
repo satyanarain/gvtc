@@ -22,10 +22,10 @@
               <div class="box-body">
                   
                 <div class="form-row">
-                  
+                   
                 <div class="form-group{{ $errors->has('observer_id') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Observer ID</label>
-                  <input type="text" name="observer_id" readonly="" value="{{ 'GVTCOBS'.$last_observeid }}" required  class="form-control" id="observer_id" placeholder="Observer ID">
+<!--                  <label for="exampleInputEmail1" class="control-label">Observer ID</label>-->
+                  <input type="hidden" name="observer_id" readonly="" value="{{ 'GVTCOBS'.$last_observeid }}" required  class="form-control" id="observer_id" placeholder="Observer ID">
                  @if ($errors->has('observer_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('observer_id') }}</strong>
@@ -34,7 +34,7 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('tittle') ? ' has-error' : '' }} col-md-6 required">
+<!--                  <div class="form-group{{ $errors->has('tittle') ? ' has-error' : '' }} col-md-12 required">
                   <label for="exampleInputEmail1" class="control-label">Title</label>
                   <input type="textarea" name="tittle" value="{{ old('tittle') }}" required  class="form-control" id="tittle" placeholder="Title">
                  @if ($errors->has('tittle'))
@@ -42,7 +42,14 @@
                                         <strong>{{ $errors->first('tittle') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
+                  </div>  -->
+                    
+                    <div class="form-group col-md-12 required"> 
+                    {!! Form::label('Title','Title',['class'=>'control-label']) !!}
+                  {!! Form::select('tittle',['Prof'=>'Prof','Dr'=>'Dr','Mr'=>'Mr','Ms'=>'Ms'],null,['class'=>'form-control','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
+                    
+                    </div> 
+                    
                   
                 </div> 
                   

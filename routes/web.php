@@ -80,6 +80,8 @@ Route::resource('abundance','AbundanceController');
 Route::resource('observer','ObserverController');
 //specie
 Route::resource('species','SpeciesController');
+//gazetteer
+Route::resource('gazetteer','GazetteerController');
 
 
 

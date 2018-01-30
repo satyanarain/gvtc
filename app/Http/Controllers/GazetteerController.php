@@ -41,8 +41,8 @@ class GazetteerController extends Controller
      */
     public function index()
     {
-    $species = Species::all()->toArray();
-    return view('species.index', compact('species'));
+    $gazetteer = DB::table('gazetteers')->select('*','gazetteers.id as id')->leftjoin('countries','gazetteers.country_id','=','countries.id')->get();
+   return view('gazetteers.index', compact('gazetteer'));
     
    }
 
@@ -53,16 +53,17 @@ class GazetteerController extends Controller
      */
     public function create()
     { 
-       $taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
-       $iucnrecodsql= DB::table('iucn_threats')->orderBy('id','ASC')->pluck('iucn_threat_code','id');
-       $rangerecordsql=DB::table('ranges')->orderBY('id','ASC')->pluck('range','id');
+       $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
+       $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
+       $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('admincode','id');
        $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
        $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
        $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
        $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
        $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
-       //print_r($taxonrecodsql);
-        return view('gazetteers/create',compact('taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql'));
+       $last_gazeteer= Gazetteer::latest()->first();
+       $last_gazeteerid= $last_gazeteer['id']+1;
+       return view('gazetteers/create',compact('countryrecodsql','protectedrecodsql','adminunitrecodsql','last_gazeteerid'));
     }
 
     /**
@@ -79,8 +80,8 @@ class GazetteerController extends Controller
      
      $this->validateInput($request);
      Gazetteer::create([
-         
-        'countrie_id' => $request['countrie_id'],
+        'country_id' => $request['country_id'],
+        'gazeteer_id' => $request['gazeteer_id'],
         'place' => $request['place'],
         'details' => $request['details'],
         'eastings' => $request['eastings'],
@@ -94,17 +95,16 @@ class GazetteerController extends Controller
         'year' => $request['year'],
         'habitat' => $request['habitat'],
         'altitude' => $request['altitude'],
-        'endenisms_id' => $request['endenisms_id'],
         'aspect' => $request['aspect'],
         'soil' => $request['soil'],
+        'slope' => $request['slope'],
         'protected_area_id' => $request['protected_area_id'],
         'adminunit_id' => $request['adminunit_id'],
         'remarks' => $request['remarks'],
-
         ]);
 
-    Session::flash('flash_message', "Species Created Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('species.index');
+    Session::flash('flash_message', "Gazetters Created Successfully."); //Snippet in Master.blade.php 
+    return redirect()->route('gazetteer.index');
 
     }
     
@@ -119,17 +119,13 @@ class GazetteerController extends Controller
      */
     public function show($id)
     {
-         $species = Species::find($id);
-        // Redirect to taxon list if updating taxon wasn't existed
-        if ($species == null || count($species) == 0) {
-            return redirect()->intended('/species');
-        }
-        //$species = Species::with(['taxon'])->find($id);
-        //echo '<pre>';
-        //print_r($species);
-        //die;
-        return view('species/show', ['species' => $species]);
-        
+      $gazetteers = DB::table('gazetteers')->select('*','gazetteers.id as id')
+              ->leftjoin('countries','gazetteers.country_id','=','countries.id')
+              ->leftjoin('protected_areas','gazetteers.protected_area_id','=','protected_areas.id')
+              ->leftjoin('adminunits','gazetteers.adminunit_id','=','adminunits.id')
+              ->where('gazetteers.id',$id)
+              ->first();
+       return view('gazetteers.show', compact('gazetteers'));  
         
     }       
 
@@ -143,13 +139,25 @@ class GazetteerController extends Controller
      */
     public function edit($id)
     {
-        $waters = Water::find($id);
-        // Redirect to taxon list if updating taxon wasn't existed
-       if ($waters == null || count($waters) == 0) {
-            return redirect()->intended('/water');
-        }
-
-        return view('water-use/edit', ['waters' => $waters]);
+        $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
+        $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
+        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('admincode','id');
+        $gazetteers = DB::table('gazetteers')->select('*','gazetteers.id as id')
+              ->leftjoin('countries','gazetteers.country_id','=','countries.id')
+              ->leftjoin('protected_areas','gazetteers.protected_area_id','=','protected_areas.id')
+              ->leftjoin('adminunits','gazetteers.adminunit_id','=','adminunits.id')
+              ->where('gazetteers.id',$id)
+              ->first();
+       return view('gazetteers.edit',compact('gazetteers','countryrecodsql','protectedrecodsql','adminunitrecodsql'));  
+        
+        
+//        $waters = Water::find($id);
+//        // Redirect to taxon list if updating taxon wasn't existed
+//       if ($waters == null || count($waters) == 0) {
+//            return redirect()->intended('/water');
+//        }
+//
+//        return view('water-use/edit', ['waters' => $waters]);
     }
 
     /**
@@ -162,10 +170,12 @@ class GazetteerController extends Controller
     public function update(Request $request, $id)
     {
        
-        $water = Water::findOrFail($id);
+        $water = Gazetteer::findOrFail($id);
         $constraints = [
-            'water_use' => 'required',
-            'water_habitat_usage'=> 'required'
+            'place' => 'required',
+            'datum' =>'required',   
+            'longitude' => 'required',
+            'latitude' => 'required',
             
             ];
        
@@ -175,19 +185,37 @@ class GazetteerController extends Controller
         
        
         $input = [
-            'water_use' => $request['water_use'],
-            'water_habitat_usage' => $request['water_habitat_usage']
+        'country_id' => $request['country_id'],
+        'place' => $request['place'],
+        'details' => $request['details'],
+        'eastings' => $request['eastings'],
+        'northings' => $request['northings'],
+        'zone'=>$request['zone'],
+        'datum' => $request['datum'],
+        'longitude' => $request['longitude'],
+        'latitude' => $request['latitude'],
+        'day' => $request['day'],
+        'month' => $request['month'],
+        'year' => $request['year'],
+        'habitat' => $request['habitat'],
+        'altitude' => $request['altitude'],
+        'aspect' => $request['aspect'],
+        'soil' => $request['soil'],
+        'slope' => $request['slope'],
+        'protected_area_id' => $request['protected_area_id'],
+        'adminunit_id' => $request['adminunit_id'],
+        'remarks' => $request['remarks'],
           
         ];
         
       
         $this->validate($request, $constraints);
-        Water::where('id', $id)
+        Gazetteer::where('id', $id)
             ->update($input);
         
       
     Session::flash('flash_message', "Forest Use Updated Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('water.index');
+    return redirect()->route('gazetteer.index');
     }
 
     /**
@@ -198,8 +226,8 @@ class GazetteerController extends Controller
      */
     public function destroy($id)
     {
-     Species::where('id', $id)->delete();
-     return redirect()->route('species.index');   
+     Gazetteer::where('id', $id)->delete();
+     return redirect()->route('gazetteer.index');   
     }
 
     /**
@@ -213,22 +241,11 @@ class GazetteerController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'countrie_id' => 'required',
         'place' => 'required',
-        'details' => 'required',
-       'eastings' => 'required',
-       'northings' => 'required',
-        'zone' => 'required', 
-         'datum' =>'required',   
+       'datum' =>'required',   
       'longitude' => 'required',
        'latitude' => 'required',
-        'day' => 'required',
-      'month' => 'required',
-      'year' => 'required',
-       'forestuse_id' => 'required',
-       'wateruse_id' => 'required',
-       'endenisms_id' => 'required',
-       'migration_tbl_id' => 'required'
+        
      
         
     ]);

@@ -20,7 +20,7 @@
 </body>
 </html>
 <!-- jQuery 3 -->
-<script src="{{ asset ("/bower_components/jquery/dist/jquery.min.js") }}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset ("/bower_components/jquery-ui/jquery-ui.min.js") }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -28,7 +28,6 @@
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ asset ("/bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
 <!-- Morris.js charts -->
 <script src="{{ asset ("/bower_components/raphael/raphael.min.js") }}"></script>
 <script src="{{ asset ("/bower_components/morris.js/morris.min.js") }}"></script>
@@ -96,3 +95,43 @@ todayHighlight: true
 //})
 
 </script> 
+
+<script>
+$(document).ready(function(){
+$('#taxon_id').change(function(){
+    $taxonid=$(this).val();
+    if($taxonid==1){
+        $("#growth_id_div").show();
+    }else{
+     $("#growth_id_div").hide();
+    }
+//alert($(this).val());
+});
+   
+});    
+</script>
+<script>
+$(document).ready(function(){
+var taxonidval= $("#taxon_id").val();;
+ //alert(taxonidval);
+if(taxonidval==1){
+        $("#growth_id_div").show();
+    }else{
+        
+        
+        $("#growth_id_div").hide();
+    }
+$('#taxon_id').change(function(){
+    $taxonid=$(this).val(); 
+    if($taxonid==1){
+        $("#growth_id_div").show();
+    }else{
+     $("#growth_id_div").hide();
+    }
+});    
+});
+
+
+</script>
+
+    
