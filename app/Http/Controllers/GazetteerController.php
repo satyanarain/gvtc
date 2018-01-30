@@ -141,7 +141,7 @@ class GazetteerController extends Controller
     {
         $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
         $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
-        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('admincode','id');
+        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
         $gazetteers = DB::table('gazetteers')->select('*','gazetteers.id as id')
               ->leftjoin('countries','gazetteers.country_id','=','countries.id')
               ->leftjoin('protected_areas','gazetteers.protected_area_id','=','protected_areas.id')

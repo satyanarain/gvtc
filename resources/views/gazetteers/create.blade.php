@@ -254,7 +254,7 @@
                             
                     <div class="form-group col-md-6 ">
                 {!! Form::label('ProtectedArea','Protected Area',['class'=>'control-label']) !!}
-                  {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Selecte Protected Area']) !!}
+                  {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Select Protected Area']) !!}
                   </div>         
                             
                             
@@ -266,7 +266,7 @@
                   
                 <div class="form-group col-md-6 ">
                 {!! Form::label('AdminUnit','Admin Unit',['class'=>'control-label']) !!}
-                  {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Selecte Admin Unit']) !!}
+                  {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Select Admin Unit']) !!}
                   </div> 
                       
                   
