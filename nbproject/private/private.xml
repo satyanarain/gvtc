@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/var/www/html/gvtc/resources/views/changepasswords/form.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/layouts/sidebar.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Observer.php</file>
+            <file>file:/var/www/html/gvtc/app/User.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/CountryController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/observers/index.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/ObserverController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/observers/edit.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/ChangepasswordsController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/layouts/footer.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/countries/base.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Requests/ChangePassword/UpdateChangePasswordRequest.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/changepasswords/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/countries/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/observers/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/routes/web.php</file>
+        </group>
     </open-files>
 </project-private>

@@ -79,7 +79,9 @@ class SpeciesController extends Controller
     
     public function store(Request $request)
     {
-      
+     $range_id= implode(',',$request['range_id']);
+        
+        
      
      $this->validateInput($request);
      Species::create([
@@ -95,7 +97,7 @@ class SpeciesController extends Controller
         'subspecies_author' => $request['subspecies_author'],
         'common_name' => $request['common_name'],
         'iucn_threat_id' => $request['iucn_threat_id'],
-        'range_id' => $request['range_id'],
+        'range_id' =>$range_id,
         'forestuse_id' => $request['forestuse_id'],
         'wateruse_id' => $request['wateruse_id'],
         'endenisms_id' => $request['endenisms_id'],
@@ -119,11 +121,21 @@ class SpeciesController extends Controller
      */
     public function show($id)
     {
-    $species = DB::table('species')->select('*','species.id as id')->leftjoin('taxons','species.taxon_id','=','taxons.id')->where('species.id',$id)->first();
-    return view('species.show', compact('species'));
-         
         
-    }       
+    $species = DB::table('species')->select('*','species.id as id')
+            ->leftjoin('taxons','species.taxon_id','=','taxons.id')
+            ->leftjoin('ranges','ranges.id','=','species.range_id')
+            ->where('species.id',$id)->first();
+  // echo   $species->range_id;
+        $arr = [$species->range_id];
+        $arr = join(",",$arr);
+        $result =  DB::select(DB::raw("SELECT * FROM ranges WHERE id IN (".$arr.")"));
+        foreach($result as $val){
+        $range[]= $val->range;
+        }
+        $range= implode(', ',$range);
+        return view('species.show', compact('species','range'));
+        }       
 
        
 
@@ -158,22 +170,14 @@ class SpeciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+       $range_id= implode(',',$request['range_id']);
         $specie = Species::findOrFail($id);
         $constraints = [
         'taxon_id' => 'required',
         'order' => 'required',
         'family' => 'required',
         'genus' => 'required',
-        'species' => 'required'
-            
-            ];
-       
-        
-        
-        
-        
-       
+        'species' => 'required'];
         $input = [
         'taxon_id' => $request['taxon_id'],
         'order' => $request['order'],
@@ -186,7 +190,7 @@ class SpeciesController extends Controller
         'subspecies_author' => $request['subspecies_author'],
         'common_name' => $request['common_name'],
         'iucn_threat_id' => $request['iucn_threat_id'],
-        'range_id' => $request['range_id'],
+        'range_id' => $range_id,
         'forestuse_id' => $request['forestuse_id'],
         'wateruse_id' => $request['wateruse_id'],
         'endenisms_id' => $request['endenisms_id'],

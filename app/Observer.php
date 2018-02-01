@@ -22,8 +22,7 @@ class Observer extends Authenticatable
      *
      * @var array
      */
-   protected $fillable = [
-        'observer_id','tittle','first_name','last_name','institution','address','work_tel_number','mobile','email','website'
+   protected $fillable = ['observer_id', 'tittle', 'observeroption', 'first_name', 'last_name', 'institution', 'address', 'work_tel_number', 'mobile', 'email', 'website'
     ];
 
     /**

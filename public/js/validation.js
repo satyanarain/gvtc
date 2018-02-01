@@ -116,3 +116,10 @@ function validImg(iFile) {
    }
 
 }
+<script>
+
+
+//$( "#example1 th:last-child" ).append( "<span> - 2nd to last!</span>" );
+//$('#example1 th:last-child').addClass('action');
+$("#example1 th:last-child").addClass("sort");
+</script>

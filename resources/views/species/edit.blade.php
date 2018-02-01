@@ -10,6 +10,11 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Update Species</h3>
+              <div class="pull-right">
+<a href="{{ route('species.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -137,12 +142,24 @@
                   
                   <div class="form-row">
                   
-                <div class="form-group col-md-6 ">
+<!--                <div class="form-group col-md-6 ">
                   {!! Form::label('Range','Range',['class'=>'control-label']) !!}
                   {!! Form::select('range_id',$rangerecordsql,isset($specie->range_id) ? $specie->range_id : 'selected',['class'=>'form-control','placeholder'=>'Select Range']) !!} 
                   
-                  </div>  
+                  </div>  -->
+                 
+                 <div class="form-group col-md-6 custom-range">
+                  {!! Form::label('Range','Range',['class'=>'control-label']) !!}
+                 <select name="range_id[]" id="lstFruits" multiple="multiple">
+                  <?php 
+                    $range_arraid= explode(',',$specie->range_id);
+                   foreach($rangerecordsql as $key=>$val){ ?>
+                     <option value="<?php echo $key; ?>"  <?php  if(in_array($key, $range_arraid)){ echo "selected";} ?>><?php echo $val ?></option>
+                     <?php } ?>
+                 </select>
+
                   
+                  </div>  
                   
                   <div class="form-group col-md-6 " id ="growth_id_div" >
                       

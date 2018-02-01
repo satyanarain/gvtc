@@ -11,6 +11,11 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Add Species</h3>
+              <div class="pull-right">
+<a href="{{ route('species.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -137,26 +142,14 @@
                 </div> 
                   
                   <div class="form-row">
-                   <script type="text/javascript">
-                $(function () {
-                    $('#lstFruits').multiselect({
-                        includeSelectAllOption: true
-                    });
-                    $('#btnSelected').click(function () {
-                        var selected = $("#lstFruits option:selected");
-                        alert(selected);
-                        var message = "";
-                        selected.each(function () {
-                            message += $(this).text() + " " + $(this).val() + "\n";
-                        });
-                        alert(message);
-                    });
-                });
-             </script>
+                      <style>
+                          
+                          
+                      </style>
    
-                <div class="form-group col-md-6 ">
+                <div class="form-group col-md-6 custom-range">
                   {!! Form::label('Range','Range',['class'=>'control-label']) !!}
-                  {!! Form::select('range_id',$rangerecordsql,null,['class'=>'form-control','id'=>"lstFruits",'multiple'=>"multiple",'placeholder'=>'Select Range']) !!} 
+                  {!! Form::select('range_id[]',$rangerecordsql,null,['class'=>'form-control','id'=>"lstFruits",'multiple'=>"multiple"]) !!} 
                   
                   </div>  
                  

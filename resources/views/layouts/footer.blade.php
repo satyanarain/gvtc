@@ -70,7 +70,12 @@
       "ordering"    : true,
       "order"       : [[0,'desc']],
       "info"       : true,
-      "autoWidth"   : false
+      "autoWidth"   : false,
+       "aoColumnDefs" : [
+ {
+   'bSortable' : false,
+   'aTargets' : [ 'action', 'text-holder' ]
+ }]
     })
   })
 </script>
@@ -130,8 +135,58 @@ $('#taxon_id').change(function(){
     }
 });    
 });
+//sorticonremove
+$(document).ready(function(){
+$("#example1 th:last-child").removeClass("sorting");
+$("#example1 th:last-child").addClass("sort");
+});
+//radiobutton
+$(document).ready(function(){
+    
+    
+});
 
+$(function() {
+    $('input[name="observeroption"]').on('click', function() {
+        if ($(this).val() == 'Individual') {
+            var newobrv_id = 'GVTCINV'+obrv_id;
+            $('#observer_id').val(newobrv_id);
+             $(".div_individual").show();
+             $("#individual").show();
+             $("#las_tname").show();
+              //$("#institution_label").hide();
+              $("#sub_bt").show();
+               $('#first_name').addAttr('required');
+            $('#last_name').addAttr('required');
+           $('#title').addAttr('required');
+           //$("#institution_field").removeAttr('required');
+        }
+        else {
+            var newobrv_id = 'GVTCINS'+obrv_id;
+             $('#observer_id').val(newobrv_id);
+             $('.div_individual').hide();
+        }
+    });
+});
 
+$(function() {
+    $('input[name="observeroption"]').on('click', function() {
+        if ($(this).val() == 'Institution') {
+           $(".div_individual").show();
+           $("#individual").hide();
+           $("#las_tname").hide();
+           $('#first_name').removeAttr('required');
+           $('#last_name').removeAttr('required');
+           $('#title').removeAttr('required');
+           $("#sub_bt").show();
+           $("#institution_label").show();
+           $("#institution_field").addAttr('required');
+        }
+        else {
+            $('#div_Institution').hide();
+        }
+    });
+});
 </script>
 
     

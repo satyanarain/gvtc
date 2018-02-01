@@ -1,55 +1,11 @@
 @extends('observers.base')
 
 @section('action-content')
-
+<?php //print_r($observers);die; ?>
 <section class="content">
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
-            
-            
-            
-                   
-                <fieldset class="form-group row">
-                    <legend class="col-form-legend col-sm-2">Observers Type</legend> <div style='font-weight:bold;'>{{ $observers->observeroption}}</div>
-      <div class="col-sm-10">
-       
-        
-      
-      </div>
-    </fieldset>
-                
-                
-                
-    
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
@@ -67,7 +23,7 @@
             
  
                <div class="box-body">
-                 <?php if($observers->observeroption!='Institution'){ ?> 
+                  
                 <div class="form-row">
 <!--                   <label for="exampleInputEmail1" class="control-label">Observer ID</label>-->
                 <div class="form-group{{ $errors->has('observer_id') ? ' has-error' : '' }} col-md-6 required">
@@ -97,7 +53,7 @@
                     </div> 
                   
                 </div> 
-                
+                   
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
@@ -113,7 +69,7 @@
                   
                   <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Last Name</label>
-                  <input type="textarea" name="last_name" value="{{  $observers->last_name }}" required  class="form-control" id="last_name" placeholder="Last Name">
+                  <input type="textarea" name="last_name" value="{{  $observers->first_name }}" required  class="form-control" id="last_name" placeholder="Last Name">
                  @if ($errors->has('last_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
@@ -122,9 +78,9 @@
                   </div>  
                   
                 </div>    
-                  <?php } ?>    
+                   
                   <div class="form-row">
-                 <?php if($observers->observeroption!='Individual'){ ?>
+                  
                 <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Institution</label>
                   <input type="text" name="institution" value="{{  $observers->institution }}" required  class="form-control" id="institution" placeholder="Institution">
@@ -134,7 +90,7 @@
                                     </span>
                                 @endif
                   </div>  
-                  <?php } ?>
+                  
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Address</label>
@@ -153,7 +109,7 @@
                   
                 <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Work Tel. Number</label>
-                  <input type="text" name="work_tel_number" value="{{ $observers->work_tel_number }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
+                  <input type="text" name="work_tel_number" value="{{  $observers->first_name }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
                  @if ($errors->has('work_tel_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('work_tel_number') }}</strong>

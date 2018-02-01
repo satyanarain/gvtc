@@ -27,9 +27,8 @@
                 <tr>
                   <th style="display:none">id</th> 
                   <th>Observer ID</th>
-                  <th>Title</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Mobile</th>
+                  <th>Email</th>
                   <th>Action</th>
                  
                 </tr>
@@ -41,9 +40,8 @@
                 <tr>
                    <td style="display:none">{{ $val['id'] }}</td>
                   <td>{{ $val['observer_id'] }}</td>
-                  <td>{{ $val['tittle'] }}</td>
-                  <td>{{ $val['first_name'] }}</td>
-                  <td>{{ $val['last_name'] }}</td>
+                  <td>{{ $val['mobile'] }}</td>
+                  <td>{{ $val['email'] }}</td>
                  
                   <td>
                    

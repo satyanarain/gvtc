@@ -10,6 +10,10 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">View Country</h3>
+              <div class="pull-right">
+<a href="{{ route('country.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

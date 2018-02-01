@@ -66,22 +66,29 @@ class ObserverController extends Controller
     
     public function store(Request $request)
     {
-      
-     
-     $this->validateInput($request);
-     Observer::create([
-            'observer_id' => $request['observer_id'],
-            'tittle' => $request['tittle'],
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'institution' => $request['institution'],
-            'address' => $request['address'],
-            'work_tel_number' => $request['work_tel_number'],
-            'mobile' => $request['mobile'],
-            'email' => $request['email'],
-            'website' => $request['website'],
-           
-        ]);
+        //echo "<pre>";
+   //dd(print_r($_POST));
+   //  $this->validateInput($request);
+        
+       $inpute= $request->all();
+        
+//        Array
+//(
+//    [_token] => cQ0xNDgGpoPpjndZrZbSZqjoW4upn3rJnABj717M
+//    [observeroption] => Institution
+//    [observer_id] => GVTCINS14
+//    [tittle] => Prof
+//    [first_name] => First Name
+//    [institution] => 3w3422
+//    [last_name] => Last Name
+//    [address] => address
+//    [work_tel_number] => 9897677
+//    [mobile] => 2134124
+//    [email] => rvkumar738@gmail.com
+//    [website] => Website
+//)
+        
+     Observer::create($inpute);
 
      //return back()->with('success', 'Product has been added');
     Session::flash('flash_message', "Observer Created Successfully."); //Snippet in Master.blade.php 
@@ -140,16 +147,16 @@ class ObserverController extends Controller
        
         $Observer = Observer::findOrFail($id);
         $constraints = [
-            'observer_id' => 'required',
-            'tittle' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'institution' => 'required',
-            'address' => 'required',
-            'work_tel_number' => 'required',
-            'mobile' => 'required',
-            'email' => 'required',
-            'website' => 'required',
+//            'observer_id' => 'required',
+//            'tittle' => 'required',
+//            'first_name' => 'required',
+//            'last_name' => 'required',
+//           
+//            'address' => 'required',
+//            'work_tel_number' => 'required',
+//            'mobile' => 'required',
+//            'email' => 'required',
+//            'website' => 'required',
             
             ];
        
@@ -159,7 +166,7 @@ class ObserverController extends Controller
         
        
         $input = [
-             'observer_id' => $request['observer_id'],
+            //'observer_id' => $request['observer_id'],
             'tittle' => $request['tittle'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
@@ -203,16 +210,15 @@ class ObserverController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-          'observer_id' => 'required|unique:observers',
-            'tittle' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'institution' => 'required',
-            'address' => 'required',
-            'work_tel_number' => 'required',
-            'mobile' => 'required',
-            'email' => 'required',
-            'website' => 'required',
+//          'observer_id' => 'required|unique:observers',
+//            //'tittle' => 'required',
+//            //'first_name' => 'required',
+//            //'last_name' => 'required',
+//            'address' => 'required',
+//            'work_tel_number' => 'required',
+//            'mobile' => 'required',
+//            'email' => 'required',
+//            'website' => 'required',
         
     ]);
     }

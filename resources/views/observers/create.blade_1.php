@@ -2,9 +2,7 @@
 
 @section('action-content')
 <script type="text/javascript">
-   var obrv_id = '<?php echo $last_observeid; ?>';
-
-  
+   var obrv_id = '<?php echo $last_observeid; ?>'; 
 </script>    
 <section class="content">
       <div class="row">
@@ -26,14 +24,14 @@
            @if ($errors->any())
         {{ implode('', $errors->all('<div>:message</div>')) }}
       @endif
-      <form role="form" method="POST" action="{{ route('observer.store') }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ route('observer.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 
                 
                 <fieldset class="form-group row">
-      <label class="col-form-legend col-sm-2" style="padding-left: 42px;margin-top: 6px;">Observers Type</label>
+      <legend class="col-form-legend col-sm-2">Observers Type</legend>
       <div class="col-sm-10">
-          <div class="form-check" style="float: left;margin-right: 20px;">
+        <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="observeroption" id="Individual" value="Individual" >
             Individual
@@ -48,10 +46,6 @@
       
       </div>
     </fieldset>
-                
-                
-                
-                
                 <div class="div_individual" style="display:none"> 
               <div class="box-body">
                 <input type="hidden" name="observer_id"  value="{{ 'GVTCOBS'.$last_observeid }}" required  class="observer_id form-control" id="observer_id" placeholder="Observer ID">
@@ -60,13 +54,13 @@
                   
                   <div class="form-group col-md-6 required"> 
                     {!! Form::label('Title','Title',['class'=>'control-label']) !!}
-                  {!! Form::select('tittle',['Prof'=>'Prof','Dr'=>'Dr','Mr'=>'Mr','Ms'=>'Ms'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
+                  {!! Form::select('tittle',['Prof'=>'Prof','Dr'=>'Dr','Mr'=>'Mr','Ms'=>'Ms'],null,['class'=>'form-control','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
                     
                     </div> 
                        
                     <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">First Name</label>
-                  <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" required  class="form-control" id="taxon_code" placeholder="First Name">
+                  <input type="text" name="first_name" value="{{ old('first_name') }}" required  class="form-control" id="taxon_code" placeholder="First Name">
                  @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -80,9 +74,9 @@
                    <div class="form-row">
                   
                 
-                 <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required"  id="institution_label" style="display:none">
+                 <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required" id="institution" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">Institution</label>
-                  <input type="text" name="institution"  value="{{ old('institution') }}"  class="form-control" id="institution_field"  placeholder="Institution">
+                  <input type="text" name="institution" value="{{ old('institution') }}" required  class="form-control" id="institution" placeholder="Institution">
                  @if ($errors->has('institution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('institution') }}</strong>
@@ -92,7 +86,7 @@
                   
                   <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required" id="las_tname" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">Last Name</label>
-                  <input type="textarea" name="last_name" value="{{ old('last_name') }}" required   class="form-control" id="last_name" placeholder="Last Name">
+                  <input type="textarea" name="last_name" value="{{ old('last_name') }}"   class="form-control" id="last_name" placeholder="Last Name">
                  @if ($errors->has('last_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
@@ -121,7 +115,7 @@
                   
                 <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Work Tel. Number</label>
-                  <input type="number" name="work_tel_number" value="{{ old('work_tel_number') }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
+                  <input type="text" name="work_tel_number" value="{{ old('work_tel_number') }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
                  @if ($errors->has('work_tel_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('work_tel_number') }}</strong>
@@ -176,7 +170,7 @@
               
               
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub" id='sub_bt' style='display:none;'>Save</button>
+                <button type="submit" class="btn btn-primary btn-sub">Save</button>
               </div>
             </form>
           </div>

@@ -68,10 +68,6 @@ $user_pro_image = Auth::user()->profilepicture;
         <li class="{{ Request::segment(1) == 'abundance' ? 'active active-sub' : '' }}"><a href="{{ url('abundance/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Abundance</span></a></li>
           </ul>
         </li>
-        
-        
-        
-        
          <li class="treeview" >
           <a href="#">
             <i class="glyphicon glyphicon-wrench"></i>
@@ -107,7 +103,7 @@ $user_pro_image = Auth::user()->profilepicture;
            //print_r($arra);
           @endphp
         <ul class="treeview-menu" style="">
-      <li class=""><a href="{{ url('#') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Change Password</span></a></li> 
+      <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Change Password</span></a></li> 
       
           </ul>
         </li>

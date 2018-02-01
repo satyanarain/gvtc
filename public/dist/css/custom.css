@@ -143,9 +143,11 @@ float: right !important;
 }
 
 
-
 #example1 th:last-child, #example1 td:last-child {
     text-align:center;
 
 }
-
+.custom-range .multiselect-native-select .btn-group{ width:100% !important;}
+.custom-range .multiselect-native-select .btn-group button{width:100% !important;text-align:left !important; background:#FFF !important;}
+.custom-range .multiselect-native-select .dropdown-menu{width:100% !important;}
+.btn .caret {float: right;margin-top: -11px;}

@@ -11,7 +11,8 @@
             <div class="box-header with-border">
               <h3 class="box-title">Create Gazetteer</h3>
               <div class="pull-right">
-<a href="{{ route('gazetteer.index') }}" class="btn btn-default"> Back</a>
+<a href="{{ route('gazetteer.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
 </div>
             </div>
             <!-- /.box-header -->

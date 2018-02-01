@@ -11,7 +11,9 @@
             <div class="box-header with-border">
               <h3 class="box-title">View IUCN Threat Code</h3>
               <div class="pull-right">
-<a href="{{ route('iucns.index') }}" class="btn btn-default"> Back</a>
+<a href="{{ route('iucns.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; Back</a>
 </div>
             </div>
             <!-- /.box-header -->
