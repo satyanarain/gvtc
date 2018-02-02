@@ -36,7 +36,9 @@ class passwords extends FormRequest
        return [
            'currentpassword.required' => 'The Current password field is required.',
            'password.required' => 'The New password field is required.',
-           'password_confirmation.required' => 'The Confirm password field is required.'
+           'password_confirmation.required' => 'The Confirm password field is required.',
+           'password_confirmation.same' => 'The new password should match with confirm password. ',
+         
            
        ];
    }

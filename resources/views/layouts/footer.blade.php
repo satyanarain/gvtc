@@ -150,6 +150,7 @@ $(function() {
     $('input[name="observeroption"]').on('click', function() {
         if ($(this).val() == 'Individual') {
             var newobrv_id = 'GVTCINV'+obrv_id;
+            $("#institution_label").hide();
             $('#observer_id').val(newobrv_id);
              $(".div_individual").show();
              $("#individual").show();
@@ -160,11 +161,15 @@ $(function() {
             $('#last_name').addAttr('required');
            $('#title').addAttr('required');
            //$("#institution_field").removeAttr('required');
+           //alert('hi');
+            
+          
         }
         else {
             var newobrv_id = 'GVTCINS'+obrv_id;
              $('#observer_id').val(newobrv_id);
              $('.div_individual').hide();
+             
         }
     });
 });
@@ -181,9 +186,11 @@ $(function() {
            $("#sub_bt").show();
            $("#institution_label").show();
            $("#institution_field").addAttr('required');
+           
         }
         else {
             $('#div_Institution').hide();
+            
         }
     });
 });

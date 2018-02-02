@@ -9,6 +9,10 @@
      <div class="box box-success">
             <div class="box-header box">
              <h3 class="box-title">Change Password</h3>
+                  <div class="pull-right">
+<a href="/" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+</div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

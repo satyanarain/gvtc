@@ -27,6 +27,7 @@ class ChangepasswordsController extends Controller
  public function create() {
   
         $id = Auth::user()->id;
+        
         $user = User::findOrFail($id);
         return view('changepasswords.create')->withUser($user);
     }
@@ -37,14 +38,14 @@ class ChangepasswordsController extends Controller
         
 
         if (!Hash::check($request->currentpassword, $password)) {
-            Session::flash('fail', "Your old password does not match!.");
+            Session::flash('fail', "The old password entered doesn't match with our records.");
             return redirect()->back();
         } else {
             $request->password;
             $user->password = Hash::make($request->password);
             $user->save();
             //request()->session()->flash('success', 'Password changed!');
-            Session::flash('success', "Password changed!.");
+            Session::flash('success', "Your password have been successfully updated.");
             return redirect()->back();
         }
     }

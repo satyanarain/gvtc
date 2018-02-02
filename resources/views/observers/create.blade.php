@@ -31,8 +31,8 @@
                 
                 
                 <fieldset class="form-group row">
-      <label class="col-form-legend col-sm-2" style="padding-left: 42px;margin-top: 6px;">Observers Type</label>
-      <div class="col-sm-10">
+      <label class="col-form-legend col-sm-2" style="padding-left: 42px;margin-top: 6px;">Select Type Of Observer</label>
+      <div class="col-sm-10" style="margin-top: 6px;">
           <div class="form-check" style="float: left;margin-right: 20px;">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="observeroption" id="Individual" value="Individual" >
@@ -60,7 +60,7 @@
                   
                   <div class="form-group col-md-6 required"> 
                     {!! Form::label('Title','Title',['class'=>'control-label']) !!}
-                  {!! Form::select('tittle',['Prof'=>'Prof','Dr'=>'Dr','Mr'=>'Mr','Ms'=>'Ms'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
+                  {!! Form::select('tittle',['Prof'=>'Prof.','Dr'=>'Dr.','Mr'=>'Mr.','Ms'=>'Ms.'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Selecte Title','required'=>'required']) !!}
                     
                     </div> 
                        
@@ -81,8 +81,8 @@
                   
                 
                  <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required"  id="institution_label" style="display:none">
-                  <label for="exampleInputEmail1" class="control-label">Institution</label>
-                  <input type="text" name="institution"  value="{{ old('institution') }}"  class="form-control" id="institution_field"  placeholder="Institution">
+                  <label for="exampleInputEmail1" class="control-label">Institution Name</label>
+                  <input type="text" name="institution"  value="{{ old('institution') }}"  class="form-control" id="institution_field"  placeholder="Institution Name">
                  @if ($errors->has('institution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('institution') }}</strong>

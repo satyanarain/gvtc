@@ -83,6 +83,9 @@ Route::resource('species','SpeciesController');
 //gazetteer
 Route::resource('gazetteer','GazetteerController');
 
+//
+Route::resource('distribution','DistributionController');
+
 //changepassword
 Route::post('changepasswords/update', 'ChangepasswordsController@updatePassword');
 Route::resource('changepasswords', 'ChangepasswordsController');

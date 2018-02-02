@@ -65,8 +65,10 @@ class SpeciesController extends Controller
        $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
        $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
        $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
+       $last_species= Species::latest()->first();
+       $last_speciesid= $last_species['id']+1;
        //print_r($taxonrecodsql);
-        return view('species/create',compact('taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql'));
+        return view('species/create',compact('taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql','last_speciesid'));
     }
 
     /**
@@ -79,14 +81,21 @@ class SpeciesController extends Controller
     
     public function store(Request $request)
     {
-     $range_id= implode(',',$request['range_id']);
+       if($request['range_id']!='') {
+           $range_id= implode(',',$request['range_id']); 
+       }else{
+           
+           $range_id= $request['range_id'];  
+       }
+    
         
-        
+      
      
      $this->validateInput($request);
      Species::create([
          
         'taxon_id' => $request['taxon_id'],
+        'specienewid' => $request['specienewid'],
         'order' => $request['order'],
         'family' => $request['family'],
         'genus' => $request['genus'],

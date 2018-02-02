@@ -18,39 +18,7 @@
       
       </div>
     </fieldset>
-                
-                
-                
-    
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          <!-- general form elements -->
+     <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Update Observer</h3>

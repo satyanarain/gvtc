@@ -33,7 +33,7 @@ $user_pro_image = Auth::user()->profilepicture;
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
           
-        <li class=""><a href="#"><i class="glyphicon glyphicon-record"></i><span>Record Distribution</span></a></li>  
+        <li class=""><a href="{{ url('distribution/create')}}"><i class="glyphicon glyphicon-record"></i><span>Record Distribution</span></a></li>  
           
        
        
