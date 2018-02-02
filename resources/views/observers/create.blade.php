@@ -60,7 +60,7 @@
                   
                   <div class="form-group col-md-6 required"> 
                     {!! Form::label('Title','Title',['class'=>'control-label']) !!}
-                  {!! Form::select('tittle',['Prof'=>'Prof.','Dr'=>'Dr.','Mr'=>'Mr.','Ms'=>'Ms.'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Selecte Title','required'=>'required']) !!}
+                  {!! Form::select('tittle',['Prof'=>'Prof.','Dr'=>'Dr.','Mr'=>'Mr.','Ms'=>'Ms.'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Select Title','required'=>'required']) !!}
                     
                     </div> 
                        

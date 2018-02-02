@@ -10,7 +10,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Species</h3>
+              <h3 class="box-title">Add Manage Distribution Record</h3>
               <div class="pull-right">
 <a href="#" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -135,7 +135,7 @@
                   
                   <div class="form-group col-md-6 required ">
                       
-                  {!! Form::label('RecordID','RecordID',['class'=>'control-label']) !!}
+                  {!! Form::label('RecordID','Record ID',['class'=>'control-label']) !!}
                   {!! Form::select('gazetteer_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Record ID','required'=>'required','id' => 'gazetteer_id']) !!}
                   
                   </div>  
@@ -144,7 +144,7 @@
                   
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range">
-                 {!! Form::label('AgeGroup','AgeGroup',['class'=>'control-label']) !!}
+                 {!! Form::label('AgeGroup','Age Group',['class'=>'control-label']) !!}
                   {!! Form::select('gazetteer_id',$agerecodsql,null,['class'=>'form-control','placeholder'=>'Select Age Group','required'=>'required','id' => 'gazetteer_id']) !!}
                 
                   
@@ -164,7 +164,7 @@
                  <div class="form-row">
                   
                 <div class="form-group col-md-6 ">
-<label for="exampleInputEmail1" class="control-label">SpecimenCode</label>
+<label for="exampleInputEmail1" class="control-label">Specimen Code</label>
                   <input type="text" name="speciesid" value="{{ old('speciesid') }}" required  class="form-control" id="speciesid" placeholder="Specimen Code">
                  @if ($errors->has('order'))
                                     <span class="help-block">
@@ -176,7 +176,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('speciesid') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">CollectorInstitution</label>
+                  <label for="exampleInputEmail1" class="control-label">Collector Institution</label>
                   <input type="text" name="speciesid" value="{{ old('speciesid') }}" required  class="form-control" id="speciesid" placeholder="Collector Institution">
                  @if ($errors->has('order'))
                                     <span class="help-block">
