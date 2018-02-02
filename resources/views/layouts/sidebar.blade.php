@@ -33,7 +33,7 @@ $user_pro_image = Auth::user()->profilepicture;
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
           
-        <li class=""><a href="{{ url('distribution/create')}}"><i class="glyphicon glyphicon-record"></i><span>Record Distribution</span></a></li>  
+        <li class=""><a href="{{ url('distribution/create')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
           
        
        
@@ -87,7 +87,7 @@ $user_pro_image = Auth::user()->profilepicture;
           </ul>
         </li>
       <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
-      <li class=""><a href="{{ url('user-management/') }}"> <i class="fa fa-bar-chart"></i> <span>Reports</span></a>  </li>   
+      <li class=""><a href="#"> <i class="fa fa-bar-chart"></i> <span>Reports</span></a>  </li>   
        
        
      <li class="treeview" >

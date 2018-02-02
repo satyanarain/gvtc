@@ -10,7 +10,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Manage Distribution Record</h3>
+              <h3 class="box-title">Add Distribution Record</h3>
               <div class="pull-right">
 <a href="#" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -112,7 +112,7 @@
                   <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 required">
                   {!! Form::label('Year','Year',['class'=>'control-label']) !!}
                  <select name='year' class="form-control" paceholder='sfdgfdg'>
-                      <option value="">select Year</option>
+                      <option value="">Select Year</option>
                     <?php for($i=1950;$i<=2050;$i++){ ?>  
                       <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
