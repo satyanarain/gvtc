@@ -67,7 +67,8 @@ class GuestRegisterController extends Controller
          $message->to('gvtc2018@gmail.com',$query_guest->username)->subject('GVTC Guest User Registration');
      });
     //Session::flash('flash_message', "User Created Successfully."); //Snippet in Master.blade.php 
-    return redirect('/guest_register')->with('success', 'Thank you for registering with GVTC Species Portal. Your request will be approved by the GVTC Admin and you will be notified once you are ready to login. <a href="http://127.0.0.1:8000/login">Click Here</a>'); 
+     $url='http://'.$_SERVER['HTTP_HOST'].'/'.'login';
+    return redirect('/guest_register')->with('success', 'Thank you for registering with GVTC Species Portal. Your request will be approved by the GVTC Admin and you will be notified once you are ready to login. <a href="'.$url.'">Click Here</a>'); 
     
     }
 

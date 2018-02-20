@@ -81,19 +81,8 @@ class GuestPasswordController extends Controller
          $message->from('info@opiant.online', 'Gvtc');
          $message->to($query_user->email,$query_user->username)->subject('GVTC User Registration Successful');
       });  
-    
-  
-    
-    
-    
-    
-    
-    
- 
-      
-    
-    
-    return redirect('/create_password')->with('success', 'You have successfully generated password for your account. <a href="http://127.0.0.1:8000/login"> Click Here to Login </a>'); 
+$url='http://'.$_SERVER['HTTP_HOST'].'/'.'login';
+return redirect('/create_password')->with('success', 'You have successfully generated password for your account. <a href="'.$url.'"> Click Here to Login </a>'); 
     
     }
 
