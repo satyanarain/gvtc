@@ -79,6 +79,12 @@ class GazetteerController extends Controller
       
      
      $this->validateInput($request);
+     $result=DB::table('gazetteers')->where('place','=',$request['place'])->where('longitude','=',$request['longitude'])->where('latitude','=',$request['latitude'])->select('*')->count();
+     if($result>0){
+      $request->session()->flash('success', 'This record already exists.');
+        return back();   
+         
+     }else{
      Gazetteer::create([
         'country_id' => $request['country_id'],
         'gazeteer_id' => $request['gazeteer_id'],
@@ -88,6 +94,7 @@ class GazetteerController extends Controller
         'northings' => $request['northings'],
         'zone'=>$request['zone'],
         'datum' => $request['datum'],
+        'datum_dd' => $request['datum_dd'],
         'longitude' => $request['longitude'],
         'latitude' => $request['latitude'],
         'day' => $request['day'],
@@ -105,7 +112,7 @@ class GazetteerController extends Controller
 
     Session::flash('flash_message', "Gazetters Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('gazetteer.index');
-
+     }
     }
     
       
@@ -243,6 +250,7 @@ class GazetteerController extends Controller
         $this->validate($request, [
         'place' => 'required',
        'datum' =>'required',   
+       'datum_dd' =>'required',   
       'longitude' => 'required',
        'latitude' => 'required',
         

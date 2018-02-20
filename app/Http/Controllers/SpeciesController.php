@@ -87,13 +87,15 @@ class SpeciesController extends Controller
            
            $range_id= $request['range_id'];  
        }
-    
+    $this->validateInput($request);
+    $result =  DB::table('species')->where('genus','=',$request['genus'])->where('species','=',$request['species'])->where('taxon_id','=',$request['taxon_id'])->select('*')->count();
+    if($result>0){
         
-      
-     
-     $this->validateInput($request);
-     Species::create([
-         
+      $request->session()->flash('success', 'This record already exists.');
+        return back();
+    }else{
+        
+        Species::create([
         'taxon_id' => $request['taxon_id'],
         'specienewid' => $request['specienewid'],
         'order' => $request['order'],
@@ -113,9 +115,14 @@ class SpeciesController extends Controller
         'migration_tbl_id' => $request['migration_tbl_id']
 
         ]);
+        
+       Session::flash('flash_message', "Species Created Successfully."); //Snippet in Master.blade.php 
+    return redirect()->route('species.index'); 
+    }
+    
+     
 
-    Session::flash('flash_message', "Species Created Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('species.index');
+    
 
     }
     

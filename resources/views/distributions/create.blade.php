@@ -66,7 +66,7 @@
                   
                 <div class="form-group{{ $errors->has('species') ? ' has-error' : '' }} col-md-6 required">
                    {!! Form::label('Gazetteer ID','Gazetteer ID',['class'=>'control-label']) !!}
-                  {!! Form::select('gazetteer_id',$gazetteerrecodsql,null,['class'=>'form-control','placeholder'=>'Select Observation ID','required'=>'required','id' => 'gazetteer_id']) !!}
+                  {!! Form::select('gazetteer_id',$gazetteerrecodsql,null,['class'=>'form-control','placeholder'=>'Select Gazetteer ID','required'=>'required','id' => 'gazetteer_id']) !!}
                   </div>  
                   
                   
@@ -83,7 +83,7 @@
                   
                   
                   
-                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 required">
+                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 ">
                    {!! Form::label('day','Day',['class'=>'control-label']) !!}
                   <select name='day' class="form-control">
                       <option value="">Select Day</option>
@@ -92,7 +92,7 @@
                     <?php } ?>
                   </select>
                   </div>  
-                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 required">
+                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2">
                    {!! Form::label('Month','Month',['class'=>'control-label']) !!}
                   {!! Form::select('month',[
                     'January' => 'January',
@@ -109,7 +109,7 @@
                     'December' => 'December',
                     ],null,['class'=>'form-control','placeholder'=>'Select Month']) !!} 
                   </div>  
-                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 required">
+                  <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-2 ">
                   {!! Form::label('Year','Year',['class'=>'control-label']) !!}
                  <select name='year' class="form-control" paceholder='sfdgfdg'>
                       <option value="">Select Year</option>

@@ -24,13 +24,18 @@ return [
     'update'  => 'Update',
     'view'  => 'View',
     
-    //leftpanel
+    
     'dashboard'=> 'Dashboard',
     'online'=>'online',
     'manage_users'=> 'Manage Users',
     'manage_tables'=>'Manage Tables',
     'manage_masters'=>'Manage Masters',
+    //login
+    'forget_your_password'=>'Forgot Your Password?',
+    //leftpanel
     'taxon'=>'Taxon',
+    'taxon_code'=>'Taxon Code',
+    'taxon_code_description'=>'Taxon Code Description',
     'iucn'=>'IUCN Threat Code',
     'national_threat'=>'National Threat Code',
     'range'=>'Range',

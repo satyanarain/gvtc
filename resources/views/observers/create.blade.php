@@ -20,12 +20,18 @@
 &nbsp; Back</a>
 </div>
             </div>
+             
+              
+              
             <!-- /.box-header -->
             <!-- form start -->
-            <?php print_r($errors->any()); ?>
-           @if ($errors->any())
-        {{ implode('', $errors->all('<div>:message</div>')) }}
-      @endif
+             @if (Session::has('success'))
+            <div class="alert alert-warning fade in alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                {!! Session::get('success') !!}
+            </div>
+               @endif
+      
       <form role="form" method="POST" action="{{ route('observer.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 

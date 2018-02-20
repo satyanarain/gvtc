@@ -5,7 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                                
                 <div class="panel-heading">Reset Password</div>
+                
+
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -36,6 +39,10 @@
                                 <button type="submit" class="btn btn-primary" style="background-color:#1b6b36; border:#1b6b36;">
                                     Send Password Reset Link
                                 </button>
+                              <div class="pull-right">
+<a href="/" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+</div>  
                             </div>
                         </div>
                     </form>

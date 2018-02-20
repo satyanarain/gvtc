@@ -26,8 +26,8 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>Taxon Code</th>
-                  <th>Taxon Code Description</th>
+                  <th>@lang('menu.taxon_code', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.taxon_code_description', array(),Session::get('language_val'))</th>
                   <th>Action</th>
                  
                 </tr>

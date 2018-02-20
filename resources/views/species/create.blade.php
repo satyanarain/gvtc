@@ -19,7 +19,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-           
+           @if (Session::has('success'))
+<div class="alert alert-warning fade in alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    {!! Session::get('success') !!}
+</div>
+               @endif
             <form role="form" method="POST" action="{{ route('species.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <div class="box-body">

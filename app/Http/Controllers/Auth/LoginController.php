@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Respons;
 
 
+use App\User;
+
 
 
 
@@ -49,8 +51,11 @@ class LoginController extends Controller
     }
     
     public function login(Request $request)     {
-    $this->validate($request, ['username' => 'required', 'password' => 'required',]);    
-        Auth::attempt(['username' => $request['username'], 'password' => $request['password']]);    
+       
+    $this->validate($request, ['username' => 'required', 'password' => 'required']); 
+   
+        Auth::attempt(['username' => $request['username'], 'password' => $request['password']]);  
+       
         if(!Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) { 
             return redirect()->back()->with('fail', 'Either username or password is incorrect!');  
             }else{

@@ -12,28 +12,23 @@ $user_pro_image = Auth::user()->profilepicture;
         </div>
         <div class="pull-left info">
           <p>{{ ucfirst(Auth::user()->name) }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> @lang('menu.online', array(),$session_lan)</a>
+          
+          <?php
+          //$userid = DB::table('users')->select('*')->where('id','=',$id)->first();
+        // echo  $userpassword = $userid->role;
+          ?>
+          GVTC {{ ucfirst(Auth::user()->role) }}
+<!--          <a href="#"><i class="fa fa-circle text-success"></i> @lang('menu.online', array(),$session_lan)</a>-->
         </div>
       </div>
-      <!-- search form -->
-     <!-- <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>-->
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      
-      
+     @php
+           $arra=array('taxons','iucns','nationals','ranges','growth','protected-area','country','forest','water','endenism','admin-unit','age','method','observation','abundance','migration','admin-unit');
+        @endphp
       <ul class="sidebar-menu" data-widget="tree">
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
           
-        <li class=""><a href="{{ url('distribution/create')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
+        <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/create')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
           
        
        
@@ -45,10 +40,7 @@ $user_pro_image = Auth::user()->profilepicture;
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-           @php
-           $arra=array('taxons','iucns','nationals','ranges','growth','protected-area','country','forest','water','endenism','admin-unit','age','method','observation','abundance','migration','admin-unit');
-           //print_r($arra);
-          @endphp
+         
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra)){ echo "display: block";} ?>">
         <li class="{{ Request::segment(1) == 'taxons' ? 'active active-sub' : '' }}"><a href="{{ url('taxons/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.taxon', array(),$session_lan)</span></a></li>
        <li class="{{ Request::segment(1) == 'iucns' ? 'active active-sub' : '' }}"><a href="{{ url('iucns/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.iucn', array(),$session_lan)</span></a></li>

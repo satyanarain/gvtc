@@ -30,8 +30,8 @@
                  
                   
                   <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} col-md-12">
-                  <label for="exampleInputEmail1">User Name</label>
-                  <input type="text" name="username" readonly readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter User Name" id="username" >
+                  <label for="exampleInputEmail1">Username</label>
+                  <input type="text" name="username" readonly readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter Username" id="username" >
                  @if ($errors->has('username'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('username') }}</strong>

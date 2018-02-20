@@ -27,7 +27,13 @@ return [
     'online'=>'En ligne',
     'manage_users'=>'gérer les utilisateurs',
     'manage_masters'=>'Gérer les Masters',
-    'taxon'=>'Taxon',
+    //login
+    'forget_your_password'=>'Forgot Your Passwordfr?',
+    //leftpanel
+    'taxon'=>'Les Taxons',
+    'taxon_code'=>'Code des Taxons',
+    'taxon_code_description'=>'Description du Code des Taxons',
+    
     'iucn'=>'UICN',
     'national_threat'=>'Menace nationale',
     'range'=>'Gamme',

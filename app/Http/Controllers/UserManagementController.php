@@ -94,7 +94,8 @@ class UserManagementController extends Controller
             'designation' => $request['designation'],
             'profilepicture' => $fileprofile,
             'photoid'=> $filephoto,
-            'role'=>$request['role']
+            'role'=>$request['role'],
+            'status'=>$request['status']
         ]);
         $query_email = array(
           'password'=> $password_auto, 
@@ -107,8 +108,8 @@ class UserManagementController extends Controller
        //$query_user =  (object) $query_email;
        $query_user =  (object) $query_email; 
        Mail::send('emails.user_notification', ['user_details' => $query_user], function ($message) use ($query_user) {
-         $message->from('info@opiant.online', 'Gvtc');
-         $message->to($query_user->email,$query_user->name)->subject('Gvtc User Details');
+         $message->from('info@opiant.online', 'GVTC');
+         $message->to($query_user->email,$query_user->name)->subject('GVTC User Details');
      });
      
         //return redirect()->intended('/user-management');
@@ -188,8 +189,7 @@ class UserManagementController extends Controller
         
         $fileprofile=$request['edit_profilepicture'];
          if ((Input::hasFile('profilepicture'))) {
-
-           $destinationPath = public_path('profilepicture');
+             $destinationPath = public_path('profilepicture');
            $extension = Input::file('profilepicture')->getClientOriginalExtension();
            $fileprofile = uniqid() . '_userprofile.' . $extension;
            Input::file('profilepicture')->move($destinationPath, $fileprofile);
@@ -206,12 +206,19 @@ class UserManagementController extends Controller
         
        
         $input = [
+            'first_name' =>$request['first_name'],
+            'last_name' =>$request['last_name'],
+            'account' =>$request['account'],
+            'institution' =>$request['institution'],
+            'institution_type' =>$request['institution_type'],
+            'country' =>$request['country'],
             'name' => $request['name'],
             'address' => $request['address'],
             'mobilenumber' => $request['mobilenumber'],
             'department' => $request['department'],
             'designation' => $request['designation'],
             'email' => $request['email'],
+            'status' => $request['status'],
             //'password' => $pwd,
             'photoid'=>$filephoto,
             'profilepicture'=>$fileprofile
@@ -221,9 +228,33 @@ class UserManagementController extends Controller
 //            $constraints['password'] = 'required|min:6|confirmed';
 //            $input['password'] =  bcrypt($request['password']);
 //        }
-        $this->validate($request, $constraints);
-        User::where('id', $id)
-            ->update($input);
+        //$this->validate($request, $constraints);
+        User::where('id', $id) ->update($input);
+        $userid = DB::table('users')->select('*')->where('id', '=', $id)->first();
+        $password_status = $userid->password_status;
+        if($request['status']==1 && $password_status==0){
+        $q = "UPDATE users SET password_status= '1' WHERE id=$id ";
+        DB::update(DB::raw($q));
+        $query_email = array(
+         'first_name' =>$request['first_name'],
+         'last_name' =>$request['last_name'],   
+         'username' => $request['username'],
+         'email' => $request['email'], 
+          'id'=>$id,
+         'date'      => date("M d, Y h:i a")
+       );
+        //print_r($query_email);
+        //die;
+       //$query_user =  (object) $query_email;
+       $query_user =  (object) $query_email; 
+       Mail::send('emails.password_notification', ['users_details' => $query_user], function ($message) use ($query_user) {
+         $message->from('info@opiant.online', 'GVTC');
+         $message->to($query_user->email,$query_user->username)->subject('GVTC Account Activation Link');
+      });  
+        }
+        
+     
+        
         
         //return redirect()->intended('/user-management');
         

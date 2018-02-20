@@ -17,7 +17,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-           
+           @if (Session::has('success'))
+            <div class="alert alert-warning fade in alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                {!! Session::get('success') !!}
+            </div>
+               @endif
             <form role="form" method="POST" action="{{ route('gazetteer.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <div class="box-body">
@@ -57,7 +62,7 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-6 ">
+                  <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-2 ">
                   <label for="exampleInputEmail1" class="control-label">Eastings</label>
                   <input type="text" name="eastings" value="{{ old('eastings') }}"   class="form-control" id="eastings" placeholder="Eastings">
                  @if ($errors->has('eastings'))
@@ -71,7 +76,7 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-6 ">
+                <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-2 ">
                   <label for="exampleInputEmail1"  class="control-label">Northings</label>
                   <input type="text" name="northings" value="{{ old('northings') }}"   class="form-control" id="species" placeholder="Northings">
                  @if ($errors->has('species'))
@@ -79,7 +84,18 @@
                                         <strong>{{ $errors->first('northings') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
+                  </div> 
+                       
+                       
+                  <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 required">
+                  <label for="exampleInputEmail1"  class="control-label">Datum (UTM)</label>
+                  <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum (UTM)">
+                 @if ($errors->has('datum'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('datum') }}</strong>
+                                    </span>
+                                @endif
+                  </div>      
                   
                   
                   <div class="form-group{{ $errors->has('zone') ? ' has-error' : '' }} col-md-6 ">
@@ -96,18 +112,10 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Datum</label>
-                  <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum">
-                 @if ($errors->has('datum'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('datum') }}</strong>
-                                    </span>
-                                @endif
-                  </div>  
+                 
                   
                   
-                  <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1" class="control-label">Longitude</label>
                   <input type="text" name="longitude" value="{{ old('longitude') }}" required  class="form-control" id="longitude" placeholder="Longitude">
                  @if ($errors->has('longitude'))
@@ -121,7 +129,7 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">Latitude</label>
                   <input type="text" name="latitude" value="{{ old('latitude') }}" required  class="form-control" id="latitude" placeholder="Latitude">
                  @if ($errors->has('latitude'))
@@ -129,7 +137,16 @@
                                         <strong>{{ $errors->first('latitude') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
+                  </div> 
+                       <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
+                  <label for="exampleInputEmail1"  class="control-label">Datum (DD)</label>
+                  <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control" id="datum_dd" placeholder="Datum (DD)">
+                 @if ($errors->has('datum_dd'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('datum_dd') }}</strong>
+                                    </span>
+                                @endif
+                  </div>
                   
                   
                   <div class="form-group col-md-2 ">
@@ -170,7 +187,7 @@
                       
                   {!! Form::label('Year','Year',['class'=>'control-label']) !!}
                  <select name='year' class="form-control" paceholder='sfdgfdg'>
-                      <option value="">select Year</option>
+                      <option value="">Select Year</option>
                     <?php for($i=1950;$i<=2050;$i++){ ?>  
                       <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>

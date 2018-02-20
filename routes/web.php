@@ -14,7 +14,8 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-
+Route::resource('guest_register','GuestRegisterController');
+Route::resource('create_password','GuestPasswordController');
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
@@ -30,6 +31,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('user-management/index', 'UserManagementController@index')->name('users-mgmt.index');
 
 Route::resource('user-management', 'UserManagementController');
+Route::get('user-management/guestedit', 'UserManagementController@guestedit')->name('user-management.guestedit');
+
 Route::get('/user-management/viewprofile/{id}', 'UserManagementController@viewprofile');
 //taxon
 //Route::get('taxons/index', 'TaxonController@index')->name('taxons.index');
@@ -90,6 +93,7 @@ Route::resource('distribution','DistributionController');
 Route::post('changepasswords/update', 'ChangepasswordsController@updatePassword');
 Route::resource('changepasswords', 'ChangepasswordsController');
 
+//GuestRegisterController
 
 
 

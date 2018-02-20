@@ -27,7 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Taxon Code</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.taxon_code', array(),Session::get('language_val'))</label>
                   <input type="text" name="taxon_code" value="{{ $taxon->taxon_code }}" required  class="form-control" id="taxon_code" placeholder="Taxon Code">
                  @if ($errors->has('taxon_code'))
                                     <span class="help-block">
@@ -38,7 +38,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Taxon Code Description</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.taxon_code_description', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="taxon_code_description" value="{{ $taxon->taxon_code_description }}" required  class="form-control" id="taxon_code_description" placeholder="Taxon Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block">

@@ -9,17 +9,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>GVTC Admin Panel</title>
-
-    <!-- Styles -->
+      <link rel="stylesheet" href={{ asset("/bower_components/bootstrap/dist/css/bootstrap.min.css") }}>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href={{ asset("/bower_components/font-awesome/css/font-awesome.min.css") }}>
+    <link rel="stylesheet" href={{ asset("/dist/css/AdminLTE.min.css") }}>
+      
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar  navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
+<!--                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
+                     Collapsed Hamburger 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
@@ -27,19 +30,19 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                     Branding Image 
                     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/gvtcLogolong.jpg') }}" alt=""></a>
                      
-                    <!--<a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
-                    </a>-->
-                </div>
+                    </a>
+                </div>-->
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+<!--                    <ul class="nav navbar-nav">
                         &nbsp;
-                    </ul>
+                    </ul>-->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
