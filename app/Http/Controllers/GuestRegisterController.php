@@ -72,6 +72,20 @@ class GuestRegisterController extends Controller
     
     }
 
+    
+    public function checkDuplicateUser($username)
+    {
+     
+        $sql=DB::table("users")->where('username',$username)->first(); 
+      if(count($sql)>0){
+          
+          echo '<font color="#a94442"><b>'.$username.'</b> is already in use.</font>';
+      }else{
+        echo '<font color="#3c763d"><b>'.$username.'</b> is avaliable .</font>';
+      }
+       // die;
+        
+    }    
     /**
      * Display the specified resource.
      *

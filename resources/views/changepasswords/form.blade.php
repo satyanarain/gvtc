@@ -17,7 +17,7 @@
                    
 <div class="form-group">
         {!! Form::label('name','User Name', ['class' => 'control-label']) !!}
-        {!! Form::text('name', $user->name, ['class' => 'form-control','required' => 'required','readonly'=>'readonly','style'=>'border:none;']) !!}
+        {!! Form::text('name', $user->username, ['class' => 'form-control','required' => 'required','readonly'=>'readonly','style'=>'border:none;']) !!}
     </div>
 
 <div class="form-group">

@@ -27,7 +27,7 @@
                 <tr>
                   <th style="display:none">id</th>  
                   <th>Endenism</th>
-                  <th>Status</th>
+                  <th>Endenism Status</th>
                 
                   <th>Action</th>
                  
@@ -41,7 +41,7 @@
                 <tr>
                   <td style="display:none">{{ $endenism['id'] }}</td>  
                   <td>{{ $endenism['endenism'] }}</td>
-                  <td>{{ $endenism['status'] }}</td>
+                  <td>{{ $endenism['endenism_status'] }}</td>
                 
                  <?php //print_r($endenism); die; ?>
                   <td>
@@ -51,8 +51,8 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('endenism.show', $endenism['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('endenism.edit', $endenism['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>
-                       
+<!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
+     <?php testdatas('endenisms',$endenism['id'],$endenism['status']); ?>                    
                     </form>
                       
                       

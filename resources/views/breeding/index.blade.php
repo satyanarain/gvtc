@@ -1,4 +1,4 @@
-@extends('taxons.base')
+@extends('breeding.base')
 @section('action-content')
 <?php $session_lan= Session::get('language_val'); ?> 
     <!-- Main content -->
@@ -10,7 +10,7 @@
           <h3 class="box-title">Taxon Log</h3>
         </div>
         <div class="col-sm-4" >
- <a class="btn btn-primary btn-template" href="{{ route('taxons.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
+ <a class="btn btn-primary btn-template" href="{{ route('breeding.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
 </div>
     </div>
   </div>
@@ -25,29 +25,29 @@
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>@lang('menu.taxon_code', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.taxon_code_description', array(),Session::get('language_val'))</th>
+                  <th>Breeding Code</th>
+                  <th>Breeding Code Description</th>
                   <th>Action</th>
                  
                 </tr>
                 </thead>
                 <tbody>
                     
-                @foreach($taxons as $taxon) 
+                @foreach($breeding as $val) 
                 
                 <tr>
-                   <td style="display:none">{{ $taxon['id'] }}</td>
-                  <td>{{ $taxon['taxon_code'] }}</td>
-                  <td>{{ $taxon['taxon_code_description'] }}</td>
+                   <td style="display:none">{{ $val['id'] }}</td>
+                  <td>{{ $val['breeding_code'] }}</td>
+                  <td>{{ $val['breeding_description'] }}</td>
                   <td>
                    
-                   <form class="row" method="POST" action="{{ route('taxons.destroy', $taxon['id']) }}" onsubmit = "return confirm('Are you sure?')">
+                   <form class="row" method="POST" action="{{ route('breeding.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('taxons.show', $taxon['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
-<a href="{{ route('taxons.edit', $taxon['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+<a href="{{ route('breeding.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('breeding.edit', $val['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
 <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-<?php testdatas('taxons',$taxon['id'],$taxon['status']); ?>
+<?php testdatas('breedings',$val['id'],$val['status']); ?>
                    
  </form>                     
 </td>

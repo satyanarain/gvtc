@@ -1,4 +1,4 @@
-@extends('endenisms.base')
+@extends('breeding.base')
 
 @section('action-content')
 
@@ -9,9 +9,9 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Endenism</h3>
+              <h3 class="box-title">Add Breeding</h3>
               <div class="pull-right">
-<a href="{{ route('endenism.index') }}" class="btn btn-default">
+<a href="{{ route('breeding.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
 </div>
             </div>
@@ -21,37 +21,34 @@
             
             
             
-            <form role="form" method="POST" action="{{ route('endenism.store') }}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ route('breeding.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <div class="box-body">
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Endenism</label>
-                  <input type="text" name="endenism" value="{{ old('endenism') }}" required  class="form-control" id="endenism" placeholder="Endenism">
-                 @if ($errors->has('endenism'))
+                <div class="form-group{{ $errors->has('breeding_code') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1"  class="control-label">Breeding Code</label>
+                  <input type="text" name="breeding_code" value="{{ old('breeding_code') }}" required  class="form-control" id="breeding_code" placeholder="Bredding Code">
+                 @if ($errors->has('breeding_code'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('endenism') }}</strong>
+                                        <strong>{{ $errors->first('breeding_code') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('endenism_status') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Endenism Status</label>
-                  <input type="textarea" name="endenism_status" value="{{ old('endenism_status') }}" required  class="form-control" id="status" placeholder="Endenism Status">
-                 @if ($errors->has('status'))
+                  <div class="form-group{{ $errors->has('breeding_description') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Breeding Code Description</label>
+                  <input type="textarea" name="breeding_description" value="{{ old('breeding_description') }}" required  class="form-control" id="breeding_description" placeholder="Breeding Code Description">
+                 @if ($errors->has('breeding_description'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('endenism_status') }}</strong>
+                                        <strong>{{ $errors->first('breeding_description') }}</strong>
                                     </span>
                                 @endif
                   </div>  
                   
                 </div> 
-                  
-                  
-                   
                   
                   
                   

@@ -36,12 +36,12 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Status</label>
-                  <input type="text" name="status" value="{{ $endenisms->status }}" required  class="form-control" id="status" placeholder="Status">
-                 @if ($errors->has('status'))
+                  <div class="form-group{{ $errors->has('endenism_status') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">Endemism Status</label>
+                  <input type="text" name="endenism_status" value="{{ $endenisms->endenism_status }}" required  class="form-control" id="endenism_status" placeholder="Endemism Status">
+                 @if ($errors->has('endenism_status'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('status') }}</strong>
+                                        <strong>{{ $errors->first('endenism_status') }}</strong>
                                     </span>
                                 @endif
                   </div>  

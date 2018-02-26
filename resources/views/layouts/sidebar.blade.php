@@ -11,7 +11,7 @@ $user_pro_image = Auth::user()->profilepicture;
           <img src="{{ asset ("profilepicture/$user_pro_image") }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ ucfirst(Auth::user()->name) }}</p>
+          <p>{{ ucfirst(Auth::user()->username) }}</p>
           
           <?php
           //$userid = DB::table('users')->select('*')->where('id','=',$id)->first();
@@ -58,6 +58,7 @@ $user_pro_image = Auth::user()->profilepicture;
         <li class="{{ Request::segment(1) == 'observation' ? 'active active-sub' : '' }}"><a href="{{ url('observation/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Observation</span></a></li>
         <li class="{{ Request::segment(1) == 'age' ? 'active active-sub' : '' }}"><a href="{{ url('age/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Age Group</span></a></li>
         <li class="{{ Request::segment(1) == 'abundance' ? 'active active-sub' : '' }}"><a href="{{ url('abundance/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Abundance</span></a></li>
+        <li class="{{ Request::segment(1) == 'breeding' ? 'active active-sub' : '' }}"><a href="{{ url('breeding/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Breeding</span></a></li>
           </ul>
         </li>
          <li class="treeview" >

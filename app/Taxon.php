@@ -22,9 +22,7 @@ class Taxon extends Authenticatable
      *
      * @var array
      */
-   protected $fillable = [
-        'taxon_code','taxon_code_description',
-    ];
+   protected $guarded = [];
 
     public function species(){
        return $this->hasMany('App\Species');

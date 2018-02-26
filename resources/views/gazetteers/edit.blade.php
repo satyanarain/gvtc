@@ -61,7 +61,7 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-6 ">
+                  <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-2 ">
                   <label for="exampleInputEmail1" class="control-label">Eastings</label>
                   <input type="text" name="eastings" value="{{$gazetteers->eastings}}"   class="form-control" id="eastings" placeholder="Eastings">
                  @if ($errors->has('eastings'))
@@ -75,7 +75,7 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-6 ">
+                <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-2 ">
                   <label for="exampleInputEmail1"  class="control-label">Northings</label>
                   <input type="text" name="northings" value="{{$gazetteers->northings}}"   class="form-control" id="species" placeholder="Northings">
                  @if ($errors->has('species'))
@@ -86,12 +86,15 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('zone') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Zone</label>
-                  <input type="text" name="zone" value="{{$gazetteers->zone}}"   class="form-control" id="zone" placeholder="Zone">
-                 @if ($errors->has('zone'))
+                    
+                       
+                       
+                       <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 ">
+                  <label for="exampleInputEmail1"  class="control-label">Datum (UTM)</label>
+                  <input type="text" name="datum" value="{{$gazetteers->datum}}"   class="form-control" id="datum" placeholder="Datum">
+                 @if ($errors->has('datum'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('zone') }}</strong>
+                                        <strong>{{ $errors->first('datum') }}</strong>
                                     </span>
                                 @endif
                   </div>  
@@ -100,18 +103,18 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Datum</label>
-                  <input type="text" name="datum" value="{{$gazetteers->datum}}" required  class="form-control" id="datum" placeholder="Datum">
-                 @if ($errors->has('datum'))
+                
+                  <div class="form-group{{ $errors->has('zone') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1" class="control-label">Zone</label>
+                  <input type="text" name="zone" value="{{$gazetteers->zone}}"   class="form-control" id="zone" placeholder="Zone">
+                 @if ($errors->has('zone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('datum') }}</strong>
+                                        <strong>{{ $errors->first('zone') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
+                  </div>
                   
-                  
-                  <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1" class="control-label">Longitude</label>
                   <input type="text" name="longitude" value="{{$gazetteers->longitude}}" required  class="form-control" id="longitude" placeholder="Longitude">
                  @if ($errors->has('longitude'))
@@ -125,7 +128,7 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">Latitude</label>
                   <input type="text" name="latitude" value="{{$gazetteers->latitude}}" required  class="form-control" id="latitude" placeholder="Latitude">
                  @if ($errors->has('latitude'))
@@ -133,7 +136,19 @@
                                         <strong>{{ $errors->first('latitude') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
+                  </div> 
+                       
+                       
+                   <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 ">
+                  <label for="exampleInputEmail1"  class="control-label">Datum (DD)</label>
+                  <input type="text" name="datum_dd" value="{{$gazetteers->datum_dd}}"   class="form-control" id="datum" placeholder="Datum (DD)">
+                 @if ($errors->has('datum_dd'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('datum_dd') }}</strong>
+                                    </span>
+                                @endif
+                  </div>     
+                       
                   
                   
                   <div class="form-group col-md-2 ">

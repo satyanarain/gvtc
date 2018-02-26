@@ -210,8 +210,35 @@
                   
                 </div> 
                    
-                     
                    
+                   
+                    <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+                <div class=" col-md-6">
+                  <label for="exampleInputEmail1">National Threat Code </label>
+                  <input type="text" readonly  value="{{ $species->national_threat_code_id }}"  class="form-control" >
+                 
+                  </div>  
+                  
+                  
+                  <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Breeding</label>
+                  <input  value="{{ $species->breeding_id }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div> 
+                     
+              
+                   
+                   
+                   
+                 
                    
                   
               </div>    

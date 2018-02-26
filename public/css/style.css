@@ -148,3 +148,26 @@ body:before {
   transform: translateX(-50%) translateY(-50%);
 }
 .customInput{ width:auto !important;}
+.forget_password{
+        color:#ffffff;float:right; display:inline-block;
+    }
+    
+.user_guest{
+    float:left;
+    display:inline-block;
+    color:#ffffff;
+    text-decoration:none;
+
+}
+
+  
+.user_guest:hover{
+    text-decoration:underline;
+    color:#ffffff;
+
+}  
+.forget_password:hover{
+    text-decoration:underline;
+    color:#ffffff;
+
+}  

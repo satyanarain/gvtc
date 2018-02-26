@@ -14,6 +14,7 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::get('guest_register/find_username/{username}','GuestRegisterController@checkDuplicateUser');
 Route::resource('guest_register','GuestRegisterController');
 Route::resource('create_password','GuestPasswordController');
 Route::get('/', function () {
@@ -26,16 +27,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::post('user-management/search', 'UserManagementController@search')->name('user-management.search');
-//usermangement
-//Route::get('user-management/index', 'UserManagementController@index')->name('users-mgmt.index');
-
-Route::resource('user-management', 'UserManagementController');
+Route::get('/user-management/user_status_update/{id}', 'UserManagementController@userstatusUpdate');
 Route::get('user-management/guestedit', 'UserManagementController@guestedit')->name('user-management.guestedit');
-
 Route::get('/user-management/viewprofile/{id}', 'UserManagementController@viewprofile');
+Route::resource('user-management', 'UserManagementController');
+
 //taxon
-//Route::get('taxons/index', 'TaxonController@index')->name('taxons.index');
+//Route::get('taxons/{id}', 'TaxonController@statusUpdate');
+ Route::get('taxons/status_update/{id}','TaxonController@statusUpdate');
 Route::resource('taxons','TaxonController');
 Route::get('iucns/index', 'IucnThreatCodeController@index')->name('iucns.index');
 Route::resource('iucns', 'IucnThreatCodeController');
@@ -94,6 +93,8 @@ Route::post('changepasswords/update', 'ChangepasswordsController@updatePassword'
 Route::resource('changepasswords', 'ChangepasswordsController');
 
 //GuestRegisterController
+Route::resource('breeding','BreedingController');
+
 
 
 

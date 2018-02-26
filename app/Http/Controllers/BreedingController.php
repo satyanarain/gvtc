@@ -8,11 +8,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Taxon;
+use App\Breeding;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
-class TaxonController extends Controller
+class BreedingController extends Controller
 {
        /**
      * Where to redirect users after registration.
@@ -38,8 +38,8 @@ class TaxonController extends Controller
      */
     public function index()
     {
-    $taxons = Taxon::all()->toArray();
-    return view('taxons.index', compact('taxons'));
+    $breeding = Breeding::all()->toArray();
+    return view('breeding.index', compact('breeding'));
     
     }
 
@@ -50,7 +50,7 @@ class TaxonController extends Controller
      */
     public function create()
     {
-        return view('taxons/create');
+        return view('breeding/create');
     }
 
     /**
@@ -66,15 +66,15 @@ class TaxonController extends Controller
       
      
      $this->validateInput($request);
-     Taxon::create([
-            'taxon_code' => $request['taxon_code'],
-            'taxon_code_description' => $request['taxon_code_description']
+     Breeding::create([
+            'breeding_code' => $request['breeding_code'],
+            'breeding_description' => $request['breeding_description']
             
         ]);
 
      //return back()->with('success', 'Product has been added');
-    Session::flash('flash_message', "Taxon Created Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('taxons.index');
+    Session::flash('flash_message', "Breeding Created Successfully."); //Snippet in Master.blade.php 
+    return redirect()->route('breeding.index');
     }
     
       
@@ -88,13 +88,13 @@ class TaxonController extends Controller
      */
      public function show($id)
     {
-         $taxons = Taxon::find($id);
+         $breedings = Breeding::find($id);
         // Redirect to taxon list if updating taxon wasn't existed
-        if ($taxons == null || count($taxons) == 0) {
-            return redirect()->intended('/taxons');
+        if ($breedings == null || count($breedings) == 0) {
+            return redirect()->intended('/breedings');
         }
 
-        return view('taxons.show', ['taxons' => $taxons]);
+        return view('breeding.show', ['breedings' => $breedings]);
         
         
     }
@@ -107,13 +107,13 @@ class TaxonController extends Controller
      */
     public function edit($id)
     {
-        $taxon = Taxon::find($id);
+        $breeding = Breeding::find($id);
         // Redirect to taxon list if updating taxon wasn't existed
-        if ($taxon == null || count($taxon) == 0) {
-            return redirect()->intended('/taxons');
+        if ($breeding == null || count($breeding) == 0) {
+            return redirect()->intended('/$breeding');
         }
 
-        return view('taxons.edit', ['taxon' => $taxon]);
+        return view('breeding.edit', ['breeding' => $breeding]);
     }
 
     /**
@@ -126,10 +126,10 @@ class TaxonController extends Controller
     public function update(Request $request, $id)
     {
        
-        $taxon = Taxon::findOrFail($id);
+        $taxon = Breeding::findOrFail($id);
         $constraints = [
-            'taxon_code' => 'required',
-            'taxon_code_description'=> 'required',
+            'breeding_code' => 'required',
+            'breeding_description'=> 'required',
             
             ];
        
@@ -139,46 +139,19 @@ class TaxonController extends Controller
         
        
         $input = [
-            'taxon_code' => $request['taxon_code'],
-            'taxon_code_description' => $request['taxon_code_description']
+            'breeding_code' => $request['breeding_code'],
+            'breeding_description' => $request['breeding_description']
         ];
         
-        if ($request['password'] != null && strlen($request['password']) > 0) {
-            $constraints['password'] = 'required|min:6|confirmed';
-            $input['password'] =  bcrypt($request['password']);
-        }
+        
         $this->validate($request, $constraints);
-        Taxon::where('id', $id)
-            ->update($input);
+        Breeding::where('id', $id)->update($input);
         
         //return redirect()->intended('/taxons');
-        return redirect()->route('taxons.index');
+        return redirect()->route('breeding.index');
     }
 
-    public function statusUpdate($id)
-   {
-
-    $tablename=$_REQUEST['tablename'];
-  
-   $sql=DB::table($tablename)->where('id',$id)->first();
-
-      if($sql->status==0)
-      {
-     
-      $var = $sql=DB::table($tablename)->where('id',$id)->first();
-      $var->status=1;
-      DB::table($tablename)->where('id', $id)->update(array('status' => $var->status)); 
-      
-      echo "1";
-     }else
-      {
-      $status=  $sql->status;
-      $var =  $sql=DB::table($tablename)->where('id',$id)->first();
-      $var->status=0;
-       DB::table($tablename)->where('id', $id)->update(array('status' => $var->status));
-      echo "0";
-      }
-   }
+    
     
     
     
@@ -207,8 +180,8 @@ class TaxonController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'taxon_code' => 'required|unique:taxons',
-        'taxon_code_description' => 'required'
+        'breeding_code' => 'required',
+        'breeding_description' => 'required|unique:breedings'
         
     ]);
     }

@@ -243,9 +243,7 @@ class UserManagementController extends Controller
           'id'=>$id,
          'date'      => date("M d, Y h:i a")
        );
-        //print_r($query_email);
-        //die;
-       //$query_user =  (object) $query_email;
+
        $query_user =  (object) $query_email; 
        Mail::send('emails.password_notification', ['users_details' => $query_user], function ($message) use ($query_user) {
          $message->from('info@opiant.online', 'GVTC');
@@ -261,6 +259,51 @@ class UserManagementController extends Controller
     Session::flash('flash_message', "User Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('user-management.index');
     }
+    
+    
+    
+     public function userstatusUpdate($id)
+   {
+    $tablename=$_REQUEST['tablename'];
+  
+   $sql=DB::table($tablename)->where('id',$id)->first();
+    if($sql->status==0)
+      {
+     
+      $var =DB::table($tablename)->where('id',$id)->first();
+      //print_r($var);
+      $current_status=$var->status;
+      $current_passwordstatus=$var->password_status;
+      $email=$var->email;
+      $username=$var->username;
+      $var->status=1;
+      DB::table($tablename)->where('id', $id)->update(array('status' => $var->status)); 
+      echo "1";
+      if($current_status==0){
+      $q = "UPDATE users SET status= '1' WHERE id=$id ";
+      DB::update(DB::raw($q));
+       $query_email = array(
+          'id'=>$id,
+           'email'=>$email,
+           'username'=>$username,
+         'date'=> date("M d, Y h:i a")
+       );
+       $query_user =  (object) $query_email; 
+        Mail::send('emails.password_notification', ['users_details' => $query_user], function ($message) use ($query_user) {
+         $message->from('info@opiant.online', 'GVTC');
+         $message->to($query_user->email,$query_user->username)->subject('GVTC Account Activation Link');
+      });  
+      
+      }
+     }else
+      {
+      $status=  $sql->status;
+      $var =  $sql=DB::table($tablename)->where('id',$id)->first();
+      $var->status=0;
+       DB::table($tablename)->where('id', $id)->update(array('status' => $var->status));
+      echo "0";
+      }
+   }
 
     /**
      * Remove the specified resource from storage.

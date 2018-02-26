@@ -53,9 +53,13 @@ class GazetteerController extends Controller
      */
     public function create()
     { 
-       $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
-       $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
-       $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('admincode','id');
+        
+        
+       $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id'); 
+      // $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",countries.range AS sd_title,")") as full_name')->pluck('full_name', 'id');
+       //$protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
+       $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
+       $protectedrecodsql = DB::table('protected_areas')->selectRaw('id, CONCAT(protected_area_name," ","(",protected_area_code,")") as full_name')->pluck('full_name', 'id');
        $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
        $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
        $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
@@ -109,7 +113,6 @@ class GazetteerController extends Controller
         'adminunit_id' => $request['adminunit_id'],
         'remarks' => $request['remarks'],
         ]);
-
     Session::flash('flash_message', "Gazetters Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('gazetteer.index');
      }
@@ -177,10 +180,9 @@ class GazetteerController extends Controller
     public function update(Request $request, $id)
     {
        
-        $water = Gazetteer::findOrFail($id);
+        $gazetter = Gazetteer::findOrFail($id);
         $constraints = [
-            'place' => 'required',
-            'datum' =>'required',   
+            'place' => 'required',  
             'longitude' => 'required',
             'latitude' => 'required',
             
@@ -199,6 +201,7 @@ class GazetteerController extends Controller
         'northings' => $request['northings'],
         'zone'=>$request['zone'],
         'datum' => $request['datum'],
+        'datum_dd' => $request['datum_dd'],   
         'longitude' => $request['longitude'],
         'latitude' => $request['latitude'],
         'day' => $request['day'],
@@ -217,11 +220,10 @@ class GazetteerController extends Controller
         
       
         $this->validate($request, $constraints);
-        Gazetteer::where('id', $id)
-            ->update($input);
+        Gazetteer::where('id', $id)->update($input);
         
       
-    Session::flash('flash_message', "Forest Use Updated Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Gazetteer Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('gazetteer.index');
     }
 
@@ -248,9 +250,7 @@ class GazetteerController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'place' => 'required',
-       'datum' =>'required',   
-       'datum_dd' =>'required',   
+        'place' => 'required',   
       'longitude' => 'required',
        'latitude' => 'required',
         

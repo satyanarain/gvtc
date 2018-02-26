@@ -37,7 +37,7 @@
                 
                 <tr>
                   <td style="display:none">{{ $range['id'] }}</td>  
-                  <td>{{ $range['range'] }}</td>
+                  <td>{{ $range['range_code'] }}</td>
                   <td>{{ $range['range_within_the_albertine_rift'] }}</td>
                  
                   <td>
@@ -47,8 +47,8 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('ranges.show', $range['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('ranges.edit', $range['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>
-                       
+<!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
+<?php testdatas('ranges',$range['id'],$range['status']); ?>                         
                     </form>
                       
                       

@@ -31,7 +31,7 @@ $session_lan= Session::get('language_val');?>
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href={{ asset("/dist/css/skins/_all-skins.min.css") }}>
   <link rel="stylesheet" href={{ asset("/dist/css/custom.css") }}>
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset ("/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css") }}">
   <!-- Morris chart -->
@@ -63,8 +63,10 @@ $session_lan= Session::get('language_val');?>
         ]) !!};
     </script>
     <script src="{{ asset ("/js/validation.js") }}"></script>
+    <script src="{{ asset ("/js/custom.js") }}"></script>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
+<div id="load"></div>  
 <div class="wrapper">
 
     <!-- Main Header -->

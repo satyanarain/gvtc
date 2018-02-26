@@ -57,18 +57,27 @@ class SpeciesController extends Controller
      */
     public function create()
     { 
-       $taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
-       $iucnrecodsql= DB::table('iucn_threats')->orderBy('id','ASC')->pluck('iucn_threat_code','id');
-       $rangerecordsql=DB::table('ranges')->orderBY('id','ASC')->pluck('range','id');
-       $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
-       $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
-       $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
-       $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
-       $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
+       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $growthrecordsql = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form," ","(",growth_form,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $waterusesql = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage," ","(",water_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $endemismsql = DB::table('endenisms')->selectRaw('id, CONCAT(endenism_status," ","(",endenism,")") as full_name')->WHERE('status','=',1)->WHERE('status','=',1)->pluck('full_name', 'id');
+       $migrationsql = DB::table('migration_tbl')->selectRaw('id, CONCAT(birds_migrating_population," ","(",migration_title,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $forestusesql = DB::table('forestuse')->selectRaw('id, CONCAT(forest_habitat_usage," ","(",forest_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $nationalusesql = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $breedingusesql = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       //$iucnrecodsql= DB::table('iucn_threats')->orderBy('id','ASC')->pluck('iucn_threat_code','id');
+       //$rangerecordsql=DB::table('ranges')->orderBY('id','ASC')->pluck('range','id');
+       //$growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
+       //$forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
+       //$waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
+       //$endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
+       //$migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
        $last_species= Species::latest()->first();
        $last_speciesid= $last_species['id']+1;
        //print_r($taxonrecodsql);
-        return view('species/create',compact('taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql','last_speciesid'));
+        return view('species/create',compact('taxonrecodsql','breedingusesql','iucnrecodsql','nationalusesql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql','last_speciesid'));
     }
 
     /**
@@ -112,7 +121,9 @@ class SpeciesController extends Controller
         'forestuse_id' => $request['forestuse_id'],
         'wateruse_id' => $request['wateruse_id'],
         'endenisms_id' => $request['endenisms_id'],
-        'migration_tbl_id' => $request['migration_tbl_id']
+        'migration_tbl_id' => $request['migration_tbl_id'],
+        'breeding_id' => $request['breeding_id'],
+        'national_threat_code_id' => $request['national_threat_code_id']
 
         ]);
         
@@ -142,14 +153,34 @@ class SpeciesController extends Controller
             ->leftjoin('taxons','species.taxon_id','=','taxons.id')
             ->leftjoin('ranges','ranges.id','=','species.range_id')
             ->where('species.id',$id)->first();
+    
+   
   // echo   $species->range_id;
         $arr = [$species->range_id];
-        $arr = join(",",$arr);
-        $result =  DB::select(DB::raw("SELECT * FROM ranges WHERE id IN (".$arr.")"));
+       $arr = join(",",$arr);
+     
+        if($arr!=''){
+            $result =  DB::select(DB::raw("SELECT * FROM ranges WHERE id IN (".$arr.")")); 
+         //  echo "SELECT * FROM ranges  WHERE id= $id ";
+         // $result =  DB::select(DB::raw("SELECT * FROM ranges  WHERE id= $id "));   
+        }else{
+            
+            $result=array();
+        }
+       //$result =  DB::select(DB::raw("SELECT * FROM ranges WHERE id IN (".$arr.")")); 
+        //echo '<pre>';
+        //print_r($result);
+        //die;
+        if(count($result)>0)
+        {
         foreach($result as $val){
-        $range[]= $val->range;
+        $range[]= $val->range_code;
         }
         $range= implode(', ',$range);
+        } else {
+       $range='';
+            
+        }
         return view('species.show', compact('species','range'));
         }       
 
@@ -165,15 +196,26 @@ class SpeciesController extends Controller
     {
       
        $specie = Species::find($id);
-       $taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
-       $iucnrecodsql= DB::table('iucn_threats')->orderBy('id','ASC')->pluck('iucn_threat_code','id');
-       $rangerecordsql=DB::table('ranges')->orderBY('id','ASC')->pluck('range','id');
-       $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
-       $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
-       $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
-       $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
-       $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
-       return view('species.edit',compact('specie','taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql')); 
+       //$taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
+       //$iucnrecodsql= DB::table('iucn_threats')->orderBy('id','ASC')->pluck('iucn_threat_code','id');
+       //$rangerecordsql=DB::table('ranges')->orderBY('id','ASC')->pluck('range','id');
+       //$growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
+       //$forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
+       //$waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
+       //$endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
+      // $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
+       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->pluck('full_name', 'id');
+       $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->pluck('full_name', 'id');
+       $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+       $growthrecordsql = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form," ","(",growth_form,")") as full_name')->pluck('full_name', 'id');
+       $waterusesql = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage," ","(",water_use,")") as full_name')->pluck('full_name', 'id');
+       $endemismsql = DB::table('endenisms')->selectRaw('id, CONCAT(endenism_status," ","(",endenism,")") as full_name')->pluck('full_name', 'id');
+       $migrationsql = DB::table('migration_tbl')->selectRaw('id, CONCAT(birds_migrating_population," ","(",migration_title,")") as full_name')->pluck('full_name', 'id');
+       $forestusesql = DB::table('forestuse')->selectRaw('id, CONCAT(forest_habitat_usage," ","(",forest_use,")") as full_name')->pluck('full_name', 'id');
+       $nationalusesql = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $breedingusesql = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       
+       return view('species.edit',compact('specie','nationalusesql','breedingusesql','taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql')); 
         
     }
 
@@ -185,8 +227,12 @@ class SpeciesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-       $range_id= implode(',',$request['range_id']);
+    {   if($request['range_id']==''){
+        $range_id= $request['range_id'];
+    }else{
+       $range_id= implode(',',$request['range_id']); 
+    }
+       
         $specie = Species::findOrFail($id);
         $constraints = [
         'taxon_id' => 'required',
@@ -210,7 +256,9 @@ class SpeciesController extends Controller
         'forestuse_id' => $request['forestuse_id'],
         'wateruse_id' => $request['wateruse_id'],
         'endenisms_id' => $request['endenisms_id'],
-        'migration_tbl_id' => $request['migration_tbl_id']
+        'migration_tbl_id' => $request['migration_tbl_id'],
+        'breeding_id' => $request['breedings_id'],
+        'national_threat_code_id' => $request['national_threat_codes_id']    
           
         ];
         

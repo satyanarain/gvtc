@@ -26,12 +26,12 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('range') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('range_code') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">Range</label>
-                  <input type="text" name="range" value="{{ $range->range }}" required  class="form-control" id="taxon_code" placeholder="Range">
-                 @if ($errors->has('range'))
+                  <input type="text" name="range_code" value="{{ $range->range_code }}" required  class="form-control" id="taxon_code" placeholder="Range">
+                 @if ($errors->has('range_code'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('range') }}</strong>
+                                        <strong>{{ $errors->first('range_code') }}</strong>
                                     </span>
                                 @endif
                   </div>  

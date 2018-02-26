@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+ <script>
+  
+            </script> 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="font-weight:bold">Guest User Registration
+                <div class="panel-heading">Guest User Registration
                 
                     <div class="pull-right" style="margin-top:0px;">
 <a href="<?php echo $url='http://'.$_SERVER['HTTP_HOST'].'/'.'login'; ?>" class="">
-<span class="glyphicon glyphicon-home text-green"></span></a>
+<span class="glyphicon glyphicon-home text-black"></span></a>
 </div>
                 
                 
                 </div>
                 
 
-                <div class="panel-body">
+                <div class="panel-body"style="background:#324b30">
                 
                   @if (Session::has('success'))
                   <div class="alert alert-success alert-dismissible">
@@ -31,34 +34,9 @@
                         {{ csrf_field() }}
                          <input id="role" type="hidden" class="form-control" name="role" value="guest">
                          <input id="status" type="hidden" class="form-control" name="status" value="0">
-                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} required">
-                            <label for="first_name" class="col-md-4 control-label">Username</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" placeholder="Username" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} required">
-                            <label for="email" class="col-md-4 control-label" >E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
                         
-                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} required">
+                        
+                        <div class="custom form-group{{ $errors->has('first_name') ? ' has-error' : '' }} required">
                             <label for="first_name" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
@@ -72,7 +50,7 @@
                             </div>
                         </div>
                         
-                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} required">
+                         <div class="custom form-group{{ $errors->has('last_name') ? ' has-error' : '' }} required">
                             <label for="name" class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
@@ -87,8 +65,38 @@
                         </div>
                         
                         
+                          <div class="custom form-group{{ $errors->has('username') ? ' has-error' : '' }} required">
+                            <label for="first_name" class="col-md-4 control-label">Username</label>
+                            <div id="usermessage" class="col-md-6"></div>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" placeholder="Username" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                         <div id="div_order"></div>
+                        <div class="custom form-group{{ $errors->has('email') ? ' has-error' : '' }} required">
+                            <label for="email" class="col-md-4 control-label" >E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                         
+                         
                         
-                        <div class="form-group required" >
+                        <div class="custom form-group required" >
                          <label for="name" class="col-md-4 control-label">Purpose of Account</label>    
                         <div class="col-md-6">
 
@@ -101,8 +109,35 @@
                         </div>
                         
                         
+                         
+                         <div class="custom form-group{{ $errors->has('institution_type') ? ' has-error' : '' }} ">
+                            <label for="ioc" class="col-md-4 control-label">Institution Type</label>
+
+                            <div class="col-md-6">
+                                
+                                
+                                <select name="institution_type" class="form-control" required="">
+                                <option value="">Please Select</option>
+                                <option value="Govermment">Government</option>
+                                <option value="Education">Education</option>
+                                <option value="Meda">Meda</option>
+                                <option value="Research">Research</option>
+                                <option value="Commerical">Commerical</option>
+                                <option value="Other">Other</option>
+                                </select>   
+                                
+                                
+<!--                                <input id="institution_type" placeholder="Institution Type" type="text" class="form-control" name="institution_type" value="{{ old('institution_type') }}"  autofocus>
+
+                                @if ($errors->has('institution_type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('institution_type') }}</strong>
+                                    </span>
+                                @endif-->
+                            </div>
+                        </div>
                         
-                        <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} required">
+                        <div class="custom form-group{{ $errors->has('institution') ? ' has-error' : '' }} required">
                             <label for="institution" class="col-md-4 control-label">Institution / Organization / Company</label>
 
                             <div class="col-md-6">
@@ -117,21 +152,9 @@
                         </div>
                         
                         
-                        <div class="form-group{{ $errors->has('institution_type') ? ' has-error' : '' }} ">
-                            <label for="ioc" class="col-md-4 control-label">Institution Type</label>
-
-                            <div class="col-md-6">
-                                <input id="institution_type" placeholder="Institution Type" type="text" class="form-control" name="institution_type" value="{{ old('institution_type') }}"  autofocus>
-
-                                @if ($errors->has('institution_type'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('institution_type') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
                         
-                        <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} ">
+                        
+                        <div class="custom form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} ">
                             <label for="ioc" class="col-md-4 control-label">Phone Number</label>
 
                             <div class="col-md-6">
@@ -145,7 +168,7 @@
                             </div>
                         </div>
                         
-                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} ">
+                         <div class="custom form-group{{ $errors->has('address') ? ' has-error' : '' }} ">
                             <label for="ioc" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
@@ -159,7 +182,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group required" >
+                        <div class="custom form-group required" >
                          <label for="name" class="col-md-4 control-label">Country of Residence</label>    
                         <div class="col-md-6">
 
@@ -284,7 +307,7 @@
                         <option value="Kyrgyzstan">Kyrgyzstan</option>
                         <option value="Lao">Lao People's Democratic Republic</option>
                         <option value="Latvia">Latvia</option>
-                        <option value="Lebanon" selected>Lebanon</option>
+                        <option value="Lebanon">Lebanon</option>
                         <option value="Lesotho">Lesotho</option>
                         <option value="Liberia">Liberia</option>
                         <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
@@ -385,7 +408,7 @@
                         <option value="Turkmenistan">Turkmenistan</option>
                         <option value="Turks and Caicos">Turks and Caicos Islands</option>
                         <option value="Tuvalu">Tuvalu</option>
-                        <option value="Uganda">Uganda</option>
+                        <option value="Uganda"selected>Uganda</option>
                         <option value="Ukraine">Ukraine</option>
                         <option value="United Arab Emirates">United Arab Emirates</option>
                         <option value="United Kingdom">United Kingdom</option>
@@ -430,8 +453,8 @@
                             </div>
                         </div>-->
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group ">
+                            <div class="col-md-6 col-md-offset-4 guset_reg">
                                 <button type="submit" class="btn btn-primary btn-sub">
                                     Register
                                 </button>
@@ -445,3 +468,4 @@
     </div>
 </div>
 @endsection
+  

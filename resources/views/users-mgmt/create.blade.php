@@ -35,6 +35,7 @@
                   <input id="status" type="hidden" class="form-control" name="status" value="1">
                   <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} col-md-12 required">
                   <label for="exampleInputEmail1" class="control-label">Username</label>
+                  
                   <input type="text" name="username"    value="{{ old('username') }}" required  class="form-control"  placeholder="Enter Username" id="username" >
                  @if ($errors->has('username'))
                                     <span class="help-block">

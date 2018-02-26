@@ -32,9 +32,10 @@
                 </thead>
                 <tbody>
                 @foreach ($users as $user)    
+                <?php if($user->role!=='admin'){?>
                 <tr>
                    <td style="display:none">{{ $user['id'] }}</td>
-                   <td>{{ $user->username }}</td>
+                   <td>{{ucfirst($user->username) }}</td>
                    <td>
                        <?php 
                        if($user->role=='guest'){
@@ -48,37 +49,21 @@
                   <td>{{ $user->email }}</td>
                   <td><div class="<?php if($user->status==0){ echo "inactive_record";}else{ echo "active_record"; } ?>"></div></td>
                   <td>
-                      
-                      <form class="row" method="POST" action="{{ route('user-management.destroy', ['id' => $user->id]) }}" onsubmit = "return confirm('Are you sure?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        
-                        
-                    
-                <a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a> 
-                
+<form class="row" method="POST" action="{{ route('user-management.destroy', ['id' => $user->id]) }}" onsubmit = "return confirm('Are you sure?')">
+<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a> 
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-   @if ($user->name != Auth::user()->name)
-<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Active</button>        
- @else
- 
- <a  href="#" class="btn-danger btn"  style="margin-left: 15px; opacity: 0.5;filter: alpha(opacity=50);  cursor: default;"><i class="fa fa-trash"></i>&nbsp;Inactive</a>
- @endif 
+<?php userstatus('users',$user['id'],$user['status']); ?>    
  <a  href="#" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
-                       
-                    </form>
-                      
-                      
-                     </td>
-                </tr>
-               
-              @endforeach
-              
-              
-                </tbody>
-                 
-              </table>
-            </div>
+ </form>
+ </td>
+ </tr>
+                <?php } ?>
+@endforeach
+</tbody>
+</table>
+</div>
             <!-- /.box-body -->
   
   
@@ -91,41 +76,5 @@
 </div>
     </section>
     <!-- /.content -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  </div>
+</div>
 @endsection

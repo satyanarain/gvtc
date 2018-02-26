@@ -87,7 +87,7 @@
                   </div> 
                        
                        
-                  <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 required">
+                  <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 ">
                   <label for="exampleInputEmail1"  class="control-label">Datum (UTM)</label>
                   <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum (UTM)">
                  @if ($errors->has('datum'))
@@ -138,7 +138,7 @@
                                     </span>
                                 @endif
                   </div> 
-                       <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
+                       <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2">
                   <label for="exampleInputEmail1"  class="control-label">Datum (DD)</label>
                   <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control" id="datum_dd" placeholder="Datum (DD)">
                  @if ($errors->has('datum_dd'))

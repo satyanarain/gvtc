@@ -37,8 +37,8 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Status</label>
-                  <input  value="{{ $endenisms->status }}" readonly=""  class="form-control">
+                  <label for="exampleInputEmail1">Endemism Status</label>
+                  <input  value="{{ $endenisms->endenism_status}}" readonly=""  class="form-control">
                 
                   </div>  
                   

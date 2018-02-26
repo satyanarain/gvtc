@@ -30,7 +30,18 @@
                     
                     <form class="form-horizontal" method="POST" action="{{ route('create_password.store') }}">
                         {{ csrf_field() }}
+                        <?php
+                        $userid = DB::table('users')->select('*')->where('id','=',$id)->first();
+                        
+                        
+                        ?>
                         <input type="hidden" name="userid" value="{{$id}}"/>
+                        <div class="form-group">
+                            <label for="username" class="col-md-4 control-label">Username</label>
+                        <div class="col-md-6">
+                            <input id="username" readonly=""  value="<?php  echo $userpassword = $userid->username; ?>" class="form-control" name="username" >
+                        </div>
+                        </div>
                   <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -54,7 +65,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-4 guset_reg">
                                 <button type="submit" class="btn btn-primary btn-sub">
                                     Save
                                 </button>

@@ -30,7 +30,6 @@
               <div class="box-body">
                 <input type="hidden" name="specienewid" value="{{'GVTCSP'.$last_speciesid}}" required  class="form-control" id="order" placeholder="species">   
                 <div class="form-row">
-                  
                 <div class="form-group col-md-6 required">
 
                   {!! Form::label('Taxon','Taxon',['class'=>'control-label']) !!}
@@ -129,7 +128,7 @@
                   
                 <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">Common Name</label>
-                  <input type="text" name="common_name" value="{{ old('common_name') }}"   class="form-control" id="taxon_code" placeholder="Common Name">
+                  <input type="text" name="common_name" value="{{ old('common_name') }}"   class="form-control" id="common_name" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('common_name') }}</strong>
@@ -210,6 +209,27 @@
                   
                   
                   
+                
+                 <div class="form-row">
+                  
+                <div class="form-group col-md-6 ">
+                    
+                   {!! Form::label('National Threat Code','National Threat Code',['class'=>'control-label']) !!}
+                  {!! Form::select('national_threat_code_id',$nationalusesql,null,['class'=>'form-control','placeholder'=>'Select National Threat Code']) !!}    
+                 
+                  </div>  
+                  
+                  <div class="form-group col-md-6 ">
+                    {!! Form::label('Breeding','Breeding',['class'=>'control-label']) !!}
+                  {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
+                      
+                      
+                      
+                  
+                  </div>  
+                   
+                  
+                </div> 
                   
                 
                  
