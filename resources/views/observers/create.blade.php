@@ -125,9 +125,9 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Work Tel. Number</label>
-                  <input type="number" name="work_tel_number" value="{{ old('work_tel_number') }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
+                  <input type="number" name="work_tel_number" value="{{ old('work_tel_number') }}"   class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
                  @if ($errors->has('work_tel_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('work_tel_number') }}</strong>
@@ -151,9 +151,9 @@
                   
                   <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Email</label>
-                  <input type="email" name="email" value="{{ old('email') }}" required  class="form-control" id="taxon_code" placeholder="Email">
+                  <input type="email" name="email" value="{{ old('email') }}"   class="form-control" id="taxon_code" placeholder="Email">
                  @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -162,9 +162,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Website</label>
-                  <input type="text" name="website" value="{{ old('website') }}" required  class="form-control" id="taxon_code_description" placeholder="Website">
+                  <input type="text" name="website" value="{{ old('website') }}"   class="form-control" id="taxon_code_description" placeholder="Website">
                  @if ($errors->has('website'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('website') }}</strong>

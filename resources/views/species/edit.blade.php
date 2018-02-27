@@ -226,7 +226,7 @@
                   
                   <div class="form-group col-md-6 ">
                     {!! Form::label('Breeding','Breeding',['class'=>'control-label']) !!}
-                  {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
+                  {!! Form::select('breeding_id',$breedingusesql,isset($specie->breeding_id) ? $specie->breeding_id : 'selected',['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
                       
                       
                       

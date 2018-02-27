@@ -53,15 +53,20 @@ class DistributionController extends Controller
      */
     public function create()
     { 
-      
-       $taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
-       $methodrecodsql= DB::table('methods')->orderBy('id','ASC')->pluck('method_code','id');
-       $observationrecodsql= DB::table('observation')->orderBy('id','ASC')->pluck('observation_code','id');
-       $gazetteerrecodsql= DB::table('gazetteers')->orderBy('id','ASC')->pluck('gazeteer_id','id');
-       $agerecodsql= DB::table('ages')->orderBy('id','ASC')->pluck('age_group','id');
-       $abundancerecodsql= DB::table('abundances')->orderBy('id','ASC')->pluck('abundance_group','id');
+       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       $methodrecodsql = DB::table('methods')->selectRaw('id, CONCAT(code_description," ","(",method_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       $observerrecodsql = DB::table('observers')->selectRaw('id, CONCAT(first_name," ",last_name ) as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       $agerecodsql = DB::table('ages')->selectRaw('id, CONCAT(code_description," ","(",age_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
+       //$taxonrecodsql= DB::table('taxons')->orderBy('id','ASC')->pluck('taxon_code','id');
+       //$methodrecodsql= DB::table('methods')->orderBy('id','ASC')->pluck('method_code','id');
+       //$observationrecodsql= DB::table('observation')->orderBy('id','ASC')->pluck('observation_code','id');
+       $gazetteerrecodsql= DB::table('gazetteers')->orderBy('id','ASC')->pluck('place','id');
+       //$agerecodsql= DB::table('ages')->orderBy('id','ASC')->pluck('age_group','id');
+       //$abundancerecodsql= DB::table('abundances')->orderBy('id','ASC')->pluck('abundance_group','id');
        $specierecodsql= DB::table('species')->orderBy('id','ASC')->pluck('specienewid','id');
-       return view('distributions/create',compact('taxonrecodsql','methodrecodsql','observationrecodsql','gazetteerrecodsql','agerecodsql','abundancerecodsql','specierecodsql'));
+       return view('distributions/create',compact('taxonrecodsql','methodrecodsql','observationrecodsql','observerrecodsql','gazetteerrecodsql','agerecodsql','abundancerecodsql','specierecodsql'));
     }
 
     /**
@@ -107,7 +112,34 @@ class DistributionController extends Controller
     }
     
       
-    
+    public function speciecRecord($taxon_id){
+        
+      $genus=$_REQUEST['genus'];
+     if($genus=='genus'){
+        $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+        echo '<label for="MethodID" class="">Species</label>';
+        echo '<select class="form-control" required="required" id="species_record" name="species_id">';
+        echo '<option selected="selected" value="">Select Species</option>';
+       foreach($sql as $v){
+           ?>
+            <option value="<?php echo $v->id; ?>"><?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?></option>
+         <?php }
+      echo ' </select> ';
+     }else{
+         
+         
+        $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+        echo '<label for="MethodID" class="">Species</label>';
+        echo '<select class="form-control" required="required" id="species_record" name="species_id">';
+        echo '<option selected="selected" value="">Select Species</option>';
+       foreach($sql as $v){
+           ?>
+            <option value="<?php echo $v->id; ?>"><?php echo $v->common_name; ?></option>
+         <?php }
+      echo ' </select> ';
+     }
+    }
+
 
     /**
      * Display the specified resource.

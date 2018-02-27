@@ -146,10 +146,7 @@
                 </div> 
                   
                   <div class="form-row">
-                      <style>
-                          
-                          
-                      </style>
+                
    
                 <div class="form-group col-md-6 custom-range">
                   {!! Form::label('Range','Range',['class'=>'control-label']) !!}
@@ -219,7 +216,7 @@
                  
                   </div>  
                   
-                  <div class="form-group col-md-6 ">
+                  <div class="form-group col-md-6 " id="breeding_div" style='display:none;'>
                     {!! Form::label('Breeding','Breeding',['class'=>'control-label']) !!}
                   {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
                       

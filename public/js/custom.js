@@ -80,6 +80,7 @@ $(document).ready(function(){
 $("#username").blur(function()
 {
 var username = $("#username").val();
+//alert(username);
 if(username!=''){
 
 
@@ -98,6 +99,53 @@ success:function(data)
 
 });
 });  
+
+//genusclick
+$(document).ready(function(){    
+$(".geniusrecord").click(function()
+{
+var taxon_id = $("#taxon_id").val();
+var genus = $(this).val();
+//alert(genus);
+if(taxon_id!=''){
+
+    $.ajax({
+   type:'get',
+   url:'/distribution/speciec_record/'+taxon_id,
+    data:"genus="+genus,
+ success:function(data)
+
+   {
+  //alert(data);
+    $("#displ").show();
+       $("#speciessel").html(data);
+       //alert(data);
+   //$("#usermessage").html(data);
+   }
+});
+
+}
+
+});
+}); 
+//specimendata
+
+$(document).ready(function(){
+			
+		
+		
+		 $('#specimendata').change(function(){
+        if(this.checked){
+            $('.div_specimen').show();
+			//$('.eng_lang').hide();
+		}
+        else{
+            $('.hindi_lang').hide();
+			$('.div_specimen').hide();
+		}
+
+		});
+		});
 
 
 

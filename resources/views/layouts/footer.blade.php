@@ -126,6 +126,9 @@ if(taxonidval==1){
         
         $("#growth_id_div").hide();
     }
+    
+    
+    
 $('#taxon_id').change(function(){
     $taxonid=$(this).val(); 
     if($taxonid==1){
@@ -133,7 +136,26 @@ $('#taxon_id').change(function(){
     }else{
      $("#growth_id_div").hide();
     }
-});    
+}); 
+
+
+
+$('#taxon_id').change(function(){
+    $taxonid=$(this).val(); 
+    if($taxonid==6){
+        $("#breeding_div").show();
+    }else{
+     $("#breeding_div").hide();
+    }
+}); 
+if(taxonidval==6){
+        $("#breeding_div").show();
+    }else{
+        
+        
+        $("#breeding_div").hide();
+    }
+
 });
 //sorticonremove
 $(document).ready(function(){

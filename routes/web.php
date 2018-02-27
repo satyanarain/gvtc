@@ -86,6 +86,7 @@ Route::resource('species','SpeciesController');
 Route::resource('gazetteer','GazetteerController');
 
 //
+Route::get('/distribution/speciec_record/{id}', 'DistributionController@speciecRecord');
 Route::resource('distribution','DistributionController');
 
 //changepassword

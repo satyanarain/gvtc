@@ -70,7 +70,7 @@
                             <div id="usermessage" class="col-md-6"></div>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" placeholder="Username" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                                <input id="username" type="text" placeholder="Username" class="form-control username" name="username" value="{{ old('username') }}" required autofocus>
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">

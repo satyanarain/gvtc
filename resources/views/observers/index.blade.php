@@ -27,25 +27,26 @@
                 <tr>
                   <th style="display:none">id</th> 
                   <th>Observer ID</th>
-                  <th>Mobile</th>
+                  <th>Observer Type</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
                   <th>Email</th>
+                  <th>Mobile No.</th>
                   <th>Action</th>
-                 
                 </tr>
                 </thead>
                 <tbody>
-                    
                 @foreach($observers as $val) 
-                
                 <tr>
                    <td style="display:none">{{ $val['id'] }}</td>
                   <td>{{ $val['observer_id'] }}</td>
-                  <td>{{ $val['mobile'] }}</td>
+                  <td>{{ $val['observeroption'] }}</td>
+                  <td>{{ $val['first_name'] }}</td>
+                  <td>{{ $val['last_name'] }}</td>
                   <td>{{ $val['email'] }}</td>
-                 
-                  <td>
-                   
-                   <form class="row" method="POST" action="{{ route('observer.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
+                  <td>{{ $val['mobile'] }}</td>
+              <td>
+ <form class="row" method="POST" action="{{ route('observer.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('observer.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
