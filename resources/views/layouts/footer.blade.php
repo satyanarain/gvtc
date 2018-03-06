@@ -58,13 +58,9 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ("/dist/js/demo.js") }}"></script>
-
+<script src="{{ asset ("/bower_components/datatables.net/js/jquery.dataTables.min.js") }}"></script>
+<script src="{{ asset ("/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js") }}"></script>
 @stack('datatable_data')
-
-
-
-
-
  <script>
   $(function () {
 
@@ -87,6 +83,7 @@
     })
   })
 </script>
+
     
 <script type="text/javascript">
 $('#calendar').datepicker({
@@ -175,12 +172,13 @@ $("#example1 th:last-child").addClass("sort");
 $(document).ready(function(){
     
     
-});
+
 
 $(function() {
     $('input[name="observeroption"]').on('click', function() {
         if ($(this).val() == 'Individual') {
             var newobrv_id = 'GVTCINV'+obrv_id;
+            $('#institution_field').removeAttr('required');
             $("#institution_label").hide();
             $('#observer_id').val(newobrv_id);
              $(".div_individual").show();
@@ -191,8 +189,10 @@ $(function() {
                $('#first_name').addAttr('required');
             $('#last_name').addAttr('required');
            $('#title').addAttr('required');
+           
+           
            //$("#institution_field").removeAttr('required');
-           //alert('hi');
+          // alert('hi');
             
           
         }
@@ -224,6 +224,7 @@ $(function() {
             
         }
     });
+});
 });
 </script>
 

@@ -88,7 +88,7 @@
                 
                  <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required"  id="institution_label" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">Institution Name</label>
-                  <input type="text" name="institution"  value="{{ old('institution') }}"  class="form-control" id="institution_field"  placeholder="Institution Name">
+                  <input type="text" name="institution"  value="{{ old('institution') }}"  required="" class="form-control" id="institution_field"  placeholder="Institution Name">
                  @if ($errors->has('institution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('institution') }}</strong>
