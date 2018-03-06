@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>Manage Forest Used</h1>
+<h1>Manage Forest Use</h1>
 
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
@@ -22,7 +22,7 @@ if(is_numeric(Request::segment($i))){
 }else{
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-    {{ title_case(str_replace('forest','Forest Used',(Request::segment($i)))) }}
+    {{ title_case(str_replace('forest','Forest Use',(Request::segment($i)))) }}
 </a> 
 <?php } ?>
 @else 
@@ -34,7 +34,7 @@ if(is_numeric(Request::segment($i))){
 <div class="btn btn-primary btn-success">
 
     
-   {{ title_case(str_replace('forest','Forest Used',(Request::segment($i)))) }}
+   {{ title_case(str_replace('forest','Forest Use',(Request::segment($i)))) }}
     </div>
     
    <?php

@@ -68,9 +68,9 @@
                 
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">First Name</label>
-                  <input type="text" name="first_name" value="{{ $observers->first_name}}" required  class="form-control" id="taxon_code" placeholder="First Name">
+                  <input type="text" name="first_name" value="{{ $observers->first_name}}"   class="form-control" id="taxon_code" placeholder="First Name">
                  @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -104,9 +104,9 @@
                   </div>  
                   <?php } ?>
                   
-                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Address</label>
-                  <input type="textarea" name="address" value="{{  $observers->address }}" required  class="form-control" id="address" placeholder="Address">
+                  <input type="textarea" name="address" value="{{  $observers->address }}"   class="form-control" id="address" placeholder="Address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -119,9 +119,9 @@
                 
                      <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Work Tel. Number</label>
-                  <input type="text" name="work_tel_number" value="{{ $observers->work_tel_number }}" required  class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
+                  <input type="text" name="work_tel_number" value="{{ $observers->work_tel_number }}"   class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
                  @if ($errors->has('work_tel_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('work_tel_number') }}</strong>
@@ -130,9 +130,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Mobile</label>
-                  <input type="textarea" name="mobile" value="{{  $observers->mobile }}" required  class="form-control" id="taxon_code_description" placeholder="Mobile">
+                  <input type="textarea" name="mobile" value="{{  $observers->mobile }}"   class="form-control" id="taxon_code_description" placeholder="Mobile">
                  @if ($errors->has('mobile'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobile') }}</strong>
@@ -146,9 +146,9 @@
                    
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 required">
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Email</label>
-                  <input type="text" name="email" value="{{  $observers->email }}" required  class="form-control" id="taxon_code" placeholder="Email">
+                  <input type="text" name="email" value="{{  $observers->email }}"   class="form-control" id="taxon_code" placeholder="Email">
                  @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -157,9 +157,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Website</label>
-                  <input type="text" name="website" value="{{  $observers->website }}" required  class="form-control" id="taxon_code_description" placeholder="Website">
+                  <input type="text" name="website" value="{{  $observers->website }}"   class="form-control" id="taxon_code_description" placeholder="Website">
                  @if ($errors->has('website'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('website') }}</strong>

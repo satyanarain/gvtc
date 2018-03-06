@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 class Distribution extends Authenticatable
 {
     use Notifiable;
-    protected $table = 'distributions';
+    protected $table = 'endenisms';
 
     /**
      * The attributes that are mass assignable.

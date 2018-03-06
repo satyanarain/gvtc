@@ -2,7 +2,7 @@
 
 @section('action-content')
 
-    
+ 
 <section class="content">
       <div class="row">
         <!-- left column -->

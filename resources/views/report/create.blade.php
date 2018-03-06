@@ -1,8 +1,8 @@
-
 @extends('distributions.base')
 
 @section('action-content')
 
+    
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -10,25 +10,19 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update Distribution Record</h3>
+              <h3 class="box-title">Add Distribution Record</h3>
               <div class="pull-right">
 <a href="{{ route('distribution.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; Back</a>
 </div>
             </div>
-   
             <!-- /.box-header -->
             <!-- form start -->
-<?php //print_r($specie);die; ?>
-{!! Form::model($distribution, ['method' => 'PATCH','route' => ['distribution.update', $distribution['id']],'files'=>true,'enctype' => 'multipart/form-data']) !!}
-           <?php
-//print_r($distribution);
-//die;
-?> 
-
-
-   <div class="box-body">
+           
+            <form role="form" method="POST"  action="{{ route('distribution.store') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              <div class="box-body">
                 
                 <div class="form-row">
                   
@@ -44,33 +38,18 @@
                       <p style="font-weight:bold;">Selection Criteria</p>
               
                     <div class="checkbox checkbox-success checkbox-inline">
-                        <input type="radio"  class="geniusrecord" name="selectioncriteria" <?php if($distribution->selectioncriteria=='genus'){?> checked <?php } ?> id="genus" value="genus">
+                        <input type="radio"  class="geniusrecord" name="selectioncriteria"  id="genus" value="genus">
                         <label for="inlineCheckbox2"> Genus / Species / Sub-species </label>
                     </div>
                     <div class="checkbox checkbox-inline">
-                        <input type="radio" name="selectioncriteria" class="geniusrecord" <?php if($distribution->selectioncriteria=='commonname'){?> checked <?php } ?> id="inlineCheckbox3" value="commonname">
+                        <input type="radio" name="selectioncriteria" class="geniusrecord" id="inlineCheckbox3" value="commonname">
                         <label for="inlineCheckbox3"> Common Name </label>
                     </div>
              
              
              
              
-               </div>
-                <div id="div_show">    
-               <?php if($distribution->selectioncriteria=='genus'){?>  
-                    <div class="form-group col-md-2 required">
-                        <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="hidden" class="form-control" name="specie_id" readonly=""  value="<?php echo $distribution->specie_id; ?>">
-                   </div>
-                <?php } ?>
-                    
-                <?php if($distribution->selectioncriteria=='commonname'){?>  
-                    <div class="form-group col-md-2 required">
-                        <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="hidden" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
-                   </div>
-                <?php } ?>    
-                    </div>   
+               </div>  
                    <div class="form-group col-md-2 required" id="displ" style="display:none;">
                     <span id="speciessel"> </span>  
                    </div>
@@ -87,7 +66,7 @@
                   </div>  
                   
                   
-                  <div class="form-group  col-md-6 ">
+                  <div class="form-group  col-md-6 required">
                  {!! Form::label('Observation','Observation',['class'=>'control-label']) !!}
                   {!! Form::select('observation_id',$observationrecodsql,null,['class'=>'form-control','placeholder'=>'Select Observation','required'=>'required','id' => 'observation_id']) !!}
               
@@ -104,14 +83,12 @@
                    {!! Form::label('Place','Place',['class'=>'control-label']) !!}
                   {!! Form::select('gazetteer_id',$gazetteerrecodsql,null,['class'=>'form-control','placeholder'=>'Select Place','required'=>'required','id' => 'gazetteer_id']) !!}
                   </div>  
-                  
-                  
-                  <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }} col-md-2 ">
+                <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }} col-md-2 ">
                    {!! Form::label('day','Day',['class'=>'control-label']) !!}
                   <select name='day' class="form-control">
                       <option value="">Select Day</option>
                     <?php for($i=1;$i<=31;$i++){ ?>  
-                      <option value="<?php echo $i; ?>" <?php if($distribution->day==$i){?> selected <?php } ?> ><?php echo $i; ?></option>
+                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
                   </select>
                   </div>  
@@ -137,7 +114,7 @@
                  <select name='year' class="form-control" paceholder='sfdgfdg'>
                       <option value="">Select Year</option>
                     <?php for($i=1950;$i<=2050;$i++){ ?>  
-                      <option value="<?php echo $i; ?>" <?php if($distribution->year==$i){?> selected <?php } ?>><?php echo $i; ?></option>
+                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
                   </select>
                   </div>    
@@ -147,7 +124,7 @@
                   
                 <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">Number</label>
-                  <input type="text" name="number" value="{{ $distribution->number }}"   class="form-control" id="taxon_code" placeholder="Number">
+                  <input type="text" name="number" value="{{ old('number') }}"   class="form-control" id="taxon_code" placeholder="Number">
                  @if ($errors->has('number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('number') }}</strong>
@@ -161,23 +138,17 @@
                   {!! Form::label('Observer','Observer',['class'=>'control-label']) !!}
 <!--                  {!! Form::select('observer_id',$observerrecodsql,null,['class'=>'form-control','placeholder'=>'Select Observer','required'=>'required','id' => 'observer_id']) !!}-->
                   <select class="form-control" required="required" id="observer_id" name="observer_id">
-                      <option  value="">Select Observer</option>
+                      <option selected="selected" value="">Select Observer</option>
                       <?php  
                       $sql=DB::table('observers')->get(); 
                       foreach($sql  as  $val){
                           //if($val->first_name!='' && $val->last_name!=''){
-                         
-                      ?>
-                      <?php
-                       echo $distribution->observer_id;
-                          echo "f";
-                      
                       ?>
                       <?php if($val->first_name!='' && $val->last_name!=''){ ?>
-                      <option value="<?php echo $val->id; ?>" <?php if($val->id==$distribution->observer_id){echo 'selected="selected"';} ?>><?php if($val->first_name!=''){ echo $val->first_name; } ?> <?php  if($val->last_name!=''){  echo $val->last_name;}  ?></option>
+                      <option value="<?php echo $val->id; ?>"><?php if($val->first_name!=''){ echo $val->first_name; } ?> <?php  if($val->last_name!=''){  echo $val->last_name;}  ?></option>
                       <?php } ?>
                       <?php if($val->institution!=''){ ?>
-                      <option value="<?php echo $val->id; ?>" <?php if($val->id==$distribution->observer_id){echo 'selected="selected"';} ?>><?php  echo $val->institution;  ?> </option>
+                      <option value="<?php echo $val->id; ?>"><?php  echo $val->institution;  ?> </option>
                       <?php } ?>
                           <?php //}else{ ?>
                      
@@ -203,24 +174,23 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}
-                  {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance','id' => 'abundance_id']) !!}
+                  {!! Form::label('AbundanceCode','Abundance Code',['class'=>'control-label']) !!}
+                  {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance Code','id' => 'abundance_id']) !!}
                  
                    </div>  
                   
                 </div> 
                    <div class="form-row">
                     <div class="form-group col-md-12 ">
-                        <input type="checkbox" id="specimendata" <?php if($distribution->specimendata==1){?>checked readonly=""<?php } ?> >
+                    <input type="checkbox" id="specimendata" name="specimendata" value="1">
                         <label for="inlineCheckbox1"> Specimen Data </label>
                     </div>    
-                   </div> 
-       <?php if($distribution->specimendata==1){ ?>
-                 <div class="form-row div_specimen" >
+                   </div>   
+                 <div class="form-row div_specimen" style="display:none">
                   
                 <div class="form-group col-md-6 ">
 <label for="exampleInputEmail1" class="control-label">Specimen Code</label>
-                  <input type="text" name="specimencode" value="{{ $distribution->specimencode }}"   class="form-control" id="specimen" placeholder="Specimen Code">
+                  <input type="text" name="specimencode" value="{{ old('specimencode') }}"   class="form-control" id="specimen" placeholder="Specimen Code">
                  @if ($errors->has('specimencode'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('specimencode') }}</strong>
@@ -232,7 +202,7 @@
                   
                   <div class="form-group{{ $errors->has('collectorinstitution') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Collector Institution</label>
-                  <input type="text" name="collectorinstitution" value="{{ $distribution->collectorinstitution }}"   class="form-control" id="collectorinstitution" placeholder="Collector Institution">
+                  <input type="text" name="collectorinstitution" value="{{ old('collectorinstitution') }}"   class="form-control" id="collectorinstitution" placeholder="Collector Institution">
                  @if ($errors->has('collectorinstitution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('collectorinstitution') }}</strong>
@@ -241,7 +211,7 @@
                   </div>  
                   
                 </div>  
-       <?php } ?>            
+                  
                   
                   
                   <div class="form-row">
@@ -252,7 +222,7 @@
                   {!! Form::select('sex',[
                     'M' => 'Male',
                     'F' => 'Female',
-                    ],isset($distribution->Sex)? $distribution->Sex:null,['class'=>'form-control','placeholder'=>'Select Sex']) !!} 
+                    ],null,['class'=>'form-control','placeholder'=>'Select Sex']) !!} 
                     
                   
                   </div>  
@@ -261,7 +231,7 @@
                   <div class="form-group col-md-6 ">
                       
                    <label for="exampleInputEmail1" class="control-label">Remarks</label>
-                  <input type="text" name="remark" value="{{ $distribution->remark }}"   class="form-control" id="remark" placeholder="Remarks">
+                  <input type="text" name="remark" value="{{ old('remark') }}"   class="form-control" id="remark" placeholder="Remarks">
                  @if ($errors->has('remark'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('remark') }}</strong>
@@ -289,11 +259,10 @@
              
                   
               </div>    
-              
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">Save</button>
               </div>
             </form>
           </div>
@@ -308,5 +277,4 @@
 
 
 @endsection
-
 

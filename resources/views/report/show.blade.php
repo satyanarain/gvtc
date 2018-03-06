@@ -133,7 +133,7 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}
+                  {!! Form::label('AbundanceCode','Abundance Code',['class'=>'control-label']) !!}
                   <input type="text" readonly  value="{{ $distribution->abundance_id }}"  class="form-control" >
                  
                    </div>  

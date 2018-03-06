@@ -1,9 +1,10 @@
 @extends('layouts.app-template')
+
 @section('content')
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>Manage Water Use</h1>
+<h1>Manage Reports</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
@@ -21,7 +22,8 @@ if(is_numeric(Request::segment($i))){
 }else{
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-     {{ title_case(str_replace('water','Water Use',(Request::segment($i)))) }}
+    
+    {{ title_case(str_replace('distribution','Distribution Record',(Request::segment($i)))) }}
 </a> 
 <?php } ?>
 @else 
@@ -32,8 +34,7 @@ if(is_numeric(Request::segment($i))){
     ?>
 <div class="btn btn-primary btn-success">
 
-    
-     {{ title_case(str_replace('water','Water Use',(Request::segment($i)))) }}
+     {{ title_case(str_replace('distribution','Distribution Record',(Request::segment($i)))) }}
     </div>
     
    <?php
@@ -50,3 +51,6 @@ if(is_numeric(Request::segment($i))){
 <!-- /.content -->
 </div>
 @endsection
+
+
+

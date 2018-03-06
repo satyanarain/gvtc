@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Water Used</h3>
+              <h3 class="box-title">Add Water Use</h3>
                <div class="pull-right">
 <a href="{{ route('water.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -29,8 +29,8 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('water_use') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Water Used</label>
-                  <input type="text" name="water_use" value="{{ old('water_use') }}" required  class="form-control" id="water_use" placeholder="Water Used">
+                  <label for="exampleInputEmail1" class="control-label">Water Use</label>
+                  <input type="text" name="water_use" value="{{ old('water_use') }}" required  class="form-control" id="water_use" placeholder="Water Use">
                  @if ($errors->has('water_use'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('water_use') }}</strong>

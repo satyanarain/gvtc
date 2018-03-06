@@ -151,54 +151,16 @@
                        
                   
                   
-                  <div class="form-group col-md-2 ">
-                      
-                  {!! Form::label('day','Day',['class'=>'control-label']) !!}
-                  <select name='day' class="form-control">
-                      <option value="">Select Day</option>
-                    <?php for($i=1;$i<=31;$i++){ ?>  
-                      <option value="<?php echo $i; ?>" <?php if($i==$gazetteers->day){ echo 'selected'; }?>><?php echo $i; ?></option>
-                    <?php } ?>
-                  </select>
-                  </div>  
+                 
                
                 </div> 
                   
                   <div class="form-row">
                   
-                <div class="form-group col-md-2 ">
-                  {!! Form::label('Month','Month',['class'=>'control-label']) !!}
-                  {!! Form::select('month',[
-   'January' => 'January',
-   'February' => 'February',
-   'March' => 'March',
-   'April' => 'April',
-   'May' => 'May',
-   'June' => 'June',
-   'July' => 'July',
-   'August' => 'August',
-   'September' => 'September',
-   'October' => 'October',
-   'November' => 'November',
-   'December' => 'December',
-   ],null,['class'=>'form-control','placeholder'=>'Select Month']) !!} 
-                  
-                  </div>  
+                
           
                   
-                  <div class="form-group col-md-2 ">
-                      
-                  {!! Form::label('Year','Year',['class'=>'control-label']) !!}
-                 <select name='year' class="form-control">
-                      <option value="">select Year</option>
-                    <?php for($i=1950;$i<=2050;$i++){?>  
-                      <option value="<?php echo $i;  ?>" <?php if($i==$gazetteers->year){ echo 'selected'; }?>>
-                             <?php echo $i;  ?>
-                 </option>
-                    <?php } ?>
-                  </select>
-                     
-                   </div>  
+                 
                   
                 </div> 
                   

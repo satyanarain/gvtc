@@ -203,8 +203,8 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}
-                  {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance','id' => 'abundance_id']) !!}
+                  {!! Form::label('AbundanceCode','Abundance Code',['class'=>'control-label']) !!}
+                  {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance Code','id' => 'abundance_id']) !!}
                  
                    </div>  
                   

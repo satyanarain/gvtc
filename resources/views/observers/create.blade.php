@@ -64,15 +64,15 @@
                 
                    <div class="form-row" style="display:none" id="individual">
                   
-                  <div class="form-group col-md-6 required"> 
+                  <div class="form-group col-md-6"> 
                     {!! Form::label('Title','Title',['class'=>'control-label']) !!}
-                  {!! Form::select('tittle',['Prof'=>'Prof.','Dr'=>'Dr.','Mr'=>'Mr.','Ms'=>'Ms.'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Select Title','required'=>'required']) !!}
+                  {!! Form::select('tittle',['Prof'=>'Prof.','Dr'=>'Dr.','Mr'=>'Mr.','Ms'=>'Ms.'],null,['class'=>'form-control','id'=>'title','placeholder'=>'Select Title']) !!}
                     
                     </div> 
                        
-                    <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
+                    <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1" class="control-label">First Name</label>
-                  <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" required  class="form-control" id="taxon_code" placeholder="First Name">
+                  <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}"   class="form-control" id="taxon_code" placeholder="First Name">
                  @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -106,9 +106,9 @@
                                 @endif
                   </div>  
                      
-                    <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
+                    <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">Address</label>
-                  <input type="textarea" name="address" value="{{ old('address') }}" required  class="form-control" id="address" placeholder="Address">
+                  <input type="textarea" name="address" value="{{ old('address') }}"   class="form-control" id="address" placeholder="Address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -136,9 +136,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1" class="control-label">Mobile</label>
-                  <input type="tel" name="mobile" value="{{ old('mobile') }}" required  class="form-control" id="taxon_code_description" placeholder="Mobile">
+                  <input type="tel" name="mobile" value="{{ old('mobile') }}"   class="form-control" id="taxon_code_description" placeholder="Mobile">
                  @if ($errors->has('mobile'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobile') }}</strong>

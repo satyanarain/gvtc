@@ -126,7 +126,7 @@ class BreedingController extends Controller
     public function update(Request $request, $id)
     {
        
-        $taxon = Breeding::findOrFail($id);
+        $breding = Breeding::findOrFail($id);
         $constraints = [
             'breeding_code' => 'required',
             'breeding_description'=> 'required',

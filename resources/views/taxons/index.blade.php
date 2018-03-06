@@ -54,11 +54,23 @@
 </tr>
                
               @endforeach
-              
-              
-                </tbody>
+             
+            </tbody>
                 
               </table>
+                
+                
+                
+                
+                
+                
+                
+
+   
+   
+                
+                
+                
             </div>
             <!-- /.box-body -->
   
@@ -73,4 +85,23 @@
     </section>
     <!-- /.content -->
   </div>
-@endsection
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @endsection
+
+

@@ -9,12 +9,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Distribution;
+use App\Report;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
 error_reporting(0);
-class DistributionController extends Controller
+class ReportController extends Controller
 {
        /**
      * Where to redirect users after registration.
@@ -43,7 +43,7 @@ class DistributionController extends Controller
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->get();
     
-    return view('distributions.index', compact('distribution'));  
+    return view('report.index', compact('distribution'));  
     
     
    }

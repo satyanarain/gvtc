@@ -84,7 +84,8 @@ Route::resource('observer','ObserverController');
 Route::resource('species','SpeciesController');
 //gazetteer
 Route::resource('gazetteer','GazetteerController');
-
+//report
+Route::resource('report','ReportController');
 //
 Route::get('/distribution/speciec_record/{id}', 'DistributionController@speciecRecord');
 Route::resource('distribution','DistributionController');

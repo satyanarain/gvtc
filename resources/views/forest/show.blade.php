@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">View Forest Used</h3>
+              <h3 class="box-title">View Forest Use</h3>
               <div class="pull-right">
 <a href="{{ route('forest.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
@@ -31,7 +31,7 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Forest Used </label>
+                  <label for="exampleInputEmail1">Forest Use</label>
                   <input type="text" readonly  value="{{ $forests->forest_use }}"  class="form-control" >
                  
                   </div>  

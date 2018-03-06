@@ -87,18 +87,18 @@ class ObserverController extends Controller
 //    [email] => rvkumar738@gmail.com
 //    [website] => Website
 //)
-      $result=DB::table('observers')->where('email','=',$request['email'])->where('mobile','=',$request['mobile'])->select('*')->count();  
-      if($result){
-        $request->session()->flash('success', 'This record already exists.');
-        return back();     
-          
-      }else{
+//      $result=DB::table('observers')->where('email','=',$request['email'])->where('mobile','=',$request['mobile'])->select('*')->count();  
+//      if($result){
+//        $request->session()->flash('success', 'This record already exists.');
+//        return back();     
+//          
+//      }else{
      Observer::create($inpute);
 
      //return back()->with('success', 'Product has been added');
     Session::flash('flash_message', "Observer Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('observer.index');
-    }}
+    }
     
       
     

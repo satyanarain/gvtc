@@ -118,6 +118,7 @@ if(taxon_id!=''){
    {
   //alert(data);
     $("#displ").show();
+    $("#div_show").hide();
        $("#speciessel").html(data);
        //alert(data);
    //$("#usermessage").html(data);
