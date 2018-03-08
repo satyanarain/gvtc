@@ -23,7 +23,7 @@ class Country extends Model
      * @var array
      */
    protected $fillable = [
-        'range','range_within_albertine_rift',
+        'range_code','range_within_albertine_rift',
     ];
 
     /**

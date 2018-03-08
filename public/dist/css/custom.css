@@ -191,3 +191,17 @@ font-weight: normal !important;
     background:url("../img/gvtc_loader.gif") no-repeat center center rgba(0,0,0,0.25);
     animation-direction: alternate;
 }
+.label_value{
+    
+    font-weight:normal;
+}
+.pull-right .dropdown-menu {
+    right: 0;
+    left: auto;
+    padding: 15px;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 400px;
+    overflow-x: hidden;
+}

@@ -43,7 +43,10 @@ class AdminUnitController extends Controller
     {
     // $taxons = Taxon::paginate(100);
     //return view('taxons/index', ['taxons' => $taxons]);
-    $adminunits = AdminUnit::all()->toArray();
+    //$adminunits = AdminUnit::all()->toArray();
+    $adminunits = DB::table('adminunits')->select('*','adminunits.id as id')->leftjoin('countries','adminunits.countrie_id','=','countries.id')->get()->toArray();   
+  // print_r($adminunits);
+  // die;
     return view('admin-units.index', compact('adminunits'));
     
      //$protectedareas = ProtectedArea::all()->toArray();
@@ -57,7 +60,8 @@ class AdminUnitController extends Controller
      */
     public function create()
     {
-        return view('admin-units/create');
+         $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+        return view('admin-units/create',compact('countryrecodsql'));
     }
 
     /**
@@ -74,13 +78,13 @@ class AdminUnitController extends Controller
      
      $this->validateInput($request);
      AdminUnit::create([
-            'country' => $request['country'],
+            'countrie_id' => $request['countrie_id'],
             'admincode' => $request['admincode'],
             'name' => $request['name'],
             
         ]);
 
-    Session::flash('flash_message', "Country Created Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Admin Unit Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('admin-unit.index');
     }
     
@@ -114,13 +118,16 @@ class AdminUnitController extends Controller
      */
     public function edit($id)
     {
+        
+        
+         $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
         $adminunits = AdminUnit::find($id);
         // Redirect to taxon list if updating taxon wasn't existed
        if ($adminunits == null || count($adminunits) == 0) {
             return redirect()->intended('/admin-unit');
         }
 
-        return view('admin-units/edit', ['adminunits' => $adminunits]);
+        return view('admin-units/edit', compact('adminunits','countryrecodsql'));
     }
 
     /**
@@ -136,7 +143,7 @@ class AdminUnitController extends Controller
         $range = AdminUnit::findOrFail($id);
         $constraints = [
           
-        'country' => 'required',
+        'countrie_id' => 'required',
         'admincode' => 'required',
          'name' => 'required'
             
@@ -148,7 +155,7 @@ class AdminUnitController extends Controller
         
        
         $input = [
-            'country' => $request['country'],
+            'countrie_id' => $request['countrie_id'],
             'admincode' => $request['admincode'],
             'name' => $request['name']
         ];
@@ -159,7 +166,7 @@ class AdminUnitController extends Controller
             ->update($input);
         
         
-    Session::flash('flash_message', "Country Updated Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Admin Unit Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('admin-unit.index');   
     
     }
@@ -189,11 +196,29 @@ class AdminUnitController extends Controller
         $this->validate($request, [
         'name' => 'required|unique:adminunits',
         'admincode' => 'required',
-         'country' => 'required'  
+         'countrie_id' => 'required'  
         //'designation' => 'required',
        
         
     ]);
     }
+    
+     public function adminunit($id){
+         
+         $sql=DB::table('adminunits')->where('countrie_id',$id)->get();
+         echo '<div class="form-group col-md-6 " id="adminunit_select">';
+       echo ' <label for="AdminUnit" class="control-label">Admin Unit</label>';
+        echo '<select class="form-control" name="adminunit_id">';
+        echo '<option selected="selected" value="">Select Admin Unit</option>';
+       foreach($sql as $v){
+           ?>
+            <option value="<?php echo $v->id; ?>"><?php echo $v->admincode; ?>(<?php echo $v->name; ?>)</option>
+         <?php }
+      echo ' </select> ';
+      echo '</div>';
+    
+    }
+    
+    
 }
 

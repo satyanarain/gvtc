@@ -102,7 +102,7 @@ $user_pro_image = Auth::user()->profilepicture;
         </li>
       
        
-      </ul>report
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>

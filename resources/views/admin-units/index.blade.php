@@ -1,6 +1,8 @@
 @extends('admin-units.base')
 @section('action-content')
-<?php  //print_r($adminunits); die; ?>
+<?php 
+//echo'<pre>';
+//print_r($adminunits); die; ?>
     <!-- Main content -->
     
     <section class="content">
@@ -39,22 +41,22 @@
                 
                 
                 <tr>
-                  <td style="display:none">{{ $adminunit['id'] }}</td>  
-                  <td>{{ $adminunit['name'] }}</td>
-                  <td>{{ $adminunit['country'] }}</td>
+                  <td style="display:none">{{ $adminunit->id }}</td>  
+                  <td>{{ $adminunit->name  }}</td>
+                  <td>{{ $adminunit->range_within_albertine_rift}}({{ $adminunit->range_code }})</td>
                 
-                  <td>{{ $adminunit['admincode'] }}</td>
+                  <td>{{ $adminunit->admincode }}</td>
                 
                  <?php //print_r($endenism); die; ?>
                   <td>
                       
-                      <form class="row" method="POST" action="{{ route('admin-unit.destroy', $adminunit['id']) }}" onsubmit = "return confirm('Are you sure?')">
+                      <form class="row" method="POST" action="{{ route('admin-unit.destroy', $adminunit->id) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('admin-unit.show', $adminunit['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('admin-unit.edit', $adminunit['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a href="{{ route('admin-unit.show', $adminunit->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('admin-unit.edit', $adminunit->id) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-<?php testdatas('adminunits',$adminunit['id'],$adminunit['status']); ?>                      
+<?php testdatas('adminunits',$adminunit->id,$adminunit->status); ?>                      
                     </form>
                       
                       

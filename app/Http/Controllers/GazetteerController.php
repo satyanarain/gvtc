@@ -55,8 +55,8 @@ class GazetteerController extends Controller
     { 
         
         
-       $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id'); 
-      // $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",countries.range AS sd_title,")") as full_name')->pluck('full_name', 'id');
+       //$countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id'); 
+       $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
        //$protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
        $protectedrecodsql = DB::table('protected_areas')->selectRaw('id, CONCAT(protected_area_name," ","(",protected_area_code,")") as full_name')->pluck('full_name', 'id');
@@ -149,7 +149,8 @@ class GazetteerController extends Controller
      */
     public function edit($id)
     {
-        $countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
+        //$countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
+        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
         $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
         $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
         $gazetteers = DB::table('gazetteers')->select('*','gazetteers.id as id')

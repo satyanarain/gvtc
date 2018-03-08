@@ -40,7 +40,7 @@
                 
                 <tr>
                   <td style="display:none">{{ $country['id'] }}</td>  
-                  <td>{{ $country['range'] }}</td>
+                  <td>{{ $country['range_code'] }}</td>
                   <td>{{ $country['range_within_albertine_rift'] }}</td>
                 
                  

@@ -43,7 +43,10 @@ class ProtectedAreaController extends Controller
     {
     // $taxons = Taxon::paginate(100);
     //return view('taxons/index', ['taxons' => $taxons]);
-    $protectedareas = ProtectedArea::all()->toArray();
+   // $protectedareas = ProtectedArea::all()->toArray();
+      $protectedareas = DB::table('protected_areas')->select('*','protected_areas.id as id')->leftjoin('countries','protected_areas.country','=','countries.id')->get(); 
+      //print_r($protectedareas);
+      //die;
     return view('protected-areas.index', compact('protectedareas'));
    }
 
@@ -54,7 +57,8 @@ class ProtectedAreaController extends Controller
      */
     public function create()
     {
-        return view('protected-areas/create');
+        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+        return view('protected-areas/create',compact('countryrecodsql'));
     }
 
     /**
@@ -116,8 +120,8 @@ class ProtectedAreaController extends Controller
        if ($protectedarea == null || count($protectedarea) == 0) {
             return redirect()->intended('/protected-area');
         }
-
-        return view('protected-areas/edit', ['protectedarea' => $protectedarea]);
+         $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+        return view('protected-areas/edit', compact('protectedarea','countryrecodsql'));
     }
 
     /**
@@ -191,5 +195,23 @@ class ProtectedAreaController extends Controller
         
     ]);
     }
+    
+     public function protectecarea($id){
+         
+         $sql=DB::table('protected_areas')->where('country',$id)->get();
+         echo '<div class="form-group col-md-6" id="protected_area_select">';
+       echo '<label for="ProtectedArea" class="control-label">Protected Area</label>';
+        echo '<select class="form-control" name="protected_area_id">';
+        echo '<option selected="selected" value="">Select Protected Area</option>';
+       foreach($sql as $v){
+           ?>
+            <option value="<?php echo $v->id; ?>"><?php echo $v->protected_area_code; ?>(<?php echo $v->protected_area_name; ?>)</option>
+         <?php }
+      echo ' </select> ';
+      echo '</div>';
+    
+    }
+    
+    
 }
 

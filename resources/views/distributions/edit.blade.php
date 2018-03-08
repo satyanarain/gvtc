@@ -49,8 +49,12 @@
                     </div>
                     <div class="checkbox checkbox-inline">
                         <input type="radio" name="selectioncriteria" class="geniusrecord" <?php if($distribution->selectioncriteria=='commonname'){?> checked <?php } ?> id="inlineCheckbox3" value="commonname">
-                        <label for="inlineCheckbox3"> Common Name </label>
+                        <label for="inlineCheckbox3"> Common Name (English) </label>
                     </div>
+                    <div class="checkbox checkbox-inline">
+                        <input type="radio" name="selectioncriteria" class="geniusrecord" <?php if($distribution->selectioncriteria=='commonnamefr'){?> checked <?php } ?> id="inlineCheckbox3" value="commonnamefr">
+                        <label for="inlineCheckbox3"> Common Name (French) </label>
+                    </div>  
              
              
              
@@ -60,16 +64,25 @@
                <?php if($distribution->selectioncriteria=='genus'){?>  
                     <div class="form-group col-md-2 required">
                         <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="hidden" class="form-control" name="specie_id" readonly=""  value="<?php echo $distribution->specie_id; ?>">
+                        <input type="text" class="form-control" name="specie_id" readonly=""  value="<?php echo $distribution->specie_id; ?>">
                    </div>
                 <?php } ?>
                     
                 <?php if($distribution->selectioncriteria=='commonname'){?>  
                     <div class="form-group col-md-2 required">
                         <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="hidden" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
+                        <input type="text" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
                    </div>
-                <?php } ?>    
+                <?php } ?>  
+                    
+                     <?php if($distribution->selectioncriteria=='commonnamefr'){?>  
+                    <div class="form-group col-md-2 required">
+                        <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
+                        <input type="text" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
+                   </div>
+                <?php } ?>  
+                    
+                    
                     </div>   
                    <div class="form-group col-md-2 required" id="displ" style="display:none;">
                     <span id="speciessel"> </span>  
@@ -209,13 +222,15 @@
                    </div>  
                   
                 </div> 
+       
+       <?php if($distribution->specimendata==1){ ?>
                    <div class="form-row">
                     <div class="form-group col-md-12 ">
                         <input type="checkbox" id="specimendata" <?php if($distribution->specimendata==1){?>checked readonly=""<?php } ?> >
                         <label for="inlineCheckbox1"> Specimen Data </label>
                     </div>    
                    </div> 
-       <?php if($distribution->specimendata==1){ ?>
+       
                  <div class="form-row div_specimen" >
                   
                 <div class="form-group col-md-6 ">

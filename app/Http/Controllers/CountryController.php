@@ -70,7 +70,7 @@ class CountryController extends Controller
      
      $this->validateInput($request);
      Country::create([
-            'range' => $request['range'],
+            'range_code' => $request['range_code'],
             'range_within_albertine_rift' => $request['range_within_albertine_rift']
 
         ]);
@@ -130,7 +130,7 @@ class CountryController extends Controller
        
         $range = Country::findOrFail($id);
         $constraints = [
-            'range' => 'required',
+            'range_code' => 'required',
             'range_within_albertine_rift'=> 'required'
             
             ];
@@ -141,7 +141,7 @@ class CountryController extends Controller
         
        
         $input = [
-            'range' => $request['range'],
+            'range_code' => $request['range_code'],
             'range_within_albertine_rift' => $request['range_within_albertine_rift']
           
         ];
@@ -178,7 +178,7 @@ class CountryController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'range' => 'required|unique:countries',
+        'range_code' => 'required|unique:countries',
         'range_within_albertine_rift' => 'required'
       
         

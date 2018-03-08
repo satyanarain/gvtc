@@ -39,20 +39,20 @@
                 <?php //print_r($protectedarea); die; ?>
                 
                 <tr>
-                  <td style="display:none">{{ $protectedarea['id'] }}</td>  
-                  <td>{{ $protectedarea['protected_area_name'] }}</td>
-                  <td>{{ $protectedarea['country'] }}</td>
-                  <td>{{ $protectedarea['protected_area_code'] }}</td>
+                  <td style="display:none">{{ $protectedarea->id }}</td>  
+                  <td>{{ $protectedarea->protected_area_name }}</td>
+                  <td>{{$protectedarea->range_within_albertine_rift}}({{ $protectedarea->range_code }})</td>
+                  <td>{{ $protectedarea->protected_area_code }}</td>
                  
                   <td>
                       
-                      <form class="row" method="POST" action="{{ route('protected-area.destroy', $protectedarea['id']) }}" onsubmit = "return confirm('Are you sure?')">
+                      <form class="row" method="POST" action="{{ route('protected-area.destroy', $protectedarea->id) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('protected-area.show', $protectedarea['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('protected-area.edit', $protectedarea['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a href="{{ route('protected-area.show', $protectedarea->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('protected-area.edit', $protectedarea->id) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-<?php testdatas('protected_areas',$protectedarea['id'],$protectedarea['status']); ?>                        
+<?php testdatas('protected_areas',$protectedarea->id,$protectedarea->status); ?>                        
                     </form>
                       
                       

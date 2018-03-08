@@ -121,11 +121,16 @@
                     
                     
                   
-                <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Common Name</label>
+                <div class=" col-md-3">
+                  <label for="exampleInputEmail1">Common Name (English)</label>
                   <input type="text" readonly  value="{{ $species->common_name }}"  class="form-control" >
                  
-                  </div>  
+                  </div> 
+                  <div class=" col-md-3">
+                  <label for="exampleInputEmail1">Common Name (Freanch)</label>
+                  <input type="text" readonly  value="{{ $species->common_name_fr }}"  class="form-control" >
+                 
+                  </div>     
                   
                   
                   <div class="form-group col-md-6">

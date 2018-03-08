@@ -170,10 +170,6 @@ $("#example1 th:last-child").addClass("sort");
 });
 //radiobutton
 $(document).ready(function(){
-    
-    
-
-
 $(function() {
     $('input[name="observeroption"]').on('click', function() {
         if ($(this).val() == 'Individual') {
@@ -225,6 +221,8 @@ $(function() {
         }
     });
 });
+
+
 });
 </script>
 

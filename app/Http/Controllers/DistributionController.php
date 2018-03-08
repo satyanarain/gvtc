@@ -97,7 +97,7 @@ class DistributionController extends Controller
       $genus=$_REQUEST['genus'];
      if($genus=='genus'){
         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-        echo '<label for="MethodID" class="">Species</label>';
+        echo '<label for="MethodID" class="control-label">Species</label>';
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
        foreach($sql as $v){
@@ -105,11 +105,11 @@ class DistributionController extends Controller
             <option value="<?php echo $v->id; ?>|<?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?>"><?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?></option>
          <?php }
       echo ' </select> ';
-     }else{
+     }else if($genus=='commonname'){
          
          
         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-        echo '<label for="MethodID" class="">Species</label>';
+        echo '<label for="MethodID" class="control-label">Species</label>';
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
        foreach($sql as $v){
@@ -117,6 +117,18 @@ class DistributionController extends Controller
             <option value="<?php echo $v->id; ?>|<?php echo $v->common_name; ?>"><?php echo $v->common_name; ?></option>
          <?php }
       echo ' </select> ';
+     }else{
+         
+         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+        echo '<label for="MethodID" class="control-label">Species</label>';
+        echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
+        echo '<option selected="selected" value="">Select Species</option>';
+       foreach($sql as $v){
+           ?>
+            <option value="<?php echo $v->id; ?>|<?php echo $v->common_name_fr; ?>"><?php echo $v->common_name_fr; ?></option>
+         <?php }
+      echo ' </select> ';
+         
      }
     }
 

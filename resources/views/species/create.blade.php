@@ -126,8 +126,8 @@
                   
                    <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name</label>
+                <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-3 ">
+                  <label for="exampleInputEmail1"  class="control-label">Common Name (English)</label>
                   <input type="text" name="common_name" value="{{ old('common_name') }}"   class="form-control" id="common_name" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
@@ -135,6 +135,16 @@
                                     </span>
                                 @endif
                   </div>  
+                 <div class="form-group{{ $errors->has('common_name_fr') ? ' has-error' : '' }} col-md-3 ">
+                  <label for="exampleInputEmail1"  class="control-label">Common Name (French)</label>
+                  <input type="text" name="common_name_fr" value="{{ old('common_name_fr') }}"   class="form-control" id="common_name" placeholder="Common Name">
+                 @if ($errors->has('common_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('common_name_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                       
                   
                   
                   <div class="form-group col-md-6 ">

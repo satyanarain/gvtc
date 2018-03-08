@@ -132,21 +132,87 @@ if(taxon_id!=''){
 //specimendata
 
 $(document).ready(function(){
-			
-		
-		
-		 $('#specimendata').change(function(){
-        if(this.checked){
-            $('.div_specimen').show();
-			//$('.eng_lang').hide();
-		}
-        else{
-            $('.hindi_lang').hide();
-			$('.div_specimen').hide();
-		}
+$('#specimendata').change(function(){
+if(this.checked){
+$('.div_specimen').show();
+}
+else{
+$('.hindi_lang').hide();
+$('.div_specimen').hide();
+}
+});
+});
 
-		});
-		});
+//validation for distribution reacord
+$(document).ready(function(){
+$("#genus").click(function(){
+var taxonid= $("#taxon_id").val();
+if(taxonid==''){
+    alert("Please select Taxon");
+}
+//alert(taxonid);
+
+});
+$("#inlineCheckbox3").click(function(){
+var taxonid= $("#taxon_id").val();
+if(taxonid==''){
+    alert("Please select Taxon");
+}
+//alert(taxonid);
+
+});
+$("#common_name_fr").click(function(){
+ var taxonid= $("#taxon_id").val();
+if(taxonid==''){
+    alert("Please select Taxon");
+}   
+});
+});
+//country change Protected Area
+$(document).ready(function(){
+$("#country_id").change(function(){
+var countryid=$("#country_id").val();
+$.ajax({
+   type:'get',
+   //url:'/distribution/speciec_record/'+taxon_id,
+   url:'/protectecarea/protected_area/'+countryid,
+ success:function(data)
+
+   {
+       $("#protected_area_deafult").hide();
+       $("#protected_area_select").show();
+       $("#protected_area_select").html(data);
+    
+
+   }
+});                
+});
+});
+
+//country change Admin Unit
+$(document).ready(function(){
+$("#country_id").change(function(){
+var countryid=$("#country_id").val();
+$.ajax({
+   type:'get',
+   //url:'/distribution/speciec_record/'+taxon_id,
+   url:'/admin-unit/admin_unit/'+countryid,
+ success:function(data)
+
+   {
+     $("#adminunit_default").hide();
+    $("#adminunit_select").show();
+     $("#adminunit_select").html(data);
+    
+
+   }
+});
+    
+    
+    
+    
+});
+});
 
 
 

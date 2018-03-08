@@ -33,8 +33,9 @@
                 <div class="form-group col-md-6">
 
                   {!! Form::label('Country','Country',['class'=>'control-label']) !!}
-                  {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country']) !!}
-                  </div>  
+                  {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','id' => 'country_id']) !!}
+                 
+                </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
@@ -89,7 +90,7 @@
                                     </span>
                                 @endif
                   </div> 
-                       <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2">
+                       <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">Datum (DD)</label>
                   <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control" id="datum_dd" placeholder="Datum (DD)">
                  @if ($errors->has('datum_dd'))
@@ -143,7 +144,7 @@
                   </div> 
                        
                        
-                  <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 ">
+                  <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">Datum (UTM)</label>
                   <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum (UTM)">
                  @if ($errors->has('datum'))
@@ -228,13 +229,40 @@
                   
                 </div> 
                   
-                        <div class="form-row">
+                    <div class="form-row">
                   
-                
                       
+<!--                {!! Form::label('AdminUnit','Admin Unit',['class'=>'control-label']) !!}
+                  {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Select Admin Unit']) !!}-->
+                  
+
+                  <div class="form-group col-md-6" id="adminunit_default">
+                <label for="AdminUnit" class="control-label">Admin Unit</label>
+                  <select class="form-control" name="adminunit_id">
+                  <option selected="selected" value="">Select Admin Unit</option>
+                  </select>
+                  </div>
+                  
+                <div id="adminunit_select"></div>
+                            
+                    <div class="form-group col-md-6 " id="protected_area_deafult">
+<!--                {!! Form::label('ProtectedArea','Protected Area',['class'=>'control-label']) !!}
+                  {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Select Protected Area']) !!}-->
+                 
+                            
+                   <label for="ProtectedArea" class="control-label">Protected Area</label>
+        <select class="form-control" name="protected_area_id" >
+       <option selected="selected" value="">Select Protected Area</option>  
+        </select>                  
+              </div>                        
+                            
+                        <div id="protected_area_select"></div>   
+                </div> 
                   
                   
-                <div class="form-group{{ $errors->has('soil') ? ' has-error' : '' }} col-md-6 ">
+                   <div class="form-row">
+                  
+               <div class="form-group{{ $errors->has('soil') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">Soil</label>
                   <input type="text" name="soil" value="{{ old('soil') }}"   class="form-control" id="soil" placeholder="Soil">
                  @if ($errors->has('soil'))
@@ -242,24 +270,7 @@
                                         <strong>{{ $errors->first('soil') }}</strong>
                                     </span>
                                 @endif
-                  </div> 
-                            
-                    <div class="form-group col-md-6 ">
-                {!! Form::label('ProtectedArea','Protected Area',['class'=>'control-label']) !!}
-                  {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Select Protected Area']) !!}
-                  </div>         
-                            
-                            
-                  
-                </div> 
-                  
-                  
-                   <div class="form-row">
-                  
-                <div class="form-group col-md-6 ">
-                {!! Form::label('AdminUnit','Admin Unit',['class'=>'control-label']) !!}
-                  {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Select Admin Unit']) !!}
-                  </div> 
+                  </div>  
                       
                   
                   

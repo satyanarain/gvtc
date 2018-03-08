@@ -11,18 +11,28 @@
           <h3 class="box-title ">Report Log</h3>
         </div>
         <div class="col-sm-4" >
-   <div class="columns columns-right btn-group pull-right">
+   <div class="columns columns-right btn-group pull-right" >
  <button class="btn btn-default refresh_tbl" type="button" name="refresh" aria-label="refresh" title="Refresh">
  <i class="fa fa-refresh"></i></button>
- <div class="keep-open btn-group" title="Columns">
+ <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
  <i class="fa fa-columns"></i> <span class="caret"></span></button>
- <ul class="dropdown-menu" role="menu">
- <li role="menuitem"><label><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" > Taxon </label></li>
-      <li role="menuitem"><label><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked > Species </label></li>
-      <li role="menuitem"><label><input type="checkbox" class="toggle-vis" data-column="method" value="Method" checked > Method</label></li>
-      <li role="menuitem"><label><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked> Place</label></li>
-      <li role="menuitem"><label><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>
+ <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
+     <li role="menuitem"><label class="" style="" >Distribution</li>
+     <li role="menuitem"><label class="label_value" ><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" >Taxon </label></li>
+     <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="method" value="Method" checked >Method</label></li>
+     <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observation" value="Observation" checked >Observation</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >Species </label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>Place</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Day</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox">Observer</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Observer" type="checkbox">Age Group</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="abundance" value="Abundance" type="checkbox">Abundance</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specimen_code" value="Specimen Code" type="checkbox">Specimen Code</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="collector_institution" value="Collector Institution" type="checkbox">Collector Institution</label></li>
+      <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sex" value="Sex" type="checkbox">Sex</label></li>
+      <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>-->
  </ul>
  </div>
  <div class="export btn-group">
@@ -77,14 +87,22 @@
              
 
 
-<table id="example" class="display" cellspacing="0" width="100%">
+<table id="example" class="display dataTable" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Taxon</th>
+                 <th>Method</th>
+                 <th>Observation</th>
                 <th>Species</th>
-                <th>Method</th>
                 <th>Place</th>
+                <th>Day</th>
+                <th>Number</th>
                 <th>Observer</th>
+                <th>Age Group</th>
+                <th>Abundance</th>
+                <th>Specimen Code</th>
+                <th>Collector Institution</th>
+                <th>Sex</th>
             </tr>
         </thead>
  
@@ -95,11 +113,18 @@
               @foreach($distribution as $val) 
                 <tr>
                 <td><?php echo $val->taxon_code; ?></td>
+                 <td><?php echo $val->code_description ; ?>(<?php echo $val->method_code; ?>)</td>
+                 <td><?php echo $val->code_description ; ?>(<?php echo $val->observation_code ; ?>)</td>
                 <td><?php if($val->common_name!=''){echo $val->common_name;}else{ ?>/<?php echo $val->genus; ?> / <?php echo $val->species; ?> / <?php echo $val->subspecies; ?><?php } ?></td>
-                <td><?php echo $val->code_description ; ?>/<?php echo $val->method_code; ?></td>
                 <td><?php echo $val->place; ?></td>
+                <td><?php if($val->day!=''){echo $val->day.'-'; }?>&nbsp;<?php if($val->month!=''){ echo $val->month.'-'; }?>&nbsp;<?php if($val->year!=''){ echo $val->year;} ?></td>
+                <td><?php echo $val->number; ?></td>
                 <td><?php echo $val->first_name; ?> <?php echo $val->last_name; ?> <?php echo $val->institution; ?> </td>
-
+                <td><?php echo $val->code_description; ?>(<?php echo $val->age_group; ?>)</td>
+                <td><?php echo $val->code_description; ?>(<?php echo $val->abundance_group; ?>)</td>
+                <td><?php echo $val->specimencode; ?></td>
+                <td><?php echo $val->collectorinstitution; ?></td>
+                <td><?php echo $val->Sex; ?></td>
                 </tr>
                
               @endforeach
@@ -164,9 +189,16 @@
            },
            {
                extend: 'pdfHtml5',
+               title:'GVTC',
+               orientation: 'landscape',
+               pageSize: 'A4',
+               customize: function (doc) { doc.defaultStyle.fontSize = 10;
+                   //2,3,4,etc doc.styles.tableHeader.fontSize = 1; //2, 3, 4, etc 
+               },
                exportOptions: {
                     columns: ':visible'
                }
+               
            },{
                extend: 'copy',
                text: 'Copy to clipboard' },
@@ -175,7 +207,8 @@
                exportOptions: {
                     columns: ':visible'
                }
-           }
+           },
+           
                    ],
         
         
@@ -183,23 +216,59 @@
             { "name": "tax"},
             { "name": "species"},
             { "name": "method"},
+            { "name": "observation"},
             { "name": "place"},
-            { "name": "observer"}
+            { "name": "number"},
+            { "name": "day"},
+            { "name": "observer"},
+            { "name": "age_group"},
+            { "name": "abundance"},
+            { "name": "specimen_code"},
+            { "name": "collector_institution"},
+            { "name": "sex"}
        ],
        
        "columnDefs": [
            
            {
-               "targets": [4],
+               "targets": [7,8,9,10,11,12],
                "visible": false
            }
        ]
        
       
-       
+      //ajax: "data.json" 
        
     } );
+    
+//    var table = $('#example').DataTable( {
+//    ajax: "data.json"
+//} );
+// 
+//setInterval( function () {
+//    table.ajax.reload();
+//}, 30000 );
  
+ //$('#example').DataTable().ajax.reload();
+    $('.refresh_tbl').click(function(){
+        
+        table.clear().draw();
+        $('#example').dataTable()._fnAjaxUpdate();
+        
+        //table.fnDraw();
+       // var mytbl = $("#example").datatable();
+//mytbl.ajax.reload;
+            //table.rows.add(result).draw();
+       // var mytbl = $("#example").datatable();
+       // mytbl.ajax.reload;
+        //refreshTable();
+       // alert('hi');
+        //$("#example").ajax.reload();
+       //$('#example').load();
+       //alert('hi');
+       //table.ajax.reload( null, false );
+       //table.ajax.reload();
+     });
       $('.toggle-vis').on( 'click', function (e) {
           var id = $(this).attr('id');
         //alert($(this).prop('checked'));  
@@ -224,6 +293,14 @@
 
     
 } );
+    
+    function refreshTable() {
+  $('.dataTable').each(function() {
+      dt = $(this).dataTable();
+      dt.fnDraw();
+  })
+}
+    
     
     </script>
 

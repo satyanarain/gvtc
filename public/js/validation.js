@@ -116,6 +116,7 @@ function validImg(iFile) {
    }
 
 }
-
+<script>
 
 $("#example1 th:last-child").addClass("sort");
+</script>

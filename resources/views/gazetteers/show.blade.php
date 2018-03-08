@@ -20,7 +20,7 @@
 <div class="form-row">
 <div class=" col-md-6">
 <label for="exampleInputEmail1">Country</label>
-<input type="text" readonly  value="{{ $gazetteers->range}}"  class="form-control" >
+<input type="text" readonly  value="{{ $gazetteers->range_code}}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
 <label for="exampleInputEmail1">Place</label>

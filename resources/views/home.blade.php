@@ -7,6 +7,9 @@ $gazetteer=DB::table('gazetteers')->get();
 $gazetteer_record=count($gazetteer);
 $observers=DB::table('observers')->get();
 $observer_record=count($observers);
+$users=DB::table('users')->WHERE('status','1')->get();
+$users_record=count($users);
+
 ?>
  <!-- Main content -->
     <section class="content">
@@ -46,14 +49,14 @@ $observer_record=count($observers);
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$users_record}}</h3>
 
             <p style="font-weight:bold">Active Users</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('user-management/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

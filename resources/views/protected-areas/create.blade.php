@@ -43,14 +43,9 @@
                     
                     
                   
-                  <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Country</label>
-                  <input type="textarea" name="country" value="{{ old('country') }}" required  class="form-control" id="country" placeholder="Country">
-                 @if ($errors->has('country'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('country') }}</strong>
-                                    </span>
-                                @endif
+                  <div class="form-group col-md-6 required">
+                  {!! Form::label('Country','Country',['class'=>'control-label']) !!}
+                  {!! Form::select('country',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','required'=>'required']) !!} 
                   </div>  
                   
                 </div> 

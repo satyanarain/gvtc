@@ -32,7 +32,7 @@
                   
                 <div class=" col-md-6">
                   <label for="exampleInputEmail1">Country Code </label>
-                  <input type="text" readonly  value="{{ $countries->range }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $countries->range_code }}"  class="form-control" >
                  
                   </div>  
                   

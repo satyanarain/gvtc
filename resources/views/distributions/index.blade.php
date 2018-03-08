@@ -27,7 +27,7 @@
                   <th>Taxon</th>
                   <th>Species</th>
                   <th>Selection Criteria</th>
-                  <th>Method ID</th>
+                  <th>Method</th>
                   <th>Place</th>
                  <th>Observer</th>
                   <th>Action</th>

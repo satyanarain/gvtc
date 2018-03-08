@@ -43,9 +43,12 @@
                     </div>
                     <div class="checkbox checkbox-inline">
                         <input type="radio" name="selectioncriteria" class="geniusrecord" id="inlineCheckbox3" value="commonname">
-                        <label for="inlineCheckbox3"> Common Name </label>
+                        <label for="inlineCheckbox3"> Common Name (English)</label>
                     </div>
-             
+             <div class="checkbox checkbox-inline">
+                        <input type="radio" name="selectioncriteria" class="geniusrecord" id="common_name_fr" value="commonnamefr">
+                        <label for="inlineCheckbox3"> Common Name (French) </label>
+                    </div>
              
              
              
