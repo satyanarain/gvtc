@@ -12,6 +12,7 @@ use App\Observer;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 class ObserverController extends Controller
 {
        /**
@@ -38,6 +39,12 @@ class ObserverController extends Controller
      */
     public function index()
     {
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "observer_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+     if($getpermissionstatus==0)
+     return redirect()->route('user-management.unauthorized');      
     $observers = Observer::all()->toArray();
     return view('observers.index', compact('observers'));
     

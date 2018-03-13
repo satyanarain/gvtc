@@ -13,6 +13,8 @@ use App\Distribution;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
+
 error_reporting(0);
 class DistributionController extends Controller
 {
@@ -40,6 +42,15 @@ class DistributionController extends Controller
      */
     public function index()
     {
+        //set permission
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "distribution_view";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized');
+            //return view('error.index');          
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->get();
     

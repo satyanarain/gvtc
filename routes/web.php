@@ -30,6 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user-management/user_status_update/{id}', 'UserManagementController@userstatusUpdate');
 Route::get('user-management/guestedit', 'UserManagementController@guestedit')->name('user-management.guestedit');
 Route::get('/user-management/viewprofile/{id}', 'UserManagementController@viewprofile');
+Route::get('/user-management/unauthorized', 'UserManagementController@unauthorized')->name('user-management.unauthorized');
 Route::resource('user-management', 'UserManagementController');
 
 //taxon
@@ -100,6 +101,13 @@ Route::resource('changepasswords', 'ChangepasswordsController');
 
 //GuestRegisterController
 Route::resource('breeding','BreedingController');
+
+
+//PermissionController
+Route::get('/permission/generate/{id}','PermissionController@generate')->name('permission.generate');
+Route::post('/permission/save','PermissionController@generatesave')->name('permission.generatesave');
+Route::resource('permission','PermissionController');
+//Route::get('/permission/create/{id}','PermissionController');
 
 
 

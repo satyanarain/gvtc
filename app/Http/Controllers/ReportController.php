@@ -42,7 +42,7 @@ class ReportController extends Controller
     {
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->leftjoin('observation','observation.id','distributions.observation_id')
-            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->get();
+            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')->get();
     
     return view('report.index', compact('distribution'));  
     

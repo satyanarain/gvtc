@@ -26,3 +26,40 @@ function userstatus($table='',$id='', $status = '') {
 
  <?php
 }
+
+
+
+
+function getpermissionstatus($user_id,$role,$permission_key){
+     
+    if($role=="admin")
+    {
+        return true;
+    }else{
+        return $existuserid = DB::table('permissions')->where('user_id', $user_id)->where('permission_key', $permission_key)->count();
+//        if($existuserid)
+//            return true;
+//        else
+//            return 0;
+     
+//        $i=0;
+//       
+//        foreach ($existuserid as $userval){
+//           $userarra[$i++]=$userval->permission_key;
+//       }
+    }
+    //return true;
+}
+function getAllPermission($user_id)
+{
+    $existuserid = DB::table('permissions')->where('user_id', $user_id)->get();
+    $i=0;
+    $userarra=array();
+    foreach ($existuserid as $userval){
+        $userarra[$i++]=$userval->permission_key;
+        $i++;
+    }
+    
+    return $userarra;    
+    
+}

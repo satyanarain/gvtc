@@ -304,6 +304,8 @@ class UserManagementController extends Controller
       echo "0";
       }
    }
+   
+   
 
     /**
      * Remove the specified resource from storage.
@@ -358,4 +360,9 @@ class UserManagementController extends Controller
         
     ]);
     }
+     public function unauthorized(){
+         
+         return view('users-mgmt.error');
+         
+     }
 }

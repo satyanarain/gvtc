@@ -13,6 +13,7 @@ use App\Species;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 
@@ -43,6 +44,13 @@ class SpeciesController extends Controller
      */
     public function index()
     {
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "species_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized');   
     $species = DB::table('species')->select('*','species.id as id')->leftjoin('taxons','species.taxon_id','=','taxons.id')->get();
        
     return view('species.index', compact('species'));

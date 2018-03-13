@@ -54,8 +54,8 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a> 
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-<?php userstatus('users',$user['id'],$user['status']); ?>    
- <a  href="#" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
+<?php userstatus('users',$user['id'],$user['status']); ?> 
+ <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-success btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
  </form>
  </td>
  </tr>
