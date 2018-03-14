@@ -13,6 +13,7 @@ use App\Forest;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class ForestController extends Controller
@@ -41,8 +42,12 @@ class ForestController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "forestuse_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $forests = Forest::all()->toArray();
     return view('forest.index', compact('forests'));
    }

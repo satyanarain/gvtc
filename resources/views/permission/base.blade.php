@@ -4,6 +4,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 <h1>Manage Permissions</h1>
+<?php
+$user_id=Request::segment(3);
+$sql=DB::table('users')->where('id',$user_id)->first();
+$username= $sql->name;
+//print_r($sql);
+
+?>
 <!-- <ol class="breadcrumb">
 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 <li class="active">User Mangement</li>
@@ -35,8 +42,8 @@ $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
                         <a href="#" class="btn btn-success visible-lg-block visible-md-block">Category</a>
                         <div class="btn btn-default visible-xs-block hidden-xs visible-sm-block ">...</div>
                         <div class="btn btn-primary"><b>Item Actual</b></div>-->
-<a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block">{{ucfirst(Request::segment($i))}}</a> 
-@else <div class="btn btn-success">{{ucfirst(Request::segment($i))}}</div>
+<a href="#" class="btn btn-success visible-lg-block visible-md-block">{{ucfirst(Request::segment($i))}}</a> 
+@else <div class="btn btn-success">{{$username}}</div>
 @endif 
 @endfor
 </div>

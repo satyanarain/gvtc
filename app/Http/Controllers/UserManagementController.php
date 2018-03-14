@@ -35,8 +35,7 @@ class UserManagementController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(100);
-
+        $users = User::all();
         return view('users-mgmt/index', ['users' => $users]);
     }
 

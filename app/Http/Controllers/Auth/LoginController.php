@@ -54,9 +54,9 @@ class LoginController extends Controller
        
     $this->validate($request, ['username' => 'required', 'password' => 'required']); 
    
-        Auth::attempt(['username' => $request['username'], 'password' => $request['password']]);  
+        Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1]);  
        
-        if(!Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) { 
+        if(!Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1])) { 
             return redirect()->back()->with('fail', 'Either username or password is incorrect!');  
             }else{
              Session::put('language_val', $request['lanuage']);

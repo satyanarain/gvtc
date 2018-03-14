@@ -13,6 +13,7 @@ use App\Observation;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class ObservationController extends Controller
@@ -41,6 +42,12 @@ class ObservationController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "observation_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');      
     $observation = Observation::all()->toArray();
     return view('observations.index', compact('observation'));
     

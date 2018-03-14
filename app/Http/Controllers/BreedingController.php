@@ -12,6 +12,7 @@ use App\Breeding;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 class BreedingController extends Controller
 {
        /**
@@ -38,6 +39,10 @@ class BreedingController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "breeding_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);    
     $breeding = Breeding::all()->toArray();
     return view('breeding.index', compact('breeding'));
     

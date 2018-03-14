@@ -13,7 +13,7 @@ use App\Range;
 use Input;
 use Illuminate\Support\Facades\Validator;
 use Session;
-
+use Auth;
 
 class RangeController extends Controller
 {
@@ -41,8 +41,13 @@ class RangeController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "range_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $ranges = Range::all()->toArray();
     return view('ranges.index', compact('ranges'));
    }

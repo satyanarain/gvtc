@@ -13,6 +13,7 @@ use App\Water;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class WaterController extends Controller
@@ -41,6 +42,12 @@ class WaterController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "wateruse_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $waters = Water::all()->toArray();
     return view('water-use.index', compact('waters'));
     

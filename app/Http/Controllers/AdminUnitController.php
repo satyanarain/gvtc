@@ -13,6 +13,7 @@ use App\AdminUnit;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class AdminUnitController extends Controller
@@ -41,9 +42,12 @@ class AdminUnitController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
-    //$adminunits = AdminUnit::all()->toArray();
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "adminunit_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');   
     $adminunits = DB::table('adminunits')->select('*','adminunits.id as id')->leftjoin('countries','adminunits.countrie_id','=','countries.id')->get()->toArray();   
   // print_r($adminunits);
   // die;

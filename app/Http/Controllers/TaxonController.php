@@ -12,6 +12,7 @@ use App\Taxon;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 class TaxonController extends Controller
 {
        /**
@@ -38,6 +39,13 @@ class TaxonController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "taxon_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');    
     $taxons = Taxon::all()->toArray();
     return view('taxons.index', compact('taxons'));
     
@@ -50,7 +58,8 @@ class TaxonController extends Controller
      */
     public function create()
     {
-        return view('taxons/create');
+     
+    return view('taxons/create');
     }
 
     /**

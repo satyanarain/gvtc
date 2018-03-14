@@ -13,6 +13,7 @@ use App\Age;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class AgeController extends Controller
@@ -41,6 +42,12 @@ class AgeController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "agegroup_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');    
     $age = Age::all()->toArray();
     return view('ages.index', compact('age'));
     

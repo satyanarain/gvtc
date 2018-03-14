@@ -13,6 +13,7 @@ use App\ProtectedArea;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class ProtectedAreaController extends Controller
@@ -41,9 +42,12 @@ class ProtectedAreaController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
-   // $protectedareas = ProtectedArea::all()->toArray();
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "protectedarea_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
       $protectedareas = DB::table('protected_areas')->select('*','protected_areas.id as id')->leftjoin('countries','protected_areas.country','=','countries.id')->get(); 
       //print_r($protectedareas);
       //die;

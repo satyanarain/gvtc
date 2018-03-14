@@ -13,6 +13,7 @@ use App\Growth;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class GrowthController extends Controller
@@ -41,8 +42,12 @@ class GrowthController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "growthform_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $growths = Growth::all()->toArray();
     return view('growths.index', compact('growths'));
    }

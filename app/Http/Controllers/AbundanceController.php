@@ -13,6 +13,7 @@ use App\Abundance;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class AbundanceController extends Controller
@@ -41,6 +42,10 @@ class AbundanceController extends Controller
      */
     public function index()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "abundance_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);   
     $abundance = Abundance::all()->toArray();
     return view('abundances.index', compact('abundance'));
     

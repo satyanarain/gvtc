@@ -106,9 +106,10 @@ class PermissionController extends Controller
             
         ]);
             
-            
+ 
         }}
-return redirect()->route('user-management.index');
+Session::flash('flash_message', "Permission Created Successfully."); //Snippet in Master.blade.php   
+ return redirect()->route('user-management.index');
         //die;
         //$add_action=explode('_',$request['add_action']);
        // print_r($add_action); 
@@ -134,7 +135,7 @@ return redirect()->route('user-management.index');
         
         
         //return redirect()->intended('/taxons');
-        return redirect()->route('user-management.index');
+       // return redirect()->route('user-management.index');
     }
     
       

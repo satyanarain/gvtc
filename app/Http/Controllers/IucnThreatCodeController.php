@@ -12,6 +12,7 @@ use App\Iucn;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 
 class IucnThreatCodeController extends Controller
@@ -40,8 +41,13 @@ class IucnThreatCodeController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "IUCNThreatCode_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $iucns = Iucn::all()->toArray();
     return view('iucns.index', compact('iucns'));
     
