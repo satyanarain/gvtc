@@ -60,7 +60,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('taxons.show', $taxon['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
- <?php if($getpermissionstatus!=0){?>   ?>
+ <?php if($getpermissionstatus!=0){?> 
 <a href="{{ route('taxons.edit', $taxon['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
 <i class="fa fa-pencil"></i>&nbsp;Edit</a>
 <?php } ?>

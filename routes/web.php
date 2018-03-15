@@ -110,6 +110,14 @@ Route::resource('permission','PermissionController');
 //Route::get('/permission/create/{id}','PermissionController');
 
 
+//GuestRegisterController
+
+//Route::get('offlinerecord/bulksave', 'OfflineController@bulkSave')->name('offlinerecord.bulksave');
+Route::post('/offlinerecord/bulk/', 'OfflineController@bulk')->name('offlinerecord.bulk');
+Route::resource('offlinerecord','OfflineController');
+
+
+
 
 
 

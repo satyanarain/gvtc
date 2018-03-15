@@ -214,6 +214,51 @@ $.ajax({
 });
 });
 
+//select all
+$(function () {
+			$("#selectall").click(function () {
+				if ($("#selectall").is(':checked')) {
+					$("input[type=checkbox]").each(function () {
+					$(this).attr("checked", true);
+					});
+					$("#bulk-delete").show();
+					$("#bulk-submit").show();
+                                        $(".default-btn").hide();
+                                        $("#bulksubmitdefault").hide();
+
+				} else {
+					$("input[type=checkbox]").each(function () {
+						$(this).attr("checked", false);
+					});
+					$("#bulk-delete").hide();
+                                        
+				}
+			});
+		});
 
 
 
+$(document).ready(function(){
+$('.check-all').change(function(){
+   
+if(this.checked){
+$(".btn-show").show(); 
+$(".default-btn").hide();
+
+
+
+}
+else{
+$(".default-btn").hide();
+//$(".btn-show").hide();
+}
+
+ 
+
+
+
+});
+
+
+});
+		
