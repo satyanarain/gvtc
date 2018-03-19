@@ -59,7 +59,13 @@ class AgeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "agegroup_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('ages/create');
     }
 
@@ -78,7 +84,8 @@ class AgeController extends Controller
      $this->validateInput($request);
      Age::create([
             'age_group' => $request['age_group'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'created_by'=>$request['created_by'],
 
         ]);
 

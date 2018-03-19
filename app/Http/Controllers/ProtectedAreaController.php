@@ -61,6 +61,12 @@ class ProtectedAreaController extends Controller
      */
     public function create()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "protectedarea_add";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
         $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
         return view('protected-areas/create',compact('countryrecodsql'));
     }
@@ -81,7 +87,8 @@ class ProtectedAreaController extends Controller
      ProtectedArea::create([
             'protected_area_name' => $request['protected_area_name'],
             'country' => $request['country'],
-            'protected_area_code' => $request['protected_area_code']
+            'protected_area_code' => $request['protected_area_code'],
+            'created_by'=>$request['created_by']
             
         ]);
     Session::flash('flash_message', "Protected Areas Code Created Successfully."); //Snippet in Master.blade.php 

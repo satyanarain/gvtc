@@ -73,8 +73,7 @@ Route::get('admin-unit/index', 'AdminUnitController@index')->name('admin-unit.in
 Route::get('migration/index', 'MigrationController@index')->name('migration.index');
 Route::resource('migration', 'MigrationController');
 //api
-Route::get('apilist/index', 'ApibaseController@index')->name('Apibase.index');
-Route::resource('apilist','ApibaseController');
+
 //method
 Route::resource('method','MethodController');
 //observation

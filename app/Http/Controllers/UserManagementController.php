@@ -8,6 +8,7 @@ use App\User;
 use Input;
 use Session;
 use Mail;
+use Auth;
 
 class UserManagementController extends Controller
 {
@@ -35,6 +36,14 @@ class UserManagementController extends Controller
      */
     public function index()
     {
+        
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "user_view";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         $users = User::all();
         return view('users-mgmt/index', ['users' => $users]);
     }
@@ -45,7 +54,14 @@ class UserManagementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "user_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
+        
         return view('users-mgmt/create');
     }
 
@@ -79,6 +95,7 @@ class UserManagementController extends Controller
            Input::file('profilepicture')->move($destinationPath, $fileprofile);
        }
       $password_auto=mt_rand(1,100000000);
+      
       $pwd=bcrypt($password_auto);
       User::create([
             'name' => $request['name'],
@@ -94,6 +111,7 @@ class UserManagementController extends Controller
             'profilepicture' => $fileprofile,
             'photoid'=> $filephoto,
             'role'=>$request['role'],
+            'created_by'=>$request['created_by'],
             'status'=>$request['status']
         ]);
         $query_email = array(

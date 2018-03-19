@@ -66,9 +66,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <a href="{{ route('abundance.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
 <?php if($getpermissionstatus!=0){?> 
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('abundance.edit', $val['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
-<?php } ?>
+ <?php testdatas('abundances',$val['id'],$val['status']); ?> 
+    <?php } ?>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-    <?php testdatas('abundances',$val['id'],$val['status']); ?>                    
+                      
                     </form>
                       
                       

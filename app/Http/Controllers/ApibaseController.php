@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\DB;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
-
+use Hash;
+use Auth;
+use App\User;
 
 class ApibaseController extends Controller
 
@@ -43,6 +45,46 @@ class ApibaseController extends Controller
     
 //http://127.0.0.1:8000/apilist/index?token_id=123456&tb=taxons
 
+  public function create(Request $request){
+      
+      
+      
+      
+  }
   
+  
+  public function store(Request $request)
+    {
+      
+     
+      $Activedata = Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status' => 1]);
+      
+      if($Activedata==1){
+        $username = $request['username'];
+        $recorddata =DB::table('users')->select('*')->where('username','=',$username)->get();
+        $user_id = $recorddata[0]->id;
+        
+        $final_record=array('message'=>'success','userid'=>$user_id);
+         $arras= json_encode($final_record);
+        print_r($arras);
+    
+          
+      }else{
+          $username = $request['username'];
+          $recorddata =DB::table('users')->select('*')->where('username','=',$username)->get();
+          $user_id = $recorddata[0]->id;
+          $final_records=array('message'=>'fail');
+          $arrasf= json_encode($final_records);
+          print_r($arrasf);
+      }
+       
+      //print_r($request->all());
+      
+      
+
+    
+
+    }
+    
 
 }

@@ -64,7 +64,13 @@ class AdminUnitController extends Controller
      */
     public function create()
     {
-         $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "adminunit_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized'); 
+        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
         return view('admin-units/create',compact('countryrecodsql'));
     }
 
@@ -85,6 +91,7 @@ class AdminUnitController extends Controller
             'countrie_id' => $request['countrie_id'],
             'admincode' => $request['admincode'],
             'name' => $request['name'],
+            'created_by'=>$request['created_by']
             
         ]);
 

@@ -60,6 +60,12 @@ class ObservationController extends Controller
      */
     public function create()
     {
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "observation_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('observations/create');
     }
 
@@ -78,7 +84,8 @@ class ObservationController extends Controller
      $this->validateInput($request);
      Observation::create([
             'observation_code' => $request['observation_code'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'created_by'=>$request['created_by']
 
         ]);
 

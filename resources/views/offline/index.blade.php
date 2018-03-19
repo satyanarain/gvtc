@@ -31,7 +31,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
    <?php
 $user_id=Auth::id();
 $role=Auth::user()->role;
-$permission_key = "taxon_edit";
+$permission_key = "offline_delete";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   <form role="form" method="POST" action="{{ route('offlinerecord.bulk') }}" enctype="multipart/form-data" onsubmit = "return confirm('Are you sure?')">
@@ -40,14 +40,23 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
      <?php
       $sql=DB::table('distributions_offline')->get();
       $record=count($sql);
-     ?>   
+      if($getpermissionstatus!=0){
+     ?>
+        
     <button type="submit" class="btn btn-danger dng-w btn-show" name="delete" value="delete" style="display:none"  id="bulk-delete"><i class="fa fa-times-circle"></i> Delete</button>&nbsp;
     
     <button type="button" class="btn btn-danger dng-w default-btn" style="cursor: default;opacity: 0.6;" name="default-btn" value="delete"  id="bulk-delete"><i class="fa fa-times-circle"></i> Delete</button>&nbsp;
-    
+    <?php } 
+    $user_id=Auth::id();
+$role=Auth::user()->role;
+$permission_key = "offline_add";
+$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+   if($getpermissionstatus!=0){ 
+    ?>
     <button type="submit" class="btn btn-primary" style="background-color: #1b6b36 !important;border-color: #00a65a; display:none"  name="add" value="add"  id="bulk-submit"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
     
     <button type="button" class="btn btn-primary" style="background-color: #1b6b36 !important;border-color: #00a65a; cursor: default;opacity: 0.6;" name="default-btn1" value="add1"  id="bulksubmitdefault"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
+    <?php } ?>
     </div>
    
             <div class="box-body">

@@ -59,7 +59,13 @@ class MigrationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "migration_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');    
         return view('migrations/create');
     }
 
@@ -76,7 +82,8 @@ class MigrationController extends Controller
      $this->validateInput($request);
      Migration::create([
             'migration_title' => $request['migration_title'],
-            'birds_migrating_population' => $request['birds_migrating_population']
+            'birds_migrating_population' => $request['birds_migrating_population'],
+            'created_by'=>$request['created_by']
             
         ]);
     Session::flash('flash_message', "Migration Created Successfully."); //Snippet in Master.blade.php 

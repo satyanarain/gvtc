@@ -13,6 +13,7 @@ use App\Report;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 error_reporting(0);
 class ReportController extends Controller
 {
@@ -40,6 +41,14 @@ class ReportController extends Controller
      */
     public function index()
     {
+     
+     $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "download_report";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');   
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->leftjoin('observation','observation.id','distributions.observation_id')
             ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')->get();

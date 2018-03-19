@@ -42,7 +42,9 @@ class BreedingController extends Controller
     $user_id=Auth::id();
     $role=Auth::user()->role;
     $permission_key = "breeding_view";
-    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);    
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key); 
+    if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
     $breeding = Breeding::all()->toArray();
     return view('breeding.index', compact('breeding'));
     
@@ -54,7 +56,12 @@ class BreedingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "breeding_add";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('breeding/create');
     }
 
@@ -73,7 +80,8 @@ class BreedingController extends Controller
      $this->validateInput($request);
      Breeding::create([
             'breeding_code' => $request['breeding_code'],
-            'breeding_description' => $request['breeding_description']
+            'breeding_description' => $request['breeding_description'],
+            'created_by'=>$request['created_by']
             
         ]);
 

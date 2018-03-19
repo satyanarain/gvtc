@@ -59,6 +59,13 @@ class RangeController extends Controller
      */
     public function create()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "range_add";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('ranges/create');
     }
 
@@ -77,7 +84,9 @@ class RangeController extends Controller
      $this->validateInput($request);
      Range::create([
             'range_code' => $request['range_code'],
-            'range_within_the_albertine_rift' => $request['range_within_the_albertine_rift']
+            'range_within_the_albertine_rift' => $request['range_within_the_albertine_rift'],
+            'created_by'=> $request['created_by']
+            
             
         ]);
 

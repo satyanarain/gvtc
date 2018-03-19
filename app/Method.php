@@ -23,7 +23,7 @@ class Method extends Model
      * @var array
      */
    protected $fillable = [
-        'method_code','code_description',
+        'method_code','code_description','created_by'
     ];
 
     /**

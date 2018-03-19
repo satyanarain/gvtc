@@ -108,34 +108,9 @@ class PermissionController extends Controller
             
  
         }}
-Session::flash('flash_message', "Permission Created Successfully."); //Snippet in Master.blade.php   
+Session::flash('flash_message', "Permission Changed Successfully."); //Snippet in Master.blade.php   
  return redirect()->route('user-management.index');
-        //die;
-        //$add_action=explode('_',$request['add_action']);
-       // print_r($add_action); 
-       // die;
-//        Permission::create([
-//            'module_name' => $request['module_name'],
-//            'user_id' =>    $request['user_id'],
-//            'add_action' => $request['add_action'],
-//            'edit_action' => $request['edit_action'],
-//            'view_action' => $request['view_action']
-//            
-//        ]);
-        //echo '<pre>';
-        //print_r($request->all());
-        //echo count($inrecord);
-        //die;
         
-      //$val = Permission::findOrFail($request->user_id);  
-       
-       
-       
-        //$this->validate($request, $constraints);
-        
-        
-        //return redirect()->intended('/taxons');
-       // return redirect()->route('user-management.index');
     }
     
       

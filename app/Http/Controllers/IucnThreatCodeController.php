@@ -59,7 +59,14 @@ class IucnThreatCodeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {    
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "IUCNThreatCode_add";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
         return view('iucns/create');
     }
 
@@ -78,7 +85,8 @@ class IucnThreatCodeController extends Controller
      $this->validateInput($request);
      Iucn::create([
             'iucn_threat_code' => $request['iucn_threat_code'],
-            'iucn_code_description' => $request['iucn_code_description']
+            'iucn_code_description' => $request['iucn_code_description'],
+            'created_by'=>$request['created_by']
             
         ]);
         Session::flash('flash_message', "IUCN Threat Codes Created Successfully."); //Snippet in Master.blade.php

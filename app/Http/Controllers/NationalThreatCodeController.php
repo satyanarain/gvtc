@@ -13,7 +13,7 @@ use App\National;
 use Input;
 use Illuminate\Support\Facades\Validator;
 use Session;
-
+use Auth;
 
 class NationalThreatCodeController extends Controller
 {
@@ -41,8 +41,13 @@ class NationalThreatCodeController extends Controller
      */
     public function index()
     {
-    // $taxons = Taxon::paginate(100);
-    //return view('taxons/index', ['taxons' => $taxons]);
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "NationalThreatCode_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $nationals = National::all()->toArray();
     return view('nationals.index', compact('nationals'));
     
@@ -55,6 +60,13 @@ class NationalThreatCodeController extends Controller
      */
     public function create()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "NationalThreatCode_add";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
         return view('nationals/create');
     }
 
@@ -73,7 +85,8 @@ class NationalThreatCodeController extends Controller
      $this->validateInput($request);
      National::create([
             'national_threat_code' => $request['national_threat_code'],
-            'national_threat_code_description' => $request['national_threat_code_description']
+            'national_threat_code_description' => $request['national_threat_code_description'],
+            'created_by'=>$request['created_by']
             
         ]);
         Session::flash('flash_message', "National Threat Code Created Successfully."); //Snippet in Master.blade.php

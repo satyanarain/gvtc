@@ -23,7 +23,7 @@ class AdminUnit extends Model
      * @var array
      */
    protected $fillable = [
-        'countrie_id','admincode','name',
+        'countrie_id','admincode','name','created_by'
     ];
 
     /**

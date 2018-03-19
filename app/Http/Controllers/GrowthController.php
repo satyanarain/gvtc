@@ -59,6 +59,12 @@ class GrowthController extends Controller
      */
     public function create()
     {
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "growthform_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('growths/create');
     }
 
@@ -75,11 +81,12 @@ class GrowthController extends Controller
      $this->validateInput($request);
      Growth::create([
             'growth_form' => $request['growth_form'],
-            'plants_growth_form' => $request['plants_growth_form']
+            'plants_growth_form' => $request['plants_growth_form'],
+            'created_by'=> $request['created_by']
             
         ]);
 
-    Session::flash('flash_message', "Designation Code Created Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Growth Form Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('growth.index');
 
     }

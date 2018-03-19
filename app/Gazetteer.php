@@ -26,7 +26,7 @@ class Gazetteer extends Authenticatable
        // 'taxon_id','order','family','genus','species','species_author','subspecies','subspecies_author','species_author','common_name','iucn_threat_id','range_id',
        // 'growth_id','forestuse_id','wateruse_id','endenisms_id','migration_tbl_id'
        
- 'gazeteer_id','country_id','datum_dd','place','details','eastings','northings','zone','datum','longitude','latitude','day','month','year','habitat','altitude','slope','aspect' ,'soil' ,'protected_area_id','adminunit_id','remarks'     
+ 'gazeteer_id','country_id','datum_dd','place','details','eastings','northings','zone','datum','longitude','latitude','day','month','year','habitat','altitude','slope','aspect' ,'soil' ,'protected_area_id','adminunit_id','remarks','created_by'     
        
     ];
   

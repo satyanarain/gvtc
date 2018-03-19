@@ -9,7 +9,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Error Log</h3>
+          <h3 class="box-title">Permission Log</h3>
         </div>
        
     </div>
@@ -20,10 +20,10 @@
             <div class="box-body">
              
              <div class="error-content">
-          <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
+          <h3><i class="fa fa-warning text-yellow"></i> Oops! Not Permission.</h3>
 
           <p>
-            We could not find the page you were looking for.
+            You don't have permission to view this page, please contact your system administrator to request access
             Meanwhile, you may <a href="/">return to dashboard</a> 
           </p>
 

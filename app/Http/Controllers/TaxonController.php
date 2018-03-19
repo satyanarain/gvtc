@@ -77,6 +77,7 @@ class TaxonController extends Controller
      $this->validateInput($request);
      Taxon::create([
             'taxon_code' => $request['taxon_code'],
+            'created_by'=>$request['created_by'],
             'taxon_code_description' => $request['taxon_code_description']
             
         ]);

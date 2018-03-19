@@ -66,6 +66,13 @@ class DistributionController extends Controller
      */
     public function create()
     { 
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "distribution_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized');    
       //  CONCAT( full_name, ':', IF (ship_to='shipping', shipping_address, business_address )) as    contact FROM TableName
         $observerrecodsql = DB::table('observers')->selectRaw('id, CONCAT(first_name," ",last_name) as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');             
                 

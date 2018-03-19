@@ -59,7 +59,13 @@ class WaterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "wateruse_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('water-use/create');
     }
 
@@ -78,7 +84,9 @@ class WaterController extends Controller
      $this->validateInput($request);
      Water::create([
             'water_use' => $request['water_use'],
-            'water_habitat_usage' => $request['water_habitat_usage']
+            'water_habitat_usage' => $request['water_habitat_usage'],
+            'created_by'=>$request['created_by']
+
 
         ]);
 

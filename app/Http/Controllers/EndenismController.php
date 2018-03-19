@@ -59,7 +59,13 @@ class EndenismController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "endenism_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('endenisms/create');
     }
 
@@ -78,7 +84,8 @@ class EndenismController extends Controller
      $this->validateInput($request);
      Endenism::create([
             'endenism' => $request['endenism'],
-            'endenism_status' => $request['endenism_status']
+            'endenism_status' => $request['endenism_status'],
+            'created_by'=>$request['created_by']
 
         ]);
 

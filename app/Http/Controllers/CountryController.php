@@ -59,6 +59,13 @@ class CountryController extends Controller
      */
     public function create()
     {
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "country_add";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
+    $countries = Country::all()->toArray();
         return view('countries/create');
     }
 
@@ -76,7 +83,8 @@ class CountryController extends Controller
      $this->validateInput($request);
      Country::create([
             'range_code' => $request['range_code'],
-            'range_within_albertine_rift' => $request['range_within_albertine_rift']
+            'range_within_albertine_rift' => $request['range_within_albertine_rift'],
+            'created_by'=>$request['created_by']
 
         ]);
 

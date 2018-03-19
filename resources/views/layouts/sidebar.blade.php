@@ -6,7 +6,7 @@ $user_pro_image = Auth::user()->profilepicture;
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
+      <div class="user-panel" style="border-bottom: 4px dotted #ffffff;">
         <div class="pull-left image">
           <img src="{{ asset ("profilepicture/$user_pro_image") }}" class="img-circle" alt="User Image">
         </div>
@@ -17,7 +17,9 @@ $user_pro_image = Auth::user()->profilepicture;
           //$userid = DB::table('users')->select('*')->where('id','=',$id)->first();
         // echo  $userpassword = $userid->role;
           ?>
-          GVTC {{ ucfirst(Auth::user()->role) }}
+          <i class="fa fa-user text-success"></i>
+          Login As : {{ ucfirst(Auth::user()->role) }}
+          
 <!--          <a href="#"><i class="fa fa-circle text-success"></i> @lang('menu.online', array(),$session_lan)</a>-->
         </div>
       </div>

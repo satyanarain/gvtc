@@ -1,6 +1,12 @@
 @extends('users-mgmt.base')
 @section('action-content')
     <!-- Main content -->
+<?php
+$user_id=Auth::id();
+$role=Auth::user()->role;
+$permission_key = "user_add";
+$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+?>     
 <?php $session_lan= Session::get('language_val'); ?>   
     <section class="content">
       <div class="box">
@@ -9,10 +15,11 @@
         <div class="col-sm-8">
           <h3 class="box-title">@lang('menu.users_log', array(),$session_lan)</h3>
         </div>
+          <?php if($getpermissionstatus!=0){?> 
         <div class="col-sm-4" >
-
-          <a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
+<a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
         </div>
+          <?php } ?>
     </div>
   </div>
   <!-- /.box-header -->
@@ -47,19 +54,33 @@
                        <?php } ?>
                    </td>
                   <td>{{ $user->email }}</td>
-                  <td><div class="<?php if($user->status==0){ echo "inactive_record";}else{ echo "active_record"; } ?>"></div></td>
+                  <td> <?php if($user->status==0){ ?> <i class="icon fa fa-ban" style="color:#dd4b39;"></i><?php }else{ ?><i class="icon fa fa-check" style="color:green"></i><?php } ?></td>
                   <td>
 <form class="row" method="POST" action="{{ route('user-management.destroy', ['id' => $user->id]) }}" onsubmit = "return confirm('Are you sure?')">
 <input type="hidden" name="_method" value="DELETE">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a> 
+<?php
+$user_id=Auth::id();
+$role=Auth::user()->role;
+$permission_key = "user_edit";
+$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+if($getpermissionstatus!=0){?> 
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
 <?php userstatus('users',$user['id'],$user['status']); ?> 
+<?php } ?>
+<?php
+$user_id=Auth::id();
+$role=Auth::user()->role;
+$permission_key = "user_permissions";
+$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+if($getpermissionstatus!=0){?> 
  <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
- </form>
+<?php } ?> 
+</form>
  </td>
  </tr>
-                <?php } ?>
+<?php } ?>
 @endforeach
 </tbody>
 </table>

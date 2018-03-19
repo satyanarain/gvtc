@@ -22,7 +22,7 @@ if(is_numeric(Request::segment($i))){
 }else{
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-    {{ title_case(str_replace('taxons','Taxon',(Request::segment($i)))) }}
+    {{ title_case(str_replace('offlinerecord','Offline Record',(Request::segment($i)))) }}
 </a> 
 <?php } ?>
 @else 
@@ -34,7 +34,7 @@ if(is_numeric(Request::segment($i))){
 <div class="btn btn-primary btn-success">
 
     
-    {{ title_case(str_replace('taxons','Taxon',(Request::segment($i)))) }}
+    {{ title_case(str_replace('offlinerecord','Offline Record',(Request::segment($i)))) }}
     </div>
     
    <?php

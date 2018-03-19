@@ -45,7 +45,9 @@ class AbundanceController extends Controller
     $user_id=Auth::id();
     $role=Auth::user()->role;
     $permission_key = "abundance_view";
-    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);   
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');
     $abundance = Abundance::all()->toArray();
     return view('abundances.index', compact('abundance'));
     
@@ -58,6 +60,12 @@ class AbundanceController extends Controller
      */
     public function create()
     {
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "abundance_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('abundances/create');
     }
 
@@ -76,7 +84,9 @@ class AbundanceController extends Controller
      $this->validateInput($request);
      Abundance::create([
             'abundance_group' => $request['abundance_group'],
-            'code_description' => $request['code_description']
+            'created_by'=>$request['created_by'],
+            'code_description' => $request['code_description'],
+            'created_by'=>$request['created_by'],
 
         ]);
 

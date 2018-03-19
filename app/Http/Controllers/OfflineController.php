@@ -40,13 +40,12 @@ class OfflineController extends Controller
      */
     public function index()
     {
-    //$user_id=Auth::id();
-    //$role=Auth::user()->role;
-    //$permission_key = "taxon_view";
-   // $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
-    //if($getpermissionstatus==0)
-    //return redirect()->route('user-management.unauthorized');    
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "offline_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);   
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');    
     //$offline = Offline::all()->toArray();
      $offline = DB::table('distributions_offline')->select('*','distributions_offline.id as id')->leftjoin('taxons','taxons.id','distributions_offline.taxon_id')->leftjoin('methods','methods.id','distributions_offline.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions_offline.gazetteer_id')->leftjoin('observers','observers.id','distributions_offline.observer_id')->leftjoin('species','species.id','distributions_offline.specie_id')->get();
@@ -247,7 +246,7 @@ class OfflineController extends Controller
             
                         ]);
 
-     //DB::table('distributions_offline')->whereIn('id',$ids)->delete();
+     DB::table('distributions_offline')->whereIn('id',$ids)->delete();
       
             }}else{
         $ids = $request->id;    

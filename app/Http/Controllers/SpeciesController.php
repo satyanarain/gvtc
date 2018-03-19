@@ -65,6 +65,14 @@ class SpeciesController extends Controller
      */
     public function create()
     { 
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "species_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized');  
+        
        $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
@@ -132,7 +140,8 @@ class SpeciesController extends Controller
         'endenisms_id' => $request['endenisms_id'],
         'migration_tbl_id' => $request['migration_tbl_id'],
         'breeding_id' => $request['breeding_id'],
-        'national_threat_code_id' => $request['national_threat_code_id']
+        'national_threat_code_id' => $request['national_threat_code_id'],
+        'created_by'=>$request['created_by'],    
 
         ]);
         

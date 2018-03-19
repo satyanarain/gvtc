@@ -59,7 +59,12 @@ class MethodController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "method_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('methods/create');
     }
 
@@ -78,7 +83,8 @@ class MethodController extends Controller
      $this->validateInput($request);
      Method::create([
             'method_code' => $request['method_code'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'created_by'=>$request['created_by']
 
         ]);
 

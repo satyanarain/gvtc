@@ -35,7 +35,13 @@ class GuestRegisterController extends Controller
      */
     public function index()
     {
-       return view('guest_register.index');
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "user_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized'); 
+    return view('guest_register.index');
     }
 
     /**

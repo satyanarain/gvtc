@@ -62,6 +62,13 @@ class GazetteerController extends Controller
     public function create()
     { 
         
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+         $permission_key = "gazetteer_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized'); 
         
        //$countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id'); 
        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
@@ -120,6 +127,7 @@ class GazetteerController extends Controller
         'protected_area_id' => $request['protected_area_id'],
         'adminunit_id' => $request['adminunit_id'],
         'remarks' => $request['remarks'],
+        'created_by'=>$request['created_by'],    
         ]);
     Session::flash('flash_message', "Gazetters Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('gazetteer.index');

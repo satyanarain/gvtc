@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>404 Error Page</h1>
+<h1>Unauthorized Page</h1>
 
 
 

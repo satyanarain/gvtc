@@ -73,9 +73,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <?php if($getpermissionstatus!=0){?>
 <a href="{{ route('species.edit', $val->id) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
 <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<?php testdatas('species',$val->id,$val->status); ?> 
 <?php } ?>
 <!--<button type="submit" class="btn btn-google mini blue-stripe" id="id_of_your_button" style="margin-left: 20px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-<?php testdatas('species',$val->id,$val->status); ?> 
+
                        
                     </form>
                       

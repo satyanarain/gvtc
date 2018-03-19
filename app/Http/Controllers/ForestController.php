@@ -59,6 +59,12 @@ class ForestController extends Controller
      */
     public function create()
     {
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "forestuse_add";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');
         return view('forest/create');
     }
 
@@ -75,7 +81,8 @@ class ForestController extends Controller
      $this->validateInput($request);
      Forest::create([
             'forest_use' => $request['forest_use'],
-            'forest_habitat_usage' => $request['forest_habitat_usage']
+            'forest_habitat_usage' => $request['forest_habitat_usage'],
+            'created_by'=>$request['created_by']
 
         ]);
 

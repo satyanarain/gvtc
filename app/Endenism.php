@@ -23,7 +23,7 @@ class Endenism extends Model
      * @var array
      */
    protected $fillable = [
-        'endenism','endenism_status',
+        'endenism','endenism_status','created_by'
     ];
 
     /**

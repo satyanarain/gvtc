@@ -66,9 +66,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <a href="{{ route('observation.show', $observations['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
  <?php if($getpermissionstatus!=0){?> 
 <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('observation.edit', $observations['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<?php testdatas('observation',$observations['id'],$observations['status']); ?>
  <?php } ?>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-   <?php testdatas('observation',$observations['id'],$observations['status']); ?>                     
+                        
                     </form>
                       
                       

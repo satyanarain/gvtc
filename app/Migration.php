@@ -23,7 +23,7 @@ class Migration extends Model
      * @var array
      */
    protected $fillable = [
-        'migration_title','birds_migrating_population',
+        'migration_title','birds_migrating_population','created_by'
     ];
 
     /**

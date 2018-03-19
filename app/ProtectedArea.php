@@ -23,7 +23,7 @@ class ProtectedArea extends Model
      * @var array
      */
    protected $fillable = [
-        'protected_area_name','country','protected_area_code',
+        'protected_area_name','country','protected_area_code','created_by'
     ];
 
     /**
