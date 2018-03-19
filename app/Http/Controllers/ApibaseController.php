@@ -61,12 +61,14 @@ class ApibaseController extends Controller
       
       if($Activedata==1){
         $username = $request['username'];
-        $recorddata =DB::table('users')->select('*')->where('username','=',$username)->get();
-        $user_id = $recorddata[0]->id;
+        $recorddata =DB::table('users')->select('id')->where('username','=',$username)->get();
+        //print_r($recorddata);
+        //$user_id = $recorddata[0]->id;
         
-        $final_record=array('message'=>'success','userid'=>$user_id);
+        $final_record=array('message'=>'success','listdata'=>$recorddata);
          $arras= json_encode($final_record);
-        print_r($arras);
+         
+       print_r($arras);
     
           
       }else{
@@ -75,7 +77,7 @@ class ApibaseController extends Controller
           $user_id = $recorddata[0]->id;
           $final_records=array('message'=>'fail');
           $arrasf= json_encode($final_records);
-          print_r($arrasf);
+         // print_r($arrasf);
       }
        
       //print_r($request->all());
