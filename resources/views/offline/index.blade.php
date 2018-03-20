@@ -15,7 +15,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>   
     <section class="content">
       <div class="box">
-  <div class="box-header">
+          <div class="box-header" style="width:50%">
     <div class="row">
         <div class="col-sm-12">
           <h3 class="box-title">Offline Record Log</h3>
@@ -42,7 +42,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     
 
     
-    <div class="pull-right" style="margin-right: 15px;">
+    <div class="pull-right" style="margin-right: 10px;margin-top:-52px;">
      <?php
       $sql=DB::table('distributions_offline')->get();
       $record=count($sql);

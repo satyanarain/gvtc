@@ -43,7 +43,7 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Species</li>-->
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specienewid" value="Specienewid"  >Specienewid</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specienewid" value="Specienewid"  >Species Id</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="order" value="Order" checked >Order</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="family" value="Family" checked>Family</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="genus" value="Genus" checked>Genus</label></li>
@@ -184,7 +184,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                 <th>Specimen Code</th>
                 <th>Collector Institution</th>
                 <th>Sex</th>
-                <th>Specienewid</th>
+                <th>Species Id</th>
                 <th>Order</th>
 <th>Family</th>
 <th>Genus</th>

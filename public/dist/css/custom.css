@@ -225,3 +225,6 @@ margin-right: 4%;
 .custom-caret {
    margin-top: 8px !important;
 }
+
+.custom-panel-body>div label:first-child{width:150px;}
+.custom-panel-body>div label{width:50px;}

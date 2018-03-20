@@ -34,7 +34,7 @@ if(is_numeric(Request::segment($i))){
     ?>
 <div class="btn btn-primary btn-success">
 
-     {{ title_case(str_replace('report','View Report',(Request::segment($i)))) }}
+     {{ title_case(str_replace('report','View Reports',(Request::segment($i)))) }}
     </div>
     
    <?php

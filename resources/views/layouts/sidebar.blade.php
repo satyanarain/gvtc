@@ -32,7 +32,7 @@ $user_pro_image = Auth::user()->profilepicture;
           
         <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
           
-       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-record"></i><span>Offline Records</span></a></li>  
+       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-record"></i><span>Manage Offline Records</span></a></li>  
        
              <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Manage Reports</span></a>  </li> 
        

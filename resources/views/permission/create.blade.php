@@ -29,7 +29,7 @@ $username= $sql->username;
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; Back</a>
 </div>
-              <p>Permissions For : {{$username}}</p>
+<p><span style="font-weight:bold;margin-top:10px;">Permissions For</span> : <span style="color:#006a00;">{{$username}}</span></p>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -48,7 +48,7 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="accordion-toggle">
                         <i class="more-less glyphicon glyphicon-plus"></i>
                         Distribution Records <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
@@ -106,7 +106,7 @@ $username= $sql->username;
                     </a>
                 </h4>
             </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div id="collapseThree" class="panel-collapse collapse custom-panel-body" role="tabpanel" aria-labelledby="headingThree">
                 <div class="panel-body">
                     <label class="checkbox-inline title_space">Observers</label>
                      <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="observer_add" <?php if(in_array('observer_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
