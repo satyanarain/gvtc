@@ -24,7 +24,7 @@ $users_record=count($users);
              <p style="font-weight:bold">Species</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+             <i class="fa fa-paw"></i>
             </div>
             <a href="{{ url('species/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -39,7 +39,7 @@ $users_record=count($users);
               <p style="font-weight:bold">Gazetteer</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-map"></i>
             </div>
             <a href="{{ url('gazetteer/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -69,7 +69,7 @@ $users_record=count($users);
               <p style="font-weight:bold">Observers</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-eye"></i>
             </div>
             <a href="{{ url('observer/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
           </div>

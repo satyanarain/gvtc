@@ -7,17 +7,17 @@
       <div class="box">
   <div class="box-header">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-7">
           <h3 class="box-title ">View Reports</h3>
         </div>
-        <div class="col-sm-4" >
+        <div class="col-sm-5" >
    <div class="columns columns-right btn-group pull-right" >
 <!-- <button class="btn btn-default refresh_tbl" type="button" name="refresh" aria-label="refresh" title="Refresh">
  <i class="fa fa-refresh"></i></button>-->
  <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 <!--<i class="fa fa-columns"></i>-->
-Distribution Records&nbsp;&nbsp;<span class="caret"></span></button>
+Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Distribution</li>-->
 <li role="menuitem"><label class="label_value" ><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" >Taxon </label></li>
@@ -40,7 +40,7 @@ Distribution Records&nbsp;&nbsp;<span class="caret"></span></button>
  <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 <!--<i class="fa fa-columns"></i>-->
-Species&nbsp;&nbsp;<span class="caret"></span></button>
+Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Species</li>-->
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specienewid" value="Specienewid"  >Specienewid</label></li>
@@ -68,7 +68,7 @@ Species&nbsp;&nbsp;<span class="caret"></span></button>
 <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 <!--<i class="fa fa-columns"></i>-->
-Gazetteers&nbsp;&nbsp;<span class="caret"></span></button>
+Gazetteers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="gazeteer" value="Gazeteer" checked >Gazeteer</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="country" value="Country" checked >Country</label></li>
@@ -96,7 +96,7 @@ Gazetteers&nbsp;&nbsp;<span class="caret"></span></button>
        <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 <!--<i class="fa fa-columns"></i>-->
-Observers&nbsp;&nbsp;<span class="caret"></span></button>
+Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="title" value="Title" >Title</label></li>
 <li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="first_name" value="First Name" >First Name</label></li>

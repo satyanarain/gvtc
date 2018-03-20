@@ -8,6 +8,13 @@ $getAllPermission = getAllPermission($user_id);
 //print_r($getAllPermission);die;
 
 ?>
+<?php
+$user_id=Request::segment(3);
+$sql=DB::table('users')->where('id',$user_id)->first();
+$username= $sql->username;
+//print_r($sql);
+
+?>
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -15,7 +22,14 @@ $getAllPermission = getAllPermission($user_id);
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Permission Mangement</h3>
+              <h3 class="box-title">List Of Permission</h3>
+              
+              <div class="pull-right">
+<a href="/" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; Back</a>
+</div>
+              <p>Permissions For : {{$username}}</p>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

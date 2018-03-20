@@ -64,9 +64,7 @@
  <script>
   $(function () {
 
-    $('#example1').DataTable({ 
-         //"scrollY": 190,
-         "scrollX": true,
+    $('#example1').DataTable({  
       "paging"      : true,
       "lengthChange": true,
       "searching"   : true,

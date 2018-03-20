@@ -24,7 +24,7 @@ $user_pro_image = Auth::user()->profilepicture;
         </div>
       </div>
      @php
-           $arra=array('taxons','iucns','nationals','ranges','growth','protected-area','country','forest','water','endenism','admin-unit','age','method','observation','abundance','migration','admin-unit');
+           $arra=array('taxons','iucns','nationals','ranges','growth','protected-area','country','forest','water','endenism','admin-unit','age','method','observation','abundance','migration','admin-unit','breeding');
         @endphp
       <ul class="sidebar-menu" data-widget="tree">
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   

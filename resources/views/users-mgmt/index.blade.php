@@ -54,7 +54,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                        <?php } ?>
                    </td>
                   <td>{{ $user->email }}</td>
-                  <td> <?php if($user->status==0){ ?> <i class="icon fa fa-ban" style="color:#dd4b39;"></i><?php }else{ ?><i class="icon fa fa-check" style="color:green"></i><?php } ?></td>
+                  <td> <?php if($user->status==0){ ?><i class="icon fa fa-ban" style="color:#dd4b39;"></i> In-Active <?php }else{ ?><i class="icon fa fa-check" style="color:green"></i> Active<?php } ?></td>
                   <td>
 <form class="row" method="POST" action="{{ route('user-management.destroy', ['id' => $user->id]) }}" onsubmit = "return confirm('Are you sure?')">
 <input type="hidden" name="_method" value="DELETE">
@@ -75,7 +75,7 @@ $role=Auth::user()->role;
 $permission_key = "user_permissions";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 if($getpermissionstatus!=0){?> 
- <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Define Permissions</a>
+ <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Permissions</a>
 <?php } ?> 
 </form>
  </td>

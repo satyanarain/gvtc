@@ -37,15 +37,15 @@
                    
                       <p style="font-weight:bold;">Selection Criteria</p>
               
-                    <div class="checkbox checkbox-success checkbox-inline">
+                    <div class="checkbox checkbox-success checkbox-inline custom-checkbox">
                         <input type="radio"  class="geniusrecord" name="selectioncriteria"  id="genus" value="genus">
                         <label for="inlineCheckbox2"> Genus / Species / Sub-species </label>
                     </div>
-                    <div class="checkbox checkbox-inline">
+                    <div class="checkbox checkbox-inline custom-checkbox">
                         <input type="radio" name="selectioncriteria" class="geniusrecord" id="inlineCheckbox3" value="commonname">
                         <label for="inlineCheckbox3"> Common Name (English)</label>
                     </div>
-             <div class="checkbox checkbox-inline">
+             <div class="checkbox checkbox-inline custom-checkbox">
                         <input type="radio" name="selectioncriteria" class="geniusrecord" id="common_name_fr" value="commonnamefr">
                         <label for="inlineCheckbox3"> Common Name (French) </label>
                     </div>

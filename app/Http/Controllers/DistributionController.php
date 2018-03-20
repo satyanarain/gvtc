@@ -52,7 +52,7 @@ class DistributionController extends Controller
             return redirect()->route('user-management.unauthorized');
             //return view('error.index');          
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
-            ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->get();
+            ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where('distributions.status',1)->get();
     
     return view('distributions.index', compact('distribution'));  
     
@@ -229,8 +229,11 @@ class DistributionController extends Controller
      */
     public function destroy($id)
     {
-     Gazetteer::where('id', $id)->delete();
-     return redirect()->route('gazetteer.index');   
+     
+     //Distribution::where('id', $id)->delete();
+        $q = "UPDATE distributions SET status= '0' WHERE id=$id ";
+        DB::update(DB::raw($q));
+     return redirect()->route('distribution.index');   
     }
 
     /**

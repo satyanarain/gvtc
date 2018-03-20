@@ -212,3 +212,16 @@ float:right;
 .title_space{
 margin-right: 4%;
 }
+
+.custom-checkbox{
+   display: block;
+   padding: 0px !important;
+   margin: 0px !important;
+}
+.custom-label{
+   margin-right: -13px !important;
+}
+
+.custom-caret {
+   margin-top: 8px !important;
+}

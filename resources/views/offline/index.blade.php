@@ -42,7 +42,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     
 
     
-    <div style="margin-left:17px;">
+    <div class="pull-right" style="margin-right: 15px;">
      <?php
       $sql=DB::table('distributions_offline')->get();
       $record=count($sql);
