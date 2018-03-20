@@ -248,17 +248,16 @@ class OfflineController extends Controller
                         ]);
 
      DB::table('distributions_offline')->whereIn('id',$ids)->delete();
-     Session::flash('flash_message', "Distribution Added Successfully."); //Snippet in Master.blade.php 
-     return redirect()->back();
-  
+      
             }}else{
         $ids = $request->id;    
         DB::table("distributions_offline")->whereIn('id',$ids)->delete();
-        Session::flash('flash_message', "Distribution Deleted Successfully."); //Snippet in Master.blade.php 
-        return redirect()->back();
+        
             
         }
-           
+    return redirect()->back();
+    Session::flash('flash_message', "Distribution Created Successfully."); //Snippet in Master.blade.php 
+        
     }
 
     /**
