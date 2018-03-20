@@ -23,7 +23,7 @@ if(is_numeric(Request::segment($i))){
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
     
-    {{ title_case(str_replace('distribution','Distribution Record',(Request::segment($i)))) }}
+    {{ title_case(str_replace('report','View Report',(Request::segment($i)))) }}
 </a> 
 <?php } ?>
 @else 
@@ -34,7 +34,7 @@ if(is_numeric(Request::segment($i))){
     ?>
 <div class="btn btn-primary btn-success">
 
-     {{ title_case(str_replace('distribution','Distribution Record',(Request::segment($i)))) }}
+     {{ title_case(str_replace('report','View Report',(Request::segment($i)))) }}
     </div>
     
    <?php

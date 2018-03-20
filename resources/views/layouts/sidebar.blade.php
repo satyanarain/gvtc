@@ -6,7 +6,7 @@ $user_pro_image = Auth::user()->profilepicture;
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel" style="border-bottom: 4px dotted #ffffff;">
+      <div class="user-panel" style="border-bottom: 2px solid #ffffff;">
         <div class="pull-left image">
           <img src="{{ asset ("profilepicture/$user_pro_image") }}" class="img-circle" alt="User Image">
         </div>
@@ -18,7 +18,7 @@ $user_pro_image = Auth::user()->profilepicture;
         // echo  $userpassword = $userid->role;
           ?>
           <i class="fa fa-user text-success"></i>
-          Login As : {{ ucfirst(Auth::user()->role) }}
+          Login as : {{ ucfirst(Auth::user()->role) }}
           
 <!--          <a href="#"><i class="fa fa-circle text-success"></i> @lang('menu.online', array(),$session_lan)</a>-->
         </div>
@@ -32,6 +32,9 @@ $user_pro_image = Auth::user()->profilepicture;
           
         <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
           
+       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-record"></i><span>Offline Records</span></a></li>  
+       
+             <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Manage Reports</span></a>  </li> 
        
        
        <li class="treeview" >
@@ -82,28 +85,14 @@ $user_pro_image = Auth::user()->profilepicture;
           </ul>
         </li>
       <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
-      <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Reports</span></a>  </li>   
+  
        
-       
-     <li class="treeview" >
-          <a href="#">
-            <i class="fa fa-gear"></i>
-            <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-           @php
-           $arra1=array('observer','species');
-           //print_r($arra);
-          @endphp
-        <ul class="treeview-menu" style="">
       <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Change Password</span></a></li> 
+      <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>Sign out </span></a></li> 
       
-          </ul>
-        </li>
+   
       
-       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-record"></i><span>Offline Records</span></a></li>  
+       
       </ul>
     </section>
     <!-- /.sidebar -->

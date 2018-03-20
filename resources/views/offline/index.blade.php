@@ -17,8 +17,11 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
       <div class="box">
   <div class="box-header">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
           <h3 class="box-title">Offline Record Log</h3>
+    
+
+          
         </div>
        
 
@@ -36,6 +39,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   <form role="form" method="POST" action="{{ route('offlinerecord.bulk') }}" enctype="multipart/form-data" onsubmit = "return confirm('Are you sure?')">
     {!! csrf_field() !!}
+    
+
+    
     <div style="margin-left:17px;">
      <?php
       $sql=DB::table('distributions_offline')->get();
@@ -53,15 +59,13 @@ $permission_key = "offline_add";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
    if($getpermissionstatus!=0){ 
     ?>
-    <button type="submit" class="btn btn-primary" style="background-color: #1b6b36 !important;border-color: #00a65a; display:none"  name="add" value="add"  id="bulk-submit"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
+    <button type="submit" class="btn btn-primary btn-show" style="background-color: #1b6b36 !important;border-color: #00a65a; display:none"  name="add" value="add"  id="bulk-submit"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
     
-    <button type="button" class="btn btn-primary" style="background-color: #1b6b36 !important;border-color: #00a65a; cursor: default;opacity: 0.6;" name="default-btn1" value="add1"  id="bulksubmitdefault"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
+    <button type="button" class="btn btn-primary default-btn" style="background-color: #1b6b36 !important;border-color: #00a65a; cursor: default;opacity: 0.6;" name="default-btn1" value="add1"  id="bulksubmitdefault"> <span class="glyphicon glyphicon-plus" title="Add">Add</button>
     <?php } ?>
     </div>
-   
-            <div class="box-body">
-             
-              <table id="example1" class="table table-bordered table-striped">
+   <div class="box-body">
+     <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     
@@ -133,7 +137,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 
                 
                 
-                
+          <div class="form-group col-md-6">
+             <input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >
+            </div>         
                 
                 
 

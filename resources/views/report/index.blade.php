@@ -17,7 +17,7 @@
  <div class="keep-open btn-group" title="Columns" >
  <button type="button" aria-label="columns" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 <!--<i class="fa fa-columns"></i>-->
-Distribution&nbsp;&nbsp;<span class="caret"></span></button>
+Distribution Records&nbsp;&nbsp;<span class="caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Distribution</li>-->
 <li role="menuitem"><label class="label_value" ><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" >Taxon </label></li>

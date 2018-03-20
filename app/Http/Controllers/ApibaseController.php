@@ -44,6 +44,7 @@ class ApibaseController extends Controller
    }
     
 //http://127.0.0.1:8000/apilist/index?token_id=123456&tb=taxons
+   //http://ec2-13-127-44-64.ap-south-1.compute.amazonaws.com/api/apilist
 
   public function create(Request $request){
       
