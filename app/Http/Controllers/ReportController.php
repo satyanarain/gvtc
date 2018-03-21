@@ -51,7 +51,12 @@ class ReportController extends Controller
     return redirect()->route('user-management.unauthorized');   
     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->leftjoin('observation','observation.id','distributions.observation_id')
-            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')->get();
+            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')->leftjoin('countries','countries.id','gazetteers.country_id')
+            ->leftjoin('breedings','breedings.id','species.breeding_id')->leftjoin('national_threat_codes','national_threat_codes.id','species.national_threat_code_id')->leftjoin('migration_tbl','migration_tbl.id','species.migration_tbl_id')->leftjoin('endenisms','endenisms.id','species.endenisms_id')
+            ->leftjoin('wateruse','wateruse.id','species.wateruse_id')->leftjoin('forestuse','forestuse.id','species.forestuse_id')->leftjoin('growths','growths.id','species.growth_id')->leftjoin('ranges','ranges.id','species.range_id')->leftjoin('iucn_threats','iucn_threats.id','species.iucn_threat_id')->get();
+
+    
+    
     
     return view('report.index', compact('distribution'));  
     

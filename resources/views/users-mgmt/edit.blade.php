@@ -449,7 +449,7 @@
                   <?php if($user->photoid!='default_document.png'){ ?>
                  <a target="_blank" href="{{ asset("userdocument/$user->photoid") }}">Document</a>
                   <?php } ?>
-                  <input type="hidden"  name="edit_userdocument" value="{{ $user->photoid }}" />
+                  
                   </div>  
                  
                   
@@ -462,19 +462,30 @@
                                     </span>
                                 @endif
                     <img src="{{ asset("profilepicture/$user->profilepicture") }}" height="80px" width="80px" />            
-                    <input type="hidden" name="edit_profilepicture" value="{{ $user->profilepicture }}" />   
+                     
                    
                   </div> 
                   </div>
                   <?php } ?>
-                  
+                   <input type="hidden"  name="edit_userdocument" value="{{ $user->photoid }}" />
+                  <input type="hidden" name="edit_profilepicture" value="{{ $user->profilepicture }}" />  
                   <div class="form-row">
                 <div class=" form-group col-md-6">
                   <label for="exampleInputPassword1">Status</label>
+                  
                  <select id="account" name="status"  class="form-control">
+                     
+                     <?php
+                     $role=Auth::user()->role;
+                     if($role=='admin'){
+                     ?>
                      <option value="">Select Status</option> 
                      <option value="1" <?php echo ($user->status == 1)?'selected':''?>>Active</option> 
                      <option value="0" <?php echo ($user->status == 0)?'selected':''?>>Inactive</option>
+                     
+                     <?php }else{ ?>
+                     <option readonly value="1" <?php echo ($user->status == 1)?'selected':''?>>Active</option>
+                     <?php } ?>
                  </select>
                 </div>
 <!--                 <div class="form-group col-md-6">

@@ -63,3 +63,16 @@ function getAllPermission($user_id)
     return $userarra;    
     
 }
+
+function grtmultipleid($resultid,$array)
+{
+
+$resultid=DB::table('ranges')->whereIn('id',$array)->get();  
+
+foreach($resultid as $ids ){
+    
+  $str[]= $ids->range_code;
+    
+} 
+return  $idss=implode(',',$str);
+}

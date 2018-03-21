@@ -272,9 +272,14 @@ class UserManagementController extends Controller
         
         
         //return redirect()->intended('/user-management');
-        
     Session::flash('flash_message', "User Updated Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('user-management.index');
+    $role=Auth::user()->role;
+    if($role=='admin'){
+        return redirect()->route('user-management.index');
+        
+    }else{
+        return view('home');
+    }
     }
     
     

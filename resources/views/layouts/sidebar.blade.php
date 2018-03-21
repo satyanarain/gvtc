@@ -1,5 +1,6 @@
 <?php
 $user_pro_image = Auth::user()->profilepicture; 
+$role=Auth::user()->role; 
 ?>
 <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -29,14 +30,14 @@ $user_pro_image = Auth::user()->profilepicture;
       <ul class="sidebar-menu" data-widget="tree">
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
-          
+        <?php if($role!='guest'){?>  
         <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
-          
+        
        <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-record"></i><span>Manage Offline Records</span></a></li>  
+       <?php } ?>  
+       <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Manage Reports</span></a>  </li> 
        
-             <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Manage Reports</span></a>  </li> 
-       
-       
+       <?php if($role!='guest'){?>
        <li class="treeview" >
           <a href="#">
             <i class="glyphicon glyphicon-th"></i>
@@ -66,6 +67,8 @@ $user_pro_image = Auth::user()->profilepicture;
         <li class="{{ Request::segment(1) == 'breeding' ? 'active active-sub' : '' }}"><a href="{{ url('breeding/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Breeding</span></a></li>
           </ul>
         </li>
+       <?php } ?>
+           <?php if($role!='guest'){?>
          <li class="treeview" >
           <a href="#">
             <i class="glyphicon glyphicon-wrench"></i>
@@ -78,14 +81,16 @@ $user_pro_image = Auth::user()->profilepicture;
            $arra1=array('observer','species','gazetteer');
            //print_r($arra);
           @endphp
+
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra1)){ echo "display: block";} ?>">
       <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-globe"></span>  <span>Species</span></a></li> 
       <li class="{{ Request::segment(1) == 'gazetteer'? 'active' : '' }}"><a href="{{ url('gazetteer/') }}"><span class="glyphicon glyphicon-fire"></span>  <span>Gazetteer</span></a></li>  
       <li class="{{ Request::segment(1) == 'observer'? 'active' : '' }}"><a href="{{ url('observer/') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>Observers</span></a></li>  
           </ul>
         </li>
-      <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
   
+      <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
+  <?php } ?> 
        
       <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-eye-open"></span>  <span>Change Password</span></a></li> 
       <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>Sign out </span></a></li> 

@@ -28,7 +28,7 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Day</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >Observer</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Observer" >Age Group</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >Age Group</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="abundance" value="Abundance" >Abundance</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specimen_code" value="Specimen Code" >Specimen Code</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="collector_institution" value="Collector Institution" >Collector Institution</label></li>
@@ -43,18 +43,19 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Species</li>-->
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specienewid" value="Specienewid"  >Species Id</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_id" value="Species Id" checked>Species Id</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="order" value="Order" checked >Order</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="family" value="Family" checked>Family</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="genus" value="Genus" checked>Genus</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species" value="Species" checked>Species</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_s" value="Species" checked>Species</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_auth" value="Species Author" checked>Species Author</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species" value="Sub-species" >Sub-species</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species" value="Sub-species" checked>Sub-species</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species_auth" value="Sub-species Author" >Sub-species Author</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name" value="Common Name" >Common Name (English)</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name_fr" value="Common Name (French)" >Common Name (French)</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="iucn_threat_code" value="IUCN Threat Code" >IUCN Threat Code</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="range" value="Range" >Range</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="growth" value="Growth Id" >Growth Id</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="forest_use" value="Forest Use" >Forest Use</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="water_use" value="Water Use" >Water Use</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="endemism" value="Endemism" >Endemism</label></li>
@@ -184,8 +185,8 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                 <th>Specimen Code</th>
                 <th>Collector Institution</th>
                 <th>Sex</th>
-                <th>Species Id</th>
-                <th>Order</th>
+<th>Species Id</th>
+<th>Order</th>
 <th>Family</th>
 <th>Genus</th>
 <th>Species</th>
@@ -196,6 +197,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <th>Common Name (French)</th>
 <th>IUCN Threat Code</th>
 <th>Range</th>
+<th>Growth Id</th>
 <th>Forest Use</th>
 <th>Water Use</th>
 <th>Endemism</th>
@@ -236,7 +238,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
             </tr>
         </thead>
  
-        
+        <?php  //grtmultipleid($resultid,) ?>
  
         <tbody>
             
@@ -255,45 +257,79 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                 <td><?php echo $val->specimencode; ?></td>
                 <td><?php echo $val->collectorinstitution; ?></td>
                 <td><?php echo $val->Sex; ?></td>
-                <td><?php echo $val->specienewid; ?></td>
-                <td><?php echo $val->order; ?></td>
-                <td><?php echo $val->family; ?></td>
+                
+<!--<th>Species Id</th>
+<th>Order</th>
+<th>Family</th>
+<th>Genus</th>
+<th>Species</th>
+<th>Species Author</th>
+<th>Sub-species</th>
+<th>Sub-species Author</th>
+<th>Common Name (English)</th>
+<th>Common Name (French)</th>
+<th>IUCN Threat Code</th>
+<th>Range</th>
+<th>Growth Id</th>
+<th>Forest Use</th>
+<th>Water Use</th>
+<th>Endemism</th>
+<th>Migration</th>
+<th>National Threat Code</th>
+<th>Breeding</th>                -->
+                
+                
+                
+<td><?php echo $val->specienewid; ?></td>
+<td><?php echo $val->order; ?></td>
+<td><?php echo $val->family; ?></td>
  <td><?php echo $val->genus; ?></td>
  <td><?php echo $val->species; ?></td>
  <td><?php echo $val->species_author; ?></td>
  <td><?php echo $val->subspecies; ?></td>
+ <td><?php echo $val->subspecies_author; ?></td>
  <td><?php echo $val->common_name; ?></td>
  <td><?php echo $val->common_name_fr; ?></td>
- <td><?php echo $val->iucn_threat_id; ?></td>
- <td><?php echo $val->range_id; ?></td>
- <td><?php echo $val->growth_id; ?></td>
- <td><?php echo $val->forestuse_id; ?></td>
- <td><?php echo $val->wateruse_id; ?></td>
- <td><?php echo $val->endenisms_id; ?></td>
- <td><?php echo $val->migration_tbl_id; ?></td>
- <td><?php echo $val->national_threat_code_id; ?></td>
- <td><?php echo $val->breeding_id; ?></td>
+ <td><?php echo $val->iucn_threat_code; ?></td>
+ <td><?php 
+ $array=explode(',',$val->range_id);
+     $str= grtmultipleid($resultid,$array);
+     echo $str;
+    //echo $strc= substr($str, 0,-1);
+?>
+ 
+ </td>
+ <td><?php echo $val->growth_form; ?></td>
+ <td><?php echo $val->forest_use; ?></td>
+ <td><?php echo $val->water_use; ?></td>
+ <td><?php echo $val->endenism; ?></td>
+ <td><?php echo $val->migration_title; ?></td>
+ <td><?php echo $val->national_threat_code; ?></td>
+ <td><?php echo $val->breeding_code; ?></td>
     
  
  <td><?php echo $val->gazeteer_id; ?></td>
- <td><?php echo $val->country_id; ?></td>
+ <td><?php echo $val->range_within_albertine_rift; ?>(<?php echo $val->range_code; ?>)</td>
  <td><?php echo $val->place; ?></td>
  <td><?php echo $val->details; ?></td>
- <td><?php echo $val->eastings; ?></td>
- <td><?php echo $val->northings; ?></td>
- <td><?php echo $val->zone; ?></td>
- <td><?php echo $val->datum; ?></td>
- <td><?php echo $val->datum_dd; ?></td>
  <td><?php echo $val->longitude; ?></td>
  <td><?php echo $val->latitude; ?></td>
+ <td><?php echo $val->datum_dd; ?></td>
+ <td><?php echo $val->zone; ?></td>
+ <td><?php echo $val->eastings; ?></td>
+ <td><?php echo $val->northings; ?></td>
+ <td><?php echo $val->datum; ?></td>
+ 
+ 
+ 
  
  <td><?php echo $val->habitat; ?></td>
  <td><?php echo $val->altitude; ?></td>
  <td><?php echo $val->slope; ?></td>
  <td><?php echo $val->aspect; ?></td>
- <td><?php echo $val->soil; ?></td>
- <td><?php echo $val->protected_area_code; ?>(<?php echo $val->protected_area_name; ?>)</td>
  <td><?php echo $val->adminunit_id; ?></td>
+ <td><?php echo $val->protected_area_code; ?>(<?php echo $val->protected_area_name; ?>)</td>
+ <td><?php echo $val->soil; ?></td>
  
  
  <td><?php echo $val->tittle; ?></td>
@@ -368,7 +404,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
    
     $(document).ready(function() {
     var table = $('#example').DataTable( {
-         "scrollY": 200,
+         "scrollY": 500,
          "scrollX": true,
           //dom: 'B',
                  dom: 'Blfrtip',
@@ -483,11 +519,11 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
             { "name": "specimen_code"},
             { "name": "collector_institution"},
             { "name": "sex"},
-            { "name": "specienewid"},
+            { "name": "species_id"},
             { "name": "order"},
             { "name": "family"},
             { "name": "genus"},
-            { "name": "species"},
+            { "name": "species_s"},
             { "name": "species_auth"},
             { "name": "sub_species"},
             { "name": "sub_species_auth"},
@@ -495,6 +531,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
             { "name": "common_name_fr"},
             { "name": "iucn_threat_code"},
             { "name": "range"},
+            { "name": "growth"},
             { "name": "forest_use"},
             { "name": "water_use"},
             { "name": "endemism"},
