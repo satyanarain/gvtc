@@ -1,7 +1,8 @@
 @extends('users-mgmt.base')
-
 @section('action-content')
-
+<?php
+$role=Auth::user()->role;
+?>
 <section class="content">
       <div class="row">
         <!-- left column -->
@@ -10,11 +11,19 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Update User Profile</h3>
+              <?php if($role=='admin'){ ?>
               <div class="pull-right">
 <a href="{{ route('user-management.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; Back</a>
 </div>
+<?php } else{ ?>  
+ <div class="pull-right">
+<a href="<?php echo "/user-management/viewprofile/".Auth::user()->id; ?>" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; Back</a>
+</div>             
+<?php } ?>              
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -468,16 +477,20 @@
                   </div>
                   <?php } ?>
                    <input type="hidden"  name="edit_userdocument" value="{{ $user->photoid }}" />
-                  <input type="hidden" name="edit_profilepicture" value="{{ $user->profilepicture }}" />  
+                  <input type="hidden" name="edit_profilepicture" value="{{ $user->profilepicture }}" /> 
+                  
+                    
                   <div class="form-row">
                 <div class=" form-group col-md-6">
                   <label for="exampleInputPassword1">Status</label>
                   
+                    
+                    
                  <select id="account" name="status"  class="form-control">
                      
                      <?php
-                     $role=Auth::user()->role;
-                     if($role=='admin'){
+                     
+                     if(@$_GET['flag']==1 && $role=='admin'){
                      ?>
                      <option value="">Select Status</option> 
                      <option value="1" <?php echo ($user->status == 1)?'selected':''?>>Active</option> 
@@ -488,13 +501,14 @@
                      <?php } ?>
                  </select>
                 </div>
+                   
 <!--                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Confirm Password</label>
                   <input type="password" id="password_confirmation" name="password_confirmation"   class="form-control" id="password_confirmation" placeholder="Password">
                 </div>-->
                 
               </div>
-                  
+                      
                  
                   
               </div> 

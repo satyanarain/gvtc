@@ -211,6 +211,7 @@ float:right;
 }
 .title_space{
 margin-right: 4%;
+font-weight:bold;
 }
 
 .custom-checkbox{
@@ -228,3 +229,4 @@ margin-right: 4%;
 
 .custom-panel-body>div label:first-child{width:150px;}
 .custom-panel-body>div label{width:50px;}
+.label_accord{font-weight:bold;}

@@ -56,7 +56,7 @@ $username= $sql->username;
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                    <label class="checkbox-inline">Distribution Records<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                <label class="checkbox-inline"><span class="label_accord">Distribution Records</span><input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="distribution_add" <?php if(in_array('distribution_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                      <label class="checkbox-inline"><input type="checkbox" name="action[]" value="distribution_edit" <?php if(in_array('distribution_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="distribution_view" <?php if(in_array('distribution_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label> 
@@ -76,19 +76,19 @@ $username= $sql->username;
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="panel-body">
-                <label class="checkbox-inline">Species&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>   
+                <label class="checkbox-inline"><span class="label_accord">Species</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>   
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="species_add" <?php if(in_array('species_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="species_edit" <?php if(in_array('species_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="species_view" <?php if(in_array('species_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>   
                 </div>
                 <div class="panel-body">
-                <label class="checkbox-inline">Gazetteer<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                <label class="checkbox-inline"><span class="label_accord">Gazetteer</span><input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="gazetteer_add" <?php if(in_array('gazetteer_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="gazetteer_edit" <?php if(in_array('gazetteer_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="gazetteer_view" <?php if(in_array('gazetteer_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
                 </div>
                 <div class="panel-body">
-                <label class="checkbox-inline">Observers<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                <label class="checkbox-inline"><span class="label_accord">Observers</span><input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                 <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="observer_add" <?php if(in_array('observer_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_edit" <?php if(in_array('observer_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                 <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_view" <?php if(in_array('observer_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
@@ -230,7 +230,7 @@ $username= $sql->username;
             </div>
             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
             <div class="panel-body">
-                    <label class="checkbox-inline">Manage Users<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                    <label class="checkbox-inline label_accord">Manage Users<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="user_add" <?php if(in_array('user_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                      <label class="checkbox-inline"><input type="checkbox" name="action[]" value="user_edit" <?php if(in_array('user_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="user_view" <?php if(in_array('user_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label> 
@@ -250,7 +250,7 @@ $username= $sql->username;
             </div>
             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
             <div class="panel-body">
-                    <label class="checkbox-inline">Manage Reports<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                    <label class="checkbox-inline label_accord">Manage Reports<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="download_report" <?php if(in_array('download_report',$getAllPermission)){echo 'checked="checked"';}?>>Download</label>
                    
                      
@@ -269,7 +269,7 @@ $username= $sql->username;
             </div>
             <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
             <div class="panel-body">
-                    <label class="checkbox-inline">Manage Offline Records<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                    <label class="checkbox-inline label_accord">Manage Offline Records<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="offline_view" <?php if(in_array('offline_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="offline_add" <?php if(in_array('offline_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="offline_delete" <?php if(in_array('offline_delete',$getAllPermission)){echo 'checked="checked"';}?>>Delete</label>

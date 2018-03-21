@@ -66,7 +66,7 @@ $role=Auth::user()->role;
 $permission_key = "user_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 if($getpermissionstatus!=0){?> 
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}?flag=1" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
 <?php userstatus('users',$user['id'],$user['status']); ?> 
 <?php } ?>
 <?php
