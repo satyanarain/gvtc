@@ -75,7 +75,7 @@ $role=Auth::user()->role;
 $permission_key = "user_permissions";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 if($getpermissionstatus!=0){?> 
- <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Permissions</a>
+ <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-lock"></span>&nbsp;Permissions</a>
 <?php } ?> 
 </form>
  </td>
