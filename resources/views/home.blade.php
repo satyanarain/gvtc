@@ -21,12 +21,12 @@ $users_record=count($users);
             <div class="inner">
               <h3>{{$species_record}}</h3>
 
-             <p style="font-weight:bold">Species</p>
+             <p style="font-weight:bold">@lang('menu.species', array(),Session::get('language_val'))</p>
             </div>
             <div class="icon">
              <i class="fa fa-paw"></i>
             </div>
-            <a href="{{ url('species/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('species/') }}" class="small-box-footer">@lang('menu.click_here', array(),Session::get('language_val')) <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -36,12 +36,12 @@ $users_record=count($users);
             <div class="inner">
               <h3>{{$gazetteer_record}}<sup style="font-size: 20px"></sup></h3>
 
-              <p style="font-weight:bold">Gazetteer</p>
+              <p style="font-weight:bold">@lang('menu.gazetteer', array(),Session::get('language_val'))</p>
             </div>
             <div class="icon">
               <i class="fa fa-map"></i>
             </div>
-            <a href="{{ url('gazetteer/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('gazetteer/') }}" class="small-box-footer">@lang('menu.click_here', array(),Session::get('language_val')) <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -51,12 +51,12 @@ $users_record=count($users);
             <div class="inner">
               <h3>{{$users_record}}</h3>
 
-            <p style="font-weight:bold">Active Users</p>
+            <p style="font-weight:bold">@lang('menu.active_users', array(),Session::get('language_val')) </p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{ url('user-management/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('user-management/') }}" class="small-box-footer">@lang('menu.click_here', array(),Session::get('language_val')) <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -66,12 +66,12 @@ $users_record=count($users);
             <div class="inner">
               <h3>{{$observer_record}}</h3>
 
-              <p style="font-weight:bold">Observers</p>
+              <p style="font-weight:bold">@lang('menu.observers', array(),Session::get('language_val'))</p>
             </div>
             <div class="icon">
               <i class="fa fa-eye"></i>
             </div>
-            <a href="{{ url('observer/') }}" class="small-box-footer">Click here <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('observer/') }}" class="small-box-footer">@lang('menu.click_here', array(),Session::get('language_val')) <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -86,7 +86,7 @@ $users_record=count($users);
         <div class="col-md-6">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Image Gallery</h3>
+              <h3 class="box-title">@lang('menu.image_gallery', array(),Session::get('language_val'))</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -252,7 +252,7 @@ $users_record=count($users);
        <!-- </section>
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
 
           <!-- Map box -->
         
@@ -267,7 +267,7 @@ $users_record=count($users);
             <div class="box-header">
               <i class="fa fa-calendar"></i>
 
-              <h3 class="box-title">Calendar</h3>
+              <h3 class="box-title">@lang('menu.calendar', array(),Session::get('language_val'))</h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
                 <!-- button with a dropdown -->

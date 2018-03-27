@@ -47,7 +47,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>Water Use </th>
                   <th>Water/Wetland Habitat Usage</th>
                 
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -67,9 +67,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                       <form class="row" method="POST" action="{{ route('water.destroy', $water['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('water.show', $water['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('water.show', $water['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
 <?php if($getpermissionstatus!=0){?> 
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('water.edit', $water['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('water.edit', $water['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 <?php testdatas('wateruse',$water['id'],$water['status']); ?> 
 <?php } ?>

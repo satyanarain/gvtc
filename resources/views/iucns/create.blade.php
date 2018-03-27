@@ -9,10 +9,10 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add IUCN Threat Code</h3>
+              <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.IUCN_threat_code', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('iucns.index') }}" class="btn btn-default">
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -28,7 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">IUCN Threat Code </label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_threat_code', array(),Session::get('language_val')) </label>
                   <input type="text" name="iucn_threat_code" value="{{ old('iucn_threat_code') }}" required  class="form-control" id="iucn_threat_code" placeholder="IUCN Threat Code">
                  @if ($errors->has('iucn_threat_code'))
                                     <span class="help-block">
@@ -39,7 +39,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">IUCN Code Description</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="iucn_code_description" value="{{ old('iucn_code_description') }}" required  class="form-control" id="IUCN Code Description" placeholder="IUCN Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block">
@@ -71,7 +71,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Save</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

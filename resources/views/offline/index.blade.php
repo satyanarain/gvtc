@@ -15,10 +15,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>   
     <section class="content">
       <div class="box">
-          <div class="box-header" style="width:50%">
+          <div class="box-header with-border" style="width:50%">
     <div class="row">
         <div class="col-sm-12">
-          <h3 class="box-title">Offline Record Log</h3>
+          <h3 class="box-title">@lang('menu.offline_record_log', array(),Session::get('language_val'))</h3>
     
 
           
@@ -76,21 +76,21 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                     
                     </td>  
                   
-                  <th>Taxon</th>
-                  <th>Species</th>
-                  <th>Selection Criteria</th>
-                  <th>Method</th>
-                  <th>Place</th>
-                  <th>Observer</th>
-                  <th>Day Month Year</th>
-                  <th>Number</th>
-                  <th>Age Group</th>
-                  <th>Abundance</th>
-                  <th>Specimen Code</th>
+                  <th>@lang('menu.taxon', array(),Session::get('language_val'))
+                  <th>@lang('menu.species', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.selection_criteria', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.method', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.place', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.observation', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.day', array(),Session::get('language_val')) @lang('menu.month', array(),Session::get('language_val')) @lang('menu.year', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.number', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.age_group', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.abundance', array(),Session::get('language_val'))</th>
+<!--                  <th>Specimen Code</th>
                   <th>Collector Institution</th>
                   <th>Sex</th>
-                  <th>Remarks</th>
-<!--                  <th>Action</th>-->
+                  <th>Remarks</th>-->
+<!--                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>-->
                  
                 </tr>
                 </thead>
@@ -117,10 +117,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td><?php echo $val->number; ?></td>
                   <td><?php echo $val->age_id; ?></td>
                   <td><?php echo $val->abundance_id; ?></td>
-                  <td><?php echo $val->specimencode; ?></td>
-                  <td><?php echo $val->collectorinstitution; ?></td>
-                  <td><?php echo $val->Sex; ?></td>
-                  <td><?php echo $val->remark; ?></td>
+<!--                  <td><?php //echo $val->specimencode; ?></td>
+                  <td><?php //echo $val->collectorinstitution; ?></td>
+                  <td><?php //echo $val->Sex; ?></td>
+                  <td><?php //echo $val->remark; ?></td>-->
                   
 
                    

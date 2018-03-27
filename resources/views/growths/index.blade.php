@@ -10,10 +10,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>     
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Growth Form Log</h3>
+          <h3 class="box-title">@lang('menu.growth_form', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
         </div>
         <?php if($getpermissionstatus!=0){?>
         <div class="col-sm-4" >
@@ -39,9 +39,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Growth Form </th>
+                  <th>@lang('menu.growth_form_field', array(),Session::get('language_val'))</th>
                   <th>Plants Growth Form</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -59,9 +59,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                       <form class="row" method="POST" action="{{ route('growth.destroy', $growth['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('growth.show', $growth['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('growth.show', $growth['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
 <?php if($getpermissionstatus!=0){?>
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('growth.edit', $growth['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('growth.edit', $growth['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 <?php testdatas('growths',$growth['id'],$growth['status']); ?> 
 <?php } ?>

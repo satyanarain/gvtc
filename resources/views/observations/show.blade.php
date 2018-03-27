@@ -32,14 +32,14 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Observation Code</label>
+                  <label for="exampleInputEmail1">@lang('menu.observation_code', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $observation->observation_code }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Code Description</label>
+                  <label for="exampleInputEmail1">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $observation->code_description }}" readonly=""  class="form-control">
                 
                   </div>  

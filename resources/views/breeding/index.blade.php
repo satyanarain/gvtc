@@ -10,14 +10,14 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>    
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Taxon Log</h3>
+          <h3 class="box-title">Breeding Log</h3>
         </div>
         <?php if($getpermissionstatus!=0){?> 
         <div class="col-sm-4" >
- <a class="btn btn-primary btn-template" href="{{ route('breeding.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
+ <a class="btn btn-primary btn-template" href="{{ route('breeding.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),Session::get('language_val'))</a>
 </div>
         <?php } ?>
     </div>
@@ -40,8 +40,8 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <th style="display:none">id</th> 
                   <th>Breeding Code</th>
-                  <th>Breeding Code Description</th>
-                  <th>Action</th>
+                  <th>Breeding @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -58,10 +58,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <form class="row" method="POST" action="{{ route('breeding.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('breeding.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('breeding.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
 <?php if($getpermissionstatus!=0){?> 
 <a href="{{ route('breeding.edit', $val['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-<i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <?php testdatas('breedings',$val['id'],$val['status']); ?>
 <?php } ?>
 

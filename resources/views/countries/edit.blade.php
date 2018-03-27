@@ -12,7 +12,7 @@
               <h3 class="box-title">Update Country</h3>
               <div class="pull-right">
 <a href="{{ route('country.index') }}" class="btn btn-default">
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -37,7 +37,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Country Code Description</label>
+                  <label for="exampleInputEmail1" class="control-label">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="text" name="range_within_albertine_rift" value="{{ $countries->range_within_albertine_rift }}" required  class="form-control" id="range_within_albertine_rift" placeholder="Country Code Description">
                  @if ($errors->has('range_within_albertine_rift'))
                                     <span class="help-block">
@@ -61,7 +61,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

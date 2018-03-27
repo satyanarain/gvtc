@@ -12,7 +12,7 @@
               <h3 class="box-title">Update Gazetteers</h3>
               <div class="pull-right">
 <a href="{{ route('gazetteer.index') }}" class="btn btn-default"> 
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -284,7 +284,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

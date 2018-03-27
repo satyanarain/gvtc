@@ -8,7 +8,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-7">
-          <h3 class="box-title ">View Reports</h3>
+          <h3 class="box-title ">@lang('menu.view_reports', array(),Session::get('language_val'))</h3>
         </div>
         <div class="col-sm-5" >
    <div class="columns columns-right btn-group pull-right" >
@@ -60,7 +60,7 @@ Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="water_use" value="Water Use" >Water Use</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="endemism" value="Endemism" >Endemism</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="migration" value="Migration" >Migration</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="national_threat_code" value="National Threat Code" >National Threat Code</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="national_threat_code" value="National Threat Code" >@lang('menu.national_threat_code', array(),Session::get('language_val')) </label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="breeding" value="Breeding" >Breeding</label></li>
 
       <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>-->
@@ -172,7 +172,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <table id="example" class="display dataTable" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Taxon</th>
+                <th>@lang('menu.taxon', array(),Session::get('language_val'))
                  <th>Method</th>
                  <th>Observation</th>
                 <th>Species</th>

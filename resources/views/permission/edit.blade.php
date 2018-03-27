@@ -33,7 +33,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Taxon Code Description</label>
+                  <label for="exampleInputEmail1">Taxon @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="textarea" name="taxon_code_description" value="{{ $taxon->taxon_code_description }}" required  class="form-control" id="taxon_code_description" placeholder="Taxon Code Description">
                  @if ($errors->has('taxon_code_description'))
                                     <span class="help-block">
@@ -49,7 +49,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

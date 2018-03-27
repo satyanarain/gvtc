@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>Manage Distribution Records</h1>
+<h1>@lang('menu.manage', array(),Session::get('language_val')) @lang('menu.distribution_records', array(),Session::get('language_val'))</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
@@ -20,6 +20,7 @@ $urls = $arra[0] . '//' . $arra[1] . $arra[2] . '/' . $arra[4];
 if(is_numeric(Request::segment($i))){ 
     
 }else{
+    
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
     

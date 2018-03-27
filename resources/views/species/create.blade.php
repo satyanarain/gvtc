@@ -31,14 +31,13 @@
                 <input type="hidden" name="specienewid" value="{{'GVTCSP'.$last_speciesid}}" required  class="form-control" id="order" placeholder="species">   
                 <div class="form-row">
                 <div class="form-group col-md-6 required">
-
-                  {!! Form::label('Taxon','Taxon',['class'=>'control-label']) !!}
+                <label for="exampleInputEmail1" class="control-label">@lang('menu.taxon', array(),Session::get('language_val'))</label>
                   {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}
                   </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Order</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.order', array(),Session::get('language_val'))</label>
                   <input type="text" name="order" value="{{ old('order') }}" required  class="form-control" id="order" placeholder="Order">
                  @if ($errors->has('order'))
                                     <span class="help-block">
@@ -52,7 +51,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('family') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Family</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.family', array(),Session::get('language_val'))</label>
                   <input type="text" name="family" value="{{ old('family') }}" required  class="form-control" id="family" placeholder="Family">
                  @if ($errors->has('family'))
                                     <span class="help-block">
@@ -63,7 +62,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('genus') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Genus</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.genus', array(),Session::get('language_val'))</label>
                   <input type="text" name="genus" value="{{ old('genus') }}" required  class="form-control" id="genus" placeholder="Genus">
                  @if ($errors->has('genus'))
                                     <span class="help-block">
@@ -77,7 +76,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('species') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Species</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.species', array(),Session::get('language_val'))</label>
                   <input type="text" name="species" value="{{ old('species') }}" required  class="form-control" id="species" placeholder="Species">
                  @if ($errors->has('species'))
                                     <span class="help-block">
@@ -255,7 +254,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Save</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

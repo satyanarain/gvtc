@@ -1,10 +1,9 @@
-@extends('layouts.app-template')
-<?php $session_lan= Session::get('language_val'); ?>  
+@extends('layouts.app-template') 
 @section('content')
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>@lang('menu.manage_users', array(),$session_lan)</h1>
+<h1>@lang('menu.manage_users', array(),Session::get('language_val'))</h1>
 
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>

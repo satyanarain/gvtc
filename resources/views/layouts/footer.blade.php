@@ -58,7 +58,11 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ("/dist/js/demo.js") }}"></script>
+<?php if(Session::get('language_val')=='en'){?>
 <script src="{{ asset ("/bower_components/datatables.net/js/jquery.dataTables.min.js") }}"></script>
+<?php }else { ?>
+<script src="{{ asset ("/bower_components/datatables.net/js/fr-jquery.dataTables.min.js") }}"></script>
+<?php } ?>
 <script src="{{ asset ("/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js") }}"></script>
 @stack('datatable_data')
  <script>
@@ -77,10 +81,7 @@
    'bSortable' : false,
    'aTargets' : [ 'action', 'text-holder' ]
  }]
- 
- 
- 
-    })
+})
   })
 </script>
 

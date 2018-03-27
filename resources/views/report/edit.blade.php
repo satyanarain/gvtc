@@ -41,7 +41,7 @@
                   
                   <div class="form-group col-md-4 required">
                    
-                      <p style="font-weight:bold;">Selection Criteria</p>
+                      <p style="font-weight:bold;">@lang('menu.selection_criteria', array(),Session::get('language_val'))</p>
               
                     <div class="checkbox checkbox-success checkbox-inline">
                         <input type="radio"  class="geniusrecord" name="selectioncriteria" <?php if($distribution->selectioncriteria=='genus'){?> checked <?php } ?> id="genus" value="genus">
@@ -293,7 +293,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add National Threat Code</h3>
+              <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.national_threat_code', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('nationals.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -29,7 +29,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('national_threat_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">National Threat Code </label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.national_threat_code', array(),Session::get('language_val')) </label>
                   <input type="text" name="national_threat_code" value="{{ old('national_threat_code') }}" required  class="form-control" id="national_threat_code" placeholder="National Threat Code">
                  @if ($errors->has('iucn_threat_code'))
                                     <span class="help-block">
@@ -40,7 +40,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('national_threat_code_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">National Threat Code Description</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.description', array(),Session::get('language_val')) </label>
                   <input type="textarea" name="national_threat_code_description" value="{{ old('national_threat_code_description') }}" required  class="form-control" id="national_threat_code_description" placeholder="National Threat Code Description">
                  @if ($errors->has('national_threat_code_description'))
                                     <span class="help-block">
@@ -57,7 +57,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Save</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

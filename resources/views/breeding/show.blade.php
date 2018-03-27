@@ -14,7 +14,7 @@
               <div class="pull-right">
 <a href="{{ route('breeding.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp;Back</a>
+&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -40,7 +40,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Breeding Code Description</label>
+                  <label for="exampleInputEmail1">Breeding @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $breedings->breeding_description }}" readonly=""  class="form-control">
                 
                   </div>  

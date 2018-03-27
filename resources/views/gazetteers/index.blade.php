@@ -47,7 +47,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>Datum</th>
                   <th>Longitude</th>
                   <th>Latitude</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -67,10 +67,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <form class="row" method="POST" action="{{ route('gazetteer.destroy', $gazetteers->id) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('gazetteer.show', $gazetteers->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('gazetteer.show', $gazetteers->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
 <?php if($getpermissionstatus!=0){?>
 <a href="{{ route('gazetteer.edit', $gazetteers->id) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-<i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <?php testdatas('gazetteers',$gazetteers->id,$gazetteers->status); ?>  
 <?php } ?>
 <!--<button type="submit" class="btn btn-google mini blue-stripe" id="id_of_your_button" style="margin-left: 20px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->

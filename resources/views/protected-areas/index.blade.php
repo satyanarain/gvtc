@@ -42,7 +42,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>Protected Area Name</th>
                   <th>Country</th>
                   <th>Protected Area Code</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -62,9 +62,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                       <form class="row" method="POST" action="{{ route('protected-area.destroy', $protectedarea->id) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('protected-area.show', $protectedarea->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('protected-area.show', $protectedarea->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
  <?php if($getpermissionstatus!=0){?>
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('protected-area.edit', $protectedarea->id) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('protected-area.edit', $protectedarea->id) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 <?php testdatas('protected_areas',$protectedarea->id,$protectedarea->status); ?>  
  <?php } ?>

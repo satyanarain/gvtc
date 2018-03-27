@@ -29,7 +29,7 @@ $getAllPermission = getAllPermission($user_id);
                 <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                 </tr>
                 </thead>
                 <tbody>

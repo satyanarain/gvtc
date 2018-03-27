@@ -34,7 +34,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Taxon Code Description</label>
+                  <label for="exampleInputEmail1">Taxon @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $taxons->taxon_code_description }}" readonly=""  class="form-control">
                 
                   </div>  

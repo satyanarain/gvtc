@@ -11,7 +11,7 @@
               <h3 class="box-title">View Admin Unit</h3>
                  <div class="pull-right">
 <a href="{{ route('admin-unit.index') }}" class="btn btn-default">
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->

@@ -1,5 +1,6 @@
-function statusUpdate(id,tablename)
+function statusUpdate(id,tablename,lang)
 {
+
 var txt;
 var r = confirm("Are you sure want to change status?");
 if (r == true) {
@@ -11,15 +12,27 @@ $.ajax({
    data:"tablename="+tablename,
 success:function(data)
    {
+       //alert(data);
    if(data==1)
    {
+   
+        
+      
    $("#"+id).removeClass('btn-danger');  
    $("#"+id).addClass('btn-success');  
-   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active');    
+    if(lang=='en'){
+   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+    }else{
+       $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+    }
    }else{
    $("#"+id).removeClass('btn-success');  
-   $("#"+id).addClass('btn-danger dng-w');    
-   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Inactive');    
+   $("#"+id).addClass('btn-danger dng-w'); 
+    if(lang=='en'){
+   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Inactive');
+    }else{
+    $("#ai"+id).html('<i class="fa fa-times-circle"></i> en activité');
+    }
    }
    
    }

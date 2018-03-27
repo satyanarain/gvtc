@@ -13,7 +13,7 @@
              <div class="pull-right">
 <a href="{{ route('distribution.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp;Back</a>
+&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -32,7 +32,7 @@
                   
                   <div class="form-group col-md-6 required">
                    
-                      <p style="font-weight:bold;">Selection Criteria</p>
+                      <p style="font-weight:bold;">@lang('menu.selection_criteria', array(),Session::get('language_val'))</p>
               
                     <input type="text" readonly  value="{{ $distribution->selectioncriteria }}"  class="form-control" >
              

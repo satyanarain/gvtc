@@ -31,11 +31,11 @@ $role=Auth::user()->role;
        <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="glyphicon glyphicon-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
         <?php if($role!='guest'){?>  
-        <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>Distribution Records</span></a></li>  
+        <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>@lang('menu.distribution_records', array(),Session::get('language_val'))</span></a></li>  
         
-       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-upload"></i><span>Manage Offline Records</span></a></li>  
+       <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-upload"></i><span>@lang('menu.manage_offline_records', array(),Session::get('language_val'))</span></a></li>  
        <?php } ?>  
-       <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>Manage Reports</span></a>  </li> 
+       <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span></a>  </li> 
        
        <?php if($role!='guest'){?>
        <li class="treeview" >
@@ -49,8 +49,8 @@ $role=Auth::user()->role;
          
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra)){ echo "display: block";} ?>">
         <li class="{{ Request::segment(1) == 'taxons' ? 'active active-sub' : '' }}"><a href="{{ url('taxons/') }}"><span class="glyphicon glyphicon-text-height"></span><span>@lang('menu.taxon', array(),$session_lan)</span></a></li>
-       <li class="{{ Request::segment(1) == 'iucns' ? 'active active-sub' : '' }}"><a href="{{ url('iucns/') }}"><span class="glyphicon glyphicon-italic"></span><span>@lang('menu.iucn', array(),$session_lan)</span></a></li>
-       <li class="{{ Request::segment(1) == 'nationals' ? 'active active-sub' : '' }}"><a href="{{ url('nationals/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.national_threat', array(),$session_lan)</span></a></li>
+       <li class="{{ Request::segment(1) == 'iucns' ? 'active active-sub' : '' }}"><a href="{{ url('iucns/') }}"><span class="glyphicon glyphicon-italic"></span><span>@lang('menu.IUCN_threat_code', array(),$session_lan)</span></a></li>
+       <li class="{{ Request::segment(1) == 'nationals' ? 'active active-sub' : '' }}"><a href="{{ url('nationals/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.national_threat_code', array(),$session_lan)</span></a></li>
        <li class="{{ Request::segment(1) == 'ranges' ? 'active active-sub' : '' }}"><a href="{{ url('ranges/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.range', array(),$session_lan)</span></a></li>
        <li class="{{ Request::segment(1) == 'growth' ? 'active active-sub' : '' }}"><a href="{{ url('growth/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.growth_form', array(),$session_lan)</span></a></li>
         <li class="{{ Request::segment(1) == 'protected-area' ? 'active active-sub' : '' }}"><a href="{{ url('protected-area/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Protected Area</span></a></li>
@@ -59,11 +59,11 @@ $role=Auth::user()->role;
         <li class="{{ Request::segment(1) == 'water' ? 'active active-sub' : '' }}"><a href="{{ url('water/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Water Use</span></a></li>
         <li class="{{ Request::segment(1) == 'endenism' ? 'active active-sub' : '' }}"><a href="{{ url('endenism/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Endenism</span></a></li>
         <li class="{{ Request::segment(1) == 'admin-unit' ? 'active active-sub' : '' }}"><a href="{{ url('admin-unit/') }}"><span class="glyphicon glyphicon-font"></span><span>Admin Unit</span></a></li>
-        <li class="{{ Request::segment(1) == 'migration' ? 'active active-sub' : '' }}"><a href="{{ url('migration/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Migration</span></a></li>
-        <li class="{{ Request::segment(1) == 'method' ? 'active active-sub' : '' }}"><a href="{{ url('method/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Method</span></a></li>
-        <li class="{{ Request::segment(1) == 'observation' ? 'active active-sub' : '' }}"><a href="{{ url('observation/') }}"><span class="glyphicon glyphicon-leaf"></span><span>Observation</span></a></li>
-        <li class="{{ Request::segment(1) == 'age' ? 'active active-sub' : '' }}"><a href="{{ url('age/') }}"><span class="glyphicon glyphicon-font"></span><span>Age Group</span></a></li>
-        <li class="{{ Request::segment(1) == 'abundance' ? 'active active-sub' : '' }}"><a href="{{ url('abundance/') }}"><span class="glyphicon glyphicon-font"></span><span>Abundance</span></a></li>
+        <li class="{{ Request::segment(1) == 'migration' ? 'active active-sub' : '' }}"><a href="{{ url('migration/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.migration', array(),$session_lan)</span></a></li>
+        <li class="{{ Request::segment(1) == 'method' ? 'active active-sub' : '' }}"><a href="{{ url('method/') }}"><span class="glyphicon glyphicon-leaf"></span><span>@lang('menu.method', array(),$session_lan)</span></a></li>
+        <li class="{{ Request::segment(1) == 'observation' ? 'active active-sub' : '' }}"><a href="{{ url('observation/') }}"><span class="glyphicon glyphicon-eye-open"></span><span>@lang('menu.observation', array(),$session_lan)</span></a></li>
+        <li class="{{ Request::segment(1) == 'age' ? 'active active-sub' : '' }}"><a href="{{ url('age/') }}"><span class="glyphicon glyphicon-font"></span><span>@lang('menu.age_group', array(),$session_lan)</span></a></li>
+        <li class="{{ Request::segment(1) == 'abundance' ? 'active active-sub' : '' }}"><a href="{{ url('abundance/') }}"><span class="glyphicon glyphicon-font"></span><span>@lang('menu.abundance', array(),$session_lan)</span></a></li>
         <li class="{{ Request::segment(1) == 'breeding' ? 'active active-sub' : '' }}"><a href="{{ url('breeding/') }}"><span class="glyphicon glyphicon-bold"></span><span>Breeding</span></a></li>
           </ul>
         </li>
@@ -83,17 +83,17 @@ $role=Auth::user()->role;
           @endphp
 
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arra1)){ echo "display: block";} ?>">
-      <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-globe"></span>  <span>Species</span></a></li> 
-      <li class="{{ Request::segment(1) == 'gazetteer'? 'active' : '' }}"><a href="{{ url('gazetteer/') }}"><span class="glyphicon glyphicon-fire"></span>  <span>Gazetteer</span></a></li>  
-      <li class="{{ Request::segment(1) == 'observer'? 'active' : '' }}"><a href="{{ url('observer/') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>Observers</span></a></li>  
+      <li class="{{ Request::segment(1) == 'species'? 'active' : '' }}"><a href="{{ url('species/') }}"><span class="glyphicon glyphicon-globe"></span>  <span>@lang('menu.species', array(),Session::get('language_val'))</span></a></li> 
+      <li class="{{ Request::segment(1) == 'gazetteer'? 'active' : '' }}"><a href="{{ url('gazetteer/') }}"><span class="glyphicon glyphicon-fire"></span>  <span> @lang('menu.gazetteer', array(),$session_lan)</span></a></li>  
+      <li class="{{ Request::segment(1) == 'observer'? 'active' : '' }}"><a href="{{ url('observer/') }}"><span class="glyphicon glyphicon-eye-open"></span> <span>@lang('menu.observer', array(),$session_lan)</span></a></li>  
           </ul>
         </li>
   
       <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
   <?php } ?> 
        
-      <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-lock"></span>  <span>Change Password</span></a></li> 
-      <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>Sign out </span></a></li> 
+      <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-lock"></span>  <span> @lang('menu.change_password', array(),$session_lan)</span></a></li> 
+      <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>@lang('menu.sign_out', array(),$session_lan) </span></a></li> 
       
    
       

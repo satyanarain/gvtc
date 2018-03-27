@@ -127,7 +127,7 @@ $username= $sql->username;
                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="IUCNThreatCode_view" <?php if(in_array('IUCNThreatCode_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
                 </div>
                 <div class="panel-body">
-                <label class="checkbox-inline title_space">National Threat Code</label>
+                <label class="checkbox-inline title_space">@lang('menu.national_threat_code', array(),Session::get('language_val')) </label>
                  <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="NationalThreatCode_add" <?php if(in_array('NationalThreatCode_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
                      <label class="checkbox-inline"><input type="checkbox" name="action[]" value="NationalThreatCode_edit" <?php if(in_array('NationalThreatCode_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="NationalThreatCode_view" <?php if(in_array('NationalThreatCode_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
@@ -303,7 +303,7 @@ $username= $sql->username;
                 <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                 </tr>
                 </thead>
                 <tbody>

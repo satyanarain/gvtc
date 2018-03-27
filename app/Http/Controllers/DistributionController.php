@@ -115,7 +115,11 @@ class DistributionController extends Controller
       $genus=$_REQUEST['genus'];
      if($genus=='genus'){
         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+        if($vg=Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
+        }else{
+             echo '<label for="MethodID" class="control-label">Espèces</label>';
+        }
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
        foreach($sql as $v){
@@ -127,7 +131,12 @@ class DistributionController extends Controller
          
          
         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+         if($vg=Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
+        }else{
+             echo '<label for="MethodID" class="control-label">Espèces</label>';
+        }
+       
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
        foreach($sql as $v){
@@ -138,7 +147,11 @@ class DistributionController extends Controller
      }else{
          
          $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
+         if($vg=Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
+        }else{
+             echo '<label for="MethodID" class="control-label">Espèces</label>';
+        }
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
        foreach($sql as $v){

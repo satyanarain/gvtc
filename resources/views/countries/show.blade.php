@@ -12,7 +12,7 @@
               <h3 class="box-title">View Country</h3>
               <div class="pull-right">
 <a href="{{ route('country.index') }}" class="btn btn-default">
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;Back</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -38,7 +38,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Country Code Description</label>
+                  <label for="exampleInputEmail1">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $countries->range_within_albertine_rift }}" readonly=""  class="form-control">
                 
                   </div>  

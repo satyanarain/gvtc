@@ -3,7 +3,7 @@
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>Manage Abundance</h1>
+<h1>@lang('menu.manage', array(),Session::get('language_val'))  @lang('menu.abundance', array(),Session::get('language_val'))</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
@@ -31,9 +31,7 @@ if(is_numeric(Request::segment($i))){
 }else{
     ?>
 <div class="btn btn-primary btn-success">
-
-    
-    {{ title_case(str_replace('','',(Request::segment($i)))) }}
+{{ title_case(str_replace('','',(Request::segment($i)))) }}
     </div>
     
    <?php

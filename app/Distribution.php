@@ -30,5 +30,6 @@ class Distribution extends Authenticatable
      * @var array
      */
     
+    
 }
 

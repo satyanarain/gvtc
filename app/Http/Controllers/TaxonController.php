@@ -161,7 +161,7 @@ class TaxonController extends Controller
         Taxon::where('id', $id)
             ->update($input);
         
-        //return redirect()->intended('/taxons');
+         Session::flash('flash_message', "Taxon Updated Successfully."); //Snippet in Master.blade.php 
         return redirect()->route('taxons.index');
     }
 

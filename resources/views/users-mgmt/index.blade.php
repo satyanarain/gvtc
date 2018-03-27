@@ -6,20 +6,23 @@ $user_id=Auth::id();
 $role=Auth::user()->role;
 $permission_key = "user_add";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+
 ?>     
-<?php $session_lan= Session::get('language_val'); ?>   
+
     <section class="content">
       <div class="box">
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">@lang('menu.users_log', array(),$session_lan)</h3>
+          <h3 class="box-title">@lang('menu.users_log', array(),Session::get('language_val'))</h3>
         </div>
+       
           <?php if($getpermissionstatus!=0){?> 
         <div class="col-sm-4" >
-<a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
+<a class="btn btn-primary btn-template" href="{{ route('user-management.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),Session::get('language_val'))</a>
         </div>
           <?php } ?>
+         
     </div>
   </div>
   <!-- /.box-header -->
@@ -34,7 +37,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>User Type</th>
                   <th>Email</th>
                    <th>Status</th>
-                  <th>Action</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,14 +62,14 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <form class="row" method="POST" action="{{ route('user-management.destroy', ['id' => $user->id]) }}" onsubmit = "return confirm('Are you sure?')">
 <input type="hidden" name="_method" value="DELETE">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a> 
+<a href="{{ route('user-management.show', ['id' => $user->id]) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a> 
 <?php
 $user_id=Auth::id();
 $role=Auth::user()->role;
 $permission_key = "user_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 if($getpermissionstatus!=0){?> 
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}?flag=1" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('user-management.edit', ['id' => $user->id]) }}?flag=1" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <?php userstatus('users',$user['id'],$user['status']); ?> 
 <?php } ?>
 <?php
@@ -75,7 +78,7 @@ $role=Auth::user()->role;
 $permission_key = "user_permissions";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 if($getpermissionstatus!=0){?> 
- <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-lock"></span>&nbsp;Permissions</a>
+ <a  href="{{ url('permission/generate').'/'.$user->id }}" class="btn-dropbox btn  mini blue-stripe"  style="margin-left: 15px;"><span class="glyphicon glyphicon-lock"></span>&nbsp;@lang('menu.permissions', array(),Session::get('language_val'))</a>
 <?php } ?> 
 </form>
  </td>
@@ -98,4 +101,5 @@ if($getpermissionstatus!=0){?>
     </section>
     <!-- /.content -->
 </div>
+
 @endsection

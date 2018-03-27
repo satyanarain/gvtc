@@ -17,7 +17,7 @@
         </div>
         <div class="col-sm-4" >
 
-          <a class="btn btn-primary btn-template" href="{{ route('user-management.edit', ['id' => $user->id]) }}"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
+          <a class="btn btn-primary btn-template" href="{{ route('user-management.edit', ['id' => $user->id]) }}"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
           
       
           
@@ -186,7 +186,7 @@
               <!-- /.box-body -->
                 
 <!--              <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>-->
             </form>
           </div>

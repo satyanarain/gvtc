@@ -11,14 +11,14 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>     
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">National Threat Code Log</h3>
+          <h3 class="box-title">@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
         </div>
         <?php if($getpermissionstatus!=0){?>
         <div class="col-sm-4" >
-          <a class="btn btn-primary btn-template" href="{{ route('nationals.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add">&nbsp;<span class="glyphicon glyphicon-plus" title="Add"></span>Add</a>
+          <a class="btn btn-primary btn-template" href="{{ route('nationals.create') }}" data-placement="top" data-toggle="tooltip" data-original-title="Add">&nbsp;<span class="glyphicon glyphicon-plus"title="Add"></span>&nbsp;@lang('menu.add', array(),Session::get('language_val'))</a>
         </div>
         <?php } ?>
     </div>
@@ -43,9 +43,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">National id</th>  
-                  <th>National Threat Code</th>
-                  <th>National Threat Code Description</th>
-                  <th>Action</th>
+                  <th>@lang('menu.national_threat_code', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.description', array(),Session::get('language_val')) </th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -63,9 +63,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                       <form class="row" method="POST" action="{{ route('nationals.destroy', $national['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('nationals.show', $national['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;View</a>                        
+<a href="{{ route('nationals.show', $national['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
 <?php if($getpermissionstatus!=0){?>
-<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('nationals.edit', $national['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;Edit</a>
+<a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;" href="{{ route('nationals.edit', $national['id']) }}" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
 <?php testdatas('national_threat_codes',$national['id'],$national['status']); ?> 
 <?php } ?>
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->

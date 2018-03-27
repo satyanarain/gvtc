@@ -185,7 +185,7 @@
               
               
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub" id='sub_bt' style='display:none;'>Save</button>
+                <button type="submit" class="btn btn-primary btn-sub" id='sub_bt' style='display:none;'>@lang('menu.save', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>

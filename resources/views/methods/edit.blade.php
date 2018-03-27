@@ -38,7 +38,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Code Description</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="text" name="code_description" value="{{ $methods->code_description }}" required  class="form-control" id="water_habitat_usage" placeholder="Code Description">
                  @if ($errors->has('code_description'))
                                     <span class="help-block">
@@ -62,7 +62,7 @@
               <!-- /.box-body -->
                 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">Update</button>
+                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.update', array(),Session::get('language_val'))</button>
               </div>
             </form>
           </div>
