@@ -48,8 +48,8 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="accordion-toggle">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="accordion-toggle collapsed">
+                        
                         Distribution Records <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
@@ -68,8 +68,8 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo">
                 <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-toggle collapsed">
+                        
                         Manage Masters<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
@@ -100,8 +100,8 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingThree">
                 <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-toggle collapsed">
+                        
                        Manage Tables<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
@@ -222,8 +222,8 @@ $username= $sql->username;
          <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingFour">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" class="accordion-toggle collapsed">
+                        
                         Manage Users <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
@@ -242,8 +242,8 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingFour">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" class="accordion-toggle collapsed">
+                        
                         Reports <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
@@ -261,8 +261,8 @@ $username= $sql->username;
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingFour">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" class="accordion-toggle collapsed">
+                        
                         Offline Records <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
