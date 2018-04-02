@@ -64,21 +64,21 @@
                <?php if($distribution->selectioncriteria=='genus'){?>  
                     <div class="form-group col-md-2 required">
                         <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="text" class="form-control" name="specie_id" readonly=""  value="<?php echo $distribution->specie_id; ?>">
+                        <input type="hidden" class="form-control" name="specie_id" readonly=""  value="<?php echo $distribution->specie_id; ?>">
                    </div>
                 <?php } ?>
                     
                 <?php if($distribution->selectioncriteria=='commonname'){?>  
                     <div class="form-group col-md-2 required">
                         <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="text" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
+                        <input type="hidden" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
                    </div>
                 <?php } ?>  
                     
                      <?php if($distribution->selectioncriteria=='commonnamefr'){?>  
                     <div class="form-group col-md-2 required">
                         <input type="text" class="form-control" name="specie_data" readonly=""  value="<?php echo $distribution->specie_data; ?>">
-                        <input type="text" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
+                        <input type="hidden" class="form-control" name="specie_id"   value="<?php echo $distribution->specie_id; ?>">
                    </div>
                 <?php } ?>  
                     

@@ -19,6 +19,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <?php if($getpermissionstatus!=0){?>
 <div class="col-sm-4" >
  <a class="btn btn-primary btn-template" href="{{ route('distribution.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan= Session::get('language_val'))</a>
+<a class="btn btn-primary btn-template" href="{{ route('distribution.bulkupload') }}"><span class="glyphicon glyphicon-plus" title="Upload"></span>&nbsp;Bulk Upload</a>
 </div> 
 <?php } ?>   
 
@@ -45,7 +46,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>@lang('menu.method', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.place', array(),Session::get('language_val'))</th>
                  <th>@lang('menu.observer', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                 <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>

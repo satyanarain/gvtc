@@ -270,13 +270,18 @@ else{
 $(".default-btn").hide();
 //$(".btn-show").hide();
 }
-
- 
-
-
-
+});
 });
 
-
+//bulkimg
+$(document).ready(function(){
+$("#bulkuploadimg").click(function(){
+$("#div_img").toggle();    
+//alert('hi'); 
+    
+});    
+    
+    
+    
 });
 		

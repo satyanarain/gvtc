@@ -41,13 +41,13 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>Observer ID</th>
+                  <th class="action">Observer ID</th>
                   <th>Observer Type</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
                   <th>Mobile No.</th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                 </tr>
                 </thead>
                 <tbody>

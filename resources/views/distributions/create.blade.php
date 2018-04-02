@@ -85,6 +85,7 @@
                   
                 <div class="form-group{{ $errors->has('gazetteer_id') ? ' has-error' : '' }} col-md-6 required">
 <!--                   {!! Form::label('Place','Place',['class'=>'control-label']) !!}-->
+
 <label for="exampleInputEmail1"  class="control-label">@lang('menu.place', array(),Session::get('language_val'))</label>
                   {!! Form::select('gazetteer_id',$gazetteerrecodsql,null,['class'=>'form-control','placeholder'=>'Select Place','required'=>'required','id' => 'gazetteer_id']) !!}
                   </div>  

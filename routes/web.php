@@ -92,6 +92,8 @@ Route::resource('gazetteer','GazetteerController');
 Route::resource('report','ReportController');
 //
 Route::get('/distribution/speciec_record/{id}', 'DistributionController@speciecRecord');
+Route::get('/distribution/bulkupload/', 'DistributionController@bulkUpload')->name('distribution.bulkupload');
+Route::post('/distribution/bulkupload/', 'DistributionController@bulkCreat')->name('distribution.bulkcreat');
 Route::resource('distribution','DistributionController');
 
 //changepassword

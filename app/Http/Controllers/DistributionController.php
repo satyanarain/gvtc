@@ -108,14 +108,120 @@ class DistributionController extends Controller
     Session::flash('flash_message', "Distribution Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('distribution.index');
      }
+     
+     
+     public function bulkUpload(Request $request){
+         
+     return view('distributions.bulkupload');
+     }
+     
+     public function bulkCreat(Request $request){
+        
+         
+          if ($request->hasFile('documents1')){
+             //$filename=$_FILES['documents1']['name'];    
+             $handle = fopen($_FILES['documents1']['tmp_name'], "r");
+             $flag = true;
+             
+             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+//                echo '<pre>';                 echo $data;
+//                 print_r($data);
+//                 echo $data[1];
+//                 die;
+            if($flag)
+                  { $flag = false; continue; }  
+              $taxon_id = '0';
+              if($data[1])
+              {
+                $sql = DB::table('taxons')->select('*')->where('taxon_code',$data[1])->get()->first();
+                if(count($sql))
+                $taxon_id = $sql->id;
+              }
+              
+              $method_id='0';
+              if($data[5]){
+               $sql5 = DB::table('methods')->select('*')->where('code_description',$data[5])->get()->first();
+               if(count($sql5))
+               $method_id= $sql5->id;
+              }
+              $observation_id='0';
+              if($data[6]){
+               $sql6 = DB::table('observation')->select('*')->where('code_description',$data[6])->get()->first();
+               if(count($sql6))
+                   $observation_id= $sql6->id;
+              }
+              //place
+              $gazetteer_id='0';
+              if($data[7]){
+               $sql7 = DB::table('gazetteers')->select('*')->where('place',$data[7])->get()->first();
+               if(count($sql7))
+                $gazetteer_id= $sql7->id;
+              } 
+             $observer_id='0';  
+             if($data[12]!=''){
+               $sql12 = DB::table('observers')->select('*')->where('last_name',$data[12])->get()->first();
+               if(count($sql12))
+                $observer_id= $sql12->id;
+              } 
+              $age_id='0';
+              if($data[13]){
+               $sql13 = DB::table('ages')->select('*')->where('code_description',$data[13])->get()->first();
+               if(count($sql13))
+                $age_id= $sql13->id;
+              } 
+              $abundance_id='0';
+              if($data[14]){
+               $sql14 = DB::table('abundances')->select('*')->where('code_description',$data[14])->get()->first();
+               if(count($sql14))
+                $abundance_id= $sql14->id;
+              }
+              //$data[21]=Auth::id();
+             // echo '<pre>';
+              //$specimendata = ($data[15])?$data[15]:0;
+               DB::table('distributions')->insert(array('taxon_id' => $taxon_id,
+                                                        'selectioncriteria'=>($data[2])?$data[2]:'',
+                                                        'specie_id'=>($data[3])?$data[3]:'',
+                                                        'specie_data'=>($data[4])?$data[4]:'',
+                                                        'method_id' => $method_id,
+                                                        'observation_id' => $observation_id,
+                                                        'gazetteer_id'=>$gazetteer_id,
+                                                        'day'=>($data[8])?$data[8]:'',
+                                                        'month'=>($data[9])?$data[9]:'',
+                                                        'year'=>($data[10])?$data[10]:'',
+                                                        'number'=>($data[11])?$data[11]:'',
+                                                        'observer_id'=>$observer_id,
+                                                        'age_id'=>$age_id,
+                                                        'abundance_id'=>$abundance_id,
+                                                        'specimendata'=>($data[15])?$data[15]:0,
+                                                        'specimencode'=>($data[16])?$data[16]:'',
+                                                        'collectorinstitution'=>($data[17])?$data[17]:'',
+                                                        'Sex'=>($data[18])?$data[18]:'',
+                                                        'remark'=>($data[19])?$data[19]:'',
+                                                        'status'=>1,
+                                                        'created_by'=>Auth::id()
+        
+                       ));
+              
+                    
+                   
+                    
+                
+              
+               }
+              
+          
+    }
+     Session::flash('flash_message', "Distribution Uploded Successfully."); //Snippet in Master.blade.php
+    return redirect()->route('distribution.index');
     
+     }
       
     public function speciecRecord($taxon_id){
         
-      $genus=$_REQUEST['genus'];
+       $genus=$_REQUEST['genus'];
      if($genus=='genus'){
         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-        if($vg=Session::get('language_val')=="en"){
+        if(Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
         }else{
              echo '<label for="MethodID" class="control-label">Espèces</label>';
@@ -127,36 +233,47 @@ class DistributionController extends Controller
             <option value="<?php echo $v->id; ?>|<?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?>"><?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?></option>
          <?php }
       echo ' </select> ';
+      
      }else if($genus=='commonname'){
+         $sqlcomman=DB::table('species')->where('taxon_id',$taxon_id)->get();
+         //echo $taxon_id;
+        
+        //print_r($sql1);
          
-         
-        $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-         if($vg=Session::get('language_val')=="en"){
+         if(Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
         }else{
              echo '<label for="MethodID" class="control-label">Espèces</label>';
         }
        
+      
+//       echo '<pre>';
+//       print_r($sqlcomman);
+//       echo '</pre>';
+//       die;
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
-       foreach($sql as $v){
+       foreach($sqlcomman as $vc){
+           if($vc->common_name){
            ?>
-            <option value="<?php echo $v->id; ?>|<?php echo $v->common_name; ?>"><?php echo $v->common_name; ?></option>
-         <?php }
+           
+            <option value="<?php echo $vc->id; ?>|<?php echo $vc->common_name; ?>"><?php echo $vc->common_name; ?></option>
+            
+           <?php }}
       echo ' </select> ';
      }else{
          
-         $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-         if($vg=Session::get('language_val')=="en"){
+         $sql2=DB::table('species')->where('taxon_id',$taxon_id)->get();
+         if(Session::get('language_val')=="en"){
         echo '<label for="MethodID" class="control-label">Species</label>';
         }else{
              echo '<label for="MethodID" class="control-label">Espèces</label>';
         }
         echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
         echo '<option selected="selected" value="">Select Species</option>';
-       foreach($sql as $v){
+       foreach($sql2 as $vf){
            ?>
-            <option value="<?php echo $v->id; ?>|<?php echo $v->common_name_fr; ?>"><?php echo $v->common_name_fr; ?></option>
+            <option value="<?php echo $vf->id; ?>|<?php echo $vf->common_name_fr; ?>"><?php echo $vf->common_name_fr; ?></option>
          <?php }
       echo ' </select> ';
          

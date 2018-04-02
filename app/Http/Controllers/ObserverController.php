@@ -64,8 +64,10 @@ class ObserverController extends Controller
      $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
      if($getpermissionstatus==0)
      return redirect()->route('user-management.unauthorized');  
-    $last_observeid= Observer::latest()->first();
-     return view('observers/create',['last_observeid' => $last_observeid['id']+1]);
+     //$last_observeid= Observer::latest()->first();
+     $last_observeidd =  DB::table('observers')->orderBy('id', 'desc')->first();
+     $last_observeid = $last_observeidd->id+1;
+     return view('observers/create',['last_observeid' => $last_observeid]);
         
         
     }

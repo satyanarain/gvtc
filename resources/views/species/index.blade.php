@@ -39,13 +39,13 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>@lang('menu.species', array(),Session::get('language_val')) @lang('menu.id', array(),Session::get('language_val'))</th>
+                  <th class="action">@lang('menu.species', array(),Session::get('language_val')) @lang('menu.id', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.taxon', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.order', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.family', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.genus', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.species', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>

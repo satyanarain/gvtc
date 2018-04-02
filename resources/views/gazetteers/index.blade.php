@@ -42,7 +42,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>Gazetteer ID</th>
+                  <th class="action">Gazetteer ID</th>
                   <th>Place</th>
                   <th>Datum</th>
                   <th>Longitude</th>
