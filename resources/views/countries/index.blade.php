@@ -13,7 +13,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Country Log</h3>
+          <h3 class="box-title">@lang('menu.protected_area', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
         </div>
         <?php if($getpermissionstatus!=0){?>
         <div class="col-sm-4" >
@@ -39,8 +39,8 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Country Code </th>
-                  <th>Country @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th> @lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val')) </th>
+                  <th>@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  

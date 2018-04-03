@@ -60,10 +60,10 @@
                   </div>  -->
  <div class="form-group col-md-12 required"> 
                     {!! Form::label('Title','Title',['class'=>'control-label']) !!}
-                  {!! Form::select('tittle',['Prof'=>'Prof','Dr'=>'Dr','Mr'=>'Mr','Ms'=>'Ms'],isset($observers->tittle) ? $observers->tittle : 'selected',['class'=>'form-control','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
+                  {!! Form::select('tittle',['Prof.'=>'Prof.','Dr.'=>'Dr.','Mr.'=>'Mr.','Ms.'=>'Ms.'],isset($observers->tittle) ? $observers->tittle : 'selected',['class'=>'form-control','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
                     
                     </div> 
-                  
+                 
                 </div> 
                 
                 <div class="form-row">

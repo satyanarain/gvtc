@@ -9,11 +9,11 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">View Water Use</h3>
+              <h3 class="box-title">@lang('menu.view', array(),Session::get('language_val')) @lang('menu.water_use', array(),Session::get('language_val'))</h3>
                   <div class="pull-right">
 <a href="{{ route('water.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -32,14 +32,14 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Water Use</label>
+                  <label for="exampleInputEmail1">@lang('menu.water_use', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $waters->water_use }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Water/Wetland Habitat Usage</label>
+                  <label for="exampleInputEmail1">@lang('menu.water_wetland_habitat_usage', array(),Session::get('language_val'))</label>
                   <input  value="{{ $waters->water_habitat_usage }}" readonly=""  class="form-control">
                 
                   </div>  

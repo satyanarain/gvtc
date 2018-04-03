@@ -10,7 +10,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>    
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">@lang('menu.migration', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>

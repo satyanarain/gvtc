@@ -10,7 +10,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>      
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Protected Area Log</h3>
@@ -39,9 +39,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Protected Area Name</th>
-                  <th>Country</th>
-                  <th>Protected Area Code</th>
+                  <th>@lang('menu.protected_area_name', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.country', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.protected_area_code', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>

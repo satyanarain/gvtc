@@ -9,7 +9,7 @@
       <!-- general form elements -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Add Country</h3>
+          <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.country', array(),Session::get('language_val')) </h3>
            <div class="pull-right">
     <a href="{{ route('country.index') }}" class="btn btn-default">
     <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
@@ -28,7 +28,7 @@
             <div class="form-row">
 
             <div class="form-group{{ $errors->has('range_code') ? ' has-error' : '' }} col-md-6 required">
-              <label for="exampleInputEmail1"  class="control-label">Country Code</label>
+              <label for="exampleInputEmail1"  class="control-label">@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</label>
               <input type="text" name="range_code" value="{{ old('range_code') }}" required  class="form-control" id="range_code" placeholder="Country Code">
              @if ($errors->has('range_code'))
                                 <span class="help-block">

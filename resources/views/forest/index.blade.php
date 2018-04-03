@@ -12,10 +12,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>      
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Forest Use Log</h3>
+          <h3 class="box-title">@lang('menu.forest_use', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
         </div>
          <?php if($getpermissionstatus!=0){?>   
         <div class="col-sm-4">
@@ -41,8 +41,8 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Forest Use </th>
-                  <th>Forest Habitat Usage</th>
+                  <th>@lang('menu.forest_use', array(),Session::get('language_val')) </th>
+                  <th>@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  

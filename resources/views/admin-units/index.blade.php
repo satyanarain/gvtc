@@ -12,10 +12,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>     
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Admin Unit Log</h3>
+          <h3 class="box-title">@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
         </div>
         <?php if($getpermissionstatus!=0){?> 
         <div class="col-sm-4" >
@@ -41,9 +41,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>Admin Unit Name</th>
-                  <th>Country</th>
-                 <th>Admin Unit Type</th>
+                  <th>@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.country', array(),Session::get('language_val'))</th>
+                 <th>@lang('menu.admin_unit_type', array(),Session::get('language_val'))</th>
                     <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>

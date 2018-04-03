@@ -27,7 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('method_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Method Code</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.method_code', array(),Session::get('language_val'))</label>
                   <input type="text" name="method_code" value="{{ $methods->method_code }}" required  class="form-control" id="method_code" placeholder="Method Code">
                  @if ($errors->has('method_code'))
                                     <span class="help-block">

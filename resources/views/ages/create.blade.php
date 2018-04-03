@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Age Group</h3>
+              <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.age_group', array(),Session::get('language_val'))</h3>
                  <div class="pull-right">
 <a href="{{ route('age.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
@@ -28,7 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('age_group') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Age Group</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.age_group', array(),Session::get('language_val'))</label>
                   <input type="text" name="age_group" value="{{ old('age_group') }}" required  class="form-control" id="water_use" placeholder="Age Group">
                  @if ($errors->has('age_group'))
                                     <span class="help-block">
