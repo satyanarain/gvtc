@@ -29,17 +29,20 @@ class ApibaseController extends Controller
     if($token==$_REQUEST['token_id']){
         
     $tbl_name=$_REQUEST['tb'];
-    $arradata =DB::table($tbl_name)->select('*')->get();
+    $arradata =DB::table($tbl_name)->select('*')->limit(5)->get();
     $final_data=array('message'=>'success','listdata'=>$arradata);
     //$result = $arradata->toArray();
     $arra= json_encode($final_data);
+//    echo '<pre>';
+//    print_r($final_data);
     //$arra= addslashes(json_encode($final_data));
   }else{
         
       $arra=json_encode(array('message'=>'failed','listdat'=>''));  
         
     }
-     echo ($arra);
+    
+     echo $arra;
    
    }
     

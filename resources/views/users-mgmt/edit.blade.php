@@ -10,12 +10,12 @@ $role=Auth::user()->role;
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update User Profile</h3>
+              <h3 class="box-title">@lang('menu.update', array(),Session::get('language_val')) @lang('menu.user-profile', array(),Session::get('language_val'))</h3>
               <?php if($role=='admin'){ ?>
               <div class="pull-right">
 <a href="{{ route('user-management.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
 <?php } else{ ?>  
  <div class="pull-right">
@@ -39,7 +39,7 @@ $role=Auth::user()->role;
                  
                   
                   <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} col-md-12">
-                  <label for="exampleInputEmail1">Username</label>
+                  <label for="exampleInputEmail1">@lang('menu.username', array(),Session::get('language_val'))</label>
                   <input type="text" name="username"  readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter Username" id="username" >
                  @if ($errors->has('username'))
                                     <span class="help-block">
@@ -115,7 +115,7 @@ $role=Auth::user()->role;
                     
                    <?php }else{ ?>
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Name</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.name', array(),Session::get('language_val'))</label>
                   <input type="text" name="name" value="{{ $user->name }}" required  class="form-control" id="name" placeholder="Enter name">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -127,7 +127,7 @@ $role=Auth::user()->role;
                   
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Address</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.address', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="address" value="{{ $user->address }}" required  class="form-control" id="name" placeholder="Enter address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
@@ -144,7 +144,7 @@ $role=Auth::user()->role;
                   
                   
                    <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Mobile Number</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.mobile_number', array(),Session::get('language_val'))</label>
                   <input type="text" name="mobilenumber" readonly="" value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
                  @if ($errors->has('mobilenumber'))
                                     <span class="help-block">
@@ -157,7 +157,7 @@ $role=Auth::user()->role;
                   
                   
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Email Address</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.email_address', array(),Session::get('language_val'))</label>
                   <input type="email" name="email" readonly="" value="{{ $user->email }}" required  class="form-control" id="email" placeholder="Enter email">
                @if ($errors->has('email'))
                                     <span class="help-block">
@@ -434,7 +434,7 @@ $role=Auth::user()->role;
                   
                   
                   <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Designation</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.designation', array(),Session::get('language_val'))</label>
                   <input type="text" name="designation" value="{{ $user->designation}}" required  class="form-control" id="designation" placeholder="Enter Designation">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -447,7 +447,7 @@ $role=Auth::user()->role;
                   <?php if($user->role!='guest'){ ?>  
                   <div class="form-row">
                   <div class="form-group{{ $errors->has('photoid') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Photo ID</label>
+                  <label for="exampleInputEmail1">@lang('menu.photo_id', array(),Session::get('language_val'))</label>
                   <input type="file" name="photoid" accept=".pdf,.jpg,.jpeg,.png,.gif"  id="documents1" onchange="validFile(this,1)"   class="" id="photoid" >
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -463,7 +463,7 @@ $role=Auth::user()->role;
                  
                   
                   <div class="form-group{{ $errors->has('profilepicture') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Profile Picture</label>
+                  <label for="exampleInputEmail1">@lang('menu.profile_picture', array(),Session::get('language_val'))</label>
                   <input type="file" name="profilepicture"   accept=".jpg,.jpeg,.png,.gif"  id="documents2" onchange="validFile(this,2)" class=""  >
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -482,7 +482,7 @@ $role=Auth::user()->role;
                     
                   <div class="form-row">
                 <div class=" form-group col-md-6">
-                  <label for="exampleInputPassword1">Status</label>
+                  <label for="exampleInputPassword1">@lang('menu.status', array(),Session::get('language_val'))</label>
                   
                     
                     

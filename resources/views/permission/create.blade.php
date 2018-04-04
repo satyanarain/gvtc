@@ -23,13 +23,13 @@ $username= $sql->username;
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">List Of Permission</h3>
-              
+              </br></br>
               <div class="pull-right">
 <a href="/" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
-<p><span style="font-weight:bold;margin-top:10px;">Permissions For</span> : <span style="color:#006a00;">{{$username}}</span></p>
+<p><span style="font-weight:bold;margin-top:10px;font-size:16px;">Permissions For</span> : <span style="color:#006a00;font-size:14px;">{{$username}}</span></p>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

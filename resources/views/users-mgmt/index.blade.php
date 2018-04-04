@@ -11,7 +11,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">@lang('menu.users_log', array(),Session::get('language_val'))</h3>
@@ -33,10 +33,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>
-                  <th>Username</th>
-                  <th>User Type</th>
-                  <th>Email</th>
-                   <th>Status</th>
+                  <th>@lang('menu.username', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.user_type', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.email', array(),Session::get('language_val'))</th>
+                   <th>@lang('menu.status', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                 </tr>
                 </thead>

@@ -17,6 +17,7 @@ return [
     
     'users_log'=>'Users Log',
     'manage_users'=>'Manage Users',
+    'user'=>'User',
     
     
     
@@ -27,11 +28,29 @@ return [
     'click_here'=>'Click here',
     'active_users'=>'Active Users',
     'observers'=>'Observers',
+    'select_type_of_observer'=>'Select Type Of Observer',
+    'individual'=>'Individual',
+    'institution'=>'Institution',
+    'title'=>'Title',
+    'first_name'=>'First Name',
+    'last_name'=>'Last Name',
+    'address'=>'Address',
+    'work_tel_number'=>'Work Tel. Number',
+    'institution_name'=>'Institution Name',
+    'mobile'=>'Mobile',
+    'website'=>'Website',
     'image_gallery'=>'Image Gallery',
     'calendar'=>'Calendar',
     'online'=>'online',
     'id'=>'ID',
     'manage_users'=> 'Manage Users',
+    'username'=>'Username',
+    'user_type'=>'User Type',
+    'email'=>'Email',
+    'status'=>'Status',
+    'name'=>'Name',
+    'address'=>'Address',
+    'mobile_number'=>'Mobile Number',
     'manage_tables'=>'Manage Tables',
     'manage_masters'=>'Manage Masters',
     'change_password'=>'Change password',
@@ -107,7 +126,12 @@ return [
     'sex'=>'Sex',
     'collector_institution'=>'Collector Institution',
     'specimen_code'=>'Specimen Code',
-    
+    'email_id'=>'Email ID',
+    'old_password'=>'Old Password',
+    'new_password'=>'New Password',
+    'confirm_new_password'=>'Confirm New Password',
+    'update_password'=>'Update Password',
+    'manage_password'=>'Manage Password',
     
      //species table field
     
@@ -138,7 +162,14 @@ return [
      'name'=>'Name',
      'admin_unit_type'=>'Admin Unit Type',
     
-   
+    //usertbl
+    'email_address'=>'Email Address',
+    'department' =>'Department',
+    'designation' =>'Designation',
+    'photo_id' =>'Photo ID',
+    'profile_picture' =>'Profile Picture',
+    'user-profile'=>'User Profile',
+    
     
     
     

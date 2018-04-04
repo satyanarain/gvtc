@@ -17,6 +17,8 @@ return [
     
     'users_log'=>'Journal des utilisateurs',
     'manage_users'=>'gérer les utilisateurs',
+    'user'=>'utilisateur',
+    
     
     
     
@@ -26,10 +28,29 @@ return [
     'click_here'=>'Cliquez ici', 
     'active_users'=>'Utilisateurs actifs',
     'observers'=>'Observateurs',
+    'select_type_of_observer'=>'Selectionner type si observateur',
+    'individual'=>'Individuel',
+    'institution'=>'Institution',
+    'title'=>'Titre',
+    'first_name'=>'Prénom',
+    'last_name'=>'Nom de famille',
+    'address'=>'Adresse',
+    'work_tel_number'=>'Numero de téléphone du bureau',
+    'mobile'=>'Numéro de téléphone portable',
+    'website'=>'Site web',
+    'institution_name'=>"Nom de l'institution",
     'image_gallery'=>"Galerie d'images",
     'calendar'=>'Calendrier',
     'online'=>'En ligne',
     'id'=>'ID',
+    'manage_users'=> 'Manage Users',
+    'username'=>"Nom d'utilisateur",
+    'user_type'=>"Type d'utilisateur",
+    'status'=>'Statut',
+    'name'=>'Nom',
+    'address'=>'Adresse',
+    'mobile_number'=>'Numéro de téléphone mobile',
+    'email'=>'E-mail',
     'manage_tables'=>'Gestion des tableaux',
     'manage_masters'=>'Gérer les principaux',
     'manage_users'=>'Gerer les utilisateurs',
@@ -87,6 +108,7 @@ return [
     'endenism_status'=>'Endémisme Statut',
     'admin_unit'=>'Unité Administrative',
     'name'=>'Nom',
+    'address'=>'Adresse',
     'admin_unit_type'=>"Type d'unité d'administration",
     
     
@@ -124,7 +146,15 @@ return [
     'sex'=>'Sexe',
     'collector_institution'=>'Institution Collectrice',
     'specimen_code'=>'Code du Specimen',
+    'email_id'=>'ID de courriel',
+    'old_password'=>'Ancien mot de passe',
+    'new_password'=>'Nouveau mot de passe',
+    'confirm_new_password'=>'Confirmer le nouveau mot de passe',
+    'update_password'=>'Mettre à jour le mot de passe',
+    'manage_password'=>'Gérer le mot de passe',
     
+    
+    'user-profile'=>'Profil utilisateur',
     
      //species table field
     
@@ -135,7 +165,12 @@ return [
     'species'=>'Espèces',
    
     
-    
+     //usertbl
+    'email_address'=>'Adresse email',
+    'department' =>'Ministère',
+    'designation' =>'Désignation',
+    'photo_id' =>'ID photo',
+    'profile_picture' =>' Photo de profil',
     
     
 

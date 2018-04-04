@@ -12,7 +12,7 @@
                 
              <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">User Profile</h3>
+          <h3 class="box-title">@lang('menu.user-profile', array(),Session::get('language_val'))</h3>
           
         </div>
         <div class="col-sm-4" >
@@ -40,7 +40,7 @@
                  
                   
                   <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} col-md-12">
-                  <label for="exampleInputEmail1">User Name</label>
+                  <label for="exampleInputEmail1">@lang('menu.username', array(),Session::get('language_val'))</label>
                   <input type="text" name="username" readonly readonly=""  value="{{ $user->username }}" required  class="form-control"  placeholder="Enter User Name" id="username" >
                  @if ($errors->has('username'))
                                     <span class="help-block">
@@ -54,7 +54,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Name</label>
+                  <label for="exampleInputEmail1">@lang('menu.name', array(),Session::get('language_val'))</label>
                   <input type="text" name="name" readonly value="{{ $user->name }}" required  class="form-control" id="name" placeholder="Enter name">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -65,7 +65,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Address</label>
+                  <label for="exampleInputEmail1">@lang('menu.address', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="address" readonly value="{{ $user->address }}" required  class="form-control" id="name" placeholder="Enter address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
@@ -82,7 +82,7 @@
                   
                   
                    <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Mobile Number</label>
+                  <label for="exampleInputEmail1">@lang('menu.mobile_number', array(),Session::get('language_val'))</label>
                   <input type="text" name="mobilenumber" readonly value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
                  @if ($errors->has('mobilenumber'))
                                     <span class="help-block">
@@ -95,7 +95,7 @@
                   
                   
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Email Address</label>
+                  <label for="exampleInputEmail1">@lang('menu.email_address', array(),Session::get('language_val'))</label>
                   <input type="email" name="email" readonly value="{{ $user->email }}" required  class="form-control" id="email" placeholder="Enter email">
                @if ($errors->has('email'))
                                     <span class="help-block">
@@ -110,7 +110,7 @@
                   
                   <div class="form-row"> 
                   <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Department</label>
+                  <label for="exampleInputEmail1">@lang('menu.department', array(),Session::get('language_val'))</label>
                   <input type="text" name="department" readonly value="{{ $user->department}}" required  class="form-control" id="department" placeholder="Enter Department">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -121,7 +121,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Designation</label>
+                  <label for="exampleInputEmail1">@lang('menu.designation', array(),Session::get('language_val'))</label>
                   <input type="text" name="designation" readonly value="{{ $user->designation}}" required  class="form-control" id="designation" placeholder="Enter Designation">
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -133,7 +133,7 @@
                   
                   <div class="form-row">
                   <div class="form-group{{ $errors->has('photoid') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Photo ID</label>
+                  <label for="exampleInputEmail1">@lang('menu.photo_id', array(),Session::get('language_val'))</label>
                   
                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -146,7 +146,7 @@
                  
                   
                   <div class="form-group{{ $errors->has('profilepicture') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1">Profile Picture</label>
+                  <label for="exampleInputEmail1">@lang('menu.profile_picture', array(),Session::get('language_val'))</label>
                   
                  @if ($errors->has('name'))
                                     <span class="help-block">

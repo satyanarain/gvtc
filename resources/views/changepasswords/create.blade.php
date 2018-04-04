@@ -8,7 +8,7 @@
     <div class="col-xs-12">
      <div class="box box-success">
             <div class="box-header box">
-             <h3 class="box-title">Change Password</h3>
+             <h3 class="box-title">@lang('menu.change_password', array(),Session::get('language_val')) </h3>
                   <div class="pull-right">
 <a href="/" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>

@@ -16,31 +16,31 @@
                    @endif
                    
 <div class="form-group">
-        {!! Form::label('name','User Name', ['class' => 'control-label']) !!}
+        {!! Form::label('name',Lang::get('menu.username',array(),Session::get('language_val')), ['class' => 'control-label']) !!}
         {!! Form::text('name', $user->username, ['class' => 'form-control','required' => 'required','readonly'=>'readonly','style'=>'border:none;']) !!}
     </div>
 
 <div class="form-group">
-    {!! Form::label('email','Email ID', ['class' => 'control-label']) !!}
+    {!! Form::label('email',Lang::get('menu.email_id',array(),Session::get('language_val')), ['class' => 'control-label']) !!}
     {!! Form::text('email', $user->email, ['class' => 'form-control','readonly'=>'readonly','style'=>'border:none;']) !!}
 </div>
 
 <div class="form-group">
-{!! Form::label('currentpassword','Old Password', ['class' => 'control-label']) !!}
+{!! Form::label('currentpassword',Lang::get('menu.old_password',array(),Session::get('language_val')), ['class' => 'control-label']) !!}
     {{ Form::password('currentpassword', array('class' => 'form-control','value'=>'')) }}
 
 </div>
 
 <div class="form-group">
-    {!! Form::label('password', 'New Password', ['class' => 'control-label']) !!}
+    {!! Form::label('password',Lang::get('menu.new_password',array(),Session::get('language_val')), ['class' => 'control-label']) !!}
    {{ Form::password('password', array('class' => 'form-control','required' => 'required')) }}
 </div>
 <div class="form-group">
-    {!! Form::label('password_confirmation', 'Confirm New Password', ['class' => 'control-label']) !!}
+    {!! Form::label('password_confirmation',Lang::get('menu.confirm_new_password',array(),Session::get('language_val')), ['class' => 'control-label']) !!}
    {{ Form::password('password_confirmation', array('class' => 'form-control','required' => 'required')) }}
 </div>
 
- {!! Form::submit('Update Password', ['class' => 'btn btn-success']) !!}
+ {!! Form::submit(Lang::get('menu.update_password',array(),Session::get('language_val')), ['class' => 'btn btn-success']) !!}
                 </div>
 </div>
  

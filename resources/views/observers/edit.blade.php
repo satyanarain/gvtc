@@ -21,11 +21,11 @@
      <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update Observer</h3>
+              <h3 class="box-title">@lang('menu.update', array(),Session::get('language_val')) @lang('menu.observer', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('observer.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -59,7 +59,7 @@
                                 @endif
                   </div>  -->
  <div class="form-group col-md-12 required"> 
-                    {!! Form::label('Title','Title',['class'=>'control-label']) !!}
+                    {!! Form::label('Title',Lang::get('menu.title',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('tittle',['Prof.'=>'Prof.','Dr.'=>'Dr.','Mr.'=>'Mr.','Ms.'=>'Ms.'],isset($observers->tittle) ? $observers->tittle : 'selected',['class'=>'form-control','placeholder'=>'Selecte Tittle','required'=>'required']) !!}
                     
                     </div> 
@@ -69,7 +69,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">First Name</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.first_name', array(),Session::get('language_val'))</label>
                   <input type="text" name="first_name" value="{{ $observers->first_name}}"   class="form-control" id="taxon_code" placeholder="First Name">
                  @if ($errors->has('first_name'))
                                     <span class="help-block">
@@ -80,7 +80,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Last Name</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.last_name', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="last_name" value="{{  $observers->last_name }}" required  class="form-control" id="last_name" placeholder="Last Name">
                  @if ($errors->has('last_name'))
                                     <span class="help-block">
@@ -105,7 +105,7 @@
                   <?php } ?>
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Address</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.address', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="address" value="{{  $observers->address }}"   class="form-control" id="address" placeholder="Address">
                  @if ($errors->has('address'))
                                     <span class="help-block">
@@ -120,7 +120,7 @@
                      <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('work_tel_number') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Work Tel. Number</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.work_tel_number', array(),Session::get('language_val'))</label>
                   <input type="text" name="work_tel_number" value="{{ $observers->work_tel_number }}"   class="form-control" id="work_tel_number" placeholder="Work Tel. Number">
                  @if ($errors->has('work_tel_number'))
                                     <span class="help-block">
@@ -131,7 +131,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Mobile</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.mobile', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="mobile" value="{{  $observers->mobile }}"   class="form-control" id="taxon_code_description" placeholder="Mobile">
                  @if ($errors->has('mobile'))
                                     <span class="help-block">
@@ -147,7 +147,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Email</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.email', array(),Session::get('language_val'))</label>
                   <input type="text" name="email" value="{{  $observers->email }}"   class="form-control" id="taxon_code" placeholder="Email">
                  @if ($errors->has('email'))
                                     <span class="help-block">
@@ -158,7 +158,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Website</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.website', array(),Session::get('language_val'))</label>
                   <input type="text" name="website" value="{{  $observers->website }}"   class="form-control" id="taxon_code_description" placeholder="Website">
                  @if ($errors->has('website'))
                                     <span class="help-block">
