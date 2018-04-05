@@ -81,6 +81,9 @@
    'bSortable' : false,
    'aTargets' : [ 'action', 'text-holder' ]
  }]
+ 
+ 
+ 
 })
   })
 </script>

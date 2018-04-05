@@ -57,7 +57,7 @@ class ApibaseController extends Controller
   }
   public function record(){
       
-    
+  //http://ec2-13-127-44-64.ap-south-1.compute.amazonaws.com/api/apilist/record?tokenrecord=gvtcrecords&tb=species  
     $tokenrecord='gvtcrecords';
     if($tokenrecord==$_REQUEST['tokenrecord']){
         $tbl_name=$_REQUEST['tb'];
@@ -72,6 +72,28 @@ class ApibaseController extends Controller
         
     }
     print_r($arra);
+      
+  }
+  
+  public function showRecord(){
+      //http://127.0.0.1:8000/api/apilist/showrecord?tokenrecod=gvtcshoerecod&from=1&to=2&tb=observers
+      $tokenrecod='gvtcshoerecod';
+      if($tokenrecod==$_REQUEST['tokenrecod']){
+          
+        $tbl_name=$_REQUEST['tb'];
+        $from= $_REQUEST['from'];
+        $to= $_REQUEST['to'];
+        $datarecod=DB::table($tbl_name)->select('*')->offset($from)->limit($to)->get();
+         $final_recod=array('mesage'=>'sucess','totalrecord'=>$datarecod);
+         $arra= json_encode($final_recod);
+  //print_r($final_recod);
+          
+      }else{
+          
+          $arra=json_encode(array('message'=>'failed','totalrecord'=>'')); 
+          
+      }
+      print_r($arra);
       
   }
   
