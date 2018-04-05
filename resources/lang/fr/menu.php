@@ -87,6 +87,7 @@ return [
     
     'iucn'=>'UICN',
     'IUCN_threat_code'=>"Code IUCN de ménace",
+    'national_threat_code'=>'Code national des menaces',
     'IUCN_code_description'=>'Description du Code UICN', 
     'national_threat'=>'Menace nationale',
     'range'=>'Tranche',
@@ -94,6 +95,8 @@ return [
     'growth_form'=>'Forme de croissance',
     'growth_form_field'=>'Types de Végétation',
     'observer'=>'Observateur',
+    'observer_type'=>"Type d'observateur",
+    'observer_id'=>"Identité de l'observateur", 
     'growth_form'=>'Formulaire de croissance',
     'protected_area'=>'Aire Protégée',
     'protected_area_name'=>'Aire Protégée Nom',
@@ -110,6 +113,8 @@ return [
     'name'=>'Nom',
     'address'=>'Adresse',
     'admin_unit_type'=>"Type d'unité d'administration",
+    
+
     
     
     
@@ -152,6 +157,7 @@ return [
     'confirm_new_password'=>'Confirmer le nouveau mot de passe',
     'update_password'=>'Mettre à jour le mot de passe',
     'manage_password'=>'Gérer le mot de passe',
+    'bulk_upload'=>'Téléchargement en bloc',
     
     
     'user-profile'=>'Profil utilisateur',
@@ -172,9 +178,22 @@ return [
     'photo_id' =>'ID photo',
     'profile_picture' =>' Photo de profil',
     
-    
+    //Gazetteer
+    'gazetteers'=>'Index géographique',
+    'gazetteer_log'=>"Registre de l'Index géographique",
+    'gazetteer_id'=>'ID de nomenclature',
+    'datum'=>'Référence',
+    'longitude'=>'longitude',
+    'latitude'=>'Latitude',
 
-    
+    //specics
+    'species_author'=>"Auteur de l'espèce",
+    'sub_species'=>"Sous-espèce",
+    'sub_species_author'=>"Sous-espèce auteur",
+    'common_name_english'=>"Nom commun (anglais)",
+    'common_name_french'=>"Nom commun (français)",
+    'endemism'=>'Endémisme',
+    'breeding'=>'Reproduction',
      'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',

@@ -32,14 +32,14 @@
                   
                 <div class="form-group col-md-6">
 
-                  {!! Form::label('Country','Country',['class'=>'control-label']) !!}
+                  {!! Form::label('Country',Lang::get('menu.country',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','id' => 'country_id']) !!}
                  
                 </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Place</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.place', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="place" value="{{ old('place') }}" required   class="form-control" id="place" placeholder="Place">
                  @if ($errors->has('place'))
                                     <span class="help-block">
@@ -65,7 +65,7 @@
                   
                        
               <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-2 required">
-                  <label for="exampleInputEmail1" class="control-label">Longitude</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="longitude" value="{{ old('longitude') }}" required  class="form-control" id="longitude" placeholder="Longitude">
                  @if ($errors->has('longitude'))
                                     <span class="help-block">
@@ -82,7 +82,7 @@
                    <div class="form-row">
                   
              <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-2 required">
-                  <label for="exampleInputEmail1"  class="control-label">Latitude</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="latitude" value="{{ old('latitude') }}" required  class="form-control" id="latitude" placeholder="Latitude">
                  @if ($errors->has('latitude'))
                                     <span class="help-block">

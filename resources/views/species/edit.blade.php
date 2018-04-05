@@ -9,11 +9,11 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update Species</h3>
+              <h3 class="box-title">@lang('menu.update', array(),Session::get('language_val')) @lang('menu.species', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('species.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -27,13 +27,13 @@
                   
                 <div class="form-group col-md-6 required">
 
-                  {!! Form::label('Taxon','Taxon',['class'=>'control-label']) !!}
+                  {!! Form::label('Taxon',Lang::get('menu.taxon',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('taxon_id',$taxonrecodsql,isset($specie->taxon_id) ? $specie->taxon_id : selected,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id'=>'taxon_id']) !!}
                   </div>  
                   
                  
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Order</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.order', array(),Session::get('language_val'))</label>
                   <input type="text" name="order" value="{{ $specie->order }}" required  class="form-control" id="order" placeholder="Order">
                  @if ($errors->has('order'))
                                     <span class="help-block">
@@ -47,7 +47,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('family') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Family</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.family', array(),Session::get('language_val'))</label>
                   <input type="text" name="family" value="{{ $specie->family }}" required  class="form-control" id="family" placeholder="Family">
                  @if ($errors->has('family'))
                                     <span class="help-block">
@@ -58,7 +58,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('genus') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Genus</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.genus', array(),Session::get('language_val'))</label>
                   <input type="text" name="genus" value="{{ $specie->genus }}" required  class="form-control" id="genus" placeholder="Genus">
                  @if ($errors->has('genus'))
                                     <span class="help-block">
@@ -72,7 +72,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('species') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Species</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.species', array(),Session::get('language_val'))</label>
                   <input type="text" name="species" value="{{ $specie->species }}" required  class="form-control" id="species" placeholder="Species">
                  @if ($errors->has('species'))
                                     <span class="help-block">
@@ -83,7 +83,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('species_author') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1" class="control-label">Species Author</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.species_author', array(),Session::get('language_val'))</label>
                   <input type="text" name="species_author" value="{{ $specie->species_author }}"   class="form-control" id="species_author" placeholder="Species Author">
                  @if ($errors->has('species_author'))
                                     <span class="help-block">
@@ -97,7 +97,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Sub-species</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.sub_species', array(),Session::get('language_val'))</label>
                   <input type="text" name="subspecies" value="{{ $specie->subspecies}}"   class="form-control" id="subspecies" placeholder="Subspecies">
                  @if ($errors->has('subspecies'))
                                     <span class="help-block">
@@ -108,7 +108,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Sub-species Author</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.sub_species_author', array(),Session::get('language_val'))</label>
                   <input type="text" name="subspecies_author" value="{{ $specie->subspecies_author}}"   class="form-control" id="subspecies_author" placeholder="Subspecies Author">
                  @if ($errors->has('subspecies_author'))
                                     <span class="help-block">
@@ -122,7 +122,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-3 ">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name (English)</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.common_name_english', array(),Session::get('language_val'))</label>
                   <input type="text" name="common_name" value="{{ $specie->common_name}}"   class="form-control" id="taxon_code" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
@@ -132,7 +132,7 @@
                   </div>  
                   
                   <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-3 ">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name (French)</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.common_name_french', array(),Session::get('language_val'))</label>
                   <input type="text" name="common_name_fr" value="{{ $specie->common_name_fr}}"   class="form-control" id="taxon_code" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
@@ -144,7 +144,7 @@
                    
                   <div class="form-group col-md-6 ">
                       
-                  {!! Form::label('iucn_threat_id','IUCN Threat Code',['class'=>'control-label']) !!}
+                  {!! Form::label('iucn_threat_id',Lang::get('menu.IUCN_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('iucn_threat_id',$iucnrecodsql,isset($specie->iucn_threat_id) ? $specie->iucn_threat_id : 'selected',['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!}   
                   </div>  
            
@@ -159,7 +159,7 @@
                   </div>  -->
                  
                  <div class="form-group col-md-6 custom-range">
-                  {!! Form::label('Range','Range',['class'=>'control-label']) !!}
+                  {!! Form::label('Range',Lang::get('menu.range',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                  <select name="range_id[]" id="lstFruits" multiple="multiple">
                   <?php 
                     $range_arraid= explode(',',$specie->range_id);
@@ -173,7 +173,7 @@
                   
                   <div class="form-group col-md-6 " id ="growth_id_div" >
                       
-                  {!! Form::label('Growth Form','Growth Form',['class'=>'control-label']) !!}
+                  {!! Form::label('Growth Form',Lang::get('menu.growth_form',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('growth_id',$growthrecordsql,isset($specie->growth_id) ? $specie->growth_id : 'selected',['class'=>'form-control','placeholder'=>'Select Growth Form']) !!}     
                    </div>  
                   
@@ -183,7 +183,7 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                  {!! Form::label('ForestUse','Forest Use',['class'=>'control-label']) !!}
+                  {!! Form::label('ForestUse',Lang::get('menu.forest_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('forestuse_id',$forestusesql,isset($specie->forestuse_id) ? $specie->forestuse_id : 'selected',['class'=>'form-control','placeholder'=>'Select Forest Use']) !!}    
                   
                   </div>  
@@ -191,7 +191,7 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                   {!! Form::label('WaterUse','Water Use',['class'=>'control-label']) !!}
+                   {!! Form::label('WaterUse',Lang::get('menu.water_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('wateruse_id',$waterusesql,isset($specie->wateruse_id) ? $specie->wateruse_id : 'selected',['class'=>'form-control','placeholder'=>'Select Water Use']) !!}     
                   
                   </div>  
@@ -202,14 +202,14 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                   {!! Form::label('Endemism','Endemism',['class'=>'control-label']) !!}
+                   {!! Form::label('Endemism',Lang::get('menu.endemism',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('endenisms_id',$endemismsql,isset($specie->endenisms_id) ? $specie->endenisms_id : 'selected',['class'=>'form-control','placeholder'=>'Select Endemism']) !!}    
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6 ">
-                    {!! Form::label('Migration','Migration',['class'=>'control-label']) !!}
+                    {!! Form::label('Migration',Lang::get('menu.migration',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('migration_tbl_id',$migrationsql,isset($specie->migration_tbl_id) ? $specie->migration_tbl_id : 'selected',['class'=>'form-control','placeholder'=>'Select Migration']) !!}    
                       
                       
@@ -229,13 +229,13 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                   {!! Form::label('National Threat Code','National Threat Code',['class'=>'control-label']) !!}
+                   {!! Form::label('National Threat Code',Lang::get('menu.national_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('national_threat_code_id',$nationalusesql,null,['class'=>'form-control','placeholder'=>'Select National Threat Code']) !!}    
                  
                   </div>  
                   
                   <div class="form-group col-md-6 ">
-                    {!! Form::label('Breeding','Breeding',['class'=>'control-label']) !!}
+                    {!! Form::label('Breeding',Lang::get('menu.breeding',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('breeding_id',$breedingusesql,isset($specie->breeding_id) ? $specie->breeding_id : 'selected',['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
                       
                       

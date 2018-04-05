@@ -185,6 +185,8 @@ if(taxonid==''){
 $(document).ready(function(){
 $("#country_id").change(function(){
 var countryid=$("#country_id").val();
+if(countryid!='')
+{
 $.ajax({
    type:'get',
    //url:'/distribution/speciec_record/'+taxon_id,
@@ -198,7 +200,13 @@ $.ajax({
     
 
    }
-});                
+});
+}else{
+    
+   alert("Please Selcet Country"); 
+   return false;
+    
+}
 });
 });
 
@@ -206,6 +214,7 @@ $.ajax({
 $(document).ready(function(){
 $("#country_id").change(function(){
 var countryid=$("#country_id").val();
+if(countryid!=''){
 $.ajax({
    type:'get',
    //url:'/distribution/speciec_record/'+taxon_id,
@@ -220,7 +229,13 @@ $.ajax({
 
    }
 });
+
+}else{
     
+   alert("Please Selcet Country"); 
+   return false;
+    
+}    
     
     
     

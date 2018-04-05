@@ -29,7 +29,7 @@ class ApibaseController extends Controller
     if($token==$_REQUEST['token_id']){
         
     $tbl_name=$_REQUEST['tb'];
-    $arradata =DB::table($tbl_name)->select('*')->limit(5)->get();
+    $arradata =DB::table($tbl_name)->select('*')->get();
     $final_data=array('message'=>'success','listdata'=>$arradata);
     //$result = $arradata->toArray();
     $arra= json_encode($final_data);
@@ -46,13 +46,32 @@ class ApibaseController extends Controller
    
    }
     
-//http://127.0.0.1:8000/apilist/index?token_id=123456&tb=taxons
-   //http://ec2-13-127-44-64.ap-south-1.compute.amazonaws.com/api/apilist
+//http://127.0.0.1:8000/api/apilist/index?token_id=12390123348456&tb=taxons
+ //http://ec2-13-127-44-64.ap-south-1.compute.amazonaws.com/api/apilist/index?token_id=12390123348456&tb=taxons
 
   public function create(Request $request){
       
       
       
+      
+  }
+  public function record(){
+      
+    
+    $tokenrecord='gvtcrecords';
+    if($tokenrecord==$_REQUEST['tokenrecord']){
+        $tbl_name=$_REQUEST['tb'];
+    $arradata =DB::table($tbl_name)->select('*')->get();
+    $record = count($arradata);
+     $final_recod=array('mesage'=>'sucess','totalrecord'=>$record);
+     $arra= json_encode($final_recod);
+     
+    } else{
+        
+        $arra=json_encode(array('message'=>'failed','totalrecord'=>''));  
+        
+    }
+    print_r($arra);
       
   }
   

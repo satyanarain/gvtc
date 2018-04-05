@@ -90,6 +90,8 @@ return [
     'countreis'=>'Countries',  
     'protected_area_code'=>'Protected Area Code',
     'observer'=>'Observer',
+    'observer_type'=>'Observer Type',   
+    'observer_id'=>'Observer ID',   
     'manage_reports'=>'Manage reports',
     'day' => 'Day',
     'month' => 'Month',
@@ -132,6 +134,7 @@ return [
     'confirm_new_password'=>'Confirm New Password',
     'update_password'=>'Update Password',
     'manage_password'=>'Manage Password',
+    'bulk_upload'=>'Bulk Upload',
     
      //species table field
     
@@ -141,22 +144,20 @@ return [
     'family'=>'Family',
     'genus'=>'Genus',
     'species'=>'Species',
-    'Species Author'=>'Species Author',
-    'Sub-species'=>'Sub-species',
-    'Sub-species Author'=>'Sub-species Author',
-    'Common Name (English)'=>'Common Name (English)',
-    'Common Name (French)'=>'Common Name (French)',
-    'IUCN Threat Code'=>'IUCN Threat Code',
-    'Range'=>'Range',
+   // 'Species Author'=>'Species Author',
+//    'Sub-species'=>'Sub-species',
+//    'Sub-species Author'=>'Sub-species Author',
+//    'Common Name (English)'=>'Common Name (English)',
+//    'Common Name (French)'=>'Common Name (French)',
+//    'IUCN Threat Code'=>'IUCN Threat Code',
+//    'Range'=>'Range',
     'forest_use'=>'Forest Use',
     'forest_habitat_usage'=>'Forest Habitat Usage',
     
     'water_use'=>'Water Use',
     'water_wetland_habitat_usage'=>"Water/Wetland Habitat Usage",
-    'Endemism'=>'Endemism',
-    'Migration'=>'Migration',
-    'national Threat Code'=>'National Threat Code',
-    'endenism'=>'Endenism',
+    'endemism'=>'Endemism',
+    'breeding'=>'Breeding',
     'endenism_status'=>'Endenism Status',
      'admin_unit'=>'Admin Unit',
      'name'=>'Name',
@@ -169,8 +170,19 @@ return [
     'photo_id' =>'Photo ID',
     'profile_picture' =>'Profile Picture',
     'user-profile'=>'User Profile',
-    
-    
+    //Gazetteer
+    'gazetteers'=>'Gazetteers',
+    'gazetteer_log'=>'Gazetteer Log',
+    'gazetteer_id'=>'Gazetteer ID',
+    'datum'=>'Datum',
+    'longitude'=>'Longitude',
+    'latitude'=>'Latitude',
+    //specics
+    'species_author'=>'Species Author',
+    'sub_species'=>"Sub-species",
+    'sub_species_author'=>"Sub-species Author",
+    'common_name_english'=>"Common Name (English)",
+    'common_name_french'=>"Common Name (French)",
     
     
      'custom' => [

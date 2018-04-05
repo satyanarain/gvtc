@@ -22,7 +22,7 @@
 <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
 <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"type="text/javascript"></script>
 <section class="content-header">
-<h1>Manage Species</h1>
+<h1>@lang('menu.manage', array(),Session::get('language_val')) @lang('menu.species', array(),Session::get('language_val'))</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
 <a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 

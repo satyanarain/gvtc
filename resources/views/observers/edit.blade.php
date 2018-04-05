@@ -11,7 +11,7 @@
             
                    
                 <fieldset class="form-group row">
-                    <legend class="col-form-legend col-sm-2">Observers Type</legend> <div style='font-weight:bold;'>{{ $observers->observeroption}}</div>
+                    <legend class="col-form-legend col-sm-2">@lang('menu.observer_type', array(),Session::get('language_val'))</legend> <div style='font-weight:bold;'>{{ $observers->observeroption}}</div>
       <div class="col-sm-10">
        
         
@@ -94,7 +94,7 @@
                   <div class="form-row">
                  <?php if($observers->observeroption!='Individual'){ ?>
                 <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Institution</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.institution', array(),Session::get('language_val'))</label>
                   <input type="text" name="institution" value="{{  $observers->institution }}" required  class="form-control" id="institution" placeholder="Institution">
                  @if ($errors->has('institution'))
                                     <span class="help-block">

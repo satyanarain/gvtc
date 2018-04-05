@@ -10,7 +10,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Species</h3>
+              <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.species', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('species.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -87,7 +87,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('species_author') ? ' has-error' : '' }} col-md-6">
-                  <label for="exampleInputEmail1" class="control-label">Species Author</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.species_author', array(),Session::get('language_val'))</label>
                   <input type="text" name="species_author" value="{{ old('species_author') }}"   class="form-control" id="species_author" placeholder="Species Author">
                  @if ($errors->has('species_author'))
                                     <span class="help-block">
@@ -101,7 +101,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('subspecies') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Sub-species</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.sub_species', array(),Session::get('language_val'))</label>
                   <input type="text" name="subspecies" value="{{ old('subspecies') }}"   class="form-control" id="subspecies" placeholder="Subspecies">
                  @if ($errors->has('subspecies'))
                                     <span class="help-block">
@@ -112,7 +112,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('subspecies_author') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Sub-species Author</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.sub_species_author', array(),Session::get('language_val'))</label>
                   <input type="text" name="subspecies_author" value="{{ old('subspecies_author') }}"   class="form-control" id="subspecies_author" placeholder="Subspecies Author">
                  @if ($errors->has('subspecies_author'))
                                     <span class="help-block">
@@ -126,7 +126,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('common_name') ? ' has-error' : '' }} col-md-3 ">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name (English)</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.common_name_english', array(),Session::get('language_val'))</label>
                   <input type="text" name="common_name" value="{{ old('common_name') }}"   class="form-control" id="common_name" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
@@ -135,7 +135,7 @@
                                 @endif
                   </div>  
                  <div class="form-group{{ $errors->has('common_name_fr') ? ' has-error' : '' }} col-md-3 ">
-                  <label for="exampleInputEmail1"  class="control-label">Common Name (French)</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.common_name_french', array(),Session::get('language_val'))</label>
                   <input type="text" name="common_name_fr" value="{{ old('common_name_fr') }}"   class="form-control" id="common_name" placeholder="Common Name">
                  @if ($errors->has('common_name'))
                                     <span class="help-block">
@@ -148,7 +148,7 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                  {!! Form::label('iucn_threat_id','IUCN Threat Code',['class'=>'control-label']) !!}
+                  {!! Form::label('iucn_threat_id',Lang::get('menu.IUCN_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!}   
                   </div>  
                   
@@ -158,7 +158,7 @@
                 
    
                 <div class="form-group col-md-6 custom-range">
-                  {!! Form::label('Range','Range',['class'=>'control-label']) !!}
+                  {!! Form::label('Range',Lang::get('menu.range',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('range_id[]',$rangerecordsql,null,['class'=>'form-control','id'=>"lstFruits",'multiple'=>"multiple"]) !!} 
                   
                   </div>  
@@ -167,7 +167,7 @@
                   
                   <div class="form-group col-md-6 " id="growth_id_div" style='display:none;'>
                       
-                  {!! Form::label('Growth Form','Growth Form',['class'=>'control-label']) !!}
+                  {!! Form::label('Growth Form',Lang::get('menu.growth_form',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('growth_id',$growthrecordsql,null,['class'=>'form-control','placeholder'=>'Select Growth Form','id' => 'growth_id']) !!}     
                    </div>  
                   
@@ -177,7 +177,7 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                  {!! Form::label('ForestUse','Forest Use',['class'=>'control-label']) !!}
+                  {!! Form::label('ForestUse',Lang::get('menu.forest_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('forestuse_id',$forestusesql,null,['class'=>'form-control','placeholder'=>'Select Forest Use']) !!}    
                   
                   </div>  
@@ -185,7 +185,7 @@
                   
                   <div class="form-group col-md-6 ">
                       
-                   {!! Form::label('WaterUse','Water Use',['class'=>'control-label']) !!}
+                   {!! Form::label('WaterUse',Lang::get('menu.water_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('wateruse_id',$waterusesql,null,['class'=>'form-control','placeholder'=>'Select Water Use']) !!}     
                   
                   </div>  
@@ -196,14 +196,14 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                   {!! Form::label('Endemism','Endemism',['class'=>'control-label']) !!}
+                   {!! Form::label('Endemism',Lang::get('menu.endemism',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('endenisms_id',$endemismsql,null,['class'=>'form-control','placeholder'=>'Select Endemism']) !!}    
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6 ">
-                    {!! Form::label('Migration','Migration',['class'=>'control-label']) !!}
+                    {!! Form::label('Migration',Lang::get('menu.migration',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('migration_tbl_id',$migrationsql,null,['class'=>'form-control','placeholder'=>'Select Migration']) !!}    
                       
                       
@@ -220,13 +220,13 @@
                   
                 <div class="form-group col-md-6 ">
                     
-                   {!! Form::label('National Threat Code','National Threat Code',['class'=>'control-label']) !!}
+                   {!! Form::label('National Threat Code',Lang::get('menu.national_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('national_threat_code_id',$nationalusesql,null,['class'=>'form-control','placeholder'=>'Select National Threat Code']) !!}    
                  
                   </div>  
                   
                   <div class="form-group col-md-6 " id="breeding_div" style='display:none;'>
-                    {!! Form::label('Breeding','Breeding',['class'=>'control-label']) !!}
+                    {!! Form::label('Breeding',Lang::get('menu.breeding',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
                       
                       

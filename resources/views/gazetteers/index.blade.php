@@ -13,7 +13,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>     
     <section class="content">
       <div class="box">
-  <div class="box-header">
+  <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Gazetteer Log</h3>
@@ -42,11 +42,11 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th class="action">Gazetteer ID</th>
-                  <th>Place</th>
-                  <th>Datum</th>
-                  <th>Longitude</th>
-                  <th>Latitude</th>
+                  <th class="action">@lang('menu.gazetteer_id', array(),$session_lan= Session::get('language_val'))</th>
+                  <th>@lang('menu.place', array(),$session_lan= Session::get('language_val'))</th>
+                  <th>@lang('menu.datum', array(),$session_lan= Session::get('language_val'))</th>
+                  <th>@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</th>
+                  <th>@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
