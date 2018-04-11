@@ -85,8 +85,12 @@ Route::resource('abundance','AbundanceController');
 //Observer
 Route::resource('observer','ObserverController');
 //specie
+Route::get('species/getdata', 'SpeciesController@showbulkrecord')->name('species/getdata');
 Route::resource('species','SpeciesController');
 //gazetteer
+//Route::get('/gazetteer/showbulkrecord', 'GazetteerController@showbulkrecord');
+//Route::any('gazetteer', 'GazetteerController@showbulkrecord')->name('datatables.data');
+Route::get('gazetteer/getdata', 'GazetteerController@showbulkrecord')->name('gazetteer/getdata');
 Route::resource('gazetteer','GazetteerController');
 //report
 Route::resource('report','ReportController');

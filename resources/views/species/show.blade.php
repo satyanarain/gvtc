@@ -106,7 +106,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">@lang('menu.subspecies_author', array(),Session::get('language_val'))</label>
+                  <label for="exampleInputEmail1"> @lang('menu.sub_species_author', array(),Session::get('language_val'))</label>
                   <input  value="{{ $species->subspecies_author }}" readonly=""  class="form-control">
                 
                   </div>  

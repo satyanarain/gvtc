@@ -171,6 +171,8 @@ class TaxonController extends Controller
     $tablename=$_REQUEST['tablename'];
   
    $sql=DB::table($tablename)->where('id',$id)->first();
+  // print_r($sql);
+   //die;
 
       if($sql->status==0)
       {
@@ -191,6 +193,7 @@ class TaxonController extends Controller
    }
     
     
+   
     
     
     

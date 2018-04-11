@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Update Gazetteers</h3>
+              <h3 class="box-title">@lang('menu.update', array(),Session::get('language_val')) @lang('menu.gazetteers', array(),Session::get('language_val'))</h3>
               <div class="pull-right">
 <a href="{{ route('gazetteer.index') }}" class="btn btn-default"> 
 <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>

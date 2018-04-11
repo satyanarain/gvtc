@@ -17,10 +17,11 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     <div class="row">
         <div class="col-sm-8">
           <h3 class="box-title">Gazetteer Log</h3>
+         
         </div>
         <?php if($getpermissionstatus!=0){?> 
         <div class="col-sm-4" >
- <a class="btn btn-primary btn-template" href="{{ route('gazetteer.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan= Session::get('language_val'))</a>
+ <a class="btn btn-primary btn-template" href="{{ route('gazetteer.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),Session::get('language_val'))</a>
 </div>
         <?php } ?>
     </div>
@@ -34,71 +35,106 @@ $role=Auth::user()->role;
 $permission_key = "gazetteer_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?> 
+ <div class="box-body">
+    <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="display:none">id</th>  
+                                <th class="action">@lang('menu.gazetteer_id', array(),$session_lan= Session::get('language_val'))</th>
+                                <th>@lang('menu.place', array(),$session_lan= Session::get('language_val'))</th>
+                                <th>@lang('menu.datum', array(),$session_lan= Session::get('language_val'))</th>
+                                <th>@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</th>
+                                <th>@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</th>
+                                <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
+                            </tr>
+                        </thead>
+                    </table>
   
   
-            <div class="box-body">
-            
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th style="display:none">id</th> 
-                  <th class="action">@lang('menu.gazetteer_id', array(),$session_lan= Session::get('language_val'))</th>
-                  <th>@lang('menu.place', array(),$session_lan= Session::get('language_val'))</th>
-                  <th>@lang('menu.datum', array(),$session_lan= Session::get('language_val'))</th>
-                  <th>@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</th>
-                  <th>@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
-                 
-                </tr>
-                </thead>
-                <tbody>
-                  
-                @foreach($gazetteer as $gazetteers) 
-                
-                <tr>
-                   <td style="display:none">{{ $gazetteers->id }}</td>
-                   <td>{{ $gazetteers->gazeteer_id }}</td>
-                   <td>{{ $gazetteers->place }}</td>
-                   <td>{{ $gazetteers->datum }}</td>
-                  <td>{{ $gazetteers->longitude }}</td>
-                  <td>{{ $gazetteers->latitude }}</td>
-                 <td>
-                   
-                   <form class="row" method="POST" action="{{ route('gazetteer.destroy', $gazetteers->id) }}" onsubmit = "return confirm('Are you sure?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('gazetteer.show', $gazetteers->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
-<?php if($getpermissionstatus!=0){?>
-<a href="{{ route('gazetteer.edit', $gazetteers->id) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-<i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
-<?php testdatas('gazetteers',$gazetteers->id,$gazetteers->status); ?>  
-<?php } ?>
-<!--<button type="submit" class="btn btn-google mini blue-stripe" id="id_of_your_button" style="margin-left: 20px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-                     
-                    </form>
-                      
-                      
-                     </td>
-                </tr>
-               
-              @endforeach
-              
-              
-                </tbody>
-                
-              </table>
-            </div>
-            <!-- /.box-body -->
-  
-  
-  
-  
-  
-  
-
-  <!-- /.box-body -->
 </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
+  
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    $('.datatable').DataTable({
+        "order": [[ 0, "desc" ]],
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route('gazetteer/getdata') }}',
+        "autoWidth"   : true,
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'gazeteer_id', name: 'gazeteer_id'},
+            {data: 'place', name: 'place'},
+            {data: 'datum', name: 'datum'},
+            {data: 'longitude', name: 'longitude'},
+            {data: 'latitude', name: 'latitude'},
+            {
+                mRender: function (data, type, row) {
+                    //console.log(row.id);
+                      var sd = row.status;
+                      var lang = ' <?php echo $lang=Session::get('language_val'); ?>';
+                     // alert(lang);
+                    //alert(sd);
+              if(sd==1){
+                  
+              return '<a   class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;" href="/gazetteer/'+row.id+'"><i class="fa fa-search"></i>&nbsp; @lang('menu.view', array(),Session::get('language_val'))</a> <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;"  data-placement="top" data-toggle="tooltip" data-original-title="Edit" href="/gazetteer/'+row.id+'/edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>  <div  id="'+row.id+'"  style="margin-left: 15px;" class="btn btn-small btn-success pull dng-w" onClick="divFunction(this.id,\'gazetteers\',\'<?php echo $lang=Session::get('language_val'); ?>\')"> <span id="ai'+row.id+'"> <i class="fa fa-check-circle"></i>&nbsp;  @lang('menu.active', array(),Session::get('language_val')) </span></div>' ;
+          }else{
+           return '<a   class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;" href="/gazetteer/'+row.id+'"><i class="fa fa-search"></i>&nbsp; @lang('menu.view', array(),Session::get('language_val'))</a> <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;"  data-placement="top" data-toggle="tooltip" data-original-title="Edit" href="/gazetteer/'+row.id+'/edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>  <div   id="'+row.id+'"  style="margin-left: 15px;" class="btn btn-small btn-danger dng-w" onClick="divFunction(this.id,\'gazetteers\',\'<?php echo $lang=Session::get('language_val'); ?>\')"> <span id="ai'+row.id+'"> <i class="fa fa-times-circle"></i>&nbsp; <?php if($lang=Session::get('language_val')=='en'){ ?> In-active <?php }else{ ?> en activité <?php } ?> </sapn></div>' ;   
+              
+              }
+           
+           }}
+        
+           
+        ],
+        
+        "aoColumnDefs": [
+         {
+                        
+                        "bVisible": false, "aTargets": [0] 
+                        
+                        },
+                        
+{
+
+'bSortable' : false,
+   'aTargets' : [ 'action', 'text-holder' ]
+
+}
+                        
+                        
+                       
+                    ] ,
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+   
+ 
+
+    });
+      
+});
+</script> 
+
+
+
 @endsection
+   

@@ -67,7 +67,6 @@
 @stack('datatable_data')
  <script>
   $(function () {
-
     $('#example1').DataTable({  
       "paging"      : true,
       "lengthChange": true,
@@ -228,6 +227,44 @@ $(function() {
 
 
 });
+function divFunction(id,tablename,lang)
+{
+//alert(id);
+//alert(tablename);
+//alert(lang);
+var r = confirm("Are you sure want to change status?");
+if (r == true) {
+$.ajax({
+   type:'get',
+   url:'/taxons/status_update/'+id,
+   data:"tablename="+tablename,
+success:function(data)
+   {
+   if(data==1)
+   {
+      
+   $("#"+id).removeClass('btn-danger');  
+   $("#"+id).addClass('btn-success');  
+    if(lang=='en'){
+   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+    }else{
+       $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+    }
+   }else{
+   $("#"+id).removeClass('btn-success');  
+   $("#"+id).addClass('btn-danger dng-w'); 
+    if(lang=='en'){
+   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Inactive');
+    }else{
+    $("#ai"+id).html('<i class="fa fa-times-circle"></i> en activité');
+    }
+   }
+   
+   }
+});
+}
+
+}
 </script>
 
     

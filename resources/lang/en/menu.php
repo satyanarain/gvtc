@@ -158,6 +158,7 @@ return [
     'water_wetland_habitat_usage'=>"Water/Wetland Habitat Usage",
     'endemism'=>'Endemism',
     'breeding'=>'Breeding',
+    'endenism'=>'Endenism',
     'endenism_status'=>'Endenism Status',
      'admin_unit'=>'Admin Unit',
      'name'=>'Name',
