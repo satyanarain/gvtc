@@ -95,6 +95,9 @@ Route::resource('gazetteer','GazetteerController');
 //report
 Route::resource('report','ReportController');
 //
+
+Route::get('distribution/recordDelete/{id}','DistributionController@recordDelete');
+Route::get('distribution/getdata', 'DistributionController@showbulkrecord')->name('distribution/getdata');
 Route::get('/distribution/speciec_record/{id}', 'DistributionController@speciecRecord');
 Route::get('/distribution/bulkupload/', 'DistributionController@bulkUpload')->name('distribution.bulkupload');
 Route::post('/distribution/bulkupload/', 'DistributionController@bulkCreat')->name('distribution.bulkcreat');

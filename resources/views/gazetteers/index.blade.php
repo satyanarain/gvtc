@@ -56,13 +56,6 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     </section>
     <!-- /.content -->
   </div>
-  
-
-
-
-
-
-
 <script type="text/javascript">
 $(document).ready(function() {
     

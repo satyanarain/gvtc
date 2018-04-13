@@ -6,15 +6,11 @@
  * and open the template in the editor.
  */
 namespace App;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Distribution extends Authenticatable
+class Distribution extends Model
 {
-    use Notifiable;
     protected $table = 'distributions';
 
     /**
@@ -22,14 +18,15 @@ class Distribution extends Authenticatable
      *
      * @var array
      */
-    protected $guarded = [];
+   protected $fillable = ['taxon_id', 'selectioncriteria', 'specie_id', 'specie_data', 'method_id', 'observation_id', 'gazetteer_id',
+       'day', 'month', 'year', 'number', 'observer_id', 'age_id', 'abundance_id', 'specimendata', 'specimencode', 'collectorinstitution', 'Sex', 'remark', 'status','created_by'
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    
     
 }
 

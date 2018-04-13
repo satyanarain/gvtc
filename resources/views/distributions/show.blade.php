@@ -16,6 +16,11 @@
 &nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
+              <?php
+              
+              //dd($distribution);
+              
+              ?>
             <!-- /.box-header -->
             <!-- form start -->
 
@@ -26,23 +31,27 @@
                 <div class="form-group col-md-6 required">
 
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.taxon', array(),Session::get('language_val'))</label>
-                   <input type="text" readonly  value="{{ $distribution->taxon_id }}"  class="form-control" >
+                   <input type="text" readonly  value=" {{$distribution->taxon_code_description}}({{ $distribution->taxon_code }})"  class="form-control" >
                   </div>  
                   
                   
-                  <div class="form-group col-md-6 required">
+                  <div class="form-group col-md-3 required">
                    
                       <p style="font-weight:bold;">@lang('menu.selection_criteria', array(),Session::get('language_val'))</p>
               
                     <input type="text" readonly  value="{{ $distribution->selectioncriteria }}"  class="form-control" >
-             
-             
-             
-             
-               </div>  
-                   <div class="form-group col-md-2 required" id="displ" style="display:none;">
-                    <span id="speciessel"> </span>  
-                   </div>
+              </div>  
+                    
+                    
+                    
+                    
+                   <div class="form-group col-md-3 required">
+                   
+                      <p style="font-weight:bold;">@lang('menu.species', array(),Session::get('language_val'))</p>
+              
+                    <input type="text" readonly  value="{{ $distribution->species }}"  class="form-control" >
+              </div>  
+                    
                     
                     
                     
@@ -53,7 +62,7 @@
                 <div class="form-group col-md-6 required">
 <!--                  {!! Form::label('Method','Method',['class'=>'control-label']) !!}-->
  <label for="exampleInputEmail1"  class="control-label">@lang('menu.method', array(),Session::get('language_val'))</label>
-                 <input type="text" readonly  value="{{ $distribution->method_id }}"  class="form-control" >
+                 <input type="text" readonly  value="{{ $distribution->code_description }} ({{ $distribution->method_code }})"  class="form-control" >
 
                   </div>  
                   
@@ -61,11 +70,11 @@
                   <div class="form-group  col-md-6 ">
 <!--                 {!! Form::label('Observation','Observation',['class'=>'control-label']) !!}-->
 <label for="exampleInputEmail1"  class="control-label">@lang('menu.observation', array(),Session::get('language_val'))</label>
-               <input type="text" readonly  value="{{ $distribution->observation_id }}"  class="form-control" >
+               <input type="text" readonly  value="{{$distribution->observationd}} ({{ $distribution->observation_code }})"  class="form-control" >
 
               
                       
-                      
+                     
                       
                   </div>  
                   
@@ -76,7 +85,7 @@
                 <div class="form-group{{ $errors->has('species') ? ' has-error' : '' }} col-md-6 required">
                     <label for="exampleInputEmail1"  class="control-label">@lang('menu.place', array(),Session::get('language_val'))</label>
 <!--                   {!! Form::label('Place','Place',['class'=>'control-label']) !!}-->
-                  <input type="text" readonly  value="{{ $distribution->gazetteer_id }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $distribution->place }}"  class="form-control" >
                   </div>  
                   
                   
@@ -118,7 +127,7 @@
                   <div class="form-group col-md-6 required ">
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.observer', array(),Session::get('language_val'))</label>    
 <!--                  {!! Form::label('Observer','Observer',['class'=>'control-label']) !!}-->
-                  <input type="text" readonly  value="{{ $distribution->observer_id }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $distribution->last_name }} {{ $distribution->institution }}"  class="form-control" >
                   
                   </div>  
                   
@@ -127,7 +136,7 @@
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range">
                  {!! Form::label('AgeGroup',Lang::get('menu.age_group', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                 <input type="text" readonly  value="{{ $distribution->age_id }}"  class="form-control" >
+                 <input type="text" readonly  value="{{ $distribution->agesd }} ({{ $distribution->age_group }})"  class="form-control" >
                 
                   
                   </div>  
@@ -137,7 +146,7 @@
                   <div class="form-group col-md-6 ">
                    <label for="exampleInputEmail1" class="control-label">@lang('menu.abundance', array(),Session::get('language_val'))</label>    
 <!--                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}-->
-                  <input type="text" readonly  value="{{ $distribution->abundance_id }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $distribution->abundancesd }} ({{ $distribution->abundance_group }})"  class="form-control" >
                  
                    </div>  
                   

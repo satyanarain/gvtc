@@ -36,7 +36,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   
             <div class="box-body">
-             <table id="example1" class="table table-bordered table-striped">
+           <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
                 <thead>
                 <tr>
                  <th style="display:none">id</th> 
@@ -50,42 +50,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                  
                 </tr>
                 </thead>
-                <tbody>
-                
-                @foreach($distribution as $val) 
-               <td style="display:none"><?php echo $val->id; ?></td>
-                   <td><?php echo $val->taxon_code; ?></td>
-                   <td><?php if($val->common_name!=''){echo $val->common_name;}else{ ?>/<?php echo $val->genus; ?> / <?php echo $val->species; ?> / <?php echo $val->subspecies; ?><?php } ?></td>
-                  <td><?php echo $val->selectioncriteria; ?></td>
-                  <td><?php echo $val->code_description ; ?>/<?php echo $val->method_code; ?></td>
-                  <td><?php echo $val->place; ?></td>
-                  <td><?php echo $val->first_name; ?> <?php echo $val->last_name; ?> <?php echo $val->institution; ?> </td>
-                  
-                 
-
-                 
-                  <td>
-                   
-                   <form class="row" method="POST" action="{{ route('distribution.destroy', $val->id) }}" onsubmit = "return confirm('Are you sure?')">
-                       <input type="hidden" name="_method" value="DELETE"> 
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('distribution.show', $val->id) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
-<?php if($getpermissionstatus!=0){?>
-<a href="{{ route('distribution.edit', $val->id) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-<i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
-<span style="display:none;"><?php testdatas('distributions',$val->id,$val->status); ?> </span>
-<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;@lang('menu.delete', array(),Session::get('language_val'))</button>
-<?php } ?>
-</form>
-                      
-                      
-                     </td>
-                </tr>
-               
-              @endforeach
               
-              
-                </tbody>
                 
               </table>
             </div>
@@ -102,4 +67,104 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     </section>
     <!-- /.content -->
   </div>
+  
+  <script type="text/javascript">
+$(document).ready(function() {
+    
+    $('.datatable').DataTable({
+        "order": [[ 0, "desc" ]],
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route('distribution/getdata') }}',
+        "autoWidth"   : true,
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'taxon_code', name: 'taxon_code'},
+            {data: 'species', name: 'species'},
+            {data: 'selectioncriteria', name: 'selectioncriteria'},
+            {data: 'code_description', name: 'code_description'},
+            {data: 'place', name: 'place'},
+            {data: 'last_name', name: 'last_name'},
+      {
+                mRender: function (data, type, row) {
+                    //console.log(row.id);
+                      var sd = row.status;
+                      var lang = ' <?php echo $lang=Session::get('language_val'); ?>';
+                     // alert(lang);
+                    //alert(sd);
+           
+             //return '<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;@lang('menu.delete', array(),Session::get('language_val'))</button>';     
+              return '<a   class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;" href="/distribution/'+row.id+'"><i class="fa fa-search"></i>&nbsp; @lang('menu.view', array(),Session::get('language_val'))</a> <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;"  data-placement="top" data-toggle="tooltip" data-original-title="Edit" href="/distribution/'+row.id+'/edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a> <button  onClick="recordDelete(this.id,\'distributions\',\'<?php echo $lang=Session::get('language_val'); ?>\')" class="btn-danger btn  mini blue-stripe" id="'+row.id+'" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;@lang('menu.delete', array(),Session::get('language_val'))</button> ' ;
+          
+           
+           }}
+        
+           
+        ],
+        
+  "aoColumnDefs": [
+         {
+                        
+                        "bVisible": false, "aTargets": [0] 
+                        
+                        },
+                        
+{
+
+'bSortable' : false,
+   'aTargets' : [ 'action', 'text-holder' ]
+
+}
+                        
+                        
+                       
+                    ] 
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+   
+ 
+
+    });
+      
+});
+</script> 
+
+<script>
+ function recordDelete(id,tablename,lang)
+ {
+   var r = confirm("Are you sure want to Delete?");
+if (r == true) {  
+   //alert(id);  
+   //alert(tablename);  
+   //alert(lang); 
+   $.ajax({
+   type:'get',
+   url:'/distribution/recordDelete/'+id,
+   data:"tablename="+tablename,
+     
+        });  
+ }
+ location.reload(); 
+ }
+</script>      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 @endsection

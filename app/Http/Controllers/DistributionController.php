@@ -14,8 +14,9 @@ use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use DataTables;
 
-error_reporting(0);
+
 class DistributionController extends Controller
 {
        /**
@@ -42,19 +43,24 @@ class DistributionController extends Controller
      */
     public function index()
     {
+        
+        $users = Distribution::latest()->count();
+
+    return view('distributions.index', compact('users')); 
+        
         //set permission
-        $user_id=Auth::id();
-        $role=Auth::user()->role;
-        $permission_key = "distribution_view";
-        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
-        if($getpermissionstatus==0)
-            return redirect()->route('user-management.unauthorized');
-            //return view('error.index');          
-    $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
-            ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where('distributions.status',1)->get();
-    
-    return view('distributions.index', compact('distribution'));  
+//        $user_id=Auth::id();
+//        $role=Auth::user()->role;
+//        $permission_key = "distribution_view";
+//        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+//        //print_r($getpermissionstatus);die;
+//        if($getpermissionstatus==0)
+//            return redirect()->route('user-management.unauthorized');
+//            //return view('error.index');          
+//    $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
+//            ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where('distributions.status',1)->get();
+//    
+//    return view('distributions.index', compact('distribution'));  
     
     
    }
@@ -98,13 +104,14 @@ class DistributionController extends Controller
     public function store(Request $request)
     {
      //$this->validateInput($request);
+        
     $inpute= $request->all();
     $specieid=$request['specie_id'];
     $specie_arra= explode('|',$specieid);   
     $inpute['specie_id']=$specie_arra[0];
     $inpute['specie_data']=$specie_arra[1];
+    
     Distribution::create($inpute);
-     
     Session::flash('flash_message', "Distribution Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('distribution.index');
      }
@@ -114,6 +121,8 @@ class DistributionController extends Controller
          
      return view('distributions.bulkupload');
      }
+     
+     
      
      public function bulkCreat(Request $request){
         
@@ -137,7 +146,12 @@ class DistributionController extends Controller
                 if(count($sql))
                 $taxon_id = $sql->id;
               }
-              
+              $specie_id='0';
+              if($data[3]){
+               $sql3 = DB::table('species')->select('*')->where('species',$data[3])->get()->first();
+               if(count($sql3))
+               $specie_id= $sql3->id;
+              }
               $method_id='0';
               if($data[5]){
                $sql5 = DB::table('methods')->select('*')->where('code_description',$data[5])->get()->first();
@@ -180,7 +194,7 @@ class DistributionController extends Controller
               //$specimendata = ($data[15])?$data[15]:0;
                DB::table('distributions')->insert(array('taxon_id' => $taxon_id,
                                                         'selectioncriteria'=>($data[2])?$data[2]:'',
-                                                        'specie_id'=>($data[3])?$data[3]:'',
+                                                        'specie_id'=>$specie_id,
                                                         'specie_data'=>($data[4])?$data[4]:'',
                                                         'method_id' => $method_id,
                                                         'observation_id' => $observation_id,
@@ -290,7 +304,21 @@ class DistributionController extends Controller
     public function show($id)
     {
      
-     $distribution = Distribution::find($id);
+    //$distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
+     //       ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where([['distributions.status',1],['distributions.id',$id]])->get();    
+        
+        $distribution = DB::table('distributions')->select('distributions.*','distributions.id as id','gazetteers.gazeteer_id as ggid','distributions.gazetteer_id as dgid', 'species.species','methods.method_code','methods.code_description','observation.observation_code','observation.code_description as observationd','ages.age_group','ages.code_description as agesd'
+        ,'abundances.abundance_group','abundances.code_description as abundancesd','observers.last_name','observers.institution','taxons.taxon_code','taxon_code_description','gazetteers.place')
+                ->leftjoin('taxons','taxons.id','distributions.taxon_id')
+                ->leftjoin('species','distributions.specie_id','=','species.id')
+                ->leftjoin('methods','distributions.method_id','=','methods.id')
+                ->leftjoin('observation','distributions.observation_id','=','observation.id')
+                ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')
+                ->leftjoin('ages','distributions.age_id','=','ages.id')
+                ->leftjoin('abundances','distributions.abundance_id','=','abundances.id')
+              ->leftjoin('observers','distributions.observer_id','=','observers.id')
+                ->where('distributions.id',$id)->first();
+     //$distribution = Distribution::find($id);
     return view('distributions.show',compact('distribution'));
     
         
@@ -350,6 +378,33 @@ class DistributionController extends Controller
     
     
     }
+    
+    
+    public function showbulkrecord(){
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "disrtibution_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+     if($getpermissionstatus==0)
+     return redirect()->route('user-management.unauthorized');     
+     $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
+            ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where('distributions.status',1)->get();
+ return DataTables::of($distribution)->make(true);    
+    //return DataTables::of(Gazetteer::query()->orderBY('id','desc'))->make(true);
+}
+    
+
+ public function recordDelete($id)
+   {
+
+    $tablename=$_REQUEST['tablename'];
+    $q = "UPDATE $tablename SET status= '0' WHERE id=$id ";
+    DB::update(DB::raw($q));
+     return redirect()->route('distribution.index'); 
+    
+   }
+
 
     /**
      * Remove the specified resource from storage.
