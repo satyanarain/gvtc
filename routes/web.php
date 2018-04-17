@@ -17,15 +17,33 @@
 Route::get('guest_register/find_username/{username}','GuestRegisterController@checkDuplicateUser');
 Route::resource('guest_register','GuestRegisterController');
 Route::resource('create_password','GuestPasswordController');
+
+
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
+
+
+
+
+
+
+
+
+//Route::get('/livesearch','PageController@liveSearch');     
+//Route::resource('/', 'PageController');
+//Route::get('/login', function () {
+//    return view('home');
+//})->middleware('auth');
 
 Auth::routes();
 //Route::get('/dashboard', 'DashboardController@index');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 
 Route::get('/user-management/user_status_update/{id}', 'UserManagementController@userstatusUpdate');
 Route::get('user-management/guestedit', 'UserManagementController@guestedit')->name('user-management.guestedit');

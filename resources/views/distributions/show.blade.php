@@ -136,7 +136,7 @@
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range">
                  {!! Form::label('AgeGroup',Lang::get('menu.age_group', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                 <input type="text" readonly  value="{{ $distribution->agesd }} ({{ $distribution->age_group }})"  class="form-control" >
+                 <input type="text" readonly  value="{{ $distribution->agesd }} <?php if($distribution->age_group==''){  }else{ echo '(';} ?> {{ $distribution->age_group }} <?php if($distribution->age_group==''){  }else{ echo ')';} ?>"  class="form-control" >
                 
                   
                   </div>  
@@ -146,7 +146,7 @@
                   <div class="form-group col-md-6 ">
                    <label for="exampleInputEmail1" class="control-label">@lang('menu.abundance', array(),Session::get('language_val'))</label>    
 <!--                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}-->
-                  <input type="text" readonly  value="{{ $distribution->abundancesd }} ({{ $distribution->abundance_group }})"  class="form-control" >
+                  <input type="text" readonly  value="{{ $distribution->abundancesd }}  <?php if($distribution->abundance_group==''){  }else{ echo '(';} ?> {{ $distribution->abundance_group }} <?php if($distribution->abundance_group==''){  }else{ echo ')';} ?>"  class="form-control" >
                  
                    </div>  
                   

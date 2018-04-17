@@ -41,7 +41,7 @@
                                 </button>
                               <div class="pull-right">
 <a href="/" class="btn btn-default">
-<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;@lang('menu.back', array(),Session::get('language_val'))</a>
+<span class="glyphicon glyphicon-circle-arrow-left"></span>Back</a>
 </div>  
                             </div>
                         </div>
