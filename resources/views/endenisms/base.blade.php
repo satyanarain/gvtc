@@ -21,7 +21,8 @@ if(is_numeric(Request::segment($i))){
 }else{
 ?> 
 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
-    {{ucfirst(Request::segment($i))}}
+
+   {{ str_replace('endenism',' Endemism',(Request::segment($i)))}}
 </a> 
 <?php } ?>
 @else 
@@ -33,7 +34,7 @@ if(is_numeric(Request::segment($i))){
 <div class="btn btn-primary btn-success">
 
     
-    {{ title_case(str_replace('','',(Request::segment($i)))) }}
+    {{ str_replace('endenism',' Endemism',(Request::segment($i)))}}
     </div>
     
    <?php

@@ -23,7 +23,7 @@ class Iucn extends Model
      * @var array
      */
    protected $fillable = [
-        'iucn_threat_code','iucn_code_description','created_by'
+        'iucn_threat_code','iucn_code_description','iucn_code_description_fr','created_by'
     ];
 
     /**

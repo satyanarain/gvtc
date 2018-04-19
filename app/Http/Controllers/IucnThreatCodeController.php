@@ -86,6 +86,7 @@ class IucnThreatCodeController extends Controller
      Iucn::create([
             'iucn_threat_code' => $request['iucn_threat_code'],
             'iucn_code_description' => $request['iucn_code_description'],
+            'iucn_code_description_fr' => $request['iucn_code_description_fr'],
             'created_by'=>$request['created_by']
             
         ]);
@@ -145,6 +146,7 @@ class IucnThreatCodeController extends Controller
         $constraints = [
             'iucn_threat_code' => 'required',
             'iucn_code_description'=> 'required',
+            'iucn_code_description_fr'=> 'required',
             
             ];
        
@@ -155,7 +157,9 @@ class IucnThreatCodeController extends Controller
        
         $input = [
             'iucn_threat_code' => $request['iucn_threat_code'],
-            'iucn_code_description' => $request['iucn_code_description']
+            'iucn_code_description' => $request['iucn_code_description'],
+            'iucn_code_description_fr' => $request['iucn_code_description_fr']
+            
         ];
         
       
@@ -192,7 +196,8 @@ class IucnThreatCodeController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'iucn_threat_code' => 'required|unique:iucn_threats',
-        'iucn_code_description' => 'required'
+        'iucn_code_description' => 'required',
+        'iucn_code_description_fr' => 'required'
         
     ]);
     }

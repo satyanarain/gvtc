@@ -7,7 +7,10 @@
       <span class="logo-mini"><img src="{{ asset('images/gvtclogo.jpg') }}"/></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><img src="{{ asset('images/gvtcLogolong.jpg') }}"/></span>
+       
     </a>
+    <!-- language images--->
+    <a href="{{ asset('images/languages.png') }}"></a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->

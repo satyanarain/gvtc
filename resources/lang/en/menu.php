@@ -19,6 +19,9 @@ return [
     'manage_users'=>'Manage Users',
     'user'=>'User',
     
+    'title'=>'Title',
+    'description'=>'Description',
+    'reportcategory'=>'Report Category',
     
     
     
@@ -92,7 +95,7 @@ return [
     'observer'=>'Observer',
     'observer_type'=>'Observer Type',   
     'observer_id'=>'Observer ID',   
-    'manage_reports'=>'Manage reports',
+    'manage_reports'=>'Manage Reports',
     'day' => 'Day',
     'month' => 'Month',
     'year' => 'Year',

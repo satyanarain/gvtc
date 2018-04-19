@@ -28,6 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_threat_code', array(),Session::get('language_val')) </label>
                   <input type="text" name="iucn_threat_code" value="{{ old('iucn_threat_code') }}" required  class="form-control" id="iucn_threat_code" placeholder="IUCN Threat Code">
                  @if ($errors->has('iucn_threat_code'))
@@ -39,6 +40,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="iucn_code_description" value="{{ old('iucn_code_description') }}" required  class="form-control" id="IUCN Code Description" placeholder="IUCN Code Description">
                  @if ($errors->has('taxon_code_description'))
@@ -49,6 +51,22 @@
                   </div>  
                   
                 </div> 
+                  
+                  
+                 <div class="form-row">
+                   <div class="form-group{{ $errors->has('iucn_code_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                  <span class="lang-sm" lang="fr"></span>&nbsp;     
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</label>
+                  <input type="textarea" name="iucn_code_description_fr" value="{{ old('iucn_code_description_fr') }}" required  class="form-control" id="IUCN Code Description_fr" placeholder="IUCN Code Description">
+                 @if ($errors->has('taxon_code_description_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('iucn_code_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>  
+                  
                   
                  <div class="form-group col-md-6">
                 <input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >

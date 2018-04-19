@@ -19,7 +19,8 @@ return [
     'manage_users'=>'gérer les utilisateurs',
     'user'=>'utilisateur',
     
-    
+    'title'=>'Title',
+    'description'=>'Description',
     
     
     'dashboard'=> 'Tableau de bord',

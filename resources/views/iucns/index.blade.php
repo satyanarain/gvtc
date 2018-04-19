@@ -39,9 +39,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.IUCN_threat_code', array(),Session::get('language_val'))</th>
-                  <th> @lang('menu.IUCN_code_description', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.IUCN_threat_code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</th>
+                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -53,6 +54,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $iucn['id'] }}</td>  
                   <td>{{ $iucn['iucn_threat_code'] }}</td>
                   <td>{{ $iucn['iucn_code_description'] }}</td>
+                  <td>{{ $iucn['iucn_code_description_fr'] }}</td>
                  
                   <td>
                       

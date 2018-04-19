@@ -77,8 +77,11 @@ class TaxonController extends Controller
      $this->validateInput($request);
      Taxon::create([
             'taxon_code' => $request['taxon_code'],
-            'created_by'=>$request['created_by'],
-            'taxon_code_description' => $request['taxon_code_description']
+            //'taxon_code_fr' => $request['taxon_code_fr'],
+            'taxon_code_description' => $request['taxon_code_description'],
+            'taxon_code_description_fr' => $request['taxon_code_description_fr'],
+            'created_by'=>$request['created_by']
+            
             
         ]);
 
@@ -139,7 +142,9 @@ class TaxonController extends Controller
         $taxon = Taxon::findOrFail($id);
         $constraints = [
             'taxon_code' => 'required',
+            //'taxon_code_fr' => 'required',
             'taxon_code_description'=> 'required',
+            'taxon_code_description_fr'=> 'required',
             
             ];
        
@@ -150,7 +155,9 @@ class TaxonController extends Controller
        
         $input = [
             'taxon_code' => $request['taxon_code'],
-            'taxon_code_description' => $request['taxon_code_description']
+            //'taxon_code_fr' => $request['taxon_code_fr'],
+            'taxon_code_description' => $request['taxon_code_description'],
+            'taxon_code_description_fr' => $request['taxon_code_description_fr']
         ];
         
         if ($request['password'] != null && strlen($request['password']) > 0) {
@@ -221,7 +228,9 @@ class TaxonController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'taxon_code' => 'required|unique:taxons',
-        'taxon_code_description' => 'required'
+        //'taxon_code_fr' => 'required|unique:taxons',
+        'taxon_code_description'=>'required',    
+        'taxon_code_description_fr' => 'required'
         
     ]);
     }

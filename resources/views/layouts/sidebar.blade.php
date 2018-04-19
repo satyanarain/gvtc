@@ -34,8 +34,45 @@ $role=Auth::user()->role;
         <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>@lang('menu.distribution_records', array(),Session::get('language_val'))</span></a></li>  
         
        <li class="{{ Request::segment(1) == 'offlinerecord' ? 'active' : '' }}"><a href="{{ url('offlinerecord/')}}"><i class="glyphicon glyphicon-upload"></i><span>@lang('menu.manage_offline_records', array(),Session::get('language_val'))</span></a></li>  
-       <?php } ?>  
+       <?php } ?>
+       
+       
+ 
+       
+       
+        <li class="treeview" >
+          <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           @php
+           $arrareport=array('report','reportcategory');
+           //print_r($arra);
+          @endphp
+
+        <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arrareport)){ echo "display: block";} ?>">
+    <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="{{ url('reportcategory/') }}"> <i class="fa fa-bar-chart"></i> <span>Report category</span></a>  </li> 
+        <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="#"> <i class="fa fa-bar-chart"></i> <span>Add Report</span></a>  </li> 
        <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span></a>  </li> 
+      </ul>
+    </li>
+       
+       
+       
+
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
        <?php if($role!='guest'){?>
        <li class="treeview" >

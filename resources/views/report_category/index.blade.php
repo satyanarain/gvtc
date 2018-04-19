@@ -1,4 +1,4 @@
-@extends('taxons.base')
+@extends('report_category.base')
 @section('action-content')
 <?php $session_lan= Session::get('language_val'); ?> 
     <!-- Main content -->
@@ -15,11 +15,11 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">@lang('menu.taxon', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
+          <h3 class="box-title">Report Category Log</h3>
         </div>
 <?php if($getpermissionstatus!=0){?>        
 <div class="col-sm-4" >
- <a class="btn btn-primary btn-template" href="{{ route('taxons.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
+ <a class="btn btn-primary btn-template" href="{{ route('reportcategory.create') }}"><span class="glyphicon glyphicon-plus" title="Add"></span>&nbsp;@lang('menu.add', array(),$session_lan)</a>
 </div>
  <?php } ?>
     </div>
@@ -40,32 +40,30 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.taxon_code', array(),Session::get('language_val'))</th>
-                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.taxon_code_description', array(),Session::get('language_val'))</th>
-                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.taxon_code_description', array(),Session::get('language_val'))</th>
-                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.title', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.description', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
                 <tbody>
                     
-                @foreach($taxons as $taxon) 
+                @foreach($rcategory as $val) 
                 
                 <tr>
-                   <td style="display:none">{{ $taxon['id'] }}</td>
-                  <td>{{ $taxon['taxon_code'] }}</td>
-                  <td>{{ $taxon['taxon_code_description'] }}</td>
-                  <td>{{ $taxon['taxon_code_description_fr'] }}</td>
+                   <td style="display:none">{{ $val['id'] }}</td>
+                  <td>{{ $val['title'] }}</td>
+                  <td>{{ $val['description'] }}</td>
                   <td>
                    
-                   <form class="row" method="POST" action="{{ route('taxons.destroy', $taxon['id']) }}" onsubmit = "return confirm('Are you sure?')">
+                   <form class="row" method="POST" action="{{ route('taxons.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('taxons.show', $taxon['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
+<a href="{{ route('reportcategory.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
  <?php if($getpermissionstatus!=0){?> 
-<a href="{{ route('taxons.edit', $taxon['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+<a href="{{ route('reportcategory.edit', $val['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
 <i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
-<?php testdatas('taxons',$taxon['id'],$taxon['status']); ?>
+<?php testdatas('taxons',$val['id'],$val['status']); ?>
 <?php } ?>
                    
  </form>                     

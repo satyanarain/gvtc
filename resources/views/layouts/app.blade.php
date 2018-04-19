@@ -14,6 +14,7 @@
     <link rel="stylesheet" href={{ asset("/bower_components/font-awesome/css/font-awesome.min.css") }}>
     <link rel="stylesheet" href={{ asset("/dist/css/AdminLTE.min.css") }}>
     <script src="{{ asset ("/js/custom.js") }}"></script>
+    
       
 </head>
 <body>

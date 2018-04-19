@@ -78,10 +78,11 @@ class SpeciesController extends Controller
         $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
         //print_r($getpermissionstatus);die;
         if($getpermissionstatus==0)
-            return redirect()->route('user-management.unauthorized');  
-        
+        return redirect()->route('user-management.unauthorized');  
        $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $taxonrecodsql_fr = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description_fr," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $iucnrecodsql_fr = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description_fr," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $growthrecordsql = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form," ","(",growth_form,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $waterusesql = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage," ","(",water_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
@@ -100,7 +101,7 @@ class SpeciesController extends Controller
        $last_species= Species::latest()->first();
        $last_speciesid= $last_species['id']+1;
        //print_r($taxonrecodsql);
-        return view('species/create',compact('taxonrecodsql','breedingusesql','iucnrecodsql','nationalusesql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql','last_speciesid'));
+        return view('species/create',compact('taxonrecodsql','taxonrecodsql_fr','breedingusesql','iucnrecodsql','iucnrecodsql_fr','nationalusesql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql','last_speciesid'));
     }
 
     /**

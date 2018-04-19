@@ -24,7 +24,9 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
     {!! Session::get('success') !!}
 </div>
-               @endif
+@endif
+
+
             <form role="form" method="POST" action="{{ route('species.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <div class="box-body">
@@ -32,8 +34,12 @@
                 <div class="form-row">
                 <div class="form-group col-md-6 required">
                 <label for="exampleInputEmail1" class="control-label">@lang('menu.taxon', array(),Session::get('language_val'))</label>
+               <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}
-                  </div>  
+               <?php }else{ ?>
+                 {!! Form::select('taxon_id',$taxonrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}  
+               <?php } ?> 
+                </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
@@ -149,7 +155,11 @@
                   <div class="form-group col-md-6 ">
                       
                   {!! Form::label('iucn_threat_id',Lang::get('menu.IUCN_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!}   
+                  <?php if(Session::get('language_val')=='en'){ ?>
+                  {!! Form::select('iucn_threat_id',$iucnrecodsql,null,['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!} 
+                  <?php } else{ ?>
+                  {!! Form::select('iucn_threat_id',$iucnrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!} 
+                  <?php } ?>
                   </div>  
                   
                 </div> 

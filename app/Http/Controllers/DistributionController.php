@@ -128,7 +128,7 @@ class DistributionController extends Controller
         
          
           if ($request->hasFile('documents1')){
-             //$filename=$_FILES['documents1']['name'];    
+             $filename=$_FILES['documents1']['name'];    
              $handle = fopen($_FILES['documents1']['tmp_name'], "r");
              $flag = true;
              
@@ -223,9 +223,11 @@ class DistributionController extends Controller
               
                }
               
-          
+        Session::flash('flash_message', "Distribution Uploded Successfully."); //Snippet in Master.blade.php  
+    }else{
+        Session::flash('flash_message', "There is no file to upload."); //Snippet in Master.blade.php  
     }
-     Session::flash('flash_message', "Distribution Uploded Successfully."); //Snippet in Master.blade.php
+     
     return redirect()->route('distribution.index');
     
      }

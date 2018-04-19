@@ -142,7 +142,9 @@ Route::resource('permission','PermissionController');
 Route::post('/offlinerecord/bulk/', 'OfflineController@bulk')->name('offlinerecord.bulk');
 Route::resource('offlinerecord','OfflineController');
 
+//Repoort Category
 
+Route::resource('reportcategory','ReportCategoryController');
 
 
 

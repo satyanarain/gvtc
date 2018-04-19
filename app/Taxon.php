@@ -10,10 +10,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Model;
 
-class Taxon extends Authenticatable
+class Taxon extends Model
 {
     use Notifiable;
 

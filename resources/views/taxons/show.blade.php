@@ -32,6 +32,7 @@
                     
                   
                 <div class=" col-md-6">
+                  <span class="lang-sm" lang="en"></span>&nbsp;  
                   <label for="exampleInputEmail1">@lang('menu.taxon_code', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $taxons->taxon_code }}"  class="form-control" >
                  
@@ -39,8 +40,33 @@
                   
                   
                   <div class="form-group col-md-6">
+                  <span class="lang-sm" lang="en"></span>&nbsp;    
                   <label for="exampleInputEmail1">@lang('menu.taxon_code_description', array(),Session::get('language_val'))</label>
                   <input  value="{{ $taxons->taxon_code_description }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div> 
+                   
+                    <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+<!--                <div class=" col-md-6">
+                 <span class="lang-sm" lang="fr"></span>&nbsp;   
+                  <label for="exampleInputEmail1">@lang('menu.taxon_code', array(),Session::get('language_val'))</label>
+                  <input type="text" readonly  value="{{ $taxons->taxon_code_fr }}"  class="form-control" >
+                 
+                  </div>  -->
+                  
+                  
+                  <div class="form-group col-md-6">
+                  <span class="lang-sm" lang="fr"></span>&nbsp;    
+                  <label for="exampleInputEmail1">@lang('menu.taxon_code_description', array(),Session::get('language_val'))</label>
+                  <input  value="{{ $taxons->taxon_code_description_fr }}" readonly=""  class="form-control">
                 
                   </div>  
                   

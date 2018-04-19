@@ -14,6 +14,6 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use Notifiable;
-    protected $table = 'use Notifiable;';
+    //protected $table = 'use Notifiable;';
     
 }
