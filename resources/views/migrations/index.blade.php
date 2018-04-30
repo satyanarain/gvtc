@@ -39,9 +39,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.migration', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</th>
-                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.migration', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</th>
+                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -54,6 +55,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $migration['id'] }}</td>  
                   <td>{{ $migration['migration_title'] }}</td>
                   <td>{{ $migration['birds_migrating_population'] }}</td>
+                  <td>{{ $migration['birds_migrating_population_fr'] }}</td>
                   
                 
                  <?php //print_r($endenism); die; ?>

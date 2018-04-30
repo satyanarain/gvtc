@@ -29,6 +29,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('migration_title') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.migration', array(),Session::get('language_val'))</label>
                   <input type="text" name="migration_title" value="{{ old('migration_title') }}" required  class="form-control" id="migration_title" placeholder="Migration">
                  @if ($errors->has('migration_title'))
@@ -40,6 +41,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('birds_migrating_population') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="birds_migrating_population" value="{{ old('birds_migrating_population') }}" required  class="form-control" id="birds_migrating_population" placeholder="Birds Migrating Populations">
                  @if ($errors->has('status'))
@@ -50,6 +52,23 @@
                   </div>  
                   
                 </div> 
+                  
+                  <div class="form-row">
+                  
+           
+                  
+                  <div class="form-group{{ $errors->has('birds_migrating_population_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</label>
+                  <input type="textarea" name="birds_migrating_population_fr" value="{{ old('birds_migrating_population_fr') }}" required  class="form-control" id="birds_migrating_population_fr" placeholder="Birds Migrating Populations (French)">
+                 @if ($errors->has('status'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('birds_migrating_population') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                    

@@ -44,6 +44,18 @@
                   
                 </div> 
                   
+                   <div class="form-row">
+                    
+                
+                  
+                  
+                  <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">@lang('menu.endenism_status', array(),Session::get('language_val'))</label>
+                  <input  value="{{ $endenisms->endenism_status_fr}}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div> 
                
                      
                    

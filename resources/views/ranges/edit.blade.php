@@ -1,9 +1,7 @@
 @extends('ranges.base')
-
 @section('action-content')
-
 <section class="content">
-      <div class="row">
+<div class="row">
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
@@ -27,6 +25,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('range_code') ? ' has-error' : '' }} col-md-6 required">
+                     <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.range', array(),Session::get('language_val'))</label>
                   <input type="text" name="range_code" value="{{ $range->range_code }}" required  class="form-control" id="taxon_code" placeholder="Range">
                  @if ($errors->has('range_code'))
@@ -38,6 +37,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
+                       <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.range', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="textarea" name="range_within_the_albertine_rift" value="{{ $range->range_within_the_albertine_rift }}" required  class="form-control" id="taxon_code_description" placeholder="Range Code Description">
                  @if ($errors->has('range_within_the_albertine_rift'))
@@ -48,6 +48,25 @@
                   </div>  
                   
                 </div> 
+                   
+                 <div class="form-row">
+               
+                  
+                  
+                  <div class="form-group{{ $errors->has('range_within_the_albertine_rift_fr') ? ' has-error' : '' }} col-md-6 required">
+                       <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.range', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="textarea" name="range_within_the_albertine_rift_fr" value="{{ $range->range_within_the_albertine_rift_fr }}" required  class="form-control" id="range_within_the_albertine_rift_fr" placeholder="Range Code Description (French)">
+                 @if ($errors->has('range_within_the_albertine_rift'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('range_within_the_albertine_rift_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>   
+                   
+                   
                   
                   
               </div>    

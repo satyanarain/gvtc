@@ -85,6 +85,7 @@ class AgeController extends Controller
      Age::create([
             'age_group' => $request['age_group'],
             'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr'],
             'created_by'=>$request['created_by'],
 
         ]);
@@ -146,7 +147,8 @@ class AgeController extends Controller
         $observartions = Age::findOrFail($id);
         $constraints = [
             'age_group' => 'required',
-            'code_description'=> 'required'
+            'code_description'=> 'required',
+            'code_description_fr'=> 'required'
             
             ];
        
@@ -157,7 +159,8 @@ class AgeController extends Controller
        
         $input = [
             'age_group' => $request['age_group'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr']
           
         ];
         
@@ -196,6 +199,7 @@ class AgeController extends Controller
         $this->validate($request, [
         'age_group' => 'required|unique:ages',
         'code_description' => 'required',
+        'code_description_fr' => 'required'
       
         
     ]);

@@ -28,6 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('age_group') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.age_group', array(),Session::get('language_val'))</label>
                   <input type="text" name="age_group" value="{{ old('age_group') }}" required  class="form-control" id="water_use" placeholder="Age Group">
                  @if ($errors->has('age_group'))
@@ -39,6 +40,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="text" name="code_description" value="{{ old('code_description') }}" required  class="form-control" id="code_description" placeholder="Code Description">
                  @if ($errors->has('code_description'))
@@ -49,6 +51,24 @@
                   </div>  
                   
                 </div> 
+                  
+                   <div class="form-row">
+                  
+                
+                  
+                  
+                  <div class="form-group{{ $errors->has('code_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="text" name="code_description_fr" value="{{ old('code_description_fr') }}" required  class="form-control" id="code_description_fr" placeholder="Code Description (french)">
+                 @if ($errors->has('code_description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('code_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                     <div class="form-group col-md-6">
              <input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >

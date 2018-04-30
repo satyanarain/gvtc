@@ -33,6 +33,7 @@ class PageController extends Controller
     public function liveSearch(Request $request)
     { 
          $search = $request->id;
+   
           
          if ($search!="")
         {

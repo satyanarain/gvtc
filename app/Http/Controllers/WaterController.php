@@ -85,6 +85,7 @@ class WaterController extends Controller
      Water::create([
             'water_use' => $request['water_use'],
             'water_habitat_usage' => $request['water_habitat_usage'],
+            'water_habitat_usage_fr' => $request['water_habitat_usage_fr'],
             'created_by'=>$request['created_by']
 
 
@@ -147,7 +148,8 @@ class WaterController extends Controller
         $water = Water::findOrFail($id);
         $constraints = [
             'water_use' => 'required',
-            'water_habitat_usage'=> 'required'
+            'water_habitat_usage'=> 'required',
+            'water_habitat_usage_fr'=> 'required',
             
             ];
        
@@ -158,7 +160,8 @@ class WaterController extends Controller
        
         $input = [
             'water_use' => $request['water_use'],
-            'water_habitat_usage' => $request['water_habitat_usage']
+            'water_habitat_usage' => $request['water_habitat_usage'],
+            'water_habitat_usage_fr' => $request['water_habitat_usage_fr'],
           
         ];
         
@@ -196,7 +199,8 @@ class WaterController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'water_use' => 'required|unique:wateruse',
-        'water_habitat_usage' => 'required'
+        'water_habitat_usage' => 'required',
+        'water_habitat_usage_fr' => 'required'
       
         
     ]);

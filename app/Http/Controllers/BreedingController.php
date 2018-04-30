@@ -81,6 +81,7 @@ class BreedingController extends Controller
      Breeding::create([
             'breeding_code' => $request['breeding_code'],
             'breeding_description' => $request['breeding_description'],
+            'breeding_description_fr' => $request['breeding_description_fr'],
             'created_by'=>$request['created_by']
             
         ]);
@@ -143,6 +144,7 @@ class BreedingController extends Controller
         $constraints = [
             'breeding_code' => 'required',
             'breeding_description'=> 'required',
+            'breeding_description_fr'=> 'required'
             
             ];
        
@@ -153,7 +155,8 @@ class BreedingController extends Controller
        
         $input = [
             'breeding_code' => $request['breeding_code'],
-            'breeding_description' => $request['breeding_description']
+            'breeding_description' => $request['breeding_description'],
+            'breeding_description_fr' => $request['breeding_description_fr'],
         ];
         
         
@@ -194,7 +197,8 @@ class BreedingController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'breeding_code' => 'required',
-        'breeding_description' => 'required|unique:breedings'
+        'breeding_description' => 'required|unique:breedings',
+        'breeding_description_fr' => 'required'
         
     ]);
     }

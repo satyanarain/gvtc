@@ -40,8 +40,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.method_code', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.method_code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.code_description', array(),Session::get('language_val')) </th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -56,6 +57,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $val['id'] }}</td>  
                   <td>{{ $val['method_code'] }}</td>
                   <td>{{ $val['code_description'] }}</td>
+                  <td>{{ $val['code_description_fr'] }}</td>
                 <td>
                       
                       <form class="row" method="POST" action="{{ route('method.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">

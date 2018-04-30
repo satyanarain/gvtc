@@ -37,7 +37,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   
             <div class="box-body">
              
-              <table id="example1" class="table table-bordered table-striped">
+               <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
@@ -51,34 +51,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($observers as $val) 
-                <tr>
-                   <td style="display:none">{{ $val['id'] }}</td>
-                  <td>{{ $val['observer_id'] }}</td>
-                  <td>{{ $val['observeroption'] }}</td>
-                  <td>{{ $val['first_name'] }}</td>
-                  <td>{{ $val['last_name'] }}</td>
-                  <td>{{ $val['email'] }}</td>
-                  <td>{{ $val['mobile'] }}</td>
-              <td>
- <form class="row" method="POST" action="{{ route('observer.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<a href="{{ route('observer.show', $val['id']) }}"  class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;"><i class="fa fa-search"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>                        
-<?php if($getpermissionstatus!=0){?>
-<a href="{{ route('observer.edit', $val['id']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-<i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
-<?php testdatas('observers',$val['id'],$val['status']); ?>    
-<?php } ?>
-<!--<button type="submit" class="btn btn-google mini blue-stripe" id="id_of_your_button" style="margin-left: 20px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-                    
-                    </form>
-                      
-                      
-                     </td>
-                </tr>
-               
-              @endforeach
+            
               
               
                 </tbody>
@@ -98,4 +71,78 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     </section>
     <!-- /.content -->
   </div>
+  <script type="text/javascript">
+$(document).ready(function() {
+    
+    $('.datatable').DataTable({
+        "order": [[ 0, "desc" ]],
+        oLanguage: {
+        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
+    },
+    processing : true,
+        serverSide: true,
+        ajax: '{{ route('observer/getdata') }}',
+        "autoWidth"   : true,
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'observer_id', name: 'observer_id'},
+            {data: 'observeroption', name: 'observeroption'},
+            {data: 'first_name', name: 'first_name',},
+            {data: 'last_name', name: 'last_name'},
+            {data: 'email', name: 'email'},
+            {data: 'mobile', name: 'mobile'},
+            {
+                mRender: function (data, type, row) {
+                    //console.log(row.id);
+                      var sd = row.status;
+                      var lang = ' <?php echo $lang=Session::get('language_val'); ?>';
+                     // alert(lang);
+                    //alert(sd);
+              if(sd==1){
+                  
+              return '<a   class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;" href="/observer/'+row.id+'"><i class="fa fa-search"></i>&nbsp; @lang('menu.view', array(),Session::get('language_val'))</a> <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;"  data-placement="top" data-toggle="tooltip" data-original-title="Edit" href="/observer/'+row.id+'/edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>  <div  id="'+row.id+'"  style="margin-left: 15px;" class="btn btn-small btn-success pull dng-w" onClick="divFunction(this.id,\'observers\',\'<?php echo $lang=Session::get('language_val'); ?>\')"> <span id="ai'+row.id+'"> <i class="fa fa-check-circle"></i>&nbsp;  @lang('menu.active', array(),Session::get('language_val')) </span></div>' ;
+          }else{
+           return '<a   class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" data-original-title="View" style="margin-left:15px;" href="/observer/'+row.id+'"><i class="fa fa-search"></i>&nbsp; @lang('menu.view', array(),Session::get('language_val'))</a> <a class="btn btn-bitbucket mini blue-stripe" style="margin-left: 15px;"  data-placement="top" data-toggle="tooltip" data-original-title="Edit" href="/observer/'+row.id+'/edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>  <div   id="'+row.id+'"  style="margin-left: 15px;" class="btn btn-small btn-danger dng-w" onClick="divFunction(this.id,\'observers\',\'<?php echo $lang=Session::get('language_val'); ?>\')"> <span id="ai'+row.id+'"> <i class="fa fa-times-circle"></i>&nbsp; <?php if($lang=Session::get('language_val')=='en'){ ?> In-active <?php }else{ ?> en activité <?php } ?> </sapn></div>' ;   
+              
+              }
+           
+           }}
+        
+           
+        ],
+        
+        "aoColumnDefs": [
+         {
+                        
+                        "bVisible": false, "aTargets": [0] 
+                        
+                        },
+                        
+{
+
+'bSortable' : false,
+   'aTargets' : [ 'action', 'text-holder' ]
+
+}
+                        
+                        
+                       
+                    ] ,
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+   
+ 
+
+    });
+      
+});
+</script> 
 @endsection

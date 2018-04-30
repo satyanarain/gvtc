@@ -23,7 +23,7 @@ class Age extends Model
      * @var array
      */
    protected $fillable = [
-        'age_group','code_description','created_by'
+        'age_group','code_description','code_description_fr','created_by'
     ];
 
     /**

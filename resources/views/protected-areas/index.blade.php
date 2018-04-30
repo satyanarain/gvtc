@@ -39,9 +39,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.protected_area_name', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.country', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.protected_area_code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.protected_area_name', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.protected_area_name', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.protected_area_code', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
@@ -54,6 +55,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <td style="display:none">{{ $protectedarea->id }}</td>  
                   <td>{{ $protectedarea->protected_area_name }}</td>
+                  <td>{{ $protectedarea->protected_area_name_fr }}</td>
                   <td>{{$protectedarea->range_within_albertine_rift}}({{ $protectedarea->range_code }})</td>
                   <td>{{ $protectedarea->protected_area_code }}</td>
                  

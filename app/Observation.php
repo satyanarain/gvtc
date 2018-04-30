@@ -23,7 +23,7 @@ class Observation extends Model
      * @var array
      */
    protected $fillable = [
-        'observation_code','code_description','created_by'
+        'observation_code','code_description','code_description_fr','created_by'
     ];
 
     /**

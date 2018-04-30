@@ -32,6 +32,7 @@
                     
                   
                 <div class=" col-md-6">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.protected_area_name', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $protectedarea->protected_area_name }}"  class="form-control" >
                  
@@ -39,6 +40,7 @@
                   
                   
                   <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.country', array(),Session::get('language_val'))</label>
                   <input  value="{{ $protectedarea->country }}" readonly=""  class="form-control">
                 
@@ -55,11 +57,19 @@
                     
                   
                 <div class=" col-md-6">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.protected_area_code', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $protectedarea->protected_area_code }}"  class="form-control" >
                  
                   </div>  
                   
+                     
+                    <div class=" col-md-6">
+                        <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1">@lang('menu.protected_area_name', array(),Session::get('language_val'))</label>
+                  <input type="text" readonly  value="{{ $protectedarea->protected_area_name_fr }}"  class="form-control" >
+                 
+                  </div>  
                   
                  
                   

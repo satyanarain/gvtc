@@ -26,6 +26,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('forest_use') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.forest_use', array(),Session::get('language_val'))</label>
                   <input type="text" name="forest_use" value="{{ $forests->forest_use }}" required  class="form-control" id="forest_use" placeholder="Forest Use">
                  @if ($errors->has('forest_use'))
@@ -37,6 +38,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('forest_habitat_usage') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</label>
                   <input type="text" name="forest_habitat_usage" value="{{ $forests->forest_habitat_usage }}" required  class="form-control" id="forest_habitat_usage" placeholder="Forest Habitat Usage">
                  @if ($errors->has('forest_habitat_usage'))
@@ -48,6 +50,24 @@
                   
                 </div> 
                   
+                   
+                   <div class="form-row">
+                  
+                
+                  
+                  
+                  <div class="form-group{{ $errors->has('forest_habitat_usage_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</label>
+                  <input type="text" name="forest_habitat_usage_fr" value="{{ $forests->forest_habitat_usage_fr }}" required  class="form-control" id="forest_habitat_usage_fr" placeholder="Forest Habitat Usage (french)">
+                 @if ($errors->has('forest_habitat_usage_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('forest_habitat_usage_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                   

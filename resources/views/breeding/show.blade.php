@@ -25,7 +25,10 @@
  
                <div class="box-body">
                   
-                <div class="form-row">
+                
+                  
+                   
+                   <div class="form-row">
                     
                     
                     
@@ -33,22 +36,40 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">Breeding Code</label>
+                    <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $breedings->breeding_code }}"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Breeding @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                      <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $breedings->breeding_description }}" readonly=""  class="form-control">
                 
                   </div>  
                   
-                </div> 
-                  
+                </div>
                
-                     
+                 <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+                
+                  
+                  
+                  <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="fr"></span>&nbsp;
+                  <label for="exampleInputEmail1">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input  value="{{ $breedings->breeding_description_fr }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div>     
                    
                    
                   

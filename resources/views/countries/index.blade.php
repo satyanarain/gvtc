@@ -39,8 +39,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th> @lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val')) </th>
-                  <th>@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -55,6 +56,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $country['id'] }}</td>  
                   <td>{{ $country['range_code'] }}</td>
                   <td>{{ $country['range_within_albertine_rift'] }}</td>
+                  <td>{{ $country['range_within_albertine_rift_fr'] }}</td>
                 
                  
                   <td>

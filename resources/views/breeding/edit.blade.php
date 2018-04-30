@@ -27,7 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('breeding_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Breeding Code</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</label>
                   <input type="text" name="breeding_code" value="{{ $breeding->breeding_code }}" required  class="form-control" id="taxon_code" placeholder="Taxon Code">
                  @if ($errors->has('breeding_code'))
                                     <span class="help-block">
@@ -38,7 +38,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('breeding_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Breeding @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="textarea" name="breeding_description" value="{{ $breeding->breeding_description }}" required  class="form-control" id="breeding_description" placeholder="Taxon Code Description">
                  @if ($errors->has('breeding_description'))
                                     <span class="help-block">
@@ -48,6 +48,24 @@
                   </div>  
                   
                 </div> 
+                   
+                   
+                 <div class="form-row">
+                  
+                
+                  
+                  
+                  <div class="form-group{{ $errors->has('breeding_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="textarea" name="breeding_description_fr" value="{{ $breeding->breeding_description_fr }}" required  class="form-control" id="breeding_description_fr" placeholder="Taxon Code Description">
+                 @if ($errors->has('breeding_description_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('breeding_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>   
                   
                   
               </div>    

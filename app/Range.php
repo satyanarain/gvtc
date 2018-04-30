@@ -23,7 +23,7 @@ class Range extends Model
      * @var array
      */
    protected $fillable = [
-        'range_code','range_within_the_albertine_rift','created_by'
+        'range_code','range_within_the_albertine_rift','range_within_the_albertine_rift_fr','created_by'
     ];
 
     /**

@@ -28,6 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('growth_form') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.growth_form_field', array(),Session::get('language_val'))</label>
                   <input type="text" name="growth_form" value="{{ old('growth_form') }}" required  class="form-control" id="range" placeholder="Growth Form">
                  @if ($errors->has('growth_form'))
@@ -39,8 +40,9 @@
                   
                   
                   <div class="form-group{{ $errors->has('range_within_the_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">Plants Growth Form</label>
-                  <input type="textarea" name="plants_growth_form" value="{{ old('plants_growth_form') }}" required  class="form-control" id="range_within_the_albertine_rift" placeholder="Plants Growth Form">
+                  <input type="textarea" name="plants_growth_form" value="{{ old('plants_growth_form') }}" required  class="form-control" id="plants_growth_form" placeholder="Plants Growth Form">
                  @if ($errors->has('plants_growth_form'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('plants_growth_form') }}</strong>
@@ -49,6 +51,25 @@
                   </div>  
                   
                 </div> 
+                  
+                 <div class="form-row">
+                  
+                
+                  
+                  
+                  <div class="form-group{{ $errors->has('plants_growth_form_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1" class="control-label">Plants Growth Form</label>
+                  <input type="textarea" name="plants_growth_form_fr" value="{{ old('plants_growth_form_fr') }}" required  class="form-control" id="plants_growth_form_fr" placeholder="Plants Growth Form (French)">
+                 @if ($errors->has('plants_growth_form_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('plants_growth_form_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div> 
+                  
                   
                   
                   

@@ -39,8 +39,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.growth_form_field', array(),Session::get('language_val'))</th>
-                  <th>Plants Growth Form</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.growth_form_field', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;Plants Growth Form</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;Plants Growth Form</th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
@@ -53,6 +54,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $growth['id'] }}</td>  
                   <td>{{ $growth['growth_form'] }}</td>
                   <td>{{ $growth['plants_growth_form'] }}</td>
+                  <td>{{ $growth['plants_growth_form_fr'] }}</td>
                  
                   <td>
                       

@@ -63,6 +63,16 @@ class ReportController extends Controller
     
    }
 
+   public function UploadReport(){
+       $reportresult=DB::table('report')->select('*','report.status as status','report.id as id','report.created_at as created_at')
+               ->leftjoin('report_categories','report.report_categories_id','report_categories.id')
+               ->orderBy('report.order','ASC')->get();
+     // print_r($reportresult);
+     // die;
+       return view('report.upload_report',compact('reportresult'));  
+   }
+   
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -70,18 +80,9 @@ class ReportController extends Controller
      */
     public function create()
     { 
-      //  CONCAT( full_name, ':', IF (ship_to='shipping', shipping_address, business_address )) as    contact FROM TableName
-        $observerrecodsql = DB::table('observers')->selectRaw('id, CONCAT(first_name," ",last_name) as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');             
-                
-       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-       $methodrecodsql = DB::table('methods')->selectRaw('id, CONCAT(code_description," ","(",method_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-      
-       $agerecodsql = DB::table('ages')->selectRaw('id, CONCAT(code_description," ","(",age_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-       $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-       $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-       $gazetteerrecodsql= DB::table('gazetteers')->orderBy('id','ASC')->pluck('place','id');
-       $specierecodsql= DB::table('species')->orderBy('id','ASC')->pluck('specienewid','id');
-       return view('distributions/create',compact('taxonrecodsql','methodrecodsql','observationrecodsql','observerrecodsql','gazetteerrecodsql','agerecodsql','abundancerecodsql','specierecodsql'));
+     
+       $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->pluck('title','id');
+       return view('report/create',compact('reportcargorysql'));
     }
 
     /**
@@ -94,46 +95,31 @@ class ReportController extends Controller
     
     public function store(Request $request)
     {
-     //$this->validateInput($request);
-    $inpute= $request->all();
-    $specieid=$request['specie_id'];
-    $specie_arra= explode('|',$specieid);   
-    $inpute['specie_id']=$specie_arra[0];
-    $inpute['specie_data']=$specie_arra[1];
-    Distribution::create($inpute);
-     
-    Session::flash('flash_message', "Distribution Created Successfully."); //Snippet in Master.blade.php 
-    return redirect()->route('distribution.index');
+        
+      $this->validateInput($request);
+      $filereport='';
+      if ((Input::hasFile('uploded_report'))) {
+
+           $destinationPath = public_path('report_document');
+           $extension = Input::file('uploded_report')->getClientOriginalExtension();
+           $filereport = uniqid() . '_useridproof.'.$extension;
+           Input::file('uploded_report')->move($destinationPath, $filereport);
+           
+       }
+       
+     Report::create([
+            'report_title' => $request['report_title'],
+            'report_categories_id' => $request['report_categories_id'],
+            'uploded_report' => $filereport,
+            'created_by'=>$request['created_by']
+            
+            
+        ]);
+    Session::flash('flash_message', "Report Uploaded Successfully."); //Snippet in Master.blade.php 
+     return  redirect('report/uploadreport');  
      }
     
-      
-    public function speciecRecord($taxon_id){
-        
-      $genus=$_REQUEST['genus'];
-     if($genus=='genus'){
-        $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-        echo '<label for="MethodID" class="">Species</label>';
-        echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
-        echo '<option selected="selected" value="">Select Species</option>';
-       foreach($sql as $v){
-           ?>
-            <option value="<?php echo $v->id; ?>|<?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?>"><?php echo $v->genus; ?> / <?php echo $v->species; ?> / <?php echo $v->subspecies; ?></option>
-         <?php }
-      echo ' </select> ';
-     }else{
-         
-         
-        $sql=DB::table('species')->where('taxon_id',$taxon_id)->get();
-        echo '<label for="MethodID" class="">Species</label>';
-        echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
-        echo '<option selected="selected" value="">Select Species</option>';
-       foreach($sql as $v){
-           ?>
-            <option value="<?php echo $v->id; ?>|<?php echo $v->common_name; ?>"><?php echo $v->common_name; ?></option>
-         <?php }
-      echo ' </select> ';
-     }
-    }
+
 
 
     /**
@@ -145,9 +131,21 @@ class ReportController extends Controller
     public function show($id)
     {
      
-     $distribution = Distribution::find($id);
-    return view('distributions.show',compact('distribution'));
-    
+//     $distribution = Distribution::find($id);
+//    return view('distributions.show',compact('distribution'));
+      //$reportresult=DB::table('report')->select('*')->leftjoin('report_categories','report.report_categories_id','report_categories.id','report.status as status')->where('report.status',1)->get();
+      
+      
+       $reportresult=DB::table('report')->select('*','report.status as status','report.id as id','report.created_at as created_at')
+               ->leftjoin('report_categories','report.report_categories_id','report_categories.id')
+               ->orderBy('report.id','DESC')->where('report.status',1)->Where('report.id',$id)->first();
+      
+      
+      
+      return view('report.show',compact('reportresult'));  
+      
+      
+      
         
     }       
 
@@ -161,23 +159,13 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-     $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $methodrecodsql = DB::table('methods')->selectRaw('id, CONCAT(code_description," ","(",method_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $observerrecodsql = DB::table('observers')->selectRaw('id, CONCAT(first_name," ",last_name) as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $agerecodsql = DB::table('ages')->selectRaw('id, CONCAT(code_description," ","(",age_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');    
-     $gazetteerrecodsql= DB::table('gazetteers')->orderBy('id','ASC')->pluck('place','id');   
-        
-        
-        $distribution = Distribution::find($id);
-       //return view('distributions/edit', ['distribution' => $distribution]); 
-        return view('distributions.edit',compact('distribution','taxonrecodsql','methodrecodsql','observationrecodsql','observerrecodsql','gazetteerrecodsql','agerecodsql','abundancerecodsql','specierecodsql'));
-
-       
-       
-    }
-
+    $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->pluck('title','id');
+    $reportval= Report::find($id);
+    return view('report.edit',compact('reportval','reportcargorysql'));
+     }
+    
+    /** report view */
+    
     /**
      * Update the specified resource in storage.
      *
@@ -187,20 +175,36 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
-    $distribution = Distribution::findOrFail($id);
-      //$this->validate($request, $constraints);
-         $specieid=$request['specie_id'];
-    $specie_arra= explode('|',$specieid);  
-    //print_r($specie_arra);die;
-  $inpute=  $request->all();
-  $inpute['specie_id']=$specie_arra[0];
-  
-  if(count($specie_arra)>1){
-  $inpute['specie_data']=$specie_arra[1]; 
-  }
- $distribution->fill($inpute)->save();
- return redirect()->route('distribution.index');
+    $reaportval = Report::findOrFail($id);
+    $constraints = [
+            'report_title' => 'required',
+            'report_categories_id'=> 'required'
+            ];
+     $this->validate($request, $constraints);
+    $filereport='';
+      if ((Input::hasFile('uploded_report'))) {
+
+           $destinationPath = public_path('report_document');
+           $extension = Input::file('uploded_report')->getClientOriginalExtension();
+           $filereport = uniqid() . '_useridproof.'.$extension;
+           Input::file('uploded_report')->move($destinationPath, $filereport);
+           
+       }
+       
+      $input = [
+            'report_title' => $request['report_title'],
+            'report_categories_id' => $request['report_categories_id'],
+            'uploded_report' => $filereport,
+        ];
+        
+
+        Report::where('id', $id) ->update($input);
+     
+    
+    
+   
+   
+    return  redirect('report/uploadreport');
     
     
     
@@ -229,14 +233,34 @@ class ReportController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-        'place' => 'required',
-       'datum' =>'required',   
-      'longitude' => 'required',
-       'latitude' => 'required',
-        
-     
+        'report_title' => 'required|unique:report',
+        'report_categories_id'=>'required',    
+        'uploded_report' => 'required'
         
     ]);
     }
+    
+    
+        public function updateOrder(Request $request)
+    {
+   
+        $tasks = Report::all();
+  foreach ($tasks as $task) {
+          //  $task->timestamps = false; // To disable update_at field updation
+            $id = $task->id;
+          //  $request->order;
+            
+
+            foreach ($request->order as $order) {
+                if ($order['id'] == $id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+        
+        return response('Update Successfully.', 200);
+    }
+    
+    
 }
   

@@ -53,20 +53,20 @@ if(!empty($posts ))
     echo 'Data Not Found';  
  } 
  ?> 
-<link rel="stylesheet" type="text/css" href="{{ asset('/front/css/datatables.min.css')}}"/>
-<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="{{ asset('/front/css/datatables.min.css')}}"/>-->
+<!--<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>-->
 <style>
-.navbar{border-radius: 0px !important;}
+/*.navbar{border-radius: 0px !important;}
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{ background:#20c997 !important}
 .pagination>li>a, .pagination>li>span {border:none; }
 .pagination>li>a, .pagination>li>span{color:black !important }
-#example1_length{ float:left;}
+#example1_length{ float:left;}*/
 </style>
 <script>
 $(function () {
 $('#example1').DataTable({
     "paging": true,
-    "lengthChange": true,
+    "lengthChange": false,
     "searching": false,
     "ordering": false,
     "order": [[0, 'desc']],

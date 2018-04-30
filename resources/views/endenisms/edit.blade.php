@@ -47,6 +47,23 @@
                   </div>  
                   
                 </div> 
+                   
+                   <div class="form-row">
+                  
+                 
+                  
+                  
+                  <div class="form-group{{ $errors->has('endenism_status_fr') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.endenism_status', array(),Session::get('language_val'))</label>
+                  <input type="text" name="endenism_status_fr" value="{{ $endenisms->endenism_status_fr }}" required  class="form-control" id="endenism_status_fr" placeholder="Endemism Status (French)">
+                 @if ($errors->has('endenism_status_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('endenism_status_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                   

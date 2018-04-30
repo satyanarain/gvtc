@@ -82,6 +82,7 @@ class ForestController extends Controller
      Forest::create([
             'forest_use' => $request['forest_use'],
             'forest_habitat_usage' => $request['forest_habitat_usage'],
+            'forest_habitat_usage_fr' => $request['forest_habitat_usage_fr'],
             'created_by'=>$request['created_by']
 
         ]);
@@ -143,7 +144,8 @@ class ForestController extends Controller
         $range = Forest::findOrFail($id);
         $constraints = [
             'forest_use' => 'required',
-            'forest_habitat_usage'=> 'required'
+            'forest_habitat_usage'=> 'required',
+            'forest_habitat_usage_fr'=> 'required'
             
             ];
        
@@ -154,7 +156,8 @@ class ForestController extends Controller
        
         $input = [
             'forest_use' => $request['forest_use'],
-            'forest_habitat_usage' => $request['forest_habitat_usage']
+            'forest_habitat_usage' => $request['forest_habitat_usage'],
+            'forest_habitat_usage_fr' => $request['forest_habitat_usage_fr'],
           
         ];
         
@@ -190,7 +193,8 @@ class ForestController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'forest_use' => 'required|unique:forestuse',
-        'forest_habitat_usage' => 'required'
+        'forest_habitat_usage' => 'required',
+        'forest_habitat_usage_fr' => 'required',
       
         
     ]);

@@ -85,6 +85,7 @@ class EndenismController extends Controller
      Endenism::create([
             'endenism' => $request['endenism'],
             'endenism_status' => $request['endenism_status'],
+            'endenism_status_fr' => $request['endenism_status_fr'],
             'created_by'=>$request['created_by']
 
         ]);
@@ -149,12 +150,14 @@ class EndenismController extends Controller
         $endenism = Endenism::findOrFail($id);
         $constraints = [
             'endenism' => 'required',
-            'endenism_status'=> 'required'
+            'endenism_status'=> 'required',
+            'endenism_status_fr'=> 'required',
             
             ];
        $input = [
             'endenism' => $request['endenism'],
-            'endenism_status' => $request['endenism_status']
+            'endenism_status' => $request['endenism_status'],
+            'endenism_status_fr' => $request['endenism_status_fr']
           
         ];
         
@@ -193,7 +196,8 @@ class EndenismController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'endenism' => 'required|unique:endenisms',
-        'endenism_status' => 'required'
+        'endenism_status' => 'required',
+        'endenism_status_fr' => 'required'
       
         
     ]);

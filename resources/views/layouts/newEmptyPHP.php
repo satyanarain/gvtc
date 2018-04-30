@@ -6,4 +6,3 @@
  * and open the template in the editor.
  */
 
-php artisan make:migration create_taxons_table

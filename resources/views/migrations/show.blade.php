@@ -31,6 +31,7 @@
                     
                   
                 <div class=" col-md-6">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.migration', array(),Session::get('language_val')) </label>
                   <input type="text" readonly  value="{{ $migrations->migration_title }}"  class="form-control" >
                  
@@ -38,6 +39,7 @@
                   
                   
                   <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</label>
                   <input  value="{{ $migrations->birds_migrating_population }}" readonly=""  class="form-control">
                 
@@ -45,7 +47,20 @@
                   
                 </div> 
                    
-                 
+                 <div class="form-row">
+                    
+                    
+               
+                  
+                  
+                  <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1">@lang('menu.birds_migrating_populations', array(),Session::get('language_val'))</label>
+                  <input  value="{{ $migrations->birds_migrating_population_fr }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div>
                   
                
                      

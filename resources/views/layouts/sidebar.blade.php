@@ -52,11 +52,14 @@ $role=Auth::user()->role;
            $arrareport=array('report','reportcategory');
            //print_r($arra);
           @endphp
-
+<?php  
+$segment1 =  Request::segment(1);
+$segment2 =  Request::segment(2);
+?>
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arrareport)){ echo "display: block";} ?>">
-    <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="{{ url('reportcategory/') }}"> <i class="fa fa-bar-chart"></i> <span>Report category</span></a>  </li> 
-        <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="#"> <i class="fa fa-bar-chart"></i> <span>Add Report</span></a>  </li> 
-       <li class="{{ Request::segment(1) == 'report' ? 'active' : '' }}"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span></a>  </li> 
+    <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="{{ url('reportcategory/') }}"> <i class="fa fa-bar-chart"></i> <span>Reports category</span></a>  </li> 
+    <li class="<?php if($segment1=='report' && $segment2=='uploadreport'){ echo "active"; } ?>"><a href="{{ url('report/uploadreport/') }}"> <i class="fa fa-bar-chart"></i> <span>Upload Reports</span></a>  </li> 
+       <li class="<?php if($segment1=='report' && $segment2==''){ echo "active"; } ?>"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span></a>  </li> 
       </ul>
     </li>
        
@@ -101,7 +104,7 @@ $role=Auth::user()->role;
         <li class="{{ Request::segment(1) == 'observation' ? 'active active-sub' : '' }}"><a href="{{ url('observation/') }}"><span class="glyphicon glyphicon-eye-open"></span><span>@lang('menu.observation', array(),$session_lan)</span></a></li>
         <li class="{{ Request::segment(1) == 'age' ? 'active active-sub' : '' }}"><a href="{{ url('age/') }}"><span class="glyphicon glyphicon-font"></span><span>@lang('menu.age_group', array(),$session_lan)</span></a></li>
         <li class="{{ Request::segment(1) == 'abundance' ? 'active active-sub' : '' }}"><a href="{{ url('abundance/') }}"><span class="glyphicon glyphicon-font"></span><span>@lang('menu.abundance', array(),$session_lan)</span></a></li>
-        <li class="{{ Request::segment(1) == 'breeding' ? 'active active-sub' : '' }}"><a href="{{ url('breeding/') }}"><span class="glyphicon glyphicon-bold"></span><span>Breeding</span></a></li>
+        <li class="{{ Request::segment(1) == 'breeding' ? 'active active-sub' : '' }}"><a href="{{ url('breeding/') }}"><span class="glyphicon glyphicon-bold"></span><span>@lang('menu.breeding', array(),$session_lan)</span></a></li>
           </ul>
         </li>
        <?php } ?>

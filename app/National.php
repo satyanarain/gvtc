@@ -23,7 +23,7 @@ class National extends Model
      * @var array
      */
    protected $fillable = [
-        'national_threat_code','national_threat_code_description',
+        'national_threat_code','national_threat_code_description','national_threat_code_description_fr','created_by',
     ];
 
     /**

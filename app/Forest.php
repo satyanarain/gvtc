@@ -23,7 +23,7 @@ class Forest extends Model
      * @var array
      */
    protected $fillable = [
-        'forest_use','forest_habitat_usage','created_by'
+        'forest_use','forest_habitat_usage','forest_habitat_usage_fr','created_by'
     ];
 
     /**

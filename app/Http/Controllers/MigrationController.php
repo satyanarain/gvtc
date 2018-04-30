@@ -83,6 +83,7 @@ class MigrationController extends Controller
      Migration::create([
             'migration_title' => $request['migration_title'],
             'birds_migrating_population' => $request['birds_migrating_population'],
+            'birds_migrating_population_fr' => $request['birds_migrating_population_fr'],
             'created_by'=>$request['created_by']
             
         ]);
@@ -141,6 +142,7 @@ class MigrationController extends Controller
         $constraints = [
             'migration_title' => 'required',
             'birds_migrating_population'=> 'required',
+            'birds_migrating_population_fr'=> 'required'
             
             ];
        
@@ -151,7 +153,8 @@ class MigrationController extends Controller
        
         $input = [
             'migration_title' => $request['migration_title'],
-            'birds_migrating_population' => $request['birds_migrating_population']
+            'birds_migrating_population' => $request['birds_migrating_population'],
+            'birds_migrating_population_fr' => $request['birds_migrating_population_fr']
         ];
         
       
@@ -187,7 +190,8 @@ class MigrationController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'migration_title' => 'required|unique:migration_tbl',
-        'birds_migrating_population' => 'required'
+        'birds_migrating_population' => 'required',
+        'birds_migrating_population_fr' => 'required'
         
     ]);
     }

@@ -26,6 +26,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('abundance_group') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.abundance_group', array(),Session::get('language_val'))</label>
                   <input type="text" name="abundance_group" value="{{ $abundances->abundance_group }}" required  class="form-control" id="abundance_group" placeholder="Abundance Group ">
                  @if ($errors->has('abundance_group'))
@@ -37,6 +38,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.code_description', array(),Session::get('language_val'))</label>
                   <input type="text" name="code_description" value="{{ $abundances->code_description }}" required  class="form-control" id="code_description" placeholder="Code Description">
                  @if ($errors->has('code_description'))
@@ -47,6 +49,19 @@
                 </div>  
                   
                 </div> 
+                   <div class="form-row">
+                  <div class="form-group{{ $errors->has('code_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.code_description', array(),Session::get('language_val'))</label>
+                  <input type="text" name="code_description_fr" value="{{ $abundances->code_description_fr }}" required  class="form-control" id="code_description_fr" placeholder="Code Description">
+                 @if ($errors->has('code_description_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('code_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                </div>  
+                  
+                </div>
                   
                   
               </div>    

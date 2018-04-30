@@ -39,6 +39,7 @@ class ReportCategoryController extends Controller
      */
     public function index()
     {
+       
     //$user_id=Auth::id();
     //$role=Auth::user()->role;
     //$permission_key = "taxon_view";
@@ -46,7 +47,10 @@ class ReportCategoryController extends Controller
         //print_r($getpermissionstatus);die;
     //if($getpermissionstatus==0)
     //return redirect()->route('user-management.unauthorized');    
-    $rcategory = ReportCategory::all()->toArray();
+//    $rcategory = ReportCategory::all()->toArray();
+//    return view('report_category.index', compact('rcategory'));
+    
+    $rcategory = DB::table('report_categories')->select('*')->orderBy('order','ASC')->get();
     return view('report_category.index', compact('rcategory'));
     
     }
@@ -61,6 +65,78 @@ class ReportCategoryController extends Controller
      
     return view('report_category/create');
     }
+    
+    
+    public function updateOrder(Request $request)
+    {
+   /*   
+       Array
+(
+    [0] => Array
+        (
+            [id] => 3
+            [position] => 1
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [position] => 2
+        )
+
+    [2] => Array
+        (
+            [id] => 2
+            [position] => 3
+        )
+
+)*/
+        
+//        exit();
+        $tasks = ReportCategory::all();
+  foreach ($tasks as $task) {
+          //  $task->timestamps = false; // To disable update_at field updation
+            $id = $task->id;
+          //  $request->order;
+            
+
+            foreach ($request->order as $order) {
+                if ($order['id'] == $id) {
+                    $task->update(['order' => $order['position']]);
+                }
+            }
+        }
+        
+        return response('Update Successfully.', 200);
+    }
+    
+    
+    
+    
+    
+    
+    
+//     public function updateOrder(Request $request)
+//             
+//    {
+//        
+//     
+//        $tasks = ReportCategory::all();
+//       
+//        foreach ($tasks as $task) {
+//            //$task->timestamps = false; // To disable update_at field updation
+//            $id = $task->id;
+//
+//            foreach ($request->order as $order) {
+//                if ($order['id'] == $id) {
+//                    $task->update(['order_status' => $order['position']]);
+//                }
+//            }
+//        }
+//        
+//        return response('Update Successfully.', 200);
+//    }
+    
 
     /**
      * Store a newly created resource in storage.

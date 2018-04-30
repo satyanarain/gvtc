@@ -85,6 +85,7 @@ class ObservationController extends Controller
      Observation::create([
             'observation_code' => $request['observation_code'],
             'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr'],
             'created_by'=>$request['created_by']
 
         ]);
@@ -146,7 +147,8 @@ class ObservationController extends Controller
         $observartions = Observation::findOrFail($id);
         $constraints = [
             'observation_code' => 'required',
-            'code_description'=> 'required'
+            'code_description'=> 'required',
+            'code_description_fr'=> 'required',
             
             ];
        
@@ -157,7 +159,8 @@ class ObservationController extends Controller
        
         $input = [
             'observation_code' => $request['observation_code'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr']
           
         ];
         
@@ -196,6 +199,7 @@ class ObservationController extends Controller
         $this->validate($request, [
         'observation_code' => 'required|unique:observation',
         'code_description' => 'required',
+        'code_description_fr' => 'required',
       
         
     ]);

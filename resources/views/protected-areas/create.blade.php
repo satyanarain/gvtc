@@ -32,6 +32,7 @@
                  
                     
                    <div class="form-group{{ $errors->has('protected_area_name') ? ' has-error' : '' }} col-md-6 required">
+                     <span class="lang-sm" lang="en"></span>  
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.protected_area_name', array(),Session::get('language_val'))</label>
                   <input type="text" name="protected_area_name" value="{{ old('protected_area_name') }}" required   class="form-control" id="range" placeholder="Protected Area Name">
                  @if ($errors->has('protected_area_name'))
@@ -44,6 +45,7 @@
                     
                   
                   <div class="form-group col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   {!! Form::label('Country',Lang::get('menu.country',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('country',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','required'=>'required']) !!} 
                   </div>  
@@ -52,10 +54,9 @@
                   
                   
                    <div class="form-row">
-                  
-                 
-                  <div class="form-group{{ $errors->has('protected_area_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">@lang('menu.protected_area_code', array(),Session::get('language_val'))</label>
+                 <div class="form-group{{ $errors->has('protected_area_code') ? ' has-error' : '' }} col-md-6 required">
+                  <span class="lang-sm" lang="en"></span>
+                     <label for="exampleInputEmail1" class="control-label">@lang('menu.protected_area_code', array(),Session::get('language_val'))</label>
                   <input type="text" name="protected_area_code" value="{{ old('protected_area_code') }}" required  class="form-control" id="protected_area_code" placeholder="Protected Area Code">
                  @if ($errors->has('protected_area_code'))
                                     <span class="help-block">
@@ -64,7 +65,16 @@
                                 @endif
                   </div>  
                   
-                  
+                  <div class="form-group{{ $errors->has('protected_area_name_fr') ? ' has-error' : '' }} col-md-6 required">
+                     <span class="lang-sm" lang="fr"></span>  
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.protected_area_name', array(),Session::get('language_val'))</label>
+                  <input type="text" name="protected_area_name_fr" value="{{ old('protected_area_name_fr') }}" required   class="form-control" id="protected_area_name_fr" placeholder="Protected Area Name (Freanch)">
+                 @if ($errors->has('protected_area_name_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('protected_area_name_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div> 
                   
                 </div> 
                   

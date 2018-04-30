@@ -43,8 +43,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">National id</th>  
-                  <th>@lang('menu.national_threat_code', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.national_threat_code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.national_threat_code', array(),Session::get('language_val')) @lang('menu.description', array(),Session::get('language_val')) </th>
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
@@ -57,6 +58,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $national['id'] }}</td>  
                   <td>{{ $national['national_threat_code'] }}</td>
                   <td>{{ $national['national_threat_code_description'] }}</td>
+                  <td>{{ $national['national_threat_code_description_fr'] }}</td>
                  
                   <td>
                       

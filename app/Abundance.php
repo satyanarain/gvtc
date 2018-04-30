@@ -23,7 +23,7 @@ class Abundance extends Model
      * @var array
      */
    protected $fillable = [
-        'abundance_group','code_description','created_by'
+        'abundance_group','code_description','code_description_fr','created_by'
     ];
 
     /**

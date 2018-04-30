@@ -61,7 +61,10 @@ $(document).ready(function() {
     
     $('.datatable').DataTable({
         "order": [[ 0, "desc" ]],
-        processing: true,
+        oLanguage: {
+        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
+    },
+    processing : true,
         serverSide: true,
         ajax: '{{ route('gazetteer/getdata') }}',
         "autoWidth"   : true,

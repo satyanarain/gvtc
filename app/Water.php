@@ -23,7 +23,7 @@ class Water extends Model
      * @var array
      */
    protected $fillable = [
-        'water_use','water_habitat_usage','created_by'
+        'water_use','water_habitat_usage','water_habitat_usage_fr','created_by'
     ];
 
     /**

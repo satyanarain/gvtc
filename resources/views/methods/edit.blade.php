@@ -27,6 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('method_code') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.method_code', array(),Session::get('language_val'))</label>
                   <input type="text" name="method_code" value="{{ $methods->method_code }}" required  class="form-control" id="method_code" placeholder="Method Code">
                  @if ($errors->has('method_code'))
@@ -38,6 +39,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="text" name="code_description" value="{{ $methods->code_description }}" required  class="form-control" id="water_habitat_usage" placeholder="Code Description">
                  @if ($errors->has('code_description'))
@@ -48,6 +50,25 @@
                   </div>  
                   
                 </div> 
+                   
+                 <div class="form-row">
+                  
+             
+                  
+                  
+                  <div class="form-group{{ $errors->has('code_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="text" name="code_description_fr" value="{{ $methods->code_description_fr }}" required  class="form-control" id="code_description_fr" placeholder="Code Description">
+                 @if ($errors->has('code_description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('code_description') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>  
+                   
                   
                   
                   

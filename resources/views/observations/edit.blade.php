@@ -27,6 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('observation_code') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.observation_code', array(),Session::get('language_val'))</label>
                   <input type="text" name="observation_code" value="{{ $observartion->observation_code }}" required  class="form-control" id="observation_code" placeholder="Method Code">
                  @if ($errors->has('method_code'))
@@ -38,6 +39,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('code_description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="text" name="code_description" value="{{ $observartion->code_description }}" required  class="form-control" id="water_habitat_usage" placeholder="Code Description">
                  @if ($errors->has('code_description'))
@@ -47,7 +49,27 @@
                                 @endif
                   </div>  
                   
-                </div> 
+                </div>
+                   
+                   
+                   
+                   <div class="form-row">
+                  
+                
+                  
+                  
+                  <div class="form-group{{ $errors->has('code_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="text" name="code_description_fr" value="{{ $observartion->code_description_fr }}" required  class="form-control" id="code_description_fr" placeholder="Code Description">
+                 @if ($errors->has('code_description_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('code_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                   

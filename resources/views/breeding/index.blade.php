@@ -39,9 +39,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>Breeding Code</th>
-                  <th>Breeding @lang('menu.code_description', array(),Session::get('language_val')) </th>
-                  <th>@lang('menu.action', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
                 </thead>
@@ -53,6 +54,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <td style="display:none">{{ $val['id'] }}</td>
                   <td>{{ $val['breeding_code'] }}</td>
                   <td>{{ $val['breeding_description'] }}</td>
+                  <td>{{ $val['breeding_description_fr'] }}</td>
                   <td>
                    
                    <form class="row" method="POST" action="{{ route('breeding.destroy', $val['id']) }}" onsubmit = "return confirm('Are you sure?')">

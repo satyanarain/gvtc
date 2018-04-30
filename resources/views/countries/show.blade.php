@@ -31,6 +31,7 @@
                     
                   
                 <div class=" col-md-6">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val')) </label>
                   <input type="text" readonly  value="{{ $countries->range_code }}"  class="form-control" >
                  
@@ -38,8 +39,28 @@
                   
                   
                   <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $countries->range_within_albertine_rift }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div> 
+                   
+                   <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+               
+                  
+                  
+                  <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input  value="{{ $countries->range_within_albertine_rift_fr }}" readonly=""  class="form-control">
                 
                   </div>  
                   

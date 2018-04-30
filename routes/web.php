@@ -19,22 +19,22 @@ Route::resource('guest_register','GuestRegisterController');
 Route::resource('create_password','GuestPasswordController');
 
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
-
-
-
-
-
-
-
-
-//Route::get('/livesearch','PageController@liveSearch');     
-//Route::resource('/', 'PageController');
-//Route::get('/login', function () {
+//Route::get('/', function () {
 //    return view('home');
 //})->middleware('auth');
+
+
+
+
+
+
+
+
+Route::get('/livesearch','PageController@liveSearch');     
+Route::resource('/', 'PageController');
+Route::get('/login', function () {
+    return view('home');
+})->middleware('auth');
 
 Auth::routes();
 //Route::get('/dashboard', 'DashboardController@index');
@@ -101,6 +101,7 @@ Route::resource('age','AgeController');
 //Abundance
 Route::resource('abundance','AbundanceController');
 //Observer
+Route::get('observer/getdata', 'ObserverController@showbulkrecord')->name('observer/getdata');
 Route::resource('observer','ObserverController');
 //specie
 Route::get('species/getdata', 'SpeciesController@showbulkrecord')->name('species/getdata');
@@ -111,6 +112,10 @@ Route::resource('species','SpeciesController');
 Route::get('gazetteer/getdata', 'GazetteerController@showbulkrecord')->name('gazetteer/getdata');
 Route::resource('gazetteer','GazetteerController');
 //report
+
+//Route::get('/uploadreport/view/','ReportController@UploadReport')->name('uploadreport.view');
+Route::post('report/sortabledatatable','ReportController@updateOrder')->name('report/sortabledatatable');
+Route::get('report/uploadreport', 'ReportController@UploadReport')->name('ReportController.uploadreport');
 Route::resource('report','ReportController');
 //
 
@@ -144,6 +149,9 @@ Route::resource('offlinerecord','OfflineController');
 
 //Repoort Category
 
+//Route::get('gazetteer/getdata', 'GazetteerController@showbulkrecord')->name('gazetteer/getdata');
+//Route::get('distribution/getdata', 'DistributionController@showbulkrecord')->name('distribution/getdata');
+Route::post('reportcategory/sortabledatatable','ReportCategoryController@updateOrder')->name('reportcategory/sortabledatatable');
 Route::resource('reportcategory','ReportCategoryController');
 
 

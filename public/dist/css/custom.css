@@ -172,6 +172,9 @@ font-weight: normal !important;
 
 .datatable th:last-child, .datatable td:last-child {text-align:center;}
 #example1 th:last-child, #example1 td:last-child {text-align:center;}
+#example2 th:last-child, #example2 td:last-child {text-align:center;}
+#example3 th:last-child, #example3 td:last-child {text-align:center;}
+
 .custom-range .multiselect-native-select .btn-group{ width:100% !important;}
 .custom-range .multiselect-native-select .btn-group button{width:100% !important;text-align:left !important; background:#FFF !important;}
 .custom-range .multiselect-native-select .dropdown-menu{width:100% !important;}
@@ -270,4 +273,46 @@ font-weight:bold;
    background: #222d32;
    color:#FFFFFF;
 }
+
+#DataTables_Table_0 thead tr:first-child {
+   background: #222d32;
+   color:#FFFFFF;
+}
+
+#example3 thead tr:first-child {
+   background: #222d32;
+   color:#FFFFFF;
+}
+
 .dataTables_filter input { width: 200px !important }
+
+
+
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px!important;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0;
+    height: auto;
+    background: transparent;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 0px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+} 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+ background-color: #222d32;
+border-color: #222d32;
+}

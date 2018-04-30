@@ -78,10 +78,14 @@ class GrowthController extends Controller
     
     public function store(Request $request)
     {
+        //$fr=$request->all();
+        //print_r($fr);
+        //die;
      $this->validateInput($request);
      Growth::create([
             'growth_form' => $request['growth_form'],
             'plants_growth_form' => $request['plants_growth_form'],
+            'plants_growth_form_fr' => $request['plants_growth_form_fr'],
             'created_by'=> $request['created_by']
             
         ]);
@@ -144,6 +148,7 @@ class GrowthController extends Controller
         $constraints = [
             'growth_form' => 'required',
             'plants_growth_form'=> 'required',
+            'plants_growth_form_fr'=> 'required'
             
             ];
        
@@ -154,7 +159,8 @@ class GrowthController extends Controller
        
         $input = [
             'growth_form' => $request['growth_form'],
-            'plants_growth_form' => $request['plants_growth_form']
+            'plants_growth_form' => $request['plants_growth_form'],
+            'plants_growth_form_fr' => $request['plants_growth_form_fr']
         ];
         
       
@@ -192,7 +198,8 @@ class GrowthController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'growth_form' => 'required|unique:growths',
-        'plants_growth_form' => 'required'
+        'plants_growth_form' => 'required',
+        'plants_growth_form_fr' => 'required'
         
     ]);
     }

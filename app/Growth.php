@@ -23,7 +23,7 @@ class Growth extends Model
      * @var array
      */
    protected $fillable = [
-        'growth_form','plants_growth_form','created_by'
+        'growth_form','plants_growth_form','plants_growth_form_fr','created_by'
     ];
 
     /**

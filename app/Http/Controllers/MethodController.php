@@ -84,6 +84,7 @@ class MethodController extends Controller
      Method::create([
             'method_code' => $request['method_code'],
             'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr'],
             'created_by'=>$request['created_by']
 
         ]);
@@ -145,7 +146,8 @@ class MethodController extends Controller
         $water = Method::findOrFail($id);
         $constraints = [
             'method_code' => 'required',
-            'code_description'=> 'required'
+            'code_description'=> 'required',
+            'code_description_fr'=> 'required'
             
             ];
        
@@ -156,7 +158,8 @@ class MethodController extends Controller
        
         $input = [
             'method_code' => $request['method_code'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr']
           
         ];
         
@@ -195,6 +198,7 @@ class MethodController extends Controller
         $this->validate($request, [
         'method_code' => 'required|unique:methods',
         'code_description' => 'required',
+        'code_description_fr' => 'required'
       
         
     ]);

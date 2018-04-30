@@ -13,6 +13,7 @@ use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use DataTables;
 class ObserverController extends Controller
 {
        /**
@@ -39,16 +40,34 @@ class ObserverController extends Controller
      */
     public function index()
     {
+        $observers = Observer::latest()->count();
+        return view('observers.index', compact('observers'));  
+//     $user_id=Auth::id();
+//     $role=Auth::user()->role;
+//     $permission_key = "observer_view";
+//     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+//     if($getpermissionstatus==0)
+//     return redirect()->route('user-management.unauthorized');      
+//    $observers = Observer::all()->toArray();
+//    return view('observers.index', compact('observers'));
+    
+    }
+    
+    public function showbulkrecord(){
      $user_id=Auth::id();
      $role=Auth::user()->role;
      $permission_key = "observer_view";
      $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
      if($getpermissionstatus==0)
-     return redirect()->route('user-management.unauthorized');      
-    $observers = Observer::all()->toArray();
-    return view('observers.index', compact('observers'));
+     return redirect()->route('user-management.unauthorized');    
+    //$observers = Observer::all()->toArray();
+    $observers = DB::table('observers')->selectRaw('*')->get();
+
+    return DataTables::of($observers)->make(true); 
+    //return view('observers.index', compact('observers'));
     
-    }
+     
+}
 
     /**
      * Show the form for creating a new resource.
@@ -58,7 +77,7 @@ class ObserverController extends Controller
     public function create()
     {
         
-       $user_id=Auth::id();
+     $user_id=Auth::id();
      $role=Auth::user()->role;
      $permission_key = "observer_add";
      $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);

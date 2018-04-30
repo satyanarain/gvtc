@@ -67,7 +67,17 @@ $session_lan= Session::get('language_val');?>
     <script src="{{ asset ("/js/custom.js") }}"></script>
 </head>
 <body class="hold-transition skin-green sidebar-mini">
-<div id="load"></div>  
+<?php
+$contnamet=\Route::current()->getName();
+$contname=explode('.',$contnamet);
+if($contname[0] == 'species' OR $contname[0] == 'gazetteer' OR $contname[0]=='distribution' OR $contname[0]=='observer' ) { ?>
+<?php }else {?>
+<div id="load"></div>
+<?php } ?>
+   
+    
+   
+  
 <div class="wrapper">
 
     <!-- Main Header -->

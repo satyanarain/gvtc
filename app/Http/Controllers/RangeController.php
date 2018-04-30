@@ -85,6 +85,7 @@ class RangeController extends Controller
      Range::create([
             'range_code' => $request['range_code'],
             'range_within_the_albertine_rift' => $request['range_within_the_albertine_rift'],
+            'range_within_the_albertine_rift_fr' => $request['range_within_the_albertine_rift_fr'],
             'created_by'=> $request['created_by']
             
             
@@ -146,6 +147,7 @@ class RangeController extends Controller
         $constraints = [
             'range_code' => 'required',
             'range_within_the_albertine_rift'=> 'required',
+            'range_within_the_albertine_rift_fr'=> 'required',
             
             ];
        
@@ -156,7 +158,8 @@ class RangeController extends Controller
        
         $input = [
             'range_code' => $request['range_code'],
-            'range_within_the_albertine_rift' => $request['range_within_the_albertine_rift']
+            'range_within_the_albertine_rift' => $request['range_within_the_albertine_rift'],
+            'range_within_the_albertine_rift_fr' => $request['range_within_the_albertine_rift_fr'],
         ];
         
       
@@ -194,7 +197,8 @@ class RangeController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'range_code' => 'required|unique:ranges',
-        'range_within_the_albertine_rift' => 'required'
+        'range_within_the_albertine_rift' => 'required',
+        'range_within_the_albertine_rift_fr' => 'required',
         
     ]);
     }

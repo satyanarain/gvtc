@@ -84,9 +84,9 @@ class AbundanceController extends Controller
      $this->validateInput($request);
      Abundance::create([
             'abundance_group' => $request['abundance_group'],
-            'created_by'=>$request['created_by'],
             'code_description' => $request['code_description'],
-            'created_by'=>$request['created_by'],
+            'code_description_fr' => $request['code_description_fr'],
+            'created_by'=>$request['created_by']
 
         ]);
 
@@ -147,7 +147,8 @@ class AbundanceController extends Controller
         $abundances = Abundance::findOrFail($id);
         $constraints = [
             'abundance_group' => 'required',
-            'code_description'=> 'required'
+            'code_description'=> 'required',
+            'code_description_fr'=> 'required',
             
             ];
        
@@ -158,7 +159,8 @@ class AbundanceController extends Controller
        
         $input = [
             'abundance_group' => $request['abundance_group'],
-            'code_description' => $request['code_description']
+            'code_description' => $request['code_description'],
+            'code_description_fr' => $request['code_description_fr']
           
         ];
         
@@ -197,6 +199,7 @@ class AbundanceController extends Controller
         $this->validate($request, [
         'abundance_group' => 'required|unique:abundances',
         'code_description' => 'required',
+        'code_description_fr' => 'required',
       
         
     ]);

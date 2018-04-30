@@ -28,7 +28,8 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('breeding_code') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1"  class="control-label">Breeding Code</label>
+                    <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</label>
                   <input type="text" name="breeding_code" value="{{ old('breeding_code') }}" required  class="form-control" id="breeding_code" placeholder="Bredding Code">
                  @if ($errors->has('breeding_code'))
                                     <span class="help-block">
@@ -39,7 +40,8 @@
                   
                   
                   <div class="form-group{{ $errors->has('breeding_description') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Breeding @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                      <span class="lang-sm" lang="en"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input type="textarea" name="breeding_description" value="{{ old('breeding_description') }}" required  class="form-control" id="breeding_description" placeholder="Breeding Code Description">
                  @if ($errors->has('breeding_description'))
                                     <span class="help-block">
@@ -48,7 +50,24 @@
                                 @endif
                   </div>  
                   
-                </div> 
+                </div>
+                  
+                   <div class="form-row">
+               
+                  
+                  
+                  <div class="form-group{{ $errors->has('breeding_description_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.breeding', array(),Session::get('language_val')) @lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input type="textarea" name="breeding_description_fr" value="{{ old('breeding_description_fr') }}" required  class="form-control" id="breeding_description_fr" placeholder="Breeding Code Description (French)">
+                 @if ($errors->has('breeding_description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('breeding_description_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                   

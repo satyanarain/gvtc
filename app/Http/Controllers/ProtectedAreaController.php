@@ -86,6 +86,7 @@ class ProtectedAreaController extends Controller
      $this->validateInput($request);
      ProtectedArea::create([
             'protected_area_name' => $request['protected_area_name'],
+            'protected_area_name_fr' => $request['protected_area_name_fr'],
             'country' => $request['country'],
             'protected_area_code' => $request['protected_area_code'],
             'created_by'=>$request['created_by']
@@ -148,6 +149,7 @@ class ProtectedAreaController extends Controller
         $range = ProtectedArea::findOrFail($id);
         $constraints = [
             'protected_area_name' => 'required',
+            'protected_area_name_fr' => 'required',
             'country'=> 'required',
             'protected_area_code'=> 'required',
         
@@ -161,6 +163,7 @@ class ProtectedAreaController extends Controller
        
         $input = [
             'protected_area_name' => $request['protected_area_name'],
+            'protected_area_name_fr' => $request['protected_area_name_fr'],
             'country' => $request['country'],
             'protected_area_code' => $request['protected_area_code']
         ];
@@ -202,6 +205,7 @@ class ProtectedAreaController extends Controller
         'protected_area_name' => 'required|unique:protected_areas',
         'country' => 'required',
         'protected_area_code' => 'required',
+        'protected_area_name_fr' => 'required',
        
         
     ]);

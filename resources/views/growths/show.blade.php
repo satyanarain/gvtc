@@ -31,6 +31,7 @@
                     
                   
                 <div class=" col-md-6">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.growth_form_field', array(),Session::get('language_val')) </label>
                   <input type="text" readonly  value="{{ $growth->growth_form }}"  class="form-control" >
                  
@@ -38,12 +39,31 @@
                   
                   
                   <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">Plants Growth Form</label>
                   <input  value="{{ $growth->plants_growth_form }}" readonly=""  class="form-control">
                 
                   </div>  
                   
-                </div> 
+                </div>
+                   
+                   <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+               
+                  
+                  <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1">Plants Growth Form</label>
+                  <input  value="{{ $growth->plants_growth_form_fr }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div>
                   
                   
               </div>    

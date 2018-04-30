@@ -28,6 +28,7 @@
             <div class="form-row">
 
             <div class="form-group{{ $errors->has('range_code') ? ' has-error' : '' }} col-md-6 required">
+                <span class="lang-sm" lang="en"></span>
               <label for="exampleInputEmail1"  class="control-label">@lang('menu.country', array(),Session::get('language_val')) @lang('menu.code', array(),Session::get('language_val'))</label>
               <input type="text" name="range_code" value="{{ old('range_code') }}" required  class="form-control" id="range_code" placeholder="Country Code">
              @if ($errors->has('range_code'))
@@ -39,11 +40,30 @@
 
 
               <div class="form-group{{ $errors->has('range_within_albertine_rift') ? ' has-error' : '' }} col-md-6 required">
+                  <span class="lang-sm" lang="en"></span>
               <label for="exampleInputEmail1"  class="control-label">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
               <input type="textarea" name="range_within_albertine_rift" value="{{ old('range_within_albertine_rift') }}" required  class="form-control" id="range_within_albertine_rift" placeholder="Country Code Description">
              @if ($errors->has('range_within_albertine_rift'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('range_within_albertine_rift') }}</strong>
+                                </span>
+                            @endif
+              </div>
+
+            </div>
+              
+              <div class="form-row">
+
+            
+
+
+              <div class="form-group{{ $errors->has('range_within_albertine_rift_fr') ? ' has-error' : '' }} col-md-6 required">
+                  <span class="lang-sm" lang="fr"></span>
+              <label for="exampleInputEmail1"  class="control-label">Country @lang('menu.code_description', array(),Session::get('language_val')) </label>
+              <input type="textarea" name="range_within_albertine_rift_fr" value="{{ old('range_within_albertine_rift_fr') }}" required  class="form-control" id="range_within_albertine_rift_fr" placeholder="Country Code Description (French)">
+             @if ($errors->has('range_within_albertine_rift_fr'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('range_within_albertine_rift_fr') }}</strong>
                                 </span>
                             @endif
               </div>

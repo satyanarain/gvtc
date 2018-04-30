@@ -32,6 +32,7 @@
                     
                   
                 <div class=" col-md-6">
+                     <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.observation_code', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $observation->observation_code }}"  class="form-control" >
                  
@@ -39,8 +40,24 @@
                   
                   
                   <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1">@lang('menu.code_description', array(),Session::get('language_val')) </label>
                   <input  value="{{ $observation->code_description }}" readonly=""  class="form-control">
+                
+                  </div>  
+                  
+                </div> 
+                   
+                   <div class="form-row">
+                    
+                    
+
+                  
+                  
+                  <div class="form-group col-md-6">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1">@lang('menu.code_description', array(),Session::get('language_val')) </label>
+                  <input  value="{{ $observation->code_description_fr }}" readonly=""  class="form-control">
                 
                   </div>  
                   

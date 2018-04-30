@@ -28,6 +28,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('endenism') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.endenism', array(),Session::get('language_val'))</label>
                   <input type="text" name="endenism" value="{{ old('endenism') }}" required  class="form-control" id="endenism" placeholder="Endenism">
                  @if ($errors->has('endenism'))
@@ -39,9 +40,10 @@
                   
                   
                   <div class="form-group{{ $errors->has('endenism_status') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.endenism_status', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="endenism_status" value="{{ old('endenism_status') }}" required  class="form-control" id="status" placeholder="Endenism Status">
-                 @if ($errors->has('status'))
+                 @if ($errors->has('endenism_status'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('endenism_status') }}</strong>
                                     </span>
@@ -49,6 +51,25 @@
                   </div>  
                   
                 </div> 
+                  
+                  
+                   <div class="form-row">
+                  
+                 
+                  
+                  
+                  <div class="form-group{{ $errors->has('endenism_status_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.endenism_status', array(),Session::get('language_val'))</label>
+                  <input type="textarea" name="endenism_status_fr" value="{{ old('endenism_status_fr') }}" required  class="form-control" id="endenism_status_fr" placeholder="Endenism Status (french)">
+                 @if ($errors->has('endenism_status_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('endenism_status_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div>
                   
                   
                    

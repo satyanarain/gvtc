@@ -41,8 +41,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.forest_use', array(),Session::get('language_val')) </th>
-                  <th>@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.forest_use', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.forest_habitat_usage', array(),Session::get('language_val'))</th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -57,6 +58,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $forest['id'] }}</td>  
                   <td>{{ $forest['forest_use'] }}</td>
                   <td>{{ $forest['forest_habitat_usage'] }}</td>
+                  <td>{{ $forest['forest_habitat_usage_fr'] }}</td>
                 
                  
                   <td>

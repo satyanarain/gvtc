@@ -12,10 +12,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Distribution extends Authenticatable
+class Report extends Authenticatable
 {
     use Notifiable;
-    protected $table = 'distributions';
+    protected $table = 'report';
 
     /**
      * The attributes that are mass assignable.

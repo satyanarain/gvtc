@@ -45,7 +45,6 @@ class NationalThreatCodeController extends Controller
     $role=Auth::user()->role;
     $permission_key = "NationalThreatCode_view";
     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
     if($getpermissionstatus==0)
     return redirect()->route('user-management.unauthorized');
     $nationals = National::all()->toArray();
@@ -64,7 +63,6 @@ class NationalThreatCodeController extends Controller
     $role=Auth::user()->role;
     $permission_key = "NationalThreatCode_add";
     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
     if($getpermissionstatus==0)
     return redirect()->route('user-management.unauthorized');
         return view('nationals/create');
@@ -80,13 +78,12 @@ class NationalThreatCodeController extends Controller
     
     public function store(Request $request)
     {
-     
-     
      $this->validateInput($request);
      National::create([
             'national_threat_code' => $request['national_threat_code'],
             'national_threat_code_description' => $request['national_threat_code_description'],
-            'created_by'=>$request['created_by']
+            'created_by'=>$request['created_by'],
+            'national_threat_code_description_fr'=>$request['national_threat_code_description_fr'],
             
         ]);
         Session::flash('flash_message', "National Threat Code Created Successfully."); //Snippet in Master.blade.php
@@ -123,11 +120,6 @@ class NationalThreatCodeController extends Controller
     public function edit($id)
     {
         $national = National::find($id);
-        // Redirect to taxon list if updating taxon wasn't existed
-        if ($national == null || count($national) == 0) {
-            return redirect()->intended('/nationals');
-        }
-
         return view('nationals/edit', ['national' => $national]);
     }
 
@@ -145,6 +137,7 @@ class NationalThreatCodeController extends Controller
         $constraints = [
             'national_threat_code' => 'required',
             'national_threat_code_description'=> 'required',
+            'national_threat_code_description_fr'=> 'required'
             
             ];
        
@@ -155,7 +148,8 @@ class NationalThreatCodeController extends Controller
        
         $input = [
             'national_threat_code' => $request['national_threat_code'],
-            'national_threat_code_description' => $request['national_threat_code_description']
+            'national_threat_code_description' => $request['national_threat_code_description'],
+            'national_threat_code_description_fr' => $request['national_threat_code_description_fr']
         ];
         
       
@@ -193,7 +187,8 @@ class NationalThreatCodeController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'national_threat_code' => 'required|unique:national_threat_codes',
-        'national_threat_code_description' => 'required'
+        'national_threat_code_description' => 'required',
+        'national_threat_code_description_fr' => 'required',
         
     ]);
     }

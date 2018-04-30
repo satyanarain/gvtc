@@ -67,12 +67,17 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     </section>
     <!-- /.content -->
   </div>
+
  <script type="text/javascript">
 $(document).ready(function() {
     
     $('.datatable').DataTable({
         "order": [[ 0, "desc" ]],
-        processing: "Loading. Please wait...",
+        oLanguage: {
+        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
+    },
+    processing : true,
+        
         serverSide: true,
         ajax: '{{ route('species/getdata') }}',
         "autoWidth"   : true,
@@ -133,8 +138,5 @@ $(document).ready(function() {
     });
       
 });
-</script>  
-  
-  
-  
+</script>    
 @endsection

@@ -29,6 +29,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('water_use') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.water_use', array(),Session::get('language_val'))</label>
                   <input type="text" name="water_use" value="{{ old('water_use') }}" required  class="form-control" id="water_use" placeholder="Water Use">
                  @if ($errors->has('water_use'))
@@ -40,7 +41,9 @@
                   
                   
                   <div class="form-group{{ $errors->has('water_habitat_usage') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.water_wetland_habitat_usage', array(),Session::get('language_val'))</label>
+                  
                   <input type="textarea" name="water_habitat_usage" value="{{ old('water_habitat_usage') }}" required  class="form-control" id="water_habitat_usage" placeholder="Water/Wetland Habitat Usage">
                  @if ($errors->has('water_habitat_usage'))
                                     <span class="help-block">
@@ -50,6 +53,29 @@
                   </div>  
                   
                 </div> 
+                  
+                  
+                  <div class="form-row">
+                  
+               
+                  
+                  
+                  <div class="form-group{{ $errors->has('water_habitat_usage_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.water_wetland_habitat_usage', array(),Session::get('language_val'))</label>
+              
+                  <input type="textarea" name="water_habitat_usage_fr" value="{{ old('water_habitat_usage_fr') }}" required  class="form-control" id="water_habitat_usage_fr" placeholder="Water/Wetland Habitat Usage (French)">
+                 @if ($errors->has('water_habitat_usage_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('water_habitat_usage_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div> 
+                  
+                  
+                  
                   
                   
                    

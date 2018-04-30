@@ -40,8 +40,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.observation_code', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.observation_code', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.code_description', array(),Session::get('language_val')) </th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.code_description', array(),Session::get('language_val')) </th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -56,6 +57,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $observations['id'] }}</td>  
                   <td>{{ $observations['observation_code'] }}</td>
                   <td>{{ $observations['code_description'] }}</td>
+                  <td>{{ $observations['code_description_fr'] }}</td>
                 
                  
                   <td>

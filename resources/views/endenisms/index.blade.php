@@ -43,8 +43,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.endenism', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.endenism_status', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.endenism', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.endenism_status', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.endenism_status', array(),Session::get('language_val'))</th>
                 
                   <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -59,6 +60,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <td style="display:none">{{ $endenism['id'] }}</td>  
                   <td>{{ $endenism['endenism'] }}</td>
                   <td>{{ $endenism['endenism_status'] }}</td>
+                  <td>{{ $endenism['endenism_status_fr'] }}</td>
                 
                  <?php //print_r($endenism); die; ?>
                   <td>
