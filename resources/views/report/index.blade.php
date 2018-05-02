@@ -25,9 +25,7 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observation" value="Observation" checked >Observation</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >Species </label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>Place</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Day</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="month" value="Month" checked>Month</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="year" value="Year" checked>Year</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Date" checked>Date</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >Observer</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >Age Group</label></li>
@@ -179,9 +177,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                  <th>Observation</th>
                 <th>Species</th>
                 <th>Place</th>
-                <th>Day</th>
-                <th>Month</th>
-                <th>Year</th>
+                <th>Date</th>
                 <th>Number</th>
                 <th>Observer</th>
                 <th>Age Group</th>
@@ -253,12 +249,10 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                  <td><?php echo $val->observationdata ; ?></td>
                 <td><?php if($val->common_name!=''){echo $val->common_name;}else{ ?>/<?php echo $val->genus; ?> / <?php echo $val->species; ?> / <?php echo $val->subspecies; ?><?php } ?></td>
                 <td><?php echo $val->place; ?></td>
-                <td><?php echo $val->day; ?></td>
-                <td><?php echo $val->month?></td>
-                <td><?php echo $val->year; ?></td>
+                <td style="width:100px;"><?php if($val->day!='') { echo $val->day; } ?><?php if($val->month!='') { echo '-'.$val->month; } ?> <?php if($val->year!='') { echo  '-'.$val->year ; }?></td>
                 <td><?php echo $val->number; ?></td>
                 <td><?php echo $val->first_name; ?> <?php echo $val->last_name; ?> <?php echo $val->institution; ?> </td>
-                <td><?php echo $val->code_description; ?>(<?php echo $val->age_group; ?>)</td>
+                <td><?php echo $val->agedata; ?></td>
                 <td><?php echo $val->code_description; ?>(<?php echo $val->abundance_group; ?>)</td>
                 <td><?php echo $val->specimencode; ?></td>
                 <td><?php echo $val->collectorinstitution; ?></td>
@@ -518,8 +512,6 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
             { "name": "species"},
             { "name": "place"},
             { "name": "day"},
-            { "name": "month"},
-            { "name": "year"},
             { "name": "number"},
             { "name": "observer"},
             { "name": "age_group"},
