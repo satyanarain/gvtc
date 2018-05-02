@@ -26,8 +26,8 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 <li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >Species </label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>Place</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Day</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Month</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Year</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="month" value="Month" checked>Month</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="year" value="Year" checked>Year</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >Observer</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >Age Group</label></li>
