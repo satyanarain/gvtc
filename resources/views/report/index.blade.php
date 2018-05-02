@@ -26,6 +26,8 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 <li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >Species </label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>Place</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Day</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Month</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Day" checked>Year</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >Observer</label></li>
 <li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >Age Group</label></li>
@@ -178,6 +180,8 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
                 <th>Species</th>
                 <th>Place</th>
                 <th>Day</th>
+                <th>Month</th>
+                <th>Year</th>
                 <th>Number</th>
                 <th>Observer</th>
                 <th>Age Group</th>
@@ -245,11 +249,13 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
               @foreach($distribution as $val) 
                 <tr>
                 <td><?php echo $val->taxon_code; ?></td>
-                 <td><?php echo $val->code_description ; ?>(<?php echo $val->method_code; ?>)</td>
-                 <td><?php echo $val->code_description ; ?>(<?php echo $val->observation_code ; ?>)</td>
+                 <td><?php echo $val->methoddata ; ?></td>
+                 <td><?php echo $val->observationdata ; ?></td>
                 <td><?php if($val->common_name!=''){echo $val->common_name;}else{ ?>/<?php echo $val->genus; ?> / <?php echo $val->species; ?> / <?php echo $val->subspecies; ?><?php } ?></td>
                 <td><?php echo $val->place; ?></td>
-                <td><?php if($val->day!=''){echo $val->day.'-'; }?>&nbsp;<?php if($val->month!=''){ echo $val->month.'-'; }?>&nbsp;<?php if($val->year!=''){ echo $val->year;} ?></td>
+                <td><?php echo $val->day; ?></td>
+                <td><?php echo $val->month?></td>
+                <td><?php echo $val->year; ?></td>
                 <td><?php echo $val->number; ?></td>
                 <td><?php echo $val->first_name; ?> <?php echo $val->last_name; ?> <?php echo $val->institution; ?> </td>
                 <td><?php echo $val->code_description; ?>(<?php echo $val->age_group; ?>)</td>
@@ -309,7 +315,7 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
     
  
  <td><?php echo $val->gazeteer_id; ?></td>
- <td><?php echo $val->range_within_albertine_rift; ?>(<?php echo $val->range_code; ?>)</td>
+ <td><?php echo $val->countrydata; ?></td>
  <td><?php echo $val->place; ?></td>
  <td><?php echo $val->details; ?></td>
  <td><?php echo $val->longitude; ?></td>
@@ -512,6 +518,8 @@ Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
             { "name": "species"},
             { "name": "place"},
             { "name": "day"},
+            { "name": "month"},
+            { "name": "year"},
             { "name": "number"},
             { "name": "observer"},
             { "name": "age_group"},

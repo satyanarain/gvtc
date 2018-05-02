@@ -36,16 +36,27 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   
             <div class="box-body">
-           <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
+           <table class="table table-hover table-bordered table-striped datatable display nowrap"   style="width:100%">
                 <thead>
                 <tr>
                  <th style="display:none">id</th> 
                  <th>@lang('menu.taxon', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.species', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.selection_criteria', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.method', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.selection_criteria', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.day', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.month', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.year', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.number', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.abundance_group', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.specimen_code', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.collector_institution', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.sex', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.observation', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.age_group', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.place', array(),Session::get('language_val'))</th>
-                 <th>@lang('menu.observer', array(),Session::get('language_val'))</th>
+                 <th> @lang('menu.observer', array(),Session::get('language_val'))</th>
+                 <th> @lang('menu.remarks', array(),Session::get('language_val'))</th>
                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
@@ -73,6 +84,7 @@ $(document).ready(function() {
     
     $('.datatable').DataTable({
         "order": [[ 0, "desc" ]],
+        "scrollX": true,
           oLanguage: {
         sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
     },
@@ -84,10 +96,21 @@ $(document).ready(function() {
             {data: 'id', name: 'id'},
             {data: 'taxon_code', name: 'taxon_code'},
             {data: 'species', name: 'species'},
+            {data: 'methoddata', name: 'methoddata'},
             {data: 'selectioncriteria', name: 'selectioncriteria'},
-            {data: 'code_description', name: 'code_description'},
+            {data: 'day', name: 'day'},
+            {data: 'month', name: 'month'},
+            {data: 'year', name: 'year'},
+            {data: 'number', name: 'number'},
+            {data: 'abundancesdata', name: 'abundancesdata'},
+            {data: 'specimencode', name: 'specimencode'},
+            {data: 'collectorinstitution', name: 'collectorinstitution'},
+            {data: 'Sex', name: 'Sex'},
+            {data: 'observationdata', name: 'observationdata'},
+            {data: 'age_group', name: 'age_group'},
             {data: 'place', name: 'place'},
             {data: 'last_name', name: 'last_name'},
+            {data: 'remark', name: 'remark'},
       {
                 mRender: function (data, type, row) {
                     //console.log(row.id);

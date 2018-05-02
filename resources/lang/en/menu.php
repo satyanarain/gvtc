@@ -14,6 +14,7 @@ return [
     */
     'profile'=>'Profile',
     'sign_out'=>'Sign out',
+    'species'=>'Species',
     
     'users_log'=>'Users Log',
     'manage_users'=>'Manage Users',

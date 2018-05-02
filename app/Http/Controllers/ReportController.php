@@ -49,14 +49,27 @@ class ReportController extends Controller
         //print_r($getpermissionstatus);die;
     if($getpermissionstatus==0)
     return redirect()->route('user-management.unauthorized');   
-    $distribution = DB::table('distributions')->select('*','distributions.id as id','distributions.status as status')->leftjoin('taxons','taxons.id','distributions.taxon_id')->leftjoin('methods','methods.id','distributions.method_id')
+    $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata'),DB::raw('CONCAT(countries.range_within_albertine_rift, " ","(",countries.range_code,")") AS countrydata'),'distributions.id as id','distributions.day as day','distributions.month as month','distributions.year as year','distributions.status as status')
+            ->leftjoin('taxons','taxons.id','distributions.taxon_id')
+            ->leftjoin('methods','methods.id','distributions.method_id')
             ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->leftjoin('observation','observation.id','distributions.observation_id')
-            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')->leftjoin('countries','countries.id','gazetteers.country_id')
+            ->leftjoin('ages','ages.id','distributions.age_id')->leftjoin('abundances','abundances.id','distributions.abundance_id')->leftjoin('protected_areas','protected_areas.id','gazetteers.protected_area_id')
+            ->leftjoin('countries','countries.id','gazetteers.country_id')
             ->leftjoin('breedings','breedings.id','species.breeding_id')->leftjoin('national_threat_codes','national_threat_codes.id','species.national_threat_code_id')->leftjoin('migration_tbl','migration_tbl.id','species.migration_tbl_id')->leftjoin('endenisms','endenisms.id','species.endenisms_id')
-            ->leftjoin('wateruse','wateruse.id','species.wateruse_id')->leftjoin('forestuse','forestuse.id','species.forestuse_id')->leftjoin('growths','growths.id','species.growth_id')->leftjoin('ranges','ranges.id','species.range_id')->leftjoin('iucn_threats','iucn_threats.id','species.iucn_threat_id')->get();
+            ->leftjoin('wateruse','wateruse.id','species.wateruse_id')->leftjoin('forestuse','forestuse.id','species.forestuse_id')->leftjoin('growths','growths.id','species.growth_id')->leftjoin('ranges','ranges.id','species.range_id')->leftjoin('iucn_threats','iucn_threats.id','species.iucn_threat_id')->orderBy('distributions.id', 'desc')->get();
 
-    
-    
+//    $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','methods.code_description as method_code_description')
+//                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+//                        ->leftjoin('methods', 'methods.id', 'distributions.method_id')
+//                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+//                        ->leftjoin('observers', 'observers.id', 'distributions.observer_id')
+//                        ->leftjoin('species', 'species.id', 'distributions.specie_id')
+//                        ->leftjoin('abundances', 'abundances.id', 'distributions.abundance_id')
+//                        ->leftjoin('observation', 'observation.id', 'distributions.observation_id')
+//                        ->leftjoin('ages', 'ages.id', 'distributions.age_id')->get();
+    //echo '<pre>';
+    //print_r($distribution);
+   // die;
     
     return view('report.index', compact('distribution'));  
     

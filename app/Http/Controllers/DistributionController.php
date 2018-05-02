@@ -38,7 +38,39 @@ class DistributionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-
+        //DB::raw('group_concat(distinct contacts.email separator ", ") AS contact_emails');
+        
+         
+        
+        //echo '<pre>';
+       // print_r($distribution);
+         
+//        $distribution = DB::table('distributions')->select('*', 'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year')
+//                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+//                        ->leftjoin('methods', 'methods.id', 'distributions.method_id')
+//                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+//                        ->leftjoin('observers', 'observers.id', 'distributions.observer_id')
+//                        ->leftjoin('species', 'species.id', 'distributions.specie_id')
+//                        ->leftjoin('abundances', 'abundances.id', 'distributions.abundance_id')
+//                        ->leftjoin('observation', 'observation.id', 'distributions.observation_id')
+//                        ->leftjoin('ages', 'ages.id', 'distributions.age_id')
+//               -> Where('distributions.status', 1)->get();
+//        echo '<pre>';
+//        print_r($distribution);
+        
+//         $distribution = DB::table('distributions')->select('*','CONCAT(mcode_description," ","(",methods.method_id,")") as methoddata', 'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','methods.code_description as method_code_description')
+//                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+//                        ->leftjoin('methods', 'methods.id', 'distributions.method_id')
+//                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+//                        ->leftjoin('observers', 'observers.id', 'distributions.observer_id')
+//                        ->leftjoin('species', 'species.id', 'distributions.specie_id')
+//                        ->leftjoin('abundances', 'abundances.id', 'distributions.abundance_id')
+//                        ->leftjoin('observation', 'observation.id', 'distributions.observation_id')
+//                        ->leftjoin('ages', 'ages.id', 'distributions.age_id')->get();
+//        
+//         echo '<pre>';
+//        print_r($distribution);
+        
         $users = Distribution::latest()->count();
 
         return view('distributions.index', compact('users'));
@@ -355,9 +387,19 @@ class DistributionController extends Controller {
         //print_r($getpermissionstatus);die;
         if ($getpermissionstatus == 0)
             return redirect()->route('user-management.unauthorized');
-        $distribution = DB::table('distributions')->select('*', 'distributions.id as id', 'distributions.status as status')->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')->leftjoin('methods', 'methods.id', 'distributions.method_id')
-                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')->leftjoin('observers', 'observers.id', 'distributions.observer_id')->leftjoin('species', 'species.id', 'distributions.specie_id')->Where('distributions.status', 1)->get();
+     $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','methods.code_description as method_code_description')
+                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+                        ->leftjoin('methods', 'methods.id', 'distributions.method_id')
+                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+                        ->leftjoin('observers', 'observers.id', 'distributions.observer_id')
+                        ->leftjoin('species', 'species.id', 'distributions.specie_id')
+                        ->leftjoin('abundances', 'abundances.id', 'distributions.abundance_id')
+                        ->leftjoin('observation', 'observation.id', 'distributions.observation_id')
+                        ->leftjoin('ages', 'ages.id', 'distributions.age_id')->get();
+        
         return DataTables::of($distribution)->make(true);
+        
+        
         //return DataTables::of(Gazetteer::query()->orderBY('id','desc'))->make(true);
     }
 

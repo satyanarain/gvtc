@@ -21,7 +21,7 @@ return [
     
     'title'=>'Title',
     'description'=>'Description',
-    
+    'species'=>'Espèces',
     
     'dashboard'=> 'Tableau de bord',
     'species'=>'Espèces',
