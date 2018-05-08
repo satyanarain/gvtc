@@ -7,7 +7,7 @@ use App\Page;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
-use Auth;
+//use Auth;
 
 class PageController extends Controller
 {
@@ -28,6 +28,7 @@ class PageController extends Controller
      return view('pages/index');
     }
     
+   
     
     
     public function liveSearch(Request $request)

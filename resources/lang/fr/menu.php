@@ -12,6 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
+    'select_country'=>'Sélectionner un pays',
     'profile'=>'Profil',
     'sign_out'=>'Déconnexion',
     
@@ -101,6 +102,8 @@ return [
     'growth_form'=>'Formulaire de croissance',
     'protected_area'=>'Aire Protégée',
     'protected_area_name'=>'Aire Protégée Nom',
+    'select_protected_area'=>'Sélectionner une zone protégée',
+    'select_admin_unit'=>"Sélectionnez l'unité d'administration",
     'country'=>'Pays' ,  
     'countreis'=>'Pays',  
     'protected_area_code'=>'Code de Désignation',
@@ -111,9 +114,14 @@ return [
     'endenism'=>'Endémisme',
     'endenism_status'=>'Endémisme Statut',
     'admin_unit'=>'Unité Administrative',
+    'aspect'=>'Aspect',
+    'slope'=>'Pente',
+    'altitude'=>'Altitude',
+    'habitat'=>'Habitat',
     'name'=>'Nom',
     'address'=>'Adresse',
     'admin_unit_type'=>"Type d'unité d'administration",
+    'northings'=>"Les nords",
     
 
     
@@ -149,6 +157,7 @@ return [
     'view_reports'=>'Gestion hors-connexion des enregistrements',
     'permissions'=>'Autorisations',
     'remarks'=>'Remarques',
+    'soil'=>'Sol',
     'sex'=>'Sexe',
     'collector_institution'=>'Institution Collectrice',
     'specimen_code'=>'Code du Specimen',
@@ -159,7 +168,7 @@ return [
     'update_password'=>'Mettre à jour le mot de passe',
     'manage_password'=>'Gérer le mot de passe',
     'bulk_upload'=>'Téléchargement en bloc',
-    
+    'zone'=>'zone',
     
     'user-profile'=>'Profil utilisateur',
     
@@ -186,7 +195,7 @@ return [
     'datum'=>'Référence',
     'longitude'=>'longitude',
     'latitude'=>'Latitude',
-
+     'eastings'=>"l'est",
     //specics
     'species_author'=>"Auteur de l'espèce",
     'sub_species'=>"Sous-espèce",

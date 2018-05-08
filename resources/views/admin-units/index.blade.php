@@ -41,9 +41,10 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th>  
-                  <th>@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
-                  <th>@lang('menu.country', array(),Session::get('language_val'))</th>
-                 <th>@lang('menu.admin_unit_type', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val'))</th>
+                 <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit_type', array(),Session::get('language_val'))</th>
                     <th>@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
@@ -56,6 +57,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <td style="display:none">{{ $adminunit->id }}</td>  
                   <td>{{ $adminunit->name  }}</td>
+                  <td>{{ $adminunit->name_fr  }}</td>
                   <td>{{ $adminunit->range_within_albertine_rift}}({{ $adminunit->range_code }})</td>
                 
                   <td>{{ $adminunit->admincode }}</td>

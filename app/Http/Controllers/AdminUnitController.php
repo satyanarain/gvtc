@@ -91,6 +91,7 @@ class AdminUnitController extends Controller
             'countrie_id' => $request['countrie_id'],
             'admincode' => $request['admincode'],
             'name' => $request['name'],
+            'name_fr' => $request['name_fr'],
             'created_by'=>$request['created_by']
             
         ]);
@@ -168,7 +169,8 @@ class AdminUnitController extends Controller
         $input = [
             'countrie_id' => $request['countrie_id'],
             'admincode' => $request['admincode'],
-            'name' => $request['name']
+            'name' => $request['name'],
+            'name_fr' => $request['name_fr']
         ];
         
       
@@ -220,10 +222,17 @@ class AdminUnitController extends Controller
          echo '<div class="form-group col-md-6 " id="adminunit_select">';
        echo ' <label for="AdminUnit" class="control-label">Admin Unit</label>';
         echo '<select class="form-control" name="adminunit_id">';
+        if (Session::get('language_val') == "en") {
         echo '<option selected="selected" value="">Select Admin Unit</option>';
+        }else{
+            
+            echo '<option selected="selected" value="">Sélectionner une zone protégée</option>';
+        }
        foreach($sql as $v){
            ?>
-            <option value="<?php echo $v->id; ?>"><?php echo $v->admincode; ?>(<?php echo $v->name; ?>)</option>
+            <option value="<?php echo $v->id; ?>">
+                <?php echo $v->admincode; ?>(<?php if (Session::get('language_val') == "en") { echo $v->name;}else{ echo $v->name_fr; } ?>)
+            </option>
          <?php }
       echo ' </select> ';
       echo '</div>';

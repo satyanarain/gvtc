@@ -51,7 +51,7 @@
                   
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range required">
-                 {!! Form::label('Uplaod Report','Uplaod Report',['class'=>'control-label']) !!}
+                 {!! Form::label('upload Report','upload Report',['class'=>'control-label']) !!}
                  <input type="file"  accept=".pdf" required="" onchange="validdocument(this,1)" name="uploded_report" id="documents3">
                 
                 

@@ -53,13 +53,30 @@ class LoginController extends Controller
     
     public function login(Request $request)     {
        
+        //$sql = DB::table('species')->where('taxon_id', $taxon_id)->get();
+        //print_r($request->all());
     $this->validate($request, ['username' => 'required', 'password' => 'required']); 
    
-        Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1]);  
-       
+        Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1]); 
+        
         if(!Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1])) { 
             return redirect()->back()->with('fail', 'Either username or password is incorrect!');  
             }else{
+                
+            $username=$request['username'];
+            $searchdata=$request['searchdata'];
+            $sqluserid=DB::table('users')->where('username' , $username)->get();
+            foreach($sqluserid as $userid){
+            $userid->id;
+            
+            }
+            $userid=$userid->id;
+            DB::table('searchresult')->insert(
+            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 0)
+        );    
+                
+                
+                
              Session::put('language_val', $request['lanuage']);
              return redirect('/home');
              //print_r($request->all());

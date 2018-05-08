@@ -24,7 +24,8 @@ class Species extends Authenticatable
      */
    protected $fillable = [
         'taxon_id','order','family','genus','species','species_author','subspecies','subspecies_author','species_author','common_name','common_name_fr','iucn_threat_id','range_id',
-        'growth_id','forestuse_id','wateruse_id','endenisms_id','migration_tbl_id','specienewid','national_threat_code_id','breeding_id','created_by'
+        'growth_id','forestuse_id','wateruse_id','endenisms_id','migration_tbl_id','specienewid','national_threat_code_id','breeding_id','created_by',
+       'taxon_id_fr','range_id_fr','growth_id_fr','forestuse_id_fr','wateruse_id_fr','endenisms_id_fr','migration_tbl_id_fr','national_threat_code_id_fr','breeding_id_fr'
     ];
 //   public function taxon(){
 //       

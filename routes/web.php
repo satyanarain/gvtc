@@ -24,13 +24,13 @@ Route::resource('create_password','GuestPasswordController');
 //})->middleware('auth');
 
 
+//frontend
+
+Route::resource('reports','DisplayReportController');
 
 
 
-
-
-
-Route::get('/livesearch','PageController@liveSearch');     
+Route::get('/livesearch','PageController@liveSearch');  
 Route::resource('/', 'PageController');
 Route::get('/login', function () {
     return view('home');
@@ -155,6 +155,4 @@ Route::post('reportcategory/sortabledatatable','ReportCategoryController@updateO
 Route::resource('reportcategory','ReportCategoryController');
 
 
-
-
-
+Route::get('search','SearchController@search');

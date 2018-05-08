@@ -97,10 +97,11 @@ class SpeciesController extends Controller
        $nationalusesql = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $nationalusesql_fr = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description_fr," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $breedingusesql = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');       
+       $breedingusesql_fr = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description_fr," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $last_species= Species::latest()->first();
        $last_speciesid= $last_species['id']+1;
        //print_r($taxonrecodsql);
-        return view('species/create',compact('taxonrecodsql','taxonrecodsql_fr','breedingusesql','iucnrecodsql','iucnrecodsql_fr','nationalusesql','nationalusesql_fr','rangerecordsql','growthrecordsql','growthrecordsql_fr','forestusesql','forestusesql_fr','waterusesql','waterusesql_fr','endemismsql','endemismsql_fr','migrationsql','migrationsql_fr','last_speciesid'));
+        return view('species/create',compact('taxonrecodsql','taxonrecodsql_fr','breedingusesql','breedingusesql_fr','breedingusesql_fr','iucnrecodsql','iucnrecodsql_fr','nationalusesql','nationalusesql_fr','rangerecordsql','growthrecordsql','growthrecordsql_fr','forestusesql','forestusesql_fr','waterusesql','waterusesql_fr','endemismsql','endemismsql_fr','migrationsql','migrationsql_fr','last_speciesid'));
     }
 
     /**
@@ -177,6 +178,11 @@ class SpeciesController extends Controller
     $species = DB::table('species')->select('*','species.id as id')
             ->leftjoin('taxons','species.taxon_id','=','taxons.id')
             ->leftjoin('ranges','ranges.id','=','species.range_id')
+            ->leftjoin('migration_tbl','migration_tbl.id','=','migration_tbl_id')
+            ->leftjoin('endenisms','endenisms.id','=','endenisms_id')
+            ->leftjoin('wateruse','wateruse.id','=','wateruse_id')
+            ->leftjoin('forestuse','forestuse.id','=','forestuse_id')
+            ->leftjoin('iucn_threats','iucn_threats.id','=','iucn_threat_id')
             ->where('species.id',$id)->first();
     
    
@@ -229,18 +235,28 @@ class SpeciesController extends Controller
        //$waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
        //$endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
       // $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
-       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->pluck('full_name', 'id');
-       $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->pluck('full_name', 'id');
-       $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
-       $growthrecordsql = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form," ","(",growth_form,")") as full_name')->pluck('full_name', 'id');
-       $waterusesql = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage," ","(",water_use,")") as full_name')->pluck('full_name', 'id');
-       $endemismsql = DB::table('endenisms')->selectRaw('id, CONCAT(endenism_status," ","(",endenism,")") as full_name')->pluck('full_name', 'id');
-       $migrationsql = DB::table('migration_tbl')->selectRaw('id, CONCAT(birds_migrating_population," ","(",migration_title,")") as full_name')->pluck('full_name', 'id');
-       $forestusesql = DB::table('forestuse')->selectRaw('id, CONCAT(forest_habitat_usage," ","(",forest_use,")") as full_name')->pluck('full_name', 'id');
+       $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $iucnrecodsql = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $rangerecordsql = DB::table('ranges')->selectRaw('id, CONCAT(range_within_the_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $growthrecordsql = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form," ","(",growth_form,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $waterusesql = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage," ","(",water_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $endemismsql = DB::table('endenisms')->selectRaw('id, CONCAT(endenism_status," ","(",endenism,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $migrationsql = DB::table('migration_tbl')->selectRaw('id, CONCAT(birds_migrating_population," ","(",migration_title,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $forestusesql = DB::table('forestuse')->selectRaw('id, CONCAT(forest_habitat_usage," ","(",forest_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $nationalusesql = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        $breedingusesql = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
-       
-       return view('species.edit',compact('specie','nationalusesql','breedingusesql','taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql')); 
+       $breedingusesql_fr = DB::table('breedings')->selectRaw('id, CONCAT(breeding_description_fr," ","(",breeding_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $taxonrecodsql_fr = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description_fr," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $iucnrecodsql_fr = DB::table('iucn_threats')->selectRaw('id, CONCAT(iucn_code_description_fr," ","(",iucn_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $growthrecordsql_fr = DB::table('growths')->selectRaw('id, CONCAT(plants_growth_form_fr," ","(",growth_form,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $waterusesql_fr = DB::table('wateruse')->selectRaw('id, CONCAT(water_habitat_usage_fr," ","(",water_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $endemismsql_fr = DB::table('endenisms')->selectRaw('id, CONCAT(endenism_status_fr," ","(",endenism,")") as full_name')->WHERE('status','=',1)->WHERE('status','=',1)->pluck('full_name', 'id');
+       $migrationsql_fr = DB::table('migration_tbl')->selectRaw('id, CONCAT(birds_migrating_population_fr," ","(",migration_title,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $forestusesql_fr = DB::table('forestuse')->selectRaw('id, CONCAT(forest_habitat_usage_fr," ","(",forest_use,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $nationalusesql_fr = DB::table('national_threat_codes')->selectRaw('id, CONCAT(national_threat_code_description_fr," ","(",national_threat_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+      return view('species.edit',compact('taxonrecodsql_fr','iucnrecodsql_fr','growthrecordsql_fr','waterusesql_fr','endemismsql_fr','migrationsql_fr','forestusesql_fr','nationalusesql_fr','specie','nationalusesql','breedingusesql','breedingusesql_fr','taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql')); 
+        
+       //return view('species.edit',compact('specie','breedingusesql_fr','nationalusesql','breedingusesql','taxonrecodsql','iucnrecodsql','rangerecordsql','growthrecordsql','forestusesql','waterusesql','endemismsql','migrationsql')); 
         
     }
 

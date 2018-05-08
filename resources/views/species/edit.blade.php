@@ -28,8 +28,12 @@
                 <div class="form-group col-md-6 required">
 
                   {!! Form::label('Taxon',Lang::get('menu.taxon',array(),Session::get('language_val')),['class'=>'control-label']) !!}
+                   <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('taxon_id',$taxonrecodsql,isset($specie->taxon_id) ? $specie->taxon_id : selected,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id'=>'taxon_id']) !!}
-                  </div>  
+                <?php }else{ ?> 
+                  {!! Form::select('taxon_id',$taxonrecodsql_fr,isset($specie->taxon_id) ? $specie->taxon_id : selected,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id'=>'taxon_id']) !!}
+                <?php } ?>
+                </div>  
                   
                  
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
@@ -145,7 +149,11 @@
                   <div class="form-group col-md-6 ">
                       
                   {!! Form::label('iucn_threat_id',Lang::get('menu.IUCN_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
+                   <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('iucn_threat_id',$iucnrecodsql,isset($specie->iucn_threat_id) ? $specie->iucn_threat_id : 'selected',['class'=>'form-control','placeholder'=>'Select IUCN Threat Code']) !!}   
+                   <?php }else { ?>
+                  {!! Form::select('iucn_threat_id',$iucnrecodsql_fr,isset($specie->iucn_threat_id) ? $specie->iucn_threat_id : 'selected',['class'=>'form-control','placeholder'=>'Sélectionnez le code de menace UICN']) !!}   
+                   <?php } ?>
                   </div>  
            
                 </div> 
@@ -174,8 +182,12 @@
                   <div class="form-group col-md-6 " id ="growth_id_div" >
                       
                   {!! Form::label('Growth Form',Lang::get('menu.growth_form',array(),Session::get('language_val')),['class'=>'control-label']) !!}
+                  <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('growth_id',$growthrecordsql,isset($specie->growth_id) ? $specie->growth_id : 'selected',['class'=>'form-control','placeholder'=>'Select Growth Form']) !!}     
-                   </div>  
+                  <?php }else { ?>
+                   {!! Form::select('growth_id',$growthrecordsql_fr,isset($specie->growth_id) ? $specie->growth_id : 'selected',['class'=>'form-control','placeholder'=>'Sélectionner un formulaire de croissance']) !!}     
+                   <?php } ?>
+                  </div>  
                   
                 </div> 
                   
@@ -184,16 +196,23 @@
                 <div class="form-group col-md-6 ">
                     
                   {!! Form::label('ForestUse',Lang::get('menu.forest_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
+                   <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('forestuse_id',$forestusesql,isset($specie->forestuse_id) ? $specie->forestuse_id : 'selected',['class'=>'form-control','placeholder'=>'Select Forest Use']) !!}    
-                  
+                  <?php }else { ?>
+                  {!! Form::select('forestuse_id',$forestusesql_fr,isset($specie->forestuse_id) ? $specie->forestuse_id : 'selected',['class'=>'form-control','placeholder'=>"Sélectionner l'utilisation de la forêt"]) !!}    
+                  <?php } ?>
                   </div>  
                   
                   
                   <div class="form-group col-md-6 ">
                       
                    {!! Form::label('WaterUse',Lang::get('menu.water_use',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('wateruse_id',$waterusesql,isset($specie->wateruse_id) ? $specie->wateruse_id : 'selected',['class'=>'form-control','placeholder'=>'Select Water Use']) !!}     
-                  
+                   <?php if(Session::get('language_val')=='en'){ ?>
+                   {!! Form::select('wateruse_id',$waterusesql,isset($specie->wateruse_id) ? $specie->wateruse_id : 'selected',['class'=>'form-control','placeholder'=>'Select Water Use']) !!}     
+                  <?php }else { ?>
+                    {!! Form::select('wateruse_id',$waterusesql_fr,isset($specie->wateruse_id) ? $specie->wateruse_id : 'selected',['class'=>'form-control','placeholder'=>"Sélectionner l'utilisation de l'eau"]) !!}     
+
+                   <?php } ?>
                   </div>  
                   
                 </div> 
@@ -203,17 +222,21 @@
                 <div class="form-group col-md-6 ">
                     
                    {!! Form::label('Endemism',Lang::get('menu.endemism',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('endenisms_id',$endemismsql,isset($specie->endenisms_id) ? $specie->endenisms_id : 'selected',['class'=>'form-control','placeholder'=>'Select Endemism']) !!}    
-                 
+                  <?php if(Session::get('language_val')=='en'){ ?>
+                   {!! Form::select('endenisms_id',$endemismsql,isset($specie->endenisms_id) ? $specie->endenisms_id : 'selected',['class'=>'form-control','placeholder'=>'Select Endemism']) !!}    
+                  <?php }else { ?>
+                    {!! Form::select('endenisms_id',$endemismsql_fr,isset($specie->endenisms_id) ? $specie->endenisms_id : 'selected',['class'=>'form-control','placeholder'=>"Choisir l'endémisme"]) !!}    
+                   <?php } ?>
                   </div>  
                   
                   
                   <div class="form-group col-md-6 ">
                     {!! Form::label('Migration',Lang::get('menu.migration',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('migration_tbl_id',$migrationsql,isset($specie->migration_tbl_id) ? $specie->migration_tbl_id : 'selected',['class'=>'form-control','placeholder'=>'Select Migration']) !!}    
-                      
-                      
-                      
+                  <?php if(Session::get('language_val')=='en'){ ?>
+                    {!! Form::select('migration_tbl_id',$migrationsql,isset($specie->migration_tbl_id) ? $specie->migration_tbl_id : 'selected',['class'=>'form-control','placeholder'=>'Select Migration']) !!}    
+                   <?php }else { ?>   
+                      {!! Form::select('migration_tbl_id',$migrationsql_fr,isset($specie->migration_tbl_id) ? $specie->migration_tbl_id : 'selected',['class'=>'form-control','placeholder'=>'Sélectionner la migration']) !!}    
+                   <?php } ?>   
                   
                   </div>  
                   
@@ -230,17 +253,21 @@
                 <div class="form-group col-md-6 ">
                     
                    {!! Form::label('National Threat Code',Lang::get('menu.national_threat_code',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('national_threat_code_id',$nationalusesql,null,['class'=>'form-control','placeholder'=>'Select National Threat Code']) !!}    
-                 
+                  <?php if(Session::get('language_val')=='en'){ ?>
+                   {!! Form::select('national_threat_code_id',$nationalusesql,null,['class'=>'form-control','placeholder'=>'Select National Threat Code']) !!}    
+                 <?php }else { ?>  
+                    {!! Form::select('national_threat_code_id',$nationalusesql_fr,null,['class'=>'form-control','placeholder'=>'Sélectionner le code national des menaces']) !!}    
+                   <?php } ?>
                   </div>  
                   
                   <div class="form-group col-md-6 ">
                     {!! Form::label('Breeding',Lang::get('menu.breeding',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('breeding_id',$breedingusesql,isset($specie->breeding_id) ? $specie->breeding_id : 'selected',['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
+                 <?php if(Session::get('language_val')=='en'){ ?>
+                    {!! Form::select('breeding_id',$breedingusesql,isset($specie->breeding_id) ? $specie->breeding_id : 'selected',['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
+                  <?php }else { ?>      
                       
-                      
-                      
-                  
+                     {!! Form::select('breeding_id',$breedingusesql_fr,isset($specie->breeding_id) ? $specie->breeding_id : 'selected',['class'=>'form-control','placeholder'=>"Sélection de l'élevage"]) !!}      
+                    <?php } ?>
                   </div>  
                    
                   

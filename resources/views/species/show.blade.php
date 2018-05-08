@@ -99,7 +99,7 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">@lang('menu.subspecies', array(),Session::get('language_val'))</label>
+                  <label for="exampleInputEmail1">@lang('menu.sub_species', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $species->subspecies }}"  class="form-control" >
                  
                   </div>  
@@ -135,7 +135,7 @@
                   
                   <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.IUCN_threat_code', array(),Session::get('language_val'))</label>
-                  <input  value="{{ $species->iucn_threat_id }}" readonly=""  class="form-control">
+                 <input  value="<?php if(Session::get('language_val')=='en'){ ?> {{ $species->iucn_code_description }} <?php }else{ ?> {{ $species->iucn_code_description_fr }} <?php } ?> ({{ $species->iucn_threat_code }})" readonly=""  class="form-control">
                 
                   </div>  
                   
@@ -157,7 +157,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">@lang('menu.growthform', array(),Session::get('language_val'))</label>
+                  <label for="exampleInputEmail1">@lang('menu.growth_form', array(),Session::get('language_val'))</label>
                   <input  value="{{ $species->growth_id }}" readonly=""  class="form-control">
                 
                   </div>  
@@ -174,15 +174,15 @@
                     
                   
                 <div class=" col-md-6">
-                  <label for="exampleInputEmail1">@lang('menu.forestuse', array(),Session::get('language_val'))</label>
-                  <input type="text" readonly  value="{{ $species->forestuse_id }}"  class="form-control" >
+                  <label for="exampleInputEmail1">@lang('menu.forest_use', array(),Session::get('language_val'))</label>
+                  <input type="text" readonly  value="<?php if(Session::get('language_val')=='en'){ ?>{{ $species->forest_habitat_usage }} <?php }else{ ?> {{ $species->forest_habitat_usage_fr }} <?php } ?> ({{ $species->forest_use }})"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">@lang('menu.waterUse', array(),Session::get('language_val'))</label>
-                  <input  value="{{ $species->wateruse_id }}" readonly=""  class="form-control">
+                  <label for="exampleInputEmail1">@lang('menu.water_use', array(),Session::get('language_val'))</label>
+                  <input  value="<?php if(Session::get('language_val')=='en'){ ?> {{ $species->water_habitat_usage }} <?php }else { ?> {{ $species->water_habitat_usage_fr }} <?php } ?> ({{ $species->water_use }})" readonly=""  class="form-control">
                 
                   </div>  
                   
@@ -202,14 +202,14 @@
                   
                 <div class=" col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.endemism', array(),Session::get('language_val')) </label>
-                  <input type="text" readonly  value="{{ $species->endenisms_id }}"  class="form-control" >
+                  <input type="text" readonly  value="<?php if(Session::get('language_val')=='en'){ ?>{{ $species->endenism_status }}<?php }else{ ?>{{ $species->endenism_status_fr }}<?php } ?> ({{ $species->endenism }})"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.migration', array(),Session::get('language_val'))</label>
-                  <input  value="{{ $species->migration_tbl_id }}" readonly=""  class="form-control">
+                  <input  value="<?php if(Session::get('language_val')=='en'){ ?>{{ $species->birds_migrating_population }}<?php }else{ ?>{{ $species->birds_migrating_population_fr }}<?php } ?>({{ $species->migration_title }})" readonly=""  class="form-control">
                 
                   </div>  
                   

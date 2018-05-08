@@ -256,10 +256,11 @@
                   
                   <div class="form-group col-md-6 " id="breeding_div" style='display:none;'>
                     {!! Form::label('Breeding',Lang::get('menu.breeding',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
-                      
-                      
-                      
+                   <?php if(Session::get('language_val')=='en'){ ?>
+                    {!! Form::select('breeding_id',$breedingusesql,null,['class'=>'form-control','placeholder'=>'Select Breeding']) !!}    
+                     <?php } else{ ?>  
+                      {!! Form::select('breeding_id',$breedingusesql_fr,null,['class'=>'form-control','placeholder'=>"Sélection de l'élevage"]) !!}   
+                       <?php } ?>
                   
                   </div>  
                    

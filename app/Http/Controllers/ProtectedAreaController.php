@@ -215,12 +215,21 @@ class ProtectedAreaController extends Controller
          
          $sql=DB::table('protected_areas')->where('country',$id)->get();
          echo '<div class="form-group col-md-6" id="protected_area_select">';
+          if (Session::get('language_val') == "en") {
        echo '<label for="ProtectedArea" class="control-label">Protected Area</label>';
+          }else{
+              
+       echo '<label for="ProtectedArea" class="control-label">Zone protégée</label>';        
+          }
         echo '<select class="form-control" name="protected_area_id">';
+        if (Session::get('language_val') == "en") {
         echo '<option selected="selected" value="">Select Protected Area</option>';
+        }else{
+         echo '<option selected="selected" value="">Sélectionner une zone protégée</option>';   
+        }
        foreach($sql as $v){
            ?>
-            <option value="<?php echo $v->id; ?>"><?php echo $v->protected_area_code; ?>(<?php echo $v->protected_area_name; ?>)</option>
+            <option value="<?php echo $v->id; ?>"><?php echo $v->protected_area_code; ?>(<?php  if (Session::get('language_val') == "en") { echo $v->protected_area_name; }else{ echo $v->protected_area_name_fr; } ?>)</option>
          <?php }
       echo ' </select> ';
       echo '</div>';

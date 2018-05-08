@@ -77,18 +77,19 @@ class GazetteerController extends Controller
             return redirect()->route('user-management.unauthorized'); 
         
        //$countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id'); 
-       $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
+       $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $countryrecodsql_fr = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift_fr," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
        //$protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
-       $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
-       $protectedrecodsql = DB::table('protected_areas')->selectRaw('id, CONCAT(protected_area_name," ","(",protected_area_code,")") as full_name')->pluck('full_name', 'id');
-       $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->pluck('growth_form','id');
-       $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->pluck('forest_use','id');
-       $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->pluck('water_use','id');
-       $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->pluck('endenism','id');
-       $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->pluck('migration_title','id');
+       $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('name','id');
+       $protectedrecodsql = DB::table('protected_areas')->selectRaw('id, CONCAT(protected_area_name," ","(",protected_area_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+       $growthrecordsql=DB::table('growths')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('growth_form','id');
+       $forestusesql=DB::table('forestuse')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('forest_use','id');
+       $waterusesql=DB::table('wateruse')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('water_use','id');
+       $endemismsql=DB::table('endenisms')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('endenism','id');
+       $migrationsql=DB::table('migration_tbl')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('migration_title','id');
        $last_gazeteer= Gazetteer::latest()->first();
        $last_gazeteerid= $last_gazeteer['id']+1;
-       return view('gazetteers/create',compact('countryrecodsql','protectedrecodsql','adminunitrecodsql','last_gazeteerid'));
+       return view('gazetteers/create',compact('countryrecodsql','countryrecodsql_fr','protectedrecodsql','adminunitrecodsql','last_gazeteerid'));
     }
 
     /**
@@ -172,16 +173,19 @@ class GazetteerController extends Controller
     public function edit($id)
     {
         //$countryrecodsql= DB::table('countries')->orderBy('id','ASC')->pluck('range','id');
-        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->pluck('full_name', 'id');
-        $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->pluck('protected_area_name','id');
-        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->pluck('name','id');
+        $countryrecodsql = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+        $countryrecodsql_fr = DB::table('countries')->selectRaw('id, CONCAT(range_within_albertine_rift_fr," ","(",range_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+        $protectedrecodsql= DB::table('protected_areas')->orderBy('id','ASC')->WHERE('status','=',1)->pluck('protected_area_name','id');
+        $protectedrecodsql_fr= DB::table('protected_areas')->orderBy('id','ASC')->where('protected_area_name_fr', '!=', '')->pluck('protected_area_name_fr','id');
+        $adminunitrecodsql=DB::table('adminunits')->orderBY('id','ASC')->WHERE('status','=',1)->pluck('name','id');
+        $adminunitrecodsql_fr=DB::table('adminunits')->orderBY('id','ASC')->where('name_fr', '!=', '')->pluck('name_fr','id');
         $gazetteers = DB::table('gazetteers')->select('*','gazetteers.id as id')
               ->leftjoin('countries','gazetteers.country_id','=','countries.id')
               ->leftjoin('protected_areas','gazetteers.protected_area_id','=','protected_areas.id')
               ->leftjoin('adminunits','gazetteers.adminunit_id','=','adminunits.id')
               ->where('gazetteers.id',$id)
               ->first();
-       return view('gazetteers.edit',compact('gazetteers','countryrecodsql','protectedrecodsql','adminunitrecodsql'));  
+       return view('gazetteers.edit',compact('gazetteers','countryrecodsql','countryrecodsql_fr','adminunitrecodsql_fr','protectedrecodsql','protectedrecodsql_fr','adminunitrecodsql'));  
         
         
 //        $waters = Water::find($id);

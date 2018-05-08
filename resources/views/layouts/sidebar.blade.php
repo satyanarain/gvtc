@@ -28,7 +28,7 @@ $role=Auth::user()->role;
            $arra=array('taxons','iucns','nationals','ranges','growth','protected-area','country','forest','water','endenism','admin-unit','age','method','observation','abundance','migration','admin-unit','breeding');
         @endphp
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/"><i class="glyphicon glyphicon-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
+       <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="/home"><i class="glyphicon glyphicon-dashboard"></i><span>@lang('menu.dashboard', array(),$session_lan)</span></a></li>   
           
         <?php if($role!='guest'){?>  
         <li class="{{ Request::segment(1) == 'distribution' ? 'active' : '' }}"><a href="{{ url('distribution/')}}"><i class="glyphicon glyphicon-record"></i><span>@lang('menu.distribution_records', array(),Session::get('language_val'))</span></a></li>  

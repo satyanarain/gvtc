@@ -1,3 +1,4 @@
+<?php  $searchdata=Session::get('searchurl'); ?>
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -64,6 +65,7 @@
 <option value="en">English</option>
 <option value="fr">French</option>
 </select> 
+<input type="hidden" name="searchdata" value="{{ $searchdata }}"/>     
 </div>
 </div>
 </div>

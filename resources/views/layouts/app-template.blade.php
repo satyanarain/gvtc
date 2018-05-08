@@ -9,6 +9,11 @@ $session_lan= Session::get('language_val');?>
      
       echo"fr";
   } ?>">
+    <?php
+    //$searchurl=Session::put('searchurl', $searchurl);
+    
+    
+    ?>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

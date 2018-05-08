@@ -28,6 +28,7 @@
                 <div class="form-row">
                   
                  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="name" value="{{ old('name') }}" required  class="form-control" id="name" placeholder="Admin Unit Name">
                  @if ($errors->has('name'))
@@ -40,7 +41,7 @@
                     
                     
                 <div class="form-group col-md-6 required">
-                    
+                   <span class="lang-sm" lang="en"></span>  
                   {!! Form::label('Country',Lang::get('menu.country',array(),Session::get('language_val')),['class'=>'control-label']) !!}
                   {!! Form::select('countrie_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','required'=>'required']) !!}  
                   </div>  
@@ -55,6 +56,7 @@
                  <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('admincode') ? ' has-error' : '' }} col-md-6 required">
+                     <span class="lang-sm" lang="en"></span>
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.admin_unit_type', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="admincode" value="{{ old('admincode') }}" required  class="form-control" id="admincode" placeholder="Admin Code">
                  @if ($errors->has('status'))
@@ -64,7 +66,16 @@
                                 @endif
                   </div>  
                   
-                  
+                  <div class="form-group{{ $errors->has('name_fr') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="fr"></span>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</label>
+                  <input type="textarea" name="name_fr" value="{{ old('name_fr') }}" required  class="form-control" id="name" placeholder="Admin Unit Name">
+                 @if ($errors->has('name_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>   
                    
                   
                 </div>  

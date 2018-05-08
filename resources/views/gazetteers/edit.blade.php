@@ -31,13 +31,17 @@
                   
                 <div class="form-group col-md-6">
 
-                  {!! Form::label('Country','Country',['class'=>'control-label']) !!}
+                  {!! Form::label('Country',Lang::get('menu.country',array(),Session::get('language_val')),['class'=>'control-label']) !!}
+                   <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('country_id',$countryrecodsql,isset($gazetteers->country_id) ? $gazetteers->country_id:'selected',['class'=>'form-control','placeholder'=>'Select Country']) !!}
-                  </div>  
+                  <?php }else{ ?>
+                  {!! Form::select('country_id',$countryrecodsql_fr,isset($gazetteers->country_id) ? $gazetteers->country_id:'selected',['class'=>'form-control','placeholder'=>Lang::get('menu.select_country',array(),Session::get('language_val'))]) !!}
+                  <?php } ?>
+                </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
-                  <label for="exampleInputEmail1" class="control-label">Place</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.place', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="place" value="{{$gazetteers->place}}" required   class="form-control" id="place" placeholder="Place">
                  @if ($errors->has('place'))
                                     <span class="help-block">
@@ -51,7 +55,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('details') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Details</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.details', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="details" value="{{$gazetteers->details}}"   class="form-control" id="details" placeholder="Details">
                  @if ($errors->has('details'))
                                     <span class="help-block">
@@ -62,7 +66,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-2 ">
-                  <label for="exampleInputEmail1" class="control-label">Eastings</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.eastings', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="eastings" value="{{$gazetteers->eastings}}"   class="form-control" id="eastings" placeholder="Eastings">
                  @if ($errors->has('eastings'))
                                     <span class="help-block">
@@ -76,7 +80,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-2 ">
-                  <label for="exampleInputEmail1"  class="control-label">Northings</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.northings', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="northings" value="{{$gazetteers->northings}}"   class="form-control" id="species" placeholder="Northings">
                  @if ($errors->has('species'))
                                     <span class="help-block">
@@ -169,7 +173,7 @@
                   
                  
                        <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Habitat</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="habitat" value="{{$gazetteers->habitat}}"   class="form-control" id="habitat" placeholder="Habitat">
                  @if ($errors->has('habitat'))
                                     <span class="help-block">
@@ -228,8 +232,8 @@
                   
                   
                 <div class="form-group{{ $errors->has('soil') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Soil</label>
-                  <input type="text" name="soil" value="{{$gazetteers->soil}}"   class="form-control" id="soil" placeholder="Soil">
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.soil', array(),$session_lan= Session::get('language_val'))</label>
+                  <input type="text" name="soil" value="{{$gazetteers->soil}}"   class="form-control" id="soil" placeholder="@lang('menu.soil', array(),$session_lan= Session::get('language_val'))">
                  @if ($errors->has('soil'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('soil') }}</strong>
@@ -239,8 +243,12 @@
                             
                     <div class="form-group col-md-6 ">
                 {!! Form::label('ProtectedArea','Protected Area',['class'=>'control-label']) !!}
+                <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Select Protected Area']) !!}
-                  </div>         
+                <?php }else{ ?>
+                  {!! Form::select('protected_area_id',$protectedrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Sélectionner une zone protégée']) !!}
+                 <?php } ?> 
+                    </div>         
                             
                             
                   
@@ -251,14 +259,18 @@
                   
                 <div class="form-group col-md-6 ">
                 {!! Form::label('AdminUnit','Admin Unit',['class'=>'control-label']) !!}
+                <?php if(Session::get('language_val')=='en'){ ?>
                   {!! Form::select('adminunit_id',$adminunitrecodsql,null,['class'=>'form-control','placeholder'=>'Select Admin Unit']) !!}
+                <?php }else{ ?>
+                   {!! Form::select('adminunit_id',$adminunitrecodsql_fr,null,['class'=>'form-control','placeholder'=>"Sélectionnez l'unité d'administration"]) !!}
+                <?php } ?>
                   </div> 
                       
                   
                   
                 <div class="form-group{{ $errors->has('remarks') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Remarks</label>
-                  <input type="text" name="remarks" value="{{$gazetteers->remarks}}"   class="form-control" id="remarks" placeholder="Remarks">
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.remarks', array(),$session_lan= Session::get('language_val'))</label>
+                  <input type="text" name="remarks" value="{{$gazetteers->remarks}}"   class="form-control" id="remarks" placeholder="@lang('menu.remarks', array(),$session_lan= Session::get('language_val'))">
                  @if ($errors->has('aspect'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('remarks') }}</strong>

@@ -12,6 +12,8 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
+    
+    'select_country'=>'Select Country',
     'profile'=>'Profile',
     'sign_out'=>'Sign out',
     'species'=>'Species',
@@ -24,7 +26,7 @@ return [
     'description'=>'Description',
     'reportcategory'=>'Report Category',
     
-    
+     'details'=>'Details',
     
     'dashboard'=> 'Dashboard',
     'species'=>'Species',
@@ -90,6 +92,8 @@ return [
     'plants_growth_form'=>'Plants Growth Form',
     'protected_area'=>'Protected Area',
     'protected_area_name'=>'Protected Area Name',
+    'select_protected_area'=>'Select Protected Area',
+    'select_admin_unit'=>'Select Admin Unit',
     'country'=>'Country',  
     'countreis'=>'Countries',  
     'protected_area_code'=>'Protected Area Code',
@@ -129,6 +133,7 @@ return [
     'view_reports'=>'View reports',
     'permissions'=>'Permissions',
     'remarks'=>'Remarks',
+    'soil'=>'Soil',
     'sex'=>'Sex',
     'collector_institution'=>'Collector Institution',
     'specimen_code'=>'Specimen Code',
@@ -165,8 +170,13 @@ return [
     'endenism'=>'Endemism',
     'endenism_status'=>'Endemism Status',
      'admin_unit'=>'Admin Unit',
+     'aspect'=>'Aspect',
+     'slope'=>'Slope',
+     'altitude'=>'Altitude',
+     'habitat'=>'Habitat',
      'name'=>'Name',
      'admin_unit_type'=>'Admin Unit Type',
+    'northings'=>"Northings",
     
     //usertbl
     'email_address'=>'Email Address',
@@ -182,6 +192,9 @@ return [
     'datum'=>'Datum',
     'longitude'=>'Longitude',
     'latitude'=>'Latitude',
+    'eastings'=>'Eastings',
+    'zone'=>'zone',
+    
     //specics
     'species_author'=>'Species Author',
     'sub_species'=>"Sub-species",

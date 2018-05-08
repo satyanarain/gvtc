@@ -2,18 +2,7 @@
 <header class="masthead">
 <div class="container">
 <div class="intro-text">
-<form action="/search" method="GET" autocomplete="off" class="form-horizontal customForm" accept-charset="utf-8" role="search">
-            {{ csrf_field() }}
-            <div class="input-group">
-                <input type="text" class="form-control custom-search" required="" name="q"
-                    placeholder="Enter search term(s)..." title="Enter a search term (Genus or Species or Common name)"  autocomplete="off"> <span class="input-group-btn">
-                   <button class="btn btn-primary text-uppercase" type="submit" style="padding:12px;border-top-left-radius:0px; border-bottom-left-radius:0px;">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </span>
-            </div>
-        </form>        
-<!--<form action="" autocomplete="off" class="form-horizontal customForm" method="post" accept-charset="utf-8">
+<form action="" autocomplete="off" class="form-horizontal customForm" method="post" accept-charset="utf-8">
 <div class="input-group">
 <input name="searchtext"  name="search_text" title="Enter a search term (taxonomic name to species level or common name)"  autocomplete="off" id="search" class="form-control" placeholder="Enter search term(s)...">
 <span class="input-group-btn">
@@ -22,7 +11,7 @@ Advanced Search
 </button>
 </span>
 </div>
-</form>-->
+</form>
 </div>
      
 </div>
@@ -30,11 +19,7 @@ Advanced Search
 @section('bg-light')
 <section class="bg-light" id="portfolio">
 <div class="container">
-
-
-
-
-
+<div id="txtHint" class="title-color" style="padding-top:0px; margin-top: 0px; text-align:center;" ><b>Species information will be listed here...</b></div>
 <!--    <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -514,8 +499,8 @@ Advanced Search
                 <th>Salary</th>
             </tr>
         </tfoot>
-    </table>
-     -->
+    </table>-->
+     
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">GVTC | Wildlife Conversation Society</h2>

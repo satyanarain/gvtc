@@ -19,31 +19,31 @@
 <div class="box-body">
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Country</label>
+<label for="exampleInputEmail1">@lang('menu.country', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->range_code}}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Place</label>
+<label for="exampleInputEmail1">@lang('menu.place', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->place }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Details </label>
+<label for="exampleInputEmail1">@lang('menu.details', array(),$session_lan= Session::get('language_val')) </label>
 <input type="text" readonly  value="{{ $gazetteers->details }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Eastings</label>
+<label for="exampleInputEmail1">@lang('menu.eastings', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->eastings }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Northings</label>
+<label for="exampleInputEmail1">@lang('menu.northings', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->northings }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Zone</label>
+<label for="exampleInputEmail1">@lang('menu.zone', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->zone }}" readonly=""  class="form-control">
 </div>  
 </div> 
@@ -53,67 +53,67 @@
 <input type="text" readonly  value="{{ $gazetteers->datum }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Longitude</label>
+<label for="exampleInputEmail1">@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->longitude }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Latitude</label>
+<label for="exampleInputEmail1">@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->latitude }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Day</label>
+<label for="exampleInputEmail1">@lang('menu.day', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->day }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Month</label>
+<label for="exampleInputEmail1">@lang('menu.month', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->month }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Year</label>
+<label for="exampleInputEmail1">@lang('menu.year', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->year }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Habitat</label>
+<label for="exampleInputEmail1">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->habitat }}"  class="form-control" >
 </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Altitude</label>
+<label for="exampleInputEmail1">@lang('menu.altitude', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->altitude }}" readonly=""  class="form-control">
 </div>  
 </div> 
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Slope </label>
+<label for="exampleInputEmail1">@lang('menu.slope', array(),$session_lan= Session::get('language_val')) </label>
 <input type="text" readonly  value="{{ $gazetteers->slope }}"  class="form-control" >
  </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Aspect</label>
+<label for="exampleInputEmail1">@lang('menu.aspect', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->aspect }}" readonly=""  class="form-control">
 </div>  
 </div>
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Soil </label>
+<label for="exampleInputEmail1">@lang('menu.soil', array(),$session_lan= Session::get('language_val')) </label>
 <input type="text" readonly  value="{{ $gazetteers->soil }}"  class="form-control" >
  </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Protected Area</label>
+<label for="exampleInputEmail1">@lang('menu.protected_area', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->protected_area_name}}" readonly=""  class="form-control">
 </div>  
 </div>
 <div class="form-row">
 <div class=" col-md-6">
-<label for="exampleInputEmail1">Admin Unit</label>
+<label for="exampleInputEmail1">@lang('menu.admin_unit', array(),$session_lan= Session::get('language_val'))</label>
 <input type="text" readonly  value="{{ $gazetteers->admincode }}"  class="form-control" >
  </div>  
 <div class="form-group col-md-6">
-<label for="exampleInputEmail1">Remarks</label>
+<label for="exampleInputEmail1">@lang('menu.remarks', array(),$session_lan= Session::get('language_val'))</label>
 <input  value="{{ $gazetteers->remarks }}" readonly=""  class="form-control">
 </div>  
 </div>    

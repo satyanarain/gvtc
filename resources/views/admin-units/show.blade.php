@@ -55,7 +55,11 @@
                   </div> 
                     
                   
-               
+               <div class="col-md-6">
+                  <label for="exampleInputEmail1">@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</label>
+                  <input  value="{{ $adminunits->name_fr }}" readonly=""  class="form-control">
+                
+                  </div>  
                   
                   
                   

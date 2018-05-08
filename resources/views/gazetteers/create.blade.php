@@ -33,14 +33,17 @@
                 <div class="form-group col-md-6">
 
                   {!! Form::label('Country',Lang::get('menu.country',array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>'Select Country','id' => 'country_id']) !!}
-                 
+                  <?php if(Session::get('language_val')=='en'){ ?>
+                  {!! Form::select('country_id',$countryrecodsql,null,['class'=>'form-control','placeholder'=>Lang::get('menu.select_country',array(),Session::get('language_val')),'id' => 'country_id']) !!}
+                  <?php }else{ ?>
+                  {!! Form::select('country_id',$countryrecodsql_fr,null,['class'=>'form-control','placeholder'=>Lang::get('menu.select_country',array(),Session::get('language_val')),'id' => 'country_id']) !!}
+                  <?php } ?>
                 </div>  
                   
                   
                   <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }} col-md-6 required">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.place', array(),$session_lan= Session::get('language_val'))</label>
-                  <input type="text" name="place" value="{{ old('place') }}" required   class="form-control" id="place" placeholder="Place">
+                  <input type="text" name="place" value="{{ old('place') }}" required   class="form-control" id="place" placeholder={{ Lang::get('menu.place',array(),Session::get('language_val'))}} >
                  @if ($errors->has('place'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('place') }}</strong>
@@ -53,7 +56,7 @@
                    <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('details') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Details</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.details', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="details" value="{{ old('details') }}"   class="form-control" id="details" placeholder="Details">
                  @if ($errors->has('details'))
                                     <span class="help-block">
@@ -91,7 +94,7 @@
                                 @endif
                   </div> 
                        <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
-                  <label for="exampleInputEmail1"  class="control-label">Datum (DD)</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.datum', array(),$session_lan= Session::get('language_val')) (DD)</label>
                   <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control" id="datum_dd" placeholder="Datum (DD)">
                  @if ($errors->has('datum_dd'))
                                     <span class="help-block">
@@ -102,7 +105,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('zone') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1" class="control-label">Zone</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.zone', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="zone" value="{{ old('zone') }}"   class="form-control" id="zone" placeholder="Zone">
                  @if ($errors->has('zone'))
                                     <span class="help-block">
@@ -117,7 +120,7 @@
                   
                  
                   <div class="form-group{{ $errors->has('eastings') ? ' has-error' : '' }} col-md-2 ">
-                  <label for="exampleInputEmail1" class="control-label">Eastings</label>
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.eastings', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="eastings" value="{{ old('eastings') }}"   class="form-control" id="eastings" placeholder="Eastings">
                  @if ($errors->has('eastings'))
                                     <span class="help-block">
@@ -134,7 +137,7 @@
                        
                        
                       <div class="form-group{{ $errors->has('northings') ? ' has-error' : '' }} col-md-2 ">
-                  <label for="exampleInputEmail1"  class="control-label">Northings</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.northings', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="northings" value="{{ old('northings') }}"   class="form-control" id="species" placeholder="Northings">
                  @if ($errors->has('species'))
                                     <span class="help-block">
@@ -177,7 +180,7 @@
                   
                  
                        <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Habitat</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="habitat" value="{{ old('habitat') }}"   class="form-control" id="habitat" placeholder="Habitat">
                  @if ($errors->has('habitat'))
                                     <span class="help-block">
@@ -189,7 +192,7 @@
                       
                       
                       <div class="form-group{{ $errors->has('altitude') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Altitude</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.altitude', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="altitude" value="{{ old('altitude') }}"   class="form-control" id="altitude" placeholder="Altitude">
                  @if ($errors->has('altitude'))
                                     <span class="help-block">
@@ -206,8 +209,8 @@
                        <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('slope') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Slope</label>
-                  <input type="text" name="slope" value="{{ old('slope') }}"   class="form-control" id="slope" placeholder="Slope">
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.slope', array(),$session_lan= Session::get('language_val'))</label>
+                  <input type="text" name="slope" value="{{ old('slope') }}"   class="form-control" id="slope" placeholder="@lang('menu.slope', array(),$session_lan= Session::get('language_val'))">
                  @if ($errors->has('slope'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('slope') }}</strong>
@@ -218,7 +221,7 @@
                   
                   
                 <div class="form-group{{ $errors->has('aspect') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Aspect</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.aspect', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="aspect" value="{{ old('aspect') }}"   class="form-control" id="aspect" placeholder="Aspect">
                  @if ($errors->has('aspect'))
                                     <span class="help-block">
@@ -237,9 +240,9 @@
                   
 
                   <div class="form-group col-md-6" id="adminunit_default">
-                <label for="AdminUnit" class="control-label">Admin Unit</label>
+                <label for="AdminUnit" class="control-label">@lang('menu.admin_unit', array(),$session_lan= Session::get('language_val'))</label>
                   <select class="form-control" name="adminunit_id">
-                  <option selected="selected" value="">Select Admin Unit</option>
+                  <option selected="selected" value=""> @lang('menu.select_admin_unit', array(),$session_lan= Session::get('language_val')) </option>
                   </select>
                   </div>
                   
@@ -250,9 +253,9 @@
                   {!! Form::select('protected_area_id',$protectedrecodsql,null,['class'=>'form-control','placeholder'=>'Select Protected Area']) !!}-->
                  
                             
-                   <label for="ProtectedArea" class="control-label">Protected Area</label>
+                   <label for="ProtectedArea" class="control-label">@lang('menu.protected_area', array(),$session_lan= Session::get('language_val'))</label>
         <select class="form-control" name="protected_area_id" >
-       <option selected="selected" value="">Select Protected Area</option>  
+       <option selected="selected" value="">@lang('menu.select_protected_area', array(),$session_lan= Session::get('language_val'))</option>  
         </select>                  
               </div>                        
                             
@@ -263,8 +266,8 @@
                    <div class="form-row">
                   
                <div class="form-group{{ $errors->has('soil') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Soil</label>
-                  <input type="text" name="soil" value="{{ old('soil') }}"   class="form-control" id="soil" placeholder="Soil">
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.soil', array(),$session_lan= Session::get('language_val'))</label>
+                  <input type="text" name="soil" value="{{ old('soil') }}"   class="form-control" id="soil" placeholder="@lang('menu.soil', array(),$session_lan= Session::get('language_val'))">
                  @if ($errors->has('soil'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('soil') }}</strong>
@@ -275,7 +278,7 @@
                   
                   
                 <div class="form-group{{ $errors->has('remarks') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">Remarks</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.remarks', array(),$session_lan= Session::get('language_val'))</label>
                   <input type="text" name="remarks" value="{{ old('remarks') }}"   class="form-control" id="remarks" placeholder="Remarks">
                  @if ($errors->has('aspect'))
                                     <span class="help-block">
