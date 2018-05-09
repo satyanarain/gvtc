@@ -15,7 +15,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 <div class="box-header with-border">
 <div class="row">
     <div class="col-sm-8">
-      <h3 class="box-title">Report Category Log</h3>
+      <h3 class="box-title">@lang('menu.reportcategory', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
     </div>
 <?php if($getpermissionstatus!=0){?>
 <div class="col-sm-4" >
@@ -115,6 +115,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   $(function () {
       
     $("#table").DataTable();
+    
 
     $( "#tablecontents" ).sortable({
       items: "tr",

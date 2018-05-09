@@ -1,4 +1,5 @@
 @extends('layouts_frontend.masterlayout')
+@section('bg-light')
 <header class="masthead">
 <div class="container">
 <div class="intro-text">
@@ -27,7 +28,6 @@ Advanced Search
      
 </div>
 </header>
-@section('bg-light')
 <section class="bg-light" id="portfolio">
 <div class="container">
 

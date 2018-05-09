@@ -71,11 +71,12 @@ class LoginController extends Controller
             
             }
             $userid=$userid->id;
+            if($request['searchdata']!=''){
             DB::table('searchresult')->insert(
-            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 0)
+            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
         );    
                 
-                
+            }       
                 
              Session::put('language_val', $request['lanuage']);
              return redirect('/home');

@@ -22,6 +22,7 @@ $session_lan= Session::get('language_val');?>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--  <title>{{ config('app.name', 'Laravel') }}</title>-->
 <title>GVTC Admin Panel </title>
+<link rel="icon" href="{{ asset('/front/img/favicon.ico') }}" type="image/x-icon" />
     <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->

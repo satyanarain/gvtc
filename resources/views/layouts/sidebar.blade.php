@@ -38,7 +38,7 @@ $role=Auth::user()->role;
        
        
  
-       
+       <?php if($role!='guest'){?>
        
         <li class="treeview" >
           <a href="#">
@@ -57,13 +57,13 @@ $segment1 =  Request::segment(1);
 $segment2 =  Request::segment(2);
 ?>
         <ul class="treeview-menu" style="<?php if(in_array(Request::segment(1),$arrareport)){ echo "display: block";} ?>">
-    <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="{{ url('reportcategory/') }}"> <i class="fa fa-bar-chart"></i> <span>Reports category</span></a>  </li> 
-    <li class="<?php if($segment1=='report' && $segment2=='uploadreport'){ echo "active"; } ?>"><a href="{{ url('report/uploadreport/') }}"> <i class="fa fa-bar-chart"></i> <span>Upload Reports</span></a>  </li> 
+    <li class="{{ Request::segment(1) == 'reportcategory' ? 'active' : '' }}"><a href="{{ url('reportcategory/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.reportcategory', array(),Session::get('language_val'))</span></a>  </li> 
+    <li class="<?php if($segment1=='report' && $segment2=='uploadreport'){ echo "active"; } ?>"><a href="{{ url('report/uploadreport/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.upload_reports', array(),Session::get('language_val'))</span></a>  </li> 
        <li class="<?php if($segment1=='report' && $segment2==''){ echo "active"; } ?>"><a href="{{ url('report/') }}"> <i class="fa fa-bar-chart"></i> <span>@lang('menu.manage_reports', array(),Session::get('language_val'))</span></a>  </li> 
       </ul>
     </li>
        
-       
+       <?php } ?> 
        
 
        
@@ -133,6 +133,9 @@ $segment2 =  Request::segment(2);
   <?php } ?> 
        
       <li class=""><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-lock"></span>  <span> @lang('menu.change_password', array(),$session_lan)</span></a></li> 
+       <?php if($role!='guest'){?>
+      <li class=""><a href="{{ url('searchresult') }}"><span class="glyphicon glyphicon-search"></span>  <span> @lang('menu.searchresult', array(),$session_lan)</span></a></li> 
+       <?php } ?>
       <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>@lang('menu.sign_out', array(),$session_lan) </span></a></li> 
       
    

@@ -26,6 +26,21 @@ return [
     'description'=>'Description',
     'reportcategory'=>'Report Category',
     
+    //upload report
+    'upload_reports'=>'Upload Reports',
+    'upload_report'=>'Upload Report',
+    'report'=>'Report',
+    'record'=>'Record',
+    'report_log'=>'Report Log',
+    'report_title'=>'Report Title',
+    'report_category'=>'Report Category',
+    'report_created_date'=>'Report Created Date',
+    
+    //serachresult
+    'searchresult'=>'SearchResult',
+    'searchurl'=>'SearchURL',
+    
+    
      'details'=>'Details',
     
     'dashboard'=> 'Dashboard',

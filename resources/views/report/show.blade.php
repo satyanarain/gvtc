@@ -9,7 +9,7 @@
           <!-- general form elements -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">View Report Record</h3>
+              <h3 class="box-title">@lang('menu.view', array(),Session::get('language_val')) @lang('menu.report', array(),Session::get('language_val')) @lang('menu.record', array(),Session::get('language_val'))</h3>
              <div class="pull-right">
 <a href="{{ url('report/uploadreport/') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -28,7 +28,7 @@
                     
                     
                       <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1"  class="control-label">Report Title</label>
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.report_title', array(),Session::get('language_val'))</label>
                   <input type="text" name="report_title"  value="{{ $reportresult->report_title }}"   required=""  class="form-control" id="report_title" placeholder="Report Title">
                  
                                
@@ -38,7 +38,7 @@
                   
                   
                   <div class="form-group col-md-6">
-                  {!! Form::label('Report Category','Report Category',['class'=>'control-label']) !!}
+                  {!! Form::label('Report Category',Lang::get('menu.report_category', array(),Session::get('language_val')),['class'=>'control-label']) !!}
     <input type="text" name="report_title"  value="{{ $reportresult->title }}"   required=""  class="form-control" id="report_title" placeholder="Report Title">
                  
                   </div>  

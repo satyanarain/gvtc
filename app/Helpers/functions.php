@@ -17,6 +17,16 @@ function testdatas($table='',$id='', $status = '') {
 }
 
 
+function adminapproval($table='',$id='', $adminaprovel = '') {
+
+    $lang=Session::get('language_val');
+       ?>
+<div  style="margin-left: 15px;" <?php if($adminaprovel==1) { ?>class="btn btn-small btn-success pull" <?php }else{ ?>  class="btn btn-small btn-danger dng-w" <?php } ?>  id="<?php echo $id; ?>" onclick="adminapprovalUpdate(this.id,'<?php echo $table; ?>','<?php echo $lang ?>')">&nbsp;<span id="<?php echo "ai".$id; ?>"> <?php if($adminaprovel==1){ ?> <i class="fa fa-check-circle"></i> Active <?php }else{ ?>  <i class="fa fa-times-circle"></i>&nbsp;<?php if($lang=='en'){ ?>In-active <?php }else{ ?>enactivité<?php } ?> <?php }?></span></div>                      
+       
+
+ <?php
+}
+
 function userstatus($table='',$id='', $status = '') {
 $lang=Session::get('language_val');
    

@@ -1,8 +1,9 @@
 @extends('layouts_frontend.masterlayout')
 
-<!------ Include the above in your HEAD tag ---------->
-<!-- Header -->
-    <header class="insidehead slideImg1">
+@section('bg-light')
+
+
+<header class="insidehead slideImg1">
       <div class="container">
           <h1>Reports</h1>
       </div>
@@ -17,11 +18,6 @@
             </ol>
         </div>
 	</div>
-	<!-- breadcrumb -->
-@section('bg-light')
-
-
-
 
 
 <!-- Latest compiled and minified Bootstrap CSS -->
@@ -33,7 +29,7 @@
       	
           
           <?php
-$sql = DB::table('report_categories')->orderBy('order')->get();
+$sql = DB::table('report_categories')->orderBy('order')->where('status',1)->get();
 $ids='';
 foreach ($sql as $v) {
     
@@ -53,7 +49,7 @@ if($categoty_count>0){
      
 <?php
 
-$reporter =DB::table('report')->select('*')->where('report_categories_id',$v->id)->get();
+$reporter =DB::table('report')->select('*')->where('report_categories_id',$v->id)->where('status',1)->get();
 //echo '<pre>';
 //print_r($reporter);
 //exit();

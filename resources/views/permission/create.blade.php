@@ -240,7 +240,7 @@ $username= $sql->username;
             </div>
         </div>             
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
+            <div class="panel-heading" role="tab" id="headingFive">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" class="accordion-toggle collapsed">
                         
@@ -259,7 +259,7 @@ $username= $sql->username;
         </div>  
                      
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
+            <div class="panel-heading" role="tab" id="headingSix">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" class="accordion-toggle collapsed">
                         
@@ -277,8 +277,36 @@ $username= $sql->username;
                      
                 </div>
             </div>
-        </div>             
+        </div>    
+                     
+                     
+                     
+    <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" class="accordion-toggle collapsed">
+                        
+                        SearchResult <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+            <div class="panel-body">
+                    <label class="checkbox-inline label_accord">Manage SearchResult Records<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="searchresult_view" <?php if(in_array('searchresult_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="searchresult_edit" <?php if(in_array('searchresult_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
+                   
+                   
+                     
+                </div>
+            </div>
+        </div>                 
 
+                     
+                     
+                     
+                     
+                     
     </div><!-- panel-group -->
                 
                 

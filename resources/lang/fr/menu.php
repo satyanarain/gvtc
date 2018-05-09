@@ -20,6 +20,24 @@ return [
     'manage_users'=>'gérer les utilisateurs',
     'user'=>'utilisateur',
     
+    'title'=>'Titre',
+    'description'=>'Description',
+    'reportcategory'=>'Catégorie de rapport',
+    
+    //upload report
+    'upload_reports'=>'Envoyer des rapports',
+    'upload_report'=>'Envoyer des rapport',
+    'report'=>'Rapport',
+    'record'=>'Enregistrement',
+    'report_log'=>'Journal des rapports',
+    'report_title'=>'Titre du rapport',
+    'report_category'=>'Catégorie de rapport',
+    'report_created_date'=>'Date de création du rapport',
+    
+    //serachresult
+    'searchresult'=>'SearchResult',
+    'searchurl'=>'SearchURL',
+    
     'title'=>'Title',
     'description'=>'Description',
     'species'=>'Espèces',

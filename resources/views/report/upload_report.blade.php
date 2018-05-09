@@ -16,7 +16,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Report Log</h3>
+          <h3 class="box-title">@lang('menu.report_log', array(),$session_lan)</h3>
         </div>
 <?php if($getpermissionstatus!=0){?>        
 <div class="col-sm-4" >
@@ -42,9 +42,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <th>#</th>  
                   <th style="display:none">id</th> 
-                  <th>Report Title</th>
-                  <th>Report Category</th>
-                  <th>Report Created Date</th>
+                  <th>@lang('menu.report_title', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.report_category', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.report_created_date', array(),Session::get('language_val'))</th>
                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
                 </tr>
