@@ -9,6 +9,7 @@ use Auth;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Respons;
+use Mail;
 
 
 use App\User;
@@ -66,16 +67,42 @@ class LoginController extends Controller
             $username=$request['username'];
             $searchdata=$request['searchdata'];
             $sqluserid=DB::table('users')->where('username' , $username)->get();
-            foreach($sqluserid as $userid){
-            $userid->id;
+            foreach($sqluserid as $val){
+            $val->id;
+            $val->role;
+            $val->email;
             
             }
-            $userid=$userid->id;
-            if($request['searchdata']!=''){
+            $userid=$val->id;
+            $userrole=$val->role;
+            $useremail=$val->email;
+//            echo "==============";
+//            die;
+            if($request['searchdata']!=''&& $userrole="guest"){
             DB::table('searchresult')->insert(
             array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
-        );    
-                
+            );    
+            
+            $query_email = array(
+            'username'=> $username, 
+            'searchdata' => $searchdata,
+             'email' => $useremail,   
+            'date'      => date("M d, Y h:i a")
+            );
+           
+            //$query_user =  (object) $query_email;
+            $query_user =  (object) $query_email; 
+            Mail::send('emails.searchresult', ['search_details' => $query_user], function ($message) use ($query_user) {
+              $message->from('info@opiant.online', 'GVTC');
+              $message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
+          });
+             Mail::send('emails.searchresultuser', ['search_details_user' => $query_user], function ($message) use ($query_user) {
+              $message->from('info@opiant.online', 'GVTC');
+              //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
+              $message->to($query_user->email,$query_user->username)->subject('GVTC Guset Search');
+          });
+            
+            
             }       
                 
              Session::put('language_val', $request['lanuage']);

@@ -20,7 +20,7 @@
 </div>
 </div>
 <div class="form">
-<div class="thumbnail"><img src="{{ asset('images/logo.jpg') }}"/></div>
+    <div class="thumbnail"><a href="{{ url('/')}}"><img src="{{ asset('images/logo.jpg') }}"/></a></div>
 @if(Session::has('success'))
 <div class="alert alert-success" style='color:#a94442'>{{Session::get('success')}}</div>
 @elseif(Session::has('fail'))

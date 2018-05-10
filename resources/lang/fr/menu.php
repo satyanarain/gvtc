@@ -33,6 +33,7 @@ return [
     'report_title'=>'Titre du rapport',
     'report_category'=>'Catégorie de rapport',
     'report_created_date'=>'Date de création du rapport',
+    'select_report_category'=>'Sélectionner la catégorie de rapport',
     
     //serachresult
     'searchresult'=>'SearchResult',

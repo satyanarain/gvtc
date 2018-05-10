@@ -46,18 +46,19 @@ class SpeciesController extends Controller
     public function index()
     {
         
-      $speciesn = Species::latest()->count();
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "species_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+     if($getpermissionstatus==0)
+     return redirect()->route('user-management.unauthorized'); 
+     $speciesn = Species::latest()->count();
 
     return view('species.index', compact('speciesn'));    
         
         
-//     $user_id=Auth::id();
-//     $role=Auth::user()->role;
-//     $permission_key = "species_view";
-//     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-//        //print_r($getpermissionstatus);die;
-//        if($getpermissionstatus==0)
-//            return redirect()->route('user-management.unauthorized');   
+       
 //    $species = DB::table('species')->select('*','species.id as id','species.status as status')->leftjoin('taxons','species.taxon_id','=','taxons.id')->get();
 //       
 //    return view('species.index', compact('species'));

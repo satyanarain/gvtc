@@ -41,13 +41,13 @@ class SearchResultController extends Controller
     {
         
           
-//    $user_id=Auth::id();
-//    $role=Auth::user()->role;
-//    $permission_key = "taxon_view";
-//    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    $user_id=Auth::id();
+   $role=Auth::user()->role;
+  $permission_key = "searchresult_view";
+   $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 //        //print_r($getpermissionstatus);die;
-//    if($getpermissionstatus==0)
-//    return redirect()->route('user-management.unauthorized');    
+    if($getpermissionstatus==0)
+   return redirect()->route('user-management.unauthorized');    
     $searchresult = SearchResult::all()->toArray();
     
     return view('searchresult.index', compact('searchresult'));

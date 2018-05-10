@@ -107,12 +107,12 @@ $username= $sql->username;
                 </h4>
             </div>
             <div id="collapseThree" class="panel-collapse collapse custom-panel-body" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
+<!--                <div class="panel-body">
                     <label class="checkbox-inline title_space">Observers</label>
-                     <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="observer_add" <?php if(in_array('observer_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
-                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_edit" <?php if(in_array('observer_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_view" <?php if(in_array('observer_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
-                </div>
+                     <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="observer_add" <?php //if(in_array('observer_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
+                     <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_edit" <?php //if(in_array('observer_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="action[]" value="observer_view" <?php //if(in_array('observer_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
+                </div>-->
                 
                 <div class="panel-body">
                 <label class="checkbox-inline title_space">Taxon</label>
@@ -254,7 +254,24 @@ $username= $sql->username;
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="download_report" <?php if(in_array('download_report',$getAllPermission)){echo 'checked="checked"';}?>>Download</label>
                    
                      
-                </div>
+            </div>
+            <div class="panel-body">
+                    <label class="checkbox-inline label_accord">Manage Report Category<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="report_category_view" <?php if(in_array('report_category_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="report_category_edit" <?php if(in_array('report_category_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="report_category_add" <?php if(in_array('report_category_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
+                   
+                     
+            </div>
+                
+            <div class="panel-body">
+                    <label class="checkbox-inline label_accord">Manage Upload Reports<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="upload_report_view" <?php if(in_array('upload_report_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="upload_report_edit" <?php if(in_array('upload_report_edit',$getAllPermission)){echo 'checked="checked"';}?>>Edit</label>
+                   <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="upload_report_add" <?php if(in_array('upload_report_add',$getAllPermission)){echo 'checked="checked"';}?>>Add</label>
+                   
+                     
+            </div>    
             </div>
         </div>  
                      
@@ -284,13 +301,13 @@ $username= $sql->username;
     <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" class="accordion-toggle collapsed">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" class="accordion-toggle collapsed">
                         
                         SearchResult <input type="hidden"  name="user_id" value="{{ Request::segment(3)}}">
                     </a>
                 </h4>
             </div>
-            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
             <div class="panel-body">
                     <label class="checkbox-inline label_accord">Manage SearchResult Records<input type="hidden"  name="user_id" value="{{ Request::segment(3)}}"></label>
                    <label class="checkbox-inline"> <input type="checkbox" name="action[]" value="searchresult_view" <?php if(in_array('searchresult_view',$getAllPermission)){echo 'checked="checked"';}?>>View</label>

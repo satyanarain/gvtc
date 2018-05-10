@@ -40,13 +40,13 @@ class ReportCategoryController extends Controller
     public function index()
     {
        
-    //$user_id=Auth::id();
-    //$role=Auth::user()->role;
-    //$permission_key = "taxon_view";
-    //$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
-    //if($getpermissionstatus==0)
-    //return redirect()->route('user-management.unauthorized');    
+    $user_id=Auth::id();
+    $role=Auth::user()->role;
+    $permission_key = "report_category_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+     //print_r($getpermissionstatus);die;
+    if($getpermissionstatus==0)
+    return redirect()->route('user-management.unauthorized');    
 //    $rcategory = ReportCategory::all()->toArray();
 //    return view('report_category.index', compact('rcategory'));
     

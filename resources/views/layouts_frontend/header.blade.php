@@ -36,7 +36,7 @@ $contname=explode('.',$contnamet);
               <a class="nav-link loginBtn" href="{{ url('login/')}}"><i class="fa fa-lock"></i> Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link guestUserBtn" href=""><i class="fa fa-user"></i> Guest User Registration</a>
+              <a class="nav-link guestUserBtn" href="{{ url('guest_register')}}"><i class="fa fa-user"></i> Guest User Registration</a>
             </li>
             <?php }else{?>
             <li class="nav-item">    

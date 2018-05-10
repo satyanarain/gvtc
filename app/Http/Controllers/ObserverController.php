@@ -40,27 +40,21 @@ class ObserverController extends Controller
      */
     public function index()
     {
-        $observers = Observer::latest()->count();
-        return view('observers.index', compact('observers'));  
-//     $user_id=Auth::id();
-//     $role=Auth::user()->role;
-//     $permission_key = "observer_view";
-//     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-//     if($getpermissionstatus==0)
-//     return redirect()->route('user-management.unauthorized');      
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "observer_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+     if($getpermissionstatus==0)
+     return redirect()->route('user-management.unauthorized');
+     $observers = Observer::latest()->count();
+     return view('observers.index', compact('observers'));       
 //    $observers = Observer::all()->toArray();
 //    return view('observers.index', compact('observers'));
     
     }
     
     public function showbulkrecord(){
-     $user_id=Auth::id();
-     $role=Auth::user()->role;
-     $permission_key = "observer_view";
-     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-     if($getpermissionstatus==0)
-     return redirect()->route('user-management.unauthorized');    
-    //$observers = Observer::all()->toArray();
+    
     $observers = DB::table('observers')->selectRaw('*')->get();
 
     return DataTables::of($observers)->make(true); 

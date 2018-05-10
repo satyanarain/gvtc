@@ -11,7 +11,7 @@
                 <div class="panel-heading">Guest User Registration
                 
                     <div class="pull-right" style="margin-top:0px;">
-<a href="<?php echo $url='http://'.$_SERVER['HTTP_HOST'].'/'.'login'; ?>" class="">
+<a href="<?php echo $url='http://'.$_SERVER['HTTP_HOST']; ?>" class="">
 <span class="glyphicon glyphicon-home text-black"></span></a>
 </div>
                 

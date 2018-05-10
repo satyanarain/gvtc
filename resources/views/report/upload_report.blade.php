@@ -6,7 +6,7 @@
 <?php
 $user_id=Auth::id();
 $role=Auth::user()->role;
-$permission_key = "taxon_add";
+$permission_key = "upload_report_add";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
 //print_r($getpermissionstatus);
@@ -31,7 +31,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
    <?php
 $user_id=Auth::id();
 $role=Auth::user()->role;
-$permission_key = "taxon_edit";
+$permission_key = "upload_report_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   

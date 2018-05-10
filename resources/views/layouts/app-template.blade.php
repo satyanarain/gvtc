@@ -71,6 +71,16 @@ $session_lan= Session::get('language_val');?>
     </script>
     <script src="{{ asset ("/js/validation.js") }}"></script>
     <script src="{{ asset ("/js/custom.js") }}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118984792-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118984792-1');
+</script>
+
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <?php

@@ -30,7 +30,7 @@
    <?php
 $user_id=Auth::id();
 $role=Auth::user()->role;
-$permission_key = "taxon_edit";
+$permission_key = "searchresult_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 ?>
   
@@ -42,8 +42,9 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th style="display:none">id</th> 
                   <th>&nbsp;@lang('menu.username', array(),Session::get('language_val'))</th>
                   <th>&nbsp;@lang('menu.searchurl', array(),Session::get('language_val'))</th>
+                  <?php if($getpermissionstatus!=0){?>
                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
-                 
+                 <?php } ?> 
                 </tr>
                 </thead>
                 <tbody>
@@ -54,21 +55,23 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
                     <td>{{ $val['serchurl'] }}</td>
-            
+            <?php if($getpermissionstatus!=0){?>
                   <td>
                
 
 
 
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
-<?php adminapproval('searchresult',$val['id'],$val['adminaprovel']); ?> 
 
+    <?php adminapproval('searchresult',$val['id'],$val['adminaprovel']); ?> 
+        
+</td>
+<?php } ?>  
+</tr>
                    
                     </form
                           
-             
-</td>
-</tr>
+
                
               @endforeach
              

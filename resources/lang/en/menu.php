@@ -35,6 +35,7 @@ return [
     'report_title'=>'Report Title',
     'report_category'=>'Report Category',
     'report_created_date'=>'Report Created Date',
+    'select_report_category'=>'Select Report Category',
     
     //serachresult
     'searchresult'=>'SearchResult',

@@ -42,18 +42,21 @@ class GazetteerController extends Controller
      */
     public function index()
     {
-        
-    $users = Gazetteer::latest()->count();
+     
+     
+     $user_id=Auth::id();
+     $role=Auth::user()->role;
+     $permission_key = "gazetteer_view";
+     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+     if($getpermissionstatus==0)
+      return redirect()->route('user-management.unauthorized');     
+     $users = Gazetteer::latest()->count();
 
     return view('gazetteers.index', compact('users'));  
         
         
-//     $user_id=Auth::id();
-//     $role=Auth::user()->role;
-//     $permission_key = "gazetteer_view";
-//     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-//        //print_r($getpermissionstatus);die;
-//        if($getpermissionstatus==0)
+
 //            return redirect()->route('user-management.unauthorized');     
 //    $gazetteer = DB::table('gazetteers')->select('*','gazetteers.id as id','gazetteers.status as status')->leftjoin('countries','gazetteers.country_id','=','countries.id')->get();
 //    return view('gazetteers.index', compact('gazetteer'));
@@ -275,13 +278,7 @@ class GazetteerController extends Controller
     
     public function showbulkrecord(){
     
-     $user_id=Auth::id();
-     $role=Auth::user()->role;
-     $permission_key = "gazetteer_view";
-     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-        //print_r($getpermissionstatus);die;
-     if($getpermissionstatus==0)
-     return redirect()->route('user-management.unauthorized');     
+       
     $gazetteer = DB::table('gazetteers')->select('*','gazetteers.id as id','gazetteers.status as status')->leftjoin('countries','gazetteers.country_id','=','countries.id')->get();
  return DataTables::of($gazetteer)->make(true);    
     //return DataTables::of(Gazetteer::query()->orderBY('id','desc'))->make(true);

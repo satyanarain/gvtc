@@ -42,7 +42,7 @@ class ReportController extends Controller
     public function index()
     {
      
-     $user_id=Auth::id();
+    $user_id=Auth::id();
     $role=Auth::user()->role;
     $permission_key = "download_report";
     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
@@ -93,6 +93,12 @@ class ReportController extends Controller
    }
 
    public function UploadReport(){
+       $user_id=Auth::id();
+       $role=Auth::user()->role;
+       $permission_key = "upload_report_view";
+       $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+       if($getpermissionstatus==0)
+        return redirect()->route('user-management.unauthorized');   
        $reportresult=DB::table('report')->select('*','report.status as status','report.id as id','report.created_at as created_at')
                ->leftjoin('report_categories','report.report_categories_id','report_categories.id')
                ->orderBy('report.order','ASC')->get();

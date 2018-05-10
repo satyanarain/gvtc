@@ -14,7 +14,7 @@
               <div class="pull-right">
 <a href="{{ url('report/uploadreport/') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
-&nbsp; Back</a>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>
             </div>
             <!-- /.box-header -->
@@ -43,7 +43,7 @@
                   <div class="form-group col-md-6 required ">
                       
                   {!! Form::label('Report Category',Lang::get('menu.report_category', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-    {!! Form::select('report_categories_id',$reportcargorysql,null,['class'=>'form-control','placeholder'=>'Select Report Category','required'=>'required','id' => 'report_categories_id']) !!}
+    {!! Form::select('report_categories_id',$reportcargorysql,null,['class'=>'form-control','placeholder'=>Lang::get('menu.select_report_category', array(),Session::get('language_val')),'required'=>'required','id' => 'report_categories_id']) !!}
                  
                   </div>  
                   

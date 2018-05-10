@@ -71,6 +71,16 @@ class DistributionController extends Controller {
 //         echo '<pre>';
 //        print_r($distribution);
         
+          //set permission
+        $user_id=Auth::id();
+        $role=Auth::user()->role;
+        $permission_key = "distribution_view";
+        $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+        //print_r($getpermissionstatus);die;
+        if($getpermissionstatus==0)
+            return redirect()->route('user-management.unauthorized');
+        
+        
         $users = Distribution::latest()->count();
 
         return view('distributions.index', compact('users'));
@@ -380,13 +390,8 @@ class DistributionController extends Controller {
     }
 
     public function showbulkrecord() {
-        $user_id = Auth::id();
-        $role = Auth::user()->role;
-        $permission_key = "disrtibution_view";
-        $getpermissionstatus = getpermissionstatus($user_id, $role, $permission_key);
-        //print_r($getpermissionstatus);die;
-        if ($getpermissionstatus == 0)
-            return redirect()->route('user-management.unauthorized');
+        
+      
      $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','methods.code_description as method_code_description')
                         ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
                         ->leftjoin('methods', 'methods.id', 'distributions.method_id')

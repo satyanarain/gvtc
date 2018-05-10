@@ -9,7 +9,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">Permission Log</h3>
+<!--          <h3 class="box-title">Permission Log</h3>-->
         </div>
        
     </div>
@@ -20,11 +20,12 @@
             <div class="box-body">
              
              <div class="error-content">
-          <h3><i class="fa fa-warning text-yellow"></i> Oops! Not Permission.</h3>
+          <h3><i class="fa fa-warning text-yellow"></i> Oops!</h3>
+          
+          <p>Access Denied !!</p>
 
           <p>
-            You don't have permission to view this page, please contact your system administrator to request access
-            Meanwhile, you may <a href="/">return to dashboard</a> 
+            Looks like you don’t have permission to access this page. Please contact your administrator <a href="/home">return to dashboard</a> 
           </p>
 
          
