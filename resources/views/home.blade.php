@@ -14,12 +14,14 @@ $roll=Auth::user()->role;
 ?>
 
  <!-- Main content -->
+<?php if($roll=="guest") { ?>
 
- 
-  <section class="content">
+ <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <section class="content">
       
  <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+ <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   
@@ -28,7 +30,7 @@ $roll=Auth::user()->role;
            </tr>
                 </thead>
                 <tbody>
-                  <?php if($roll=="guest") {
+                  <?php 
      $userid=Auth::user()->id;
     
     $searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where('status', 1)->get();
@@ -66,7 +68,14 @@ $roll=Auth::user()->role;
 
  
   </section>
- <?php } else{ ?>
+      <!-- /.row -->
+      
+      <!-- Main row -->
+     
+      <!-- /.row (main row) -->
+
+    </section>
+ <?php }else{ ?>
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
@@ -263,6 +272,6 @@ $roll=Auth::user()->role;
       <!-- /.row (main row) -->
 
     </section>
- <?php  } ?>
+ <?php } ?>
     <!-- /.content -->
 @endsection
