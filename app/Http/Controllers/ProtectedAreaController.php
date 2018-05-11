@@ -213,7 +213,7 @@ class ProtectedAreaController extends Controller
     
      public function protectecarea($id){
          
-         $sql=DB::table('protected_areas')->where('country',$id)->get();
+         $sql=DB::table('protected_areas')->where('country',$id)->WHERE('status','=',1)->get();
          echo '<div class="form-group col-md-6" id="protected_area_select">';
           if (Session::get('language_val') == "en") {
        echo '<label for="ProtectedArea" class="control-label">Protected Area</label>';

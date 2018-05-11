@@ -107,8 +107,8 @@ function validdocument(iFile, k) {
                iFile.value = "";
                var documentpasstype = document.getElementById("documentpasstype" + k);
                documentpasstype.style.borderColor = "red";
-           } else if (sz >= 10) {
-               alert("File size should be < 10MB");
+           } else if (sz >= 15) {
+               alert("File size should be < 15MB");
                iFile.value = "";
                var parent = $('embed#docPreview' + k).parent();
                var newElement = "<embed src='img/defaultDocument.png' class='documentName' id=docPreview" + k + " width='283px' height='178px' onclick='docPreView(this)'>";
