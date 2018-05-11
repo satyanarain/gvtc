@@ -1,8 +1,5 @@
 @extends('layouts_frontend.masterlayout')
-
 @section('bg-light')
-
-
 <header class="insidehead slideImg1">
       <div class="container">
           <h1>Reports</h1>

@@ -1,4 +1,5 @@
 @extends('layouts_frontend.masterlayout')
+@section('bg-light')
 <header class="masthead">
 <div class="container">
     <h1>Reports</h1>
@@ -41,8 +42,6 @@ Advanced Search
             </ol>
         </div>
 	</div>
-	<!-- breadcrumb -->
-@section('bg-light')
 <div class="content-area bg-light" id="disable-part">
 <div class="container">
 <!--<div id="txtHint" class="title-color" style="padding-top:0px; margin-top: 0px; text-align:center;" ><b>Species information will be listed here...</b></div>-->

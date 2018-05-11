@@ -122,8 +122,8 @@ class DistributionController extends Controller {
         $agerecodsql = DB::table('ages')->selectRaw('id, CONCAT(code_description," ","(",age_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
-        $gazetteerrecodsql = DB::table('gazetteers')->orderBy('id', 'ASC')->pluck('place', 'id');
-        $specierecodsql = DB::table('species')->orderBy('id', 'ASC')->pluck('specienewid', 'id');
+        $gazetteerrecodsql = DB::table('gazetteers')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('place', 'id');
+        $specierecodsql = DB::table('species')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('specienewid', 'id');
         return view('distributions/create', compact('taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql'));
     }
 

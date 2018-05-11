@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Greater Virunga Transboundary Collaboration</title>
+<title>Greater Virunga Transboundary Collaboration | {{ Request::segment(1)}} </title>
 <!-- Bootstrap core CSS -->
 <link rel="icon" href="{{ asset('/front/img/favicon.ico') }}" type="image/x-icon" />
 <input type="hidden" id="userlogged" name="userlogged" value=" <?php if (Auth::check()) {echo 1;}else{echo 0;}?>"/>
 <link rel="stylesheet" href={{ asset('/front/bootstrap/css/bootstrap.min.css')}} >
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href={{ asset('/front/css/style.css')}} >
-<script src="{{ asset ("/front/bootstrap/js/jquery.min.js") }}"></script>
+<script type="text/javascript" language="javascript" src=" https://code.jquery.com/jquery-1.12.4.js"></script>
 <script language="JavaScript">
 
 //////////F12 disable code////////////////////////

@@ -149,7 +149,7 @@
                   <select class="form-control" required="required" id="observer_id" name="observer_id">
                       <option selected="selected" value="">Select Observer</option>
                       <?php  
-                      $sql=DB::table('observers')->get(); 
+                      $sql=DB::table('observers')->WHERE('status', '=', 1)->get(); 
                       foreach($sql  as  $val){
                           //if($val->first_name!='' && $val->last_name!=''){
                       ?>
@@ -228,7 +228,7 @@
                 <div class="form-group col-md-6 ">
                 <label for="exampleInputEmail1" class="control-label">@lang('menu.sex', array(),Session::get('language_val'))</label>    
 <!--                 {!! Form::label('Sex','Sex',['class'=>'control-label']) !!}-->
-                  {!! Form::select('sex',[
+                  {!! Form::select('Sex',[
                     'M' => 'Male',
                     'F' => 'Female',
                     ],null,['class'=>'form-control','placeholder'=>'Select Sex']) !!} 
