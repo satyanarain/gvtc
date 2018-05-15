@@ -99,7 +99,7 @@ class LoginController extends Controller
              Mail::send('emails.searchresultuser', ['search_details_user' => $query_user], function ($message) use ($query_user) {
               $message->from('info@opiant.online', 'GVTC');
               //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
-              $message->to($query_user->email,$query_user->username)->subject('GVTC | search request submited');
+              $message->to($query_user->email,$query_user->username)->subject('GVTC | search request submitted');
           });
             
             
