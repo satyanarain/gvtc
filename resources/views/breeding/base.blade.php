@@ -6,7 +6,7 @@
 <h1>Manage Breeding Codes</h1>
 
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
-<a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
+<a href="/home" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
 $link = route('home');
 $count=0;

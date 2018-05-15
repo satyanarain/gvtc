@@ -13,7 +13,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href={{ asset('/front/css/style.css')}} >
 <script type="text/javascript" language="javascript" src=" https://code.jquery.com/jquery-1.12.4.js"></script>
-<script language="JavaScript">
+<!--<script language="JavaScript">
 
 //////////F12 disable code////////////////////////
     document.onkeypress = function (event) {
@@ -91,7 +91,7 @@ return false;
 return true;
 }
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
+ Global site tag (gtag.js) - Google Analytics 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118984792-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -99,10 +99,10 @@ return true;
   gtag('js', new Date());
 
   gtag('config', 'UA-118984792-1');
-</script>
+</script>-->
 
 </head>
-<body oncontextmenu="return false;" onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">
+<!--<body oncontextmenu="return false;" onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">-->
 @include('layouts_frontend.header')
 <!-- Header -->
 

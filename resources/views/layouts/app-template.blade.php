@@ -21,7 +21,7 @@ $session_lan= Session::get('language_val');?>
  <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--  <title>{{ config('app.name', 'Laravel') }}</title>-->
-<title>GVTC | {{ Request::segment(1)}} </title>
+<title>GVTC | {{ ucfirst(Request::segment(1))}} </title>
 <link rel="icon" href="{{ asset('/front/img/favicon.ico') }}" type="image/x-icon" />
     <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

@@ -116,8 +116,9 @@ class ReportController extends Controller
     public function create()
     { 
      
-       $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->pluck('title','id');
-       return view('report/create',compact('reportcargorysql'));
+       $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->where('status','1')->pluck('title','id');
+       $reportcargorysql_fr= DB::table('report_categories')->orderBy('id','ASC')->where('status','1')->pluck('title_fr','id');
+       return view('report/create',compact('reportcargorysql','reportcargorysql_fr'));
     }
 
     /**
@@ -137,7 +138,7 @@ class ReportController extends Controller
 
            $destinationPath = public_path('report_document');
            $extension = Input::file('uploded_report')->getClientOriginalExtension();
-           $filereport = uniqid() . '_useridproof.'.$extension;
+           $filereport = uniqid() . '_gvtcreport.'.$extension;
            Input::file('uploded_report')->move($destinationPath, $filereport);
            
        }
@@ -194,7 +195,8 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-    $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->pluck('title','id');
+    $reportcargorysql= DB::table('report_categories')->orderBy('id','ASC')->where('status','1')->pluck('title','id');
+    $reportcargorysql_FR= DB::table('report_categories')->orderBy('id','ASC')->where('status','1')->pluck('title_fr','id');
     $reportval= Report::find($id);
     return view('report.edit',compact('reportval','reportcargorysql'));
      }

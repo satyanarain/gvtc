@@ -1,8 +1,7 @@
-<?php //print_r($search_details); die; ?> 
-<p>Hi Admin</p>
-<p>A new user has registered on GVTC species portal. Kindly, 
-    <?php echo $search_details->username; ?>
-    <?php echo $search_details->searchdata; ?></p>
-    <?php echo $search_details->date; ?></p>
+<?php $url='http://'.$_SERVER['HTTP_HOST'].'/'.'login'; ?>
+<p>Dear Admin,</p>
+<p> <?php echo $search_details->username; ?> has queried for search request Please click <a href="<?php echo $url;?>">here</a> to take appropriate action.</p>
+<p>Search URL- <?php echo $search_details->searchdata; ?></p>
+<p>Search Date- <?php echo $search_details->date; ?></p>
 <p>Thanks</p>
 GVTC Support Team 

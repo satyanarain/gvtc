@@ -153,6 +153,7 @@ class ReportCategoryController extends Controller
      $this->validateInput($request);
      ReportCategory::create([
             'title' => $request['title'],
+            'title_fr' => $request['title_fr'],
             'created_by'=>$request['created_by'],
             'description' => $request['description']
             
@@ -210,6 +211,7 @@ class ReportCategoryController extends Controller
         $rcategory = ReportCategory::findOrFail($id);
         $constraints = [
             'title' => 'required',
+            'title_fr' => 'required',
             'description'=> 'required',
             
             ];
@@ -221,6 +223,7 @@ class ReportCategoryController extends Controller
        
         $input = [
             'title' => $request['title'],
+            'title_fr' => $request['title_fr'],
             'description' => $request['description']
         ];
         
@@ -263,6 +266,7 @@ class ReportCategoryController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
         'title' => 'required|unique:report_categories',
+        'title_fr' => 'required|unique:report_categories',
         'description' => 'required'
         
     ]);

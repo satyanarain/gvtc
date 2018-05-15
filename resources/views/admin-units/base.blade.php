@@ -5,7 +5,7 @@
 <section class="content-header">
 <h1>@lang('menu.manage', array(),Session::get('language_val')) @lang('menu.admin_unit', array(),Session::get('language_val'))</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
-<a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
+<a href="/home" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
 $link = route('home');
 $count=0;

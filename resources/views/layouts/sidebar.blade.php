@@ -132,11 +132,12 @@ $segment2 =  Request::segment(2);
       <li class="{{ Request::segment(1) == 'user-management' ? 'active' : '' }}"><a href="{{ url('user-management/') }}"><i class="fa fa-users"></i> <span>@lang('menu.manage_users', array(),$session_lan)</span></a></li> 
   <?php } ?> 
        
-      <li class="{{ Request::segment(1) == 'changepasswords' ? 'active' : '' }}"><a href="{{ url('changepasswords/create') }}"><span class="glyphicon glyphicon-lock"></span>  <span> @lang('menu.change_password', array(),$session_lan)</span></a></li> 
+      
        <?php if($role!='guest'){?>
-      <li class="{{ Request::segment(1) == 'searchresult' ? 'active' : '' }}"><a href="{{ url('searchresult') }}"><span class="glyphicon glyphicon-search"></span>  <span> @lang('menu.searchresult', array(),$session_lan)</span></a></li> 
+      <li class="{{ Request::segment(1) == 'searchresult' ? 'active' : '' }}"><a href="{{ url('searchresult') }}"><i class="glyphicon glyphicon-search"></i>  <span> @lang('menu.managesearchresult', array(),$session_lan)</span></a></li> 
        <?php } ?>
-      <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span>  <span>@lang('menu.sign_out', array(),$session_lan) </span></a></li> 
+      <li class="{{ Request::segment(1) == 'changepasswords' ? 'active' : '' }}"><a href="{{ url('changepasswords/create') }}"><i class="glyphicon glyphicon-lock"></i>  <span> @lang('menu.change_password', array(),$session_lan)</span></a></li> 
+      <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="glyphicon glyphicon-log-out"></i>  <span>@lang('menu.sign_out', array(),$session_lan) </span></a></li> 
       
    
       

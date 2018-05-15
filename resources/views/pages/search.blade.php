@@ -45,18 +45,34 @@ Advanced Search
 <div class="content-area bg-light" id="disable-part">
 <div class="container">
 <!--<div id="txtHint" class="title-color" style="padding-top:0px; margin-top: 0px; text-align:center;" ><b>Species information will be listed here...</b></div>-->
+<?php
+$query=$_REQUEST['q'];
 
-
-<?php if (Auth::check()) {?>
-<label>Download AS -</label>
+        // Perform the query using Query Builder
+        $results = DB::table('species')
+            ->select(DB::raw("*"))
+             ->leftjoin('taxons','species.taxon_id','taxons.id')
+            ->where('common_name','LIKE', '%'.$query.'%')
+            ->orWhere ('genus', 'LIKE', '%' . $query . '%' )  
+            ->orWhere ('species', 'LIKE', '%' . $query . '%' )  
+            ->get();
+         $n=count($results);
+?>
+<?php if($n>0 && !Auth::check()) { ?>
+<a href="{{ url('login/')}}" style="margin-left: 15px;margin-bottom:10px; float:right"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><span class="glyphicon glyphicon-download-alt">&nbsp;Download assessment</span></a>
 <?php }else{ ?>
-<a href="{{ url('login/')}}" style="margin-left: 15px;margin-bottom:10px"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download assessment</i></a>
+<?php } ?>
+<?php if (Auth::check()) {?>
+<label>Download as -</label>
+<?php } ?>
+
 <?php
 $searchurl = \Request::fullUrl();
 Session::put('searchurl', $searchurl);
 $searchurl;
 ?>
-<?php } ?>
+
+   
 <?php
 
 

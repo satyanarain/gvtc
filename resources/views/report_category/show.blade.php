@@ -32,6 +32,7 @@
                     
                   
                 <div class=" col-md-6">
+                     <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1">@lang('menu.title', array(),Session::get('language_val'))</label>
                   <input type="text" readonly  value="{{ $rcategory->title }}"  class="form-control" >
                  
@@ -39,6 +40,7 @@
                   
                   
                   <div class="form-group col-md-6">
+                       <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1">@lang('menu.description', array(),Session::get('language_val'))</label>
                   <input  value="{{ $rcategory->description }}" readonly=""  class="form-control">
                 
@@ -46,7 +48,25 @@
                   
                 </div> 
                   
-               
+                   
+               <div class="form-row">
+                    
+                    
+                    
+                    
+                    
+                  
+                <div class=" col-md-6">
+                     <span class="lang-sm" lang="fr"></span>&nbsp;
+                  <label for="exampleInputEmail1">@lang('menu.title', array(),Session::get('language_val'))</label>
+                  <input type="text" readonly  value="{{ $rcategory->title_fr }}"  class="form-control" >
+                 
+                  </div>  
+                  
+                  
+                  
+                  
+                </div>
                      
                    
                    

@@ -7,7 +7,7 @@
 <section class="content-header">
 <h1>Manage Permissions</h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
-<a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
+<a href="/home" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 
 <a href="#" class="btn btn-success visible-lg-block visible-md-block ">
     Manage Users

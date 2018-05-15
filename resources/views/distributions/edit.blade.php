@@ -267,8 +267,8 @@
                  <label for="exampleInputEmail1" class="control-label">@lang('menu.sex', array(),Session::get('language_val'))</label>       
 <!--                 {!! Form::label('Sex','Sex',['class'=>'control-label']) !!}-->
                   {!! Form::select('Sex',[
-                    'M' => 'Male',
-                    'F' => 'Female',
+                    'Male' => 'Male',
+                    'Female' => 'Female',
                     ],isset($distribution->Sex)? $distribution->Sex:null,['class'=>'form-control','placeholder'=>'Select Sex']) !!} 
                     
                   

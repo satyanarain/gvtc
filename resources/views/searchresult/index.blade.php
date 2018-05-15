@@ -15,7 +15,7 @@
   <div class="box-header with-border">
     <div class="row">
         <div class="col-sm-8">
-          <h3 class="box-title">@lang('menu.searchresult', array(),Session::get('language_val')) @lang('menu.log', array(),Session::get('language_val'))</h3>
+          <h3 class="box-title">@lang('menu.searchrequest', array(),Session::get('language_val')) </h3>
         </div>
       
 <div class="col-sm-4" >
@@ -63,8 +63,13 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 
-    <?php adminapproval('searchresult',$val['id'],$val['adminaprovel']); ?> 
-        
+<a href="{{ route('searchresult.edit', $val['uesrid']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe"   data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
+    <?php if($val['adminaprovel']==1){ ?>
+    
+<a href="#" style="margin-left: 15px;" class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-check-circle"></i>&nbsp;Approved</a>    
+    <?php }else{ ?>
+<a href="#" style="margin-left: 15px;" class="btn btn-small btn-danger" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-times-circle"></i>&nbsp;Rejected </a>
+    <?php } ?> 
 </td>
 <?php } ?>  
 </tr>

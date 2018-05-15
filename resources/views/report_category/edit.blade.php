@@ -27,6 +27,7 @@
                 <div class="form-row">
                   
                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.title', array(),Session::get('language_val'))</label>
                   <input type="text" name="title" value="{{ $rcategory->title }}" required  class="form-control" id="title" placeholder="Title">
                  @if ($errors->has('title'))
@@ -38,6 +39,7 @@
                   
                   
                   <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }} col-md-6 required">
+                      <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.description', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="description" value="{{ $rcategory->description }}" required  class="form-control" id="description" placeholder="Description">
                  @if ($errors->has('taxon_code_description'))
@@ -48,6 +50,25 @@
                   </div>  
                   
                 </div> 
+                   
+                   
+               <div class="form-row">
+                  
+                <div class="form-group{{ $errors->has('title_fr') ? ' has-error' : '' }} col-md-6 required">
+                    <span class="lang-sm" lang="fr"></span>&nbsp;
+                  <label for="exampleInputEmail1" class="control-label">@lang('menu.title', array(),Session::get('language_val'))</label>
+                  <input type="text" name="title_fr" value="{{ $rcategory->title_fr }}" required  class="form-control" id="title" placeholder="Title">
+                 @if ($errors->has('title_fr'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title_fr') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                  
+                  
+                  
+                </div>     
                   
                   
               </div>    

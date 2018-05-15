@@ -37,6 +37,8 @@ return [
     
     //serachresult
     'searchresult'=>'SearchResult',
+    'managesearchresult'=>'Gérer la demande de recherche',
+    'searchrequest'=>'Journal des demandes de recherche',
     'searchurl'=>'SearchURL',
     
     'title'=>'Title',

@@ -39,6 +39,8 @@ return [
     
     //serachresult
     'searchresult'=>'SearchResult',
+    'managesearchresult'=>'Manage Search Request',
+    'searchrequest'=>'Search Request Log',
     'searchurl'=>'SearchURL',
     
     

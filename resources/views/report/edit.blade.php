@@ -44,8 +44,16 @@
                   
                   <div class="form-group col-md-6 required ">
                   {!! Form::label('Report Category',Lang::get('menu.report_category', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-    {!! Form::select('report_categories_id',$reportcargorysql,null,['class'=>'form-control','placeholder'=>'Select Report Category','required'=>'required','id' => 'report_categories_id']) !!}
-                 
+                   <?php if(Session::get('language_val')=='en'){ ?>
+    {!! Form::select('report_categories_id',$reportcargorysql,null,['class'=>'form-control','placeholder'=>Lang::get('menu.select_report_category', array(),Session::get('language_val')),'required'=>'required','id' => 'report_categories_id']) !!}
+     <?php }else{ ?>
+    {!! Form::select('report_categories_id',$reportcargorysql_fr,null,['class'=>'form-control','placeholder'=>Lang::get('menu.select_report_category', array(),Session::get('language_val')),'required'=>'required','id' => 'report_categories_id']) !!}
+     <?php } ?>
+    
+   
+    
+    
+    
                   </div>  
                   
                 </div> 
@@ -57,7 +65,7 @@
         <div class="form-row">
                   <div class="form-group col-md-6 custom-range required">
                  {!! Form::label('Uplaod Report',Lang::get('menu.upload_report', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                 <input type="file"  accept=".pdf"  onchange="validFile(this,1)" name="uploded_report" id="documents3">
+                 <input type="file"  accept=".pdf"  onchange="validdocument(this,1)" name="uploded_report" id="documents3">
                  
                  <?php $docname=$reportval['uploded_report']; ?>
                  </br>

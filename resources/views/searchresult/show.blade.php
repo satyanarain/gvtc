@@ -1,4 +1,4 @@
-@extends('taxons.base')
+@extends('searchresult.base')
 
 @section('action-content')
 

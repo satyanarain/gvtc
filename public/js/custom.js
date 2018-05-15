@@ -64,17 +64,17 @@ success:function(data)
    $("#"+id).removeClass('btn-danger');  
    $("#"+id).addClass('btn-success');  
     if(lang=='en'){
-   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Approve'); 
     }else{
-       $("#ai"+id).html('<i class="fa fa-check-circle"></i> Active'); 
+       $("#ai"+id).html('<i class="fa fa-check-circle"></i> Approuver'); 
     }
    }else{
    $("#"+id).removeClass('btn-success');  
    $("#"+id).addClass('btn-danger dng-w'); 
     if(lang=='en'){
-   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Inactive');
+   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Reject');
     }else{
-    $("#ai"+id).html('<i class="fa fa-times-circle"></i> en activité');
+    $("#ai"+id).html('<i class="fa fa-times-circle"></i> Rejeter');
     }
    }
    

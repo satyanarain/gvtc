@@ -4,9 +4,9 @@
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-<h1>@lang('menu.manage', array(),Session::get('language_val')) @lang('menu.searchresult', array(),Session::get('language_val'))</h1>
+<h1>@lang('menu.managesearchresult', array(),Session::get('language_val')) </h1>
 <div class="btn-group btn-breadcrumb breadcrumb-success" style="margin-top: 10px;">
-<a href="/" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
+<a href="/home" class="btn btn-success"><i class="glyphicon glyphicon-home"></i></a>
 <?php 
 $link = route('home');
 $count=0;
@@ -22,7 +22,7 @@ $count=0;
             }else{ //echo Lang::get("menu.".Request::segment($i), array(),Session::get('language_val'));//echo Request::segment($i)?> 
                 <a href="<?= $urls ?>" class="btn btn-success visible-lg-block visible-md-block ">
                     <!--{{ title_case(str_replace('taxons','Taxon',(Request::segment($i)))) }}-->
-                     SearchResult
+                    @lang('menu.managesearchresult', array(),Session::get('language_val'))
                 </a> 
     <?php   }
         }else{ 
@@ -32,7 +32,7 @@ $count=0;
                     ?>
                 <div class="btn btn-primary btn-success">
                     <!--{{ title_case(str_replace('taxons','Taxon',(Request::segment($i)))) }}-->
-                    SearchResult
+                    @lang('menu.managesearchresult', array(),Session::get('language_val'))
                 </div>
     
    <?php

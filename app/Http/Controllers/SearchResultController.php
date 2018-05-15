@@ -104,7 +104,8 @@ class SearchResultController extends Controller
      */
     public function edit($id)
     {
-        
+        $val = SearchResult::find($id);
+        return view('searchresult.edit', ['val' => $val]);
     }
 
     /**
@@ -130,15 +131,41 @@ class SearchResultController extends Controller
 
       if($sql->adminaprovel==0)
       {
-     
       $var = $sql=DB::table($tablename)->where('id',$id)->first();
+      
+     
       $var->adminaprovel=1;
       DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel)); 
+      
+      if($var->adminaprovel==0){
+         $uesrid = $var->uesrid; 
+         $searchdata = $var->serchurl; 
+         $username = $var->username; 
+          $sqluserid=DB::table('users')->where('id' , $uesrid)->get();
+            foreach($sqluserid as $val){
+            $useremail=$val->email;
+            
+            }
+             $query_email = array(
+            'username'=> $username, 
+            'searchdata' => $searchdata,
+            'email' => $useremail,   
+            'date'      => date("M d, Y h:i a")
+            );
+          //print_r($query_email);die;
+            $query_user =  (object) $query_email;
+            Mail::send('emails.approvesearchresult', ['search_details_user' => $query_user], function ($message) use ($query_user) {
+              $message->from('info@opiant.online', 'GVTC');
+              //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
+              $message->to($query_user->email,$query_user->username)->subject('GVTC | search reuest approve');
+          });
+      }
+      
       
       echo "1";
      }else
       {
-      $status=  $sql->status;
+      $adminaprovel=  $sql->adminaprovel;
       $var =  $sql=DB::table($tablename)->where('id',$id)->first();
       $var->adminaprovel=0;
        DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel));

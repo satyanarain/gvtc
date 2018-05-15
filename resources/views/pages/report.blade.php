@@ -46,7 +46,7 @@ if($categoty_count>0){
      
 <?php
 
-$reporter =DB::table('report')->select('*')->where('report_categories_id',$v->id)->where('status',1)->get();
+$reporter =DB::table('report')->select('*')->orderBy('order')->where('report_categories_id',$v->id)->where('status',1)->get();
 //echo '<pre>';
 //print_r($reporter);
 //exit();
