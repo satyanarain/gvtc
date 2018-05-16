@@ -1,30 +1,26 @@
 @extends('layouts_frontend.masterlayout')
-@section('bg-light')
-<header class="insidehead slideImg1">
-      <div class="container">
-          <h1>Reports</h1>
-      </div>
-    </header>
-    
-    <!-- breadcrumb -->
+@section('homeBanner coverBack')
+
+<section class="commonBanner coverBack">
+  <div class="container">
+		<h1>Report</h1>
+  </div>
+</section>
+
+<!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-               <li class="breadcrumb-item active">Reports</li>
+               <li class="breadcrumb-item active">Report</li>
             </ol>
         </div>
 	</div>
 
-
-<!-- Latest compiled and minified Bootstrap CSS -->
-
-
- <!-- Wildlife Conversation Society -->
- <div class="content-area bg-light">
+<section class="body-outer">
       <div class="container">
       	
-          
+        <div class="panel-group" id="accordion">  
           <?php
 $sql = DB::table('report_categories')->orderBy('order')->where('status',1)->get();
 $ids='';
@@ -36,9 +32,9 @@ if($categoty_count>0){
     ?>  
       
  <div class="panel panel-default">
-    <div class="panel-heading">
+<div class="panel-heading" role="tab" id="tex<?php echo $v->id; ?>">
       <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $v->id; ?>">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $v->id; ?>" aria-expanded="true" aria-controls="collapse<?php echo $v->id; ?>">
          <?php echo $v->title; ?> 
         </a>
       </h4>
@@ -53,43 +49,25 @@ $reporter =DB::table('report')->select('*')->orderBy('order')->where('report_cat
 
 
 ?>
- 
- 
-    <div id="collapse<?php echo $v->id; ?>" class="panel-collapse collapse">
-        <?php foreach($reporter  as $val123){ 
-            ?> 
-        
-      <div class="panel-body">
+<div id="collapse<?php echo $v->id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="tex<?php echo $v->id; ?>">
+<?php foreach($reporter  as $val123){ ?> 
+<div class="panel-body">
       <?php echo $val123->report_title; ?>
-      <span style="float:right"><a href="{{ asset("report_document/$val123->uploded_report") }}" target="_blank">Download</a></span>
+      <span style="float:right">
+         <a href="{{ asset("report_document/$val123->uploded_report") }}" style="margin-left: 15px;" target="_blank" class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" onclick="openTab(this)" target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download</i></a>
+          
+          
+          
+          
+          </span>
       </div>
         <?php } ?>    
     </div>
- 
-     
-  </div>     
+</div>     
 <?php } } ?> 
-          
-    
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-      </div>
-    </div>
+ </div>      
+</div>
+</section>
 
  <!-- end container -->
 
@@ -112,11 +90,18 @@ $reporter =DB::table('report')->select('*')->orderBy('order')->where('report_cat
   
     
 </style>
+<script type="text/javascript">
+$(document).ready(function(){    
+$('.collapse').on('show.bs.collapse', function (e) {
+    $('.collapse').not(e.target).removeClass('in');
+});
+});
 
+</script>
 
 
 
 
 @endsection
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+

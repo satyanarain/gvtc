@@ -141,7 +141,7 @@
                   
                   <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.mobile', array(),Session::get('language_val'))</label>
-                  <input type="tel" name="mobile" value="{{ old('mobile') }}"   class="form-control" id="taxon_code_description" placeholder="@lang('menu.mobile', array(),Session::get('language_val'))">
+                  <input type="tel" name="mobile" value="{{ old('mobile') }}"  onkeypress="return isNumberKey(event)"  class="form-control" id="taxon_code_description" placeholder="@lang('menu.mobile', array(),Session::get('language_val'))">
                  @if ($errors->has('mobile'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobile') }}</strong>

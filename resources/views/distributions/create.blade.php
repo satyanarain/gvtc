@@ -153,8 +153,8 @@
                       foreach($sql  as  $val){
                           //if($val->first_name!='' && $val->last_name!=''){
                       ?>
-                      <?php if($val->first_name!='' && $val->last_name!=''){ ?>
-                      <option value="<?php echo $val->id; ?>"><?php if($val->first_name!=''){ echo $val->first_name; } ?> <?php  if($val->last_name!=''){  echo $val->last_name;}  ?></option>
+                      <?php if($val->last_name!=''){ ?>
+                      <option value="<?php echo $val->id; ?>"><?php if($val->first_name!=''){ echo $val->first_name; } ?> <?php echo $val->last_name;?></option>
                       <?php } ?>
                       <?php if($val->institution!=''){ ?>
                       <option value="<?php echo $val->id; ?>"><?php  echo $val->institution;  ?> </option>

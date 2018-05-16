@@ -158,7 +158,7 @@
                   
                   <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.growth_form', array(),Session::get('language_val'))</label>
-                  <input  value="{{ $species->growth_id }}" readonly=""  class="form-control">
+                  <input  value="{{ $species->plants_growth_form }}({{ $species->growth_form }})" readonly=""  class="form-control">
                 
                   </div>  
                   
@@ -226,14 +226,14 @@
                   
                 <div class=" col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.national_threat_code', array(),Session::get('language_val')) </label>
-                  <input type="text" readonly  value="{{ $species->national_threat_code_id }}"  class="form-control" >
+                  <input type="text" readonly  value="{{ $species->national_threat_code_description }} ({{ $species->national_threat_code }})"  class="form-control" >
                  
                   </div>  
                   
                   
                   <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.breeding', array(),Session::get('language_val'))</label>
-                  <input  value="{{ $species->breeding_id }}" readonly=""  class="form-control">
+                  <input  value="{{ $species->breeding_description }}({{ $species->breeding_code}})" readonly=""  class="form-control">
                 
                   </div>  
                   

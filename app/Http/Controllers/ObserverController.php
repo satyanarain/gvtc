@@ -97,7 +97,7 @@ class ObserverController extends Controller
     {
         //echo "<pre>";
    //dd(print_r($_POST));
-   //  $this->validateInput($request);
+     $this->validateInput($request);
         
        $inpute= $request->all();
         
@@ -181,16 +181,7 @@ class ObserverController extends Controller
        
         $Observer = Observer::findOrFail($id);
         $constraints = [
-//            'observer_id' => 'required',
-//            'tittle' => 'required',
-//            'first_name' => 'required',
-//            'last_name' => 'required',
-//           
-//            'address' => 'required',
-//            'work_tel_number' => 'required',
-//            'mobile' => 'required',
-//            'email' => 'required',
-//            'website' => 'required',
+        'mobile' => 'digits:10',
             
             ];
        
@@ -244,15 +235,9 @@ class ObserverController extends Controller
    
     private function validateInput($request) {
         $this->validate($request, [
-//          'observer_id' => 'required|unique:observers',
-//            //'tittle' => 'required',
-//            //'first_name' => 'required',
-//            //'last_name' => 'required',
-//            'address' => 'required',
-//            'work_tel_number' => 'required',
-//            'mobile' => 'required',
-//            'email' => 'required',
-//            'website' => 'required',
+
+     'mobile' => 'digits:10',
+
         
     ]);
     }

@@ -179,7 +179,8 @@ font-weight: normal !important;
 .custom-range .multiselect-native-select .btn-group{ width:100% !important;}
 .custom-range .multiselect-native-select .btn-group button{width:100% !important;text-align:left !important; background:#FFF !important;}
 .custom-range .multiselect-native-select .dropdown-menu{width:100% !important;}
-.btn .caret {float: right;margin-top: -11px;}
+.btn .caret {float: right;margin-top:11px;color:#333}
+.multiselect-selected-text{ color:#333}
 .active_record{ background-image:url('../img/active.gif');background-repeat: no-repeat;height:15px;width:15px;}
 .inactive_record{ background-image:url('../img/inactive.gif');background-repeat: no-repeat;height:15px;width:15px;}
 .dng-w{ width: 85px;padding-left: 2px;}

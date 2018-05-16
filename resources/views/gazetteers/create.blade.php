@@ -69,7 +69,7 @@
                        
               <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.longitude', array(),$session_lan= Session::get('language_val'))</label>
-                  <input type="text" name="longitude" value="{{ old('longitude') }}" required  class="form-control" id="longitude" placeholder="Longitude">
+                  <input type="text" name="longitude" value="{{ old('longitude') }}" required onkeypress="return isNumberKey(event)" class="form-control" id="longitude" placeholder="Longitude">
                  @if ($errors->has('longitude'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('longitude') }}</strong>
@@ -86,7 +86,7 @@
                   
              <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.latitude', array(),$session_lan= Session::get('language_val'))</label>
-                  <input type="text" name="latitude" value="{{ old('latitude') }}" required  class="form-control" id="latitude" placeholder="Latitude">
+                  <input type="text" name="latitude" value="{{ old('latitude') }}" required  class="form-control" onkeypress="return isNumberKey(event)" id="latitude" placeholder="Latitude">
                  @if ($errors->has('latitude'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('latitude') }}</strong>
@@ -95,7 +95,7 @@
                   </div> 
                        <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.datum', array(),$session_lan= Session::get('language_val')) (DD)</label>
-                  <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control" id="datum_dd" placeholder="Datum (DD)">
+                  <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control"  id="datum_dd" placeholder="Datum (DD)">
                  @if ($errors->has('datum_dd'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('datum_dd') }}</strong>

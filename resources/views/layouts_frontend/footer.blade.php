@@ -30,8 +30,8 @@
 
 
 
-<script src="{{ asset ("/front/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
-<script src="{{ asset ("/front/js/gvtc.js") }}"></script>
+<!--<script src="{{ asset ("/front/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+<script src="{{ asset ("/front/js/gvtc.js") }}"></script>-->
 <!--<script language="JavaScript">
   /**
     * Disable right-click of mouse, F12 key, and save key combinations on page
@@ -81,8 +81,6 @@
   </body>
 
 </html>
-
-
 <script type="text/javascript" class="init">	
 $(document).ready(function(startup) {
 	$('#exampledemo').DataTable( {
@@ -135,4 +133,5 @@ $(document).ready(function(startup) {
              } );
 } );
 
-</script>
+</script> 
+

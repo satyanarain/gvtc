@@ -213,8 +213,8 @@ class GazetteerController extends Controller
         $gazetter = Gazetteer::findOrFail($id);
         $constraints = [
             'place' => 'required',  
-            'longitude' => 'required',
-            'latitude' => 'required',
+            'latitude' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'longitude' => 'required|regex:/^\d*(\.\d{1,2})?$/'
             
             ];
        
@@ -288,7 +288,8 @@ class GazetteerController extends Controller
         $this->validate($request, [
         'place' => 'required',   
       'longitude' => 'required',
-       'latitude' => 'required',
+       'latitude' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+       'longitude' => 'required|regex:/^\d*(\.\d{1,2})?$/',
         
      
         

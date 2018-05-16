@@ -8,7 +8,7 @@
   <div class="box-header">
     <div class="row">
         <div class="col-sm-7">
-          <h3 class="box-title ">@lang('menu.view_reports', array(),Session::get('language_val'))</h3>
+        <h3 class="box-title ">@lang('menu.report_log', array(),Session::get('language_val'))</h3>
         </div>
         <div class="col-sm-5" >
    <div class="columns columns-right btn-group pull-right" >

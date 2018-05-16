@@ -167,37 +167,37 @@ $roll=Auth::user()->role;
                       <img src="{{ asset('images/slide2.jpg') }}" alt="First slide"/> 
                    
 
-                    <div class="carousel-caption">
+<!--                    <div class="carousel-caption">
                       First Slide
-                    </div>
+                    </div>-->
                   </div>
                   <div class="item">
                     <img src="{{ asset('images/slide1.jpg') }}" alt="Second slide">
 
-                    <div class="carousel-caption">
+<!--                    <div class="carousel-caption">
                       Second Slide
-                    </div>
+                    </div>-->
                   </div>
                   <div class="item">
                     <img src="{{ asset('images/slide3.jpg') }}" alt="Third slide">
 
-                    <div class="carousel-caption">
+<!--                    <div class="carousel-caption">
                       Third Slide
-                    </div>
+                    </div>-->
                   </div>
                      <div class="item">
                     <img src="{{ asset('images/slide4.jpg') }}" alt="Third slide">
 
-                    <div class="carousel-caption">
+<!--                    <div class="carousel-caption">
                       Four Slide
-                    </div>
+                    </div>-->
                   </div>
                     <div class="item">
                     <img src="{{ asset('images/slide.jpg') }}" alt="Third slide">
 
-                    <div class="carousel-caption">
+<!--                    <div class="carousel-caption">
                       Five Slide
-                    </div>
+                    </div>-->
                   </div>
                     
                 </div>

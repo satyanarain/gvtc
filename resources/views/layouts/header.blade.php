@@ -1,7 +1,7 @@
 <?php $session_lan= Session::get('language_val'); ?>
 <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="/" target="_blank" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       
       <span class="logo-mini"><img src="{{ asset('images/gvtclogo.jpg') }}"/></span>

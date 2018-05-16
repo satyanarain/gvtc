@@ -184,6 +184,9 @@ class SpeciesController extends Controller
             ->leftjoin('wateruse','wateruse.id','=','wateruse_id')
             ->leftjoin('forestuse','forestuse.id','=','forestuse_id')
             ->leftjoin('iucn_threats','iucn_threats.id','=','iucn_threat_id')
+            ->leftjoin('breedings','breedings.id','=','breeding_id')
+            ->leftjoin('national_threat_codes','national_threat_codes.id','=','national_threat_code_id')
+            ->leftjoin('growths','growths.id','=','growth_id')
             ->where('species.id',$id)->first();
     
    
@@ -300,8 +303,8 @@ class SpeciesController extends Controller
         'wateruse_id' => $request['wateruse_id'],
         'endenisms_id' => $request['endenisms_id'],
         'migration_tbl_id' => $request['migration_tbl_id'],
-        'breeding_id' => $request['breedings_id'],
-        'national_threat_code_id' => $request['national_threat_codes_id']    
+        'breeding_id' => $request['breeding_id'],
+        'national_threat_code_id' => $request['national_threat_code_id']    
           
         ];
         

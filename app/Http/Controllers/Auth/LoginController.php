@@ -78,7 +78,7 @@ class LoginController extends Controller
             $useremail=$val->email;
 //            echo "==============";
 //            die;
-            if($request['searchdata']!=''&& $userrole="guest"){
+            if($request['searchdata']!=''&& $userrole=="guest"){
             DB::table('searchresult')->insert(
             array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
             );    
@@ -101,7 +101,7 @@ class LoginController extends Controller
               //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
               $message->to($query_user->email,$query_user->username)->subject('GVTC | search request submitted');
           });
-            
+            $request->session()->forget('searchdata');
             
             }       
                 

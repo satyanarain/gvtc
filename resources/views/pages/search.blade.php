@@ -1,37 +1,10 @@
 @extends('layouts_frontend.masterlayout')
-@section('bg-light')
-<header class="masthead">
-<div class="container">
-    <h1>Reports</h1>
-<div class="intro-text">
-<!--<form action="/search" method="GET" role="search">
-            {{ csrf_field() }}
-            <div class="input-group">
-                <input type="text" class="form-control" name="q"
-                    placeholder="Search"> <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
-        </form>  -->
-    
-    
-    
-<!--<form action="" autocomplete="off" class="form-horizontal customForm" method="post" accept-charset="utf-8">
-<div class="input-group">
-<input name="searchtext"  name="search_text" title="Enter a search term (taxonomic name to species level or common name)"  autocomplete="off" id="search" class="form-control" placeholder="Enter search term(s)...">
-<span class="input-group-btn">
-<button class="btn btn-primary text-uppercase" type="submit">
-Advanced Search
-</button>
-</span>
-</div>
-</form>-->
-</div>
-     
-</div>
-</header>
+@section('homeBanner coverBack')
+<section class="commonBanner coverBack">
+  <div class="container">
+		<h1>Search Result</h1>
+  </div>
+</section>
 
 <!-- breadcrumb -->
     <div class="breadcrumb">
@@ -42,10 +15,13 @@ Advanced Search
             </ol>
         </div>
 	</div>
-<div class="content-area bg-light" id="disable-part">
-<div class="container">
-<!--<div id="txtHint" class="title-color" style="padding-top:0px; margin-top: 0px; text-align:center;" ><b>Species information will be listed here...</b></div>-->
-<?php
+	<!-- breadcrumb -->
+
+<section class="body-outer">
+
+	<div class="container">
+   	
+          <?php
 $query=$_REQUEST['q'];
 
         // Perform the query using Query Builder
@@ -59,7 +35,7 @@ $query=$_REQUEST['q'];
          $n=count($results);
 ?>
 <?php if($n>0 && !Auth::check()) { ?>
-<a href="{{ url('login/')}}" style="margin-left: 15px;margin-bottom:10px; float:right"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><span class="glyphicon glyphicon-download-alt">&nbsp;Download assessment</span></a>
+<a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download assessment</a>
 <?php }else{ ?>
 <?php } ?>
 <?php if (Auth::check()) {?>
@@ -70,12 +46,6 @@ $query=$_REQUEST['q'];
 $searchurl = \Request::fullUrl();
 Session::put('searchurl', $searchurl);
 $searchurl;
-?>
-
-   
-<?php
-
-
 ?>
 <?php if (Auth::check()) {
 $userid=Auth::user()->id;
@@ -125,22 +95,14 @@ echo "not found";
 
  
                         </tbody>
-                    </table>
+                    </table>  
+            
+            
+            
+	</div>
 
+</section>
 
-
-
-
-    
-    
-    
-
-
-     
-     
-        
-      </div>
-    </div>
 @endsection
 
 

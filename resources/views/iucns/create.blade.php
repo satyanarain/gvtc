@@ -27,7 +27,7 @@
                   
                 <div class="form-row">
                   
-                <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6 required">
+                    <div class="form-group{{ $errors->has('iucn_threat_code') ? ' has-error' : '' }} col-md-6 required" style="height:70px">
                     <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_threat_code', array(),Session::get('language_val')) </label>
                   <input type="text" name="iucn_threat_code" value="{{ old('iucn_threat_code') }}" required  class="form-control" id="iucn_threat_code" placeholder="IUCN Threat Code">
@@ -39,7 +39,7 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('iucn_code_description') ? ' has-error' : '' }} col-md-6 required" style="height:70px">
                       <span class="lang-sm" lang="en"></span>&nbsp;
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.IUCN_code_description', array(),Session::get('language_val'))</label>
                   <input type="textarea" name="iucn_code_description" value="{{ old('iucn_code_description') }}" required  class="form-control" id="IUCN Code Description" placeholder="IUCN Code Description">
