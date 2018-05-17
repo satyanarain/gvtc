@@ -281,6 +281,11 @@ success:function(data)
      
      
    </SCRIPT>
+<script>
+setTimeout(function() {
+$('.alert-success').fadeOut('fast');
+}, 2000);   
+</script>
 
 
     

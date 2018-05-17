@@ -208,7 +208,7 @@ class ObserverController extends Controller
         Observer::where('id', $id)
             ->update($input);
         
-        //return redirect()->intended('/taxons');
+        Session::flash('flash_message', "Observer Updated Successfully."); //Snippet in Master.blade.php 
         return redirect()->route('observer.index');
     }
 

@@ -22,17 +22,8 @@
         </div>
       </div>
     </footer>
- <!-- Bootstrap core JavaScript -->
 
-<!-- Plugin JavaScript -->
-<!-- Custom scripts for this template -->
-
-
-
-
-<!--<script src="{{ asset ("/front/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
-<script src="{{ asset ("/front/js/gvtc.js") }}"></script>-->
-<!--<script language="JavaScript">
+<script language="JavaScript">
   /**
     * Disable right-click of mouse, F12 key, and save key combinations on page
     * By Arthur Gareginyan (arthurgareginyan@gmail.com)
@@ -77,7 +68,7 @@
   };
   
   
-</script>-->
+</script>
   </body>
 
 </html>
@@ -89,7 +80,15 @@ $(document).ready(function(startup) {
              } );
 } );
 
+
+jQuery(document).bind("keyup keydown", function(e){
+    if(e.ctrlKey && e.keyCode == 80){
+        //alert('fine');
+        return false;
+    }
+})
 </script>
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
 <style type="text/css" class="init"></style>

@@ -386,6 +386,7 @@ class DistributionController extends Controller {
             $inpute['specie_data'] = $specie_arra[1];
         }
         $distribution->fill($inpute)->save();
+         Session::flash('flash_message', "Distribution Updated Successfully."); //Snippet in Master.blade.php
         return redirect()->route('distribution.index');
     }
 

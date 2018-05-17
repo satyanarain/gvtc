@@ -42,7 +42,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <th style="display:none">id</th>  
                   <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
-                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
+                  <th><span class="lang-sm" lang="fr"></span>&nbsp;@lang('menu.admin_unit', array(),Session::get('language_val')) @lang('menu.name', array(),Session::get('language_val'))</th>
                   <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.country', array(),Session::get('language_val'))</th>
                  <th><span class="lang-sm" lang="en"></span>&nbsp;@lang('menu.admin_unit_type', array(),Session::get('language_val'))</th>
                     <th>@lang('menu.action', array(),Session::get('language_val'))</th>

@@ -126,7 +126,7 @@ class BreedingController extends Controller
         if ($breeding == null || count($breeding) == 0) {
             return redirect()->intended('/$breeding');
         }
-
+         
         return view('breeding.edit', ['breeding' => $breeding]);
     }
 
@@ -163,7 +163,7 @@ class BreedingController extends Controller
         $this->validate($request, $constraints);
         Breeding::where('id', $id)->update($input);
         
-        //return redirect()->intended('/taxons');
+        Session::flash('flash_message', "Breeding Updated Successfully."); //Snippet in Master.blade.php 
         return redirect()->route('breeding.index');
     }
 

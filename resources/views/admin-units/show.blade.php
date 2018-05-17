@@ -35,7 +35,7 @@
                   
                 <div class=" col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.country', array(),Session::get('language_val')) </label>
-                  <input type="text" readonly  value="{{ $adminunits->country }}"  class="form-control" >
+                  <input type="text" readonly  value="{{$adminunits->range_within_albertine_rift}}({{ $adminunits->range_code }})"  class="form-control" >
                  
                   </div>  
                   

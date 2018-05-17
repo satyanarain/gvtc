@@ -171,7 +171,7 @@ class WaterController extends Controller
             ->update($input);
         
       
-    Session::flash('flash_message', "Forest Use Updated Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Water Use Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('water.index');
     }
 

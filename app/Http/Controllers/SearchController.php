@@ -27,6 +27,7 @@ class SearchController extends Controller {
             ->where('common_name','LIKE', '%'.$query.'%')
             ->orWhere ('genus', 'LIKE', '%' . $query . '%' )  
             ->orWhere ('species', 'LIKE', '%' . $query . '%' )  
+            ->orWhere ('taxons.taxon_code', 'LIKE', '%' . $query . '%' )  
             ->get();
         return view('pages.search', compact('results'));
     }

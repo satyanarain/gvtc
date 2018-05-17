@@ -25,7 +25,7 @@ $username= $sql->username;
               <h3 class="box-title">List Of Permission</h3>
               </br></br>
               <div class="pull-right">
-<a href="/" class="btn btn-default">
+<a href="/home" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>

@@ -90,7 +90,7 @@ class AgeController extends Controller
 
         ]);
 
-    Session::flash('flash_message', "Age Created Successfully."); //Snippet in Master.blade.php 
+    Session::flash('flash_message', "Age Group Created Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('age.index');
 
     }
@@ -151,26 +151,15 @@ class AgeController extends Controller
             'code_description_fr'=> 'required'
             
             ];
-       
-        
-        
-        
-        
-       
-        $input = [
+       $input = [
             'age_group' => $request['age_group'],
             'code_description' => $request['code_description'],
             'code_description_fr' => $request['code_description_fr']
           
         ];
-        
-      
-        $this->validate($request, $constraints);
-        Age::where('id', $id)
-            ->update($input);
-        
-      
-    Session::flash('flash_message', "Observation  Updated Successfully."); //Snippet in Master.blade.php 
+      $this->validate($request, $constraints);
+        Age::where('id', $id)->update($input);
+    Session::flash('flash_message', "Age Group  Updated Successfully."); //Snippet in Master.blade.php 
     return redirect()->route('age.index');
     }
 

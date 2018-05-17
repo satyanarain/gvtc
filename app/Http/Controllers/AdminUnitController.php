@@ -47,7 +47,7 @@ class AdminUnitController extends Controller
     $permission_key = "adminunit_view";
     $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     if($getpermissionstatus==0)
-    return redirect()->route('user-management.unauthorized');   
+        return redirect()->route('user-management.unauthorized');   
     $adminunits = DB::table('adminunits')->select('*','adminunits.id as id')->leftjoin('countries','adminunits.countrie_id','=','countries.id')->get()->toArray();   
   // print_r($adminunits);
   // die;
@@ -112,12 +112,13 @@ class AdminUnitController extends Controller
     public function show($id)
     {
          $adminunits = AdminUnit::find($id);
-        // Redirect to taxon list if updating taxon wasn't existed
-        if ($adminunits == null || count($adminunits) == 0) {
-            return redirect()->intended('/admin-unit');
-        }
-
-        return view('admin-units/show', ['adminunits' => $adminunits]);
+         
+        $adminunits = DB::table('adminunits')->select('*','adminunits.id as id')
+         ->leftjoin('countries','adminunits.countrie_id','=','countries.id')       
+        ->where('adminunits.id',$id)->first();;
+//print_r($adminunits);
+//die;
+        return view('admin-units/show', compact('adminunits'));
         
         
     }

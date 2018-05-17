@@ -85,7 +85,7 @@ Route::resource('endenism', 'EndenismController');
 //Admin Unit
 Route::get('/admin-unit/admin_unit/{id}', 'AdminUnitController@adminunit');
 Route::resource('admin-unit', 'AdminUnitController');
-Route::get('admin-unit/index', 'AdminUnitController@index')->name('admin-unit.index');
+
 
 //Migration
 Route::get('migration/index', 'MigrationController@index')->name('migration.index');

@@ -169,7 +169,7 @@ class GrowthController extends Controller
             ->update($input);
         
         
-        Session::flash('flash_message', "Designation Code Updated Successfully."); //Snippet in Master.blade.php 
+        Session::flash('flash_message', "Growth Form Updated Successfully."); //Snippet in Master.blade.php 
         return redirect()->route('growth.index');
 
     }
