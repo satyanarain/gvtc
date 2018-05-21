@@ -20,7 +20,7 @@
             if(Auth::guest())
             { ?>
             <li class="nav-item">
-              <a class="nav-link loginBtn" href="{{ url('login/')}}"><i class="fa fa-lock"></i> Login</a>
+              <a class="nav-link loginBtn" href="{{ url('login/')}}"><i class="fa fa-lock"></i>&nbsp;Login</a>
             </li>
             <li class="guestUserBtn"><a href="{{ url('guest_register')}}"><i class="fa fa-user"></i> Guest User Registration</a></li> 
             <?php }else { ?>

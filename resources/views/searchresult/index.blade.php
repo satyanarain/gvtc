@@ -9,6 +9,7 @@
 //$getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
 //print_r($getpermissionstatus);
+ 
 ?>   
     <section class="content">
       <div class="box">
@@ -32,6 +33,8 @@ $user_id=Auth::id();
 $role=Auth::user()->role;
 $permission_key = "searchresult_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+//$datadate=explode("",$val['created_at']);
+//print_r($datadate);
 ?>
   
             <div class="box-body">
@@ -40,6 +43,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
+                  <th>&nbsp;@lang('menu.username', array(),Session::get('language_val'))</th>
                   <th>&nbsp;@lang('menu.username', array(),Session::get('language_val'))</th>
                   <th>&nbsp;@lang('menu.searchurl', array(),Session::get('language_val'))</th>
                   <?php if($getpermissionstatus!=0){?>
@@ -54,6 +58,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
+                   <td>{{ $val['created_at'] }}</td>
                     <td>{{ $val['serchurl'] }}</td>
             <?php if($getpermissionstatus!=0){?>
                   <td>
@@ -63,12 +68,12 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 
-<a href="{{ route('searchresult.edit', $val['uesrid']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe"   data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.edit', array(),Session::get('language_val'))</a>
+<a href="{{ route('searchresult.edit', $val['uesrid']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe"   data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>
     <?php if($val['adminaprovel']==1){ ?>
     
 <a href="#" style="margin-left: 15px;" class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-check-circle"></i>&nbsp;Approved</a>    
     <?php }else{ ?>
-<a href="#" style="margin-left: 15px;" class="btn btn-small btn-danger" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-times-circle"></i>&nbsp;Rejected </a>
+<a href="#" style="margin-left: 15px;" class="btn btn-small btn-danger" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-times-circle"></i>&nbsp;Pending</a>
     <?php } ?> 
 </td>
 <?php } ?>  

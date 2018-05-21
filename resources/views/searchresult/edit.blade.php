@@ -27,7 +27,7 @@ foreach($usersql as $userdata){ ?>
 
               <h3 class="profile-username text-center">{{ucfirst($userdata->username)}}</h3>
 
-              <p class="text-muted text-center">{{ucfirst($userdata->institution)}}</p>
+              <p class="text-muted text-center">{{ucfirst($userdata->role)}}</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -42,6 +42,11 @@ foreach($usersql as $userdata){ ?>
                 <li class="list-group-item">
                   <b>Purpose of Account</b> <a class="pull-right" style="color:green">{{$userdata->account}}</a>
                 </li>
+                <li class="list-group-item">
+                  <b>Institution / Organization / Company</b> <a class="pull-right" style="color:green">{{$userdata->institution}}</a>
+                </li>
+                
+
               </ul>
 
              

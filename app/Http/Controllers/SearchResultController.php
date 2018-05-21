@@ -135,7 +135,9 @@ class SearchResultController extends Controller
       
      
       $var->adminaprovel=1;
+      $cuurentdate = date("Y-m-d") ;
       DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel)); 
+      DB::table($tablename)->where('id', $id)->update(array('aproveldate' => $cuurentdate)); 
       
       if($var->adminaprovel==0){
          $uesrid = $var->uesrid; 
@@ -157,7 +159,7 @@ class SearchResultController extends Controller
             Mail::send('emails.approvesearchresult', ['search_details_user' => $query_user], function ($message) use ($query_user) {
               $message->from('info@opiant.online', 'GVTC');
               //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
-              $message->to($query_user->email,$query_user->username)->subject('GVTC | search reuest approve');
+              $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Reuest Approve');
           });
       }
       
@@ -166,9 +168,11 @@ class SearchResultController extends Controller
      }else
       {
       $adminaprovel=  $sql->adminaprovel;
+      $cuurentdate = date("Y-m-d") ;
       $var =  $sql=DB::table($tablename)->where('id',$id)->first();
       $var->adminaprovel=0;
        DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel));
+       DB::table($tablename)->where('id', $id)->update(array('reajectdate' => $cuurentdate)); 
       echo "0";
       }
    }

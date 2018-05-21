@@ -64,7 +64,7 @@ success:function(data)
    $("#"+id).removeClass('btn-danger');  
    $("#"+id).addClass('btn-success');  
     if(lang=='en'){
-   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Approve'); 
+   $("#ai"+id).html('<i class="fa fa-check-circle"></i> Approved'); 
     }else{
        $("#ai"+id).html('<i class="fa fa-check-circle"></i> Approuver'); 
     }
@@ -72,7 +72,7 @@ success:function(data)
    $("#"+id).removeClass('btn-success');  
    $("#"+id).addClass('btn-danger dng-w'); 
     if(lang=='en'){
-   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Reject');
+   $("#ai"+id).html('<i class="fa fa-times-circle"></i> Rejected');
     }else{
     $("#ai"+id).html('<i class="fa fa-times-circle"></i> Rejeter');
     }

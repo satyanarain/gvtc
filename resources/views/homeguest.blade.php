@@ -6,12 +6,11 @@ $species_record=count($species);
 $gazetteer=DB::table('gazetteers')->get();
 $gazetteer_record=count($gazetteer);
 $observers=DB::table('observers')->get();
-$observer_record=count($observers);     
+$observer_record=count($observers);
 $users=DB::table('users')->WHERE('status','1')->get();
-$users_record=count($users); 
+$users_record=count($users);
 $roll=Auth::user()->role;
-$users=DB::table('users')->WHERE('id','1')->get();
-//$roll=="guest";
+
 ?>
 
  <!-- Main content -->
@@ -76,10 +75,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
       <!-- /.row (main row) -->
 
     </section>
- <?php }else{
-   
-     
-     ?>
+ <?php }else{ ?>
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">

@@ -53,9 +53,6 @@ class LoginController extends Controller
     }
     
     public function login(Request $request)     {
-       
-        //$sql = DB::table('species')->where('taxon_id', $taxon_id)->get();
-        //print_r($request->all());
     $this->validate($request, ['username' => 'required', 'password' => 'required']); 
    
         Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1]); 
@@ -65,7 +62,9 @@ class LoginController extends Controller
             }else{
                 
             $username=$request['username'];
-            $searchdata=$request['searchdata'];
+           $searchdata=Session::get('searchurluniversaldata');
+           
+          
             $sqluserid=DB::table('users')->where('username' , $username)->get();
             foreach($sqluserid as $val){
             $val->id;
@@ -78,7 +77,7 @@ class LoginController extends Controller
             $useremail=$val->email;
 //            echo "==============";
 //            die;
-            if($request['searchdata']!=''&& $userrole=="guest"){
+            if($searchdata!=''&& $userrole=="guest"){
             DB::table('searchresult')->insert(
             array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
             );    
@@ -94,21 +93,22 @@ class LoginController extends Controller
             $query_user =  (object) $query_email; 
             Mail::send('emails.searchresult', ['search_details' => $query_user], function ($message) use ($query_user) {
               $message->from('info@opiant.online', 'GVTC');
-              $message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC | search request for approval');
+              $message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC | Search Request for Approval');
           });
              Mail::send('emails.searchresultuser', ['search_details_user' => $query_user], function ($message) use ($query_user) {
               $message->from('info@opiant.online', 'GVTC');
               //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
-              $message->to($query_user->email,$query_user->username)->subject('GVTC | search request submitted');
+              $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Request Submitted');
           });
-            $request->session()->forget('searchdata');
-            
+          
+          $request->session()->forget('searchurluniversaldata');
+           
             }       
                 
              Session::put('language_val', $request['lanuage']);
-             return redirect('/home');
-             //print_r($request->all());
-             
+            return redirect('/home');
+
+
              }   
             }
     public function logout(Request $request) {

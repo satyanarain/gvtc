@@ -4,26 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\GuestRegister;
+use App\Auth\GuestRegister;
 use Input;
 use Session;
 use Mail;
 use Auth;
 
 
+
 class GuestRegisterController extends Controller
 {
-    
-   // use  GuestRegister;
-    
-    
-     
        /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
     //protected $redirectTo = '/user-management';
 
          /**
@@ -81,72 +76,28 @@ class GuestRegisterController extends Controller
     $last_guest= GuestRegister::latest()->first();
     $last__guestid= $last_guest['id'];
 
-    if(Auth::attempt(['username' => $request['username'], 'password' => $request['password']])){
-        $username=$request['username'];
-       $searchdata=Session::get('searchurluniversaldata');
-       
-         $sqluserid=DB::table('users')->where('username' , $username)->get();
-            foreach($sqluserid as $val){
-            $val->id;
-            $val->role;
-            $val->email;
-            
-            }
-            $userid=$val->id;
-            $userrole=$val->role;
-            $useremail=$val->email;
-//            echo "==============";
-//            die;
-            if($searchdata!=''&& $userrole=="guest"){
-            DB::table('searchresult')->insert(
-            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
-            );    
-            
-            $query_email = array(
-            'username'=> $username, 
-            'searchdata' => $searchdata,
-             'email' => $useremail,   
-            'date'      => date("M d, Y h:i a")
-            );
-           
-            //$query_user =  (object) $query_email;
-            $query_user =  (object) $query_email; 
-            Mail::send('emails.searchresult', ['search_details' => $query_user], function ($message) use ($query_user) {
-              $message->from('info@opiant.online', 'GVTC');
-              $message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC | search request for approval');
-          });
-             Mail::send('emails.searchresultuser', ['search_details_user' => $query_user], function ($message) use ($query_user) {
-              $message->from('info@opiant.online', 'GVTC');
-              //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
-              $message->to($query_user->email,$query_user->username)->subject('GVTC | search request submitted');
-          });
-          
-          $request->session()->forget('searchurluniversaldata');
-           
-            }       
-               
-        //die;
-    $query_email = array(
-         'username'=> $request['username'],
-         'first_name' => $request['first_name'],
-         'last_name' => $request['last_name'],
-         'email' => $request['email'],  
-         'password' => $password, 
-         'date'      => date("M d, Y h:i a")
-       );
-    $query_guest =  (object) $query_email; 
-       Mail::send('emails.guest_notification', ['guset_details' => $query_guest], function ($message) use ($query_guest) {
-         $message->from('info@opiant.online', 'GVTC');
-         $message->to('gvtc2018@gmail.com',$query_guest->username)->subject('GVTC Guest User Registration');
-     });
+    
+//    $query_email = array(
+//         'username'=> $request['username'],
+//         'first_name' => $request['first_name'],
+//         'last_name' => $request['last_name'],
+//         'email' => $request['email'],  
+//         'password' => $password, 
+//         'date'      => date("M d, Y h:i a")
+//       );
+//    $query_guest =  (object) $query_email; 
+//       Mail::send('emails.guest_notification', ['guset_details' => $query_guest], function ($message) use ($query_guest) {
+//         $message->from('info@opiant.online', 'GVTC');
+//         $message->to('gvtc2018@gmail.com',$query_guest->username)->subject('GVTC Guest User Registration');
+//     });
     //Session::flash('flash_message', "User Created Successfully."); //Snippet in Master.blade.php 
 //     $url='http://'.$_SERVER['HTTP_HOST'].'/'.'login';
 //    return redirect('/guest_register')->with('success', 'Thank you for registering with GVTC Species Portal. Your request will be approved by the GVTC Admin and you will be notified once you are ready to login. <a href="'.$url.'">Click Here</a>'); 
-    return view('/home',compact('roll'));
-    //Auth::login($guestuser);
+    //return view('/home',compact('roll'));
+    Auth::login($guestuser);
     
     }
-    }
+
     
     public function checkDuplicateUser($username)
     {
