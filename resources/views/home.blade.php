@@ -56,7 +56,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
                   </td>
                   <?php }else{ ?>
                   <td>
-                      <a href="#" style="margin-left: 15px;"  class="btn btn-info mini blue-stripe" data-placement="top" ><i class="icon fa fa-ban" style="color:#dd4b39;"></i>&nbsp;&nbsp;pending</a>
+                      <a href="#" style="margin-left: 15px;width: 118px;"  class="btn btn-info mini blue-stripe" data-placement="top" ><i class="icon fa fa-ban" style="color:#dd4b39;"></i>&nbsp;&nbsp;pending</a>
                   </td>
                   <?php } ?>
                   </tr>

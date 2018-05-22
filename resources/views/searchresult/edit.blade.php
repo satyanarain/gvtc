@@ -43,7 +43,7 @@ foreach($usersql as $userdata){ ?>
                   <b>Purpose of Account</b> <a class="pull-right" style="color:green">{{$userdata->account}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Institution / Organization / Company</b> <a class="pull-right" style="color:green">{{$userdata->institution}}</a>
+                    <b>Institution / Organization / <br/>Company</b> <a class="pull-right" style="color:green">{{$userdata->institution}}</a>
                 </li>
                 
 
@@ -101,8 +101,8 @@ foreach($usersql as $userdata){ ?>
         <div class="col-md-9 ">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="box box-success"><a href="#activity" data-toggle="tab">Search Request</a></li>
-                    <div class="pull-right">
+                <li class="box box-success"><a href="" style="cursor:default" >Search Request</a></li>
+              <div class="pull-right" style=" margin-top: 10px; margin-bottom: 10px;margin-right: 20px;">
 <a href="{{ route('searchresult.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>

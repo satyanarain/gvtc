@@ -76,7 +76,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
     
 <a href="#" style="margin-left: 15px;" class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-check-circle"></i>&nbsp;Approved</a>    
     <?php }else{ ?>
-<a href="#" style="margin-left: 15px;" class="btn btn-small btn-danger" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-times-circle"></i>&nbsp;Pending</a>
+<a href="#" style="margin-left: 15px;width: 95px;" class="btn btn-small btn-danger" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-times-circle"></i>&nbsp;Pending</a>
     <?php } ?> 
 </td>
 <?php } ?>  
