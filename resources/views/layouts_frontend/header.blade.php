@@ -41,7 +41,7 @@
      <li role="presentation" class="divider"></li>
      <li><a  href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                                                     document.getElementById('logout-form').submit();" ><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a></li>
      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                                       </form>

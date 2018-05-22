@@ -90,11 +90,23 @@ class GuestRegisterController extends Controller
             $val->id;
             $val->role;
             $val->email;
+            $val->first_name;
+            $val->last_name;
+            $val->account;
+            $val->institution_type;
+            $val->institution;
+            $val-> country;
             
             }
             $userid=$val->id;
             $userrole=$val->role;
             $useremail=$val->email;
+            $userfirstname=$val->first_name;
+            $userlastname=$val->last_name;
+            $useraccount=$val->account;
+            $userinsttype= $val->institution_type;
+            $userinst= $val->institution;
+            $usercountry= $val-> country;
 //            echo "==============";
 //            die;
             if($searchdata!=''&& $userrole=="guest"){
@@ -106,7 +118,12 @@ class GuestRegisterController extends Controller
             'username'=> $username, 
             'searchdata' => $searchdata,
              'email' => $useremail,   
-            'date'      => date("M d, Y h:i a")
+             'first_name' => $userfirstname,   
+             'last_name' => $userlastname,   
+             'account' => $useraccount,   
+             'institution_type'=>$userinsttype,   
+             'institution' => $userinst,   
+            'date'      => date("M d, Y h:i a")   
             );
            
             //$query_user =  (object) $query_email;

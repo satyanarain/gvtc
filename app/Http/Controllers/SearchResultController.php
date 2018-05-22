@@ -13,6 +13,9 @@ use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Mail;
+
+
 class SearchResultController extends Controller
 {
        /**
@@ -123,58 +126,120 @@ class SearchResultController extends Controller
 
     public function adminapprovalUpdate($id)
    {
-
-    $tablename=$_REQUEST['tablename'];
+        
+        
+     $tablename=$_REQUEST['tablename'];
   
    $sql=DB::table($tablename)->where('id',$id)->first();
-
+  // print_r($sql);
+   //die;
 
       if($sql->adminaprovel==0)
       {
-      $var = $sql=DB::table($tablename)->where('id',$id)->first();
-      
-     
-      $var->adminaprovel=1;
+     $sqlusedetil=DB::table('users')->where('id' , $id)->get();
+
+      $sql=DB::table($tablename)->where('id',$id)->first();
+      $sql->adminaprovel=1;
       $cuurentdate = date("Y-m-d") ;
-      DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel)); 
-      DB::table($tablename)->where('id', $id)->update(array('aproveldate' => $cuurentdate)); 
+       DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $sql->adminaprovel,'aproveldate'=>$cuurentdate)); 
       
-      if($var->adminaprovel==0){
-         $uesrid = $var->uesrid; 
-         $searchdata = $var->serchurl; 
-         $username = $var->username; 
-          $sqluserid=DB::table('users')->where('id' , $uesrid)->get();
-            foreach($sqluserid as $val){
-            $useremail=$val->email;
-            
-            }
-             $query_email = array(
-            'username'=> $username, 
-            'searchdata' => $searchdata,
-            'email' => $useremail,   
-            'date'      => date("M d, Y h:i a")
-            );
-          //print_r($query_email);die;
-            $query_user =  (object) $query_email;
-            Mail::send('emails.approvesearchresult', ['search_details_user' => $query_user], function ($message) use ($query_user) {
-              $message->from('info@opiant.online', 'GVTC');
-              //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
-              $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Reuest Approve');
-          });
+    
+      $sqlq=DB::table($tablename)->where('id',$id)->get();
+      foreach($sqlq as $sqlqq){
+       $uesrid=$sqlqq->uesrid;  
+       $username=$sqlqq->username;  
+       $serchurl=$sqlqq->serchurl;  
+
+          
       }
-      
-      
+      $uesrid;
+      $username;
+      $serchurl;
+      $sqlqeamil=DB::table('users')->where('id',$uesrid)->get();
+      //print_r($sqlqeamil);
+      foreach($sqlqeamil as $emaildatat){
+          $emaildata=$emaildatat->email;
+      }
+      $emaildata;    
+//     // print_r($sqlq);
+       $query_email = array(
+          'id'=>$id,
+           'email'=>$emaildata,
+           'username'=>$username,
+           'serchurl'=>$serchurl
+         
+       );
+       $query_user =  (object) $query_email; 
+      Mail::send('emails.adminapprovesearch', ['search_data' => $query_user], function ($message) use ($query_user) {
+              $message->from('info@opiant.online', 'GVTC');
+             $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Approve By Admin');
+         });
+      // print_r($query_user);
+      //die;
       echo "1";
      }else
       {
-      $adminaprovel=  $sql->adminaprovel;
-      $cuurentdate = date("Y-m-d") ;
       $var =  $sql=DB::table($tablename)->where('id',$id)->first();
       $var->adminaprovel=0;
        DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel));
-       DB::table($tablename)->where('id', $id)->update(array('reajectdate' => $cuurentdate)); 
       echo "0";
-      }
+      }   
+        
+
+//    $tablename=$_REQUEST['tablename'];
+//  
+//   $sql=DB::table($tablename)->where('id',$id)->first();
+////   echo $id;
+////   echo "sdfsd";
+////   echo $sql->adminaprovel;
+////   die;
+//
+//      if($sql->adminaprovel==0)
+//      {
+//      $var = $sql=DB::table($tablename)->where('id',$id)->first();
+//      
+//     
+//      $var->adminaprovel=1;
+//      $cuurentdate = date("Y-m-d") ;
+//      DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel)); 
+//      DB::table($tablename)->where('id', $id)->update(array('aproveldate' => $cuurentdate)); 
+//      
+//      if($var->adminaprovel==0){
+//         $uesrid = $var->uesrid; 
+//         $searchdata = $var->serchurl; 
+//         $username = $var->username; 
+//          $sqluserid=DB::table('users')->where('id' , $uesrid)->get();
+//            foreach($sqluserid as $val){
+//            $useremail=$val->email;
+//            
+//            }
+//             $query_email = array(
+//            'username'=> $username, 
+//            'searchdata' => $searchdata,
+//            'email' => $useremail,   
+//            'date'      => date("M d, Y h:i a")
+//            );
+//          //print_r($query_email);die;
+//            $query_user =  (object) $query_email;
+//            Mail::send('emails.approvesearchresult', ['search_details_user' => $query_user], function ($message) use ($query_user) {
+//              $message->from('info@opiant.online', 'GVTC');
+//              //$message->to('gvtc2018@gmail.com',$query_user->username)->subject('GVTC Guset Search');
+//              $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Reuest Approve');
+//          });
+//      }
+//      
+//      
+//      echo "1";
+//     }else
+//      {
+//      $adminaprovel=  $sql->adminaprovel;
+//      $cuurentdate = date("Y-m-d") ;
+//      $var =  $sql=DB::table($tablename)->where('id',$id)->first();
+//      $var->adminaprovel=0;
+//       DB::table($tablename)->where('id', $id)->update(array('adminaprovel' => $var->adminaprovel));
+//       DB::table($tablename)->where('id', $id)->update(array('reajectdate' => $cuurentdate)); 
+//      echo "0";
+//      }
    }
     
     

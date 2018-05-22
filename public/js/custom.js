@@ -48,14 +48,13 @@ var txt;
 var r = confirm("Are you sure want to change status?");
 if (r == true) {
     txt = "You pressed OK!";
-
 $.ajax({
    type:'get',
    url:'/searchresult/adminapprovalupdate/'+id,
    data:"tablename="+tablename,
 success:function(data)
    {
-       //alert(data);
+      // alert(data);
    if(data==1)
    {
    

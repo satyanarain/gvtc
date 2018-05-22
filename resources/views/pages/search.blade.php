@@ -102,7 +102,7 @@ $query=$_REQUEST['q'];
 <?php if (Auth::check()&& Auth::user()->role=="guest") {?>
 <label><a style="color:#1b6b36" href="{{ url('/')}}">Back to Home</a></label>
 </br>
-<label>Download as -</label>
+<label>Download As -</label>
 <?php } ?>
 
 <?php

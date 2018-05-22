@@ -70,13 +70,26 @@ class LoginController extends Controller
             $val->id;
             $val->role;
             $val->email;
+            $val->first_name;
+            $val->last_name;
+            $val->account;
+            $val->institution_type;
+            $val->institution;
+            $val-> country;
             
             }
             $userid=$val->id;
             $userrole=$val->role;
             $useremail=$val->email;
+            $userfirstname=$val->first_name;
+            $userlastname=$val->last_name;
+            $useraccount=$val->account;
+            $userinsttype= $val->institution_type;
+            $userinst= $val->institution;
+            $usercountry= $val-> country;
+            
 //            echo "==============";
-//            die;
+          // die;
             if($searchdata!=''&& $userrole=="guest"){
             DB::table('searchresult')->insert(
             array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
@@ -86,6 +99,11 @@ class LoginController extends Controller
             'username'=> $username, 
             'searchdata' => $searchdata,
              'email' => $useremail,   
+             'first_name' => $userfirstname,   
+             'last_name' => $userlastname,   
+             'account' => $useraccount,   
+             'institution_type'=>$userinsttype,   
+             'institution' => $userinst,   
             'date'      => date("M d, Y h:i a")
             );
            

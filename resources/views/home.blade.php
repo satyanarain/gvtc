@@ -25,8 +25,9 @@ $users=DB::table('users')->WHERE('id','1')->get();
  <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  
-                  <th>SearchURL</th>
+                  <th style="display:none">id</th> 
+                  <th>Search Criteria</th>
+                  <th>Search Date</th>
                   <th class="action">Action</th>
            </tr>
                 </thead>
@@ -40,17 +41,23 @@ $users=DB::table('users')->WHERE('id','1')->get();
   //$sql = DB::table('species')->where('taxon_id', $taxon_id)->get();
  foreach($searchrtsql as $searchdata){    
    if($searchdata->serchurl){
-    
+    $datadate=explode(" ",$searchdata->created_at);
+    $searchdatak=explode("=",$searchdata->serchurl);
+   
 ?>   
-                    
+                     
                   <tr>
-                  <td><?php echo $searchdata->serchurl; ?></td>
+                   <td style="display:none">{{ $searchdata->id }}</td>    
+                  <td><?php echo $searchdatak[2]; ?></td>
+                  <td><?php echo $datadate[0]; ?></td>
                   <?php if($searchdata->adminaprovel==1){ ?>
                   <td>
                       <a href="<?php echo $searchdata->serchurl; ?>" style="margin-left: 15px;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download</i></a>
                   </td>
                   <?php }else{ ?>
-                  <td><a href="#" style="margin-left: 15px;"  class="btn btn-info mini blue-stripe" data-placement="top" ><i class="icon fa fa-ban" style="color:#dd4b39;"></i>&nbsp;&nbsp;pending</a></td>
+                  <td>
+                      <a href="#" style="margin-left: 15px;"  class="btn btn-info mini blue-stripe" data-placement="top" ><i class="icon fa fa-ban" style="color:#dd4b39;"></i>&nbsp;&nbsp;pending</a>
+                  </td>
                   <?php } ?>
                   </tr>
                

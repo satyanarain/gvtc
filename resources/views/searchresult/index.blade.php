@@ -33,8 +33,7 @@ $user_id=Auth::id();
 $role=Auth::user()->role;
 $permission_key = "searchresult_edit";
 $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
-//$datadate=explode("",$val['created_at']);
-//print_r($datadate);
+
 ?>
   
             <div class="box-body">
@@ -44,8 +43,8 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tr>
                   <th style="display:none">id</th> 
                   <th>&nbsp;@lang('menu.username', array(),Session::get('language_val'))</th>
-                  <th>&nbsp;@lang('menu.username', array(),Session::get('language_val'))</th>
-                  <th>&nbsp;@lang('menu.searchurl', array(),Session::get('language_val'))</th>
+                  <th>&nbsp;Search Date</th>
+                  <th>&nbsp;Search Criteria</th>
                   <?php if($getpermissionstatus!=0){?>
                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  <?php } ?> 
@@ -54,12 +53,16 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <tbody>
                     
                 @foreach($searchresult as $val) 
+                <?php
+                $datadate=explode(" ",$val['created_at']);
+                $searchdatak=explode("=",$val['serchurl']);
                 
+                ?>
                 <tr>
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
-                   <td>{{ $val['created_at'] }}</td>
-                    <td>{{ $val['serchurl'] }}</td>
+                   <td>{{ $datadate[0] }}</td>
+                    <td>{{ $searchdatak[2] }}</td>
             <?php if($getpermissionstatus!=0){?>
                   <td>
                

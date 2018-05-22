@@ -102,7 +102,11 @@ foreach($usersql as $userdata){ ?>
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li class="box box-success"><a href="#activity" data-toggle="tab">Search Request</a></li>
-             
+                    <div class="pull-right">
+<a href="{{ route('searchresult.index') }}" class="btn btn-default">
+<span class="glyphicon glyphicon-circle-arrow-left"></span>
+&nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
+</div>
             </ul>
             <div class="tab-content">
               <div class="active tab-pane" id="activity">
@@ -114,7 +118,7 @@ foreach($usersql as $userdata){ ?>
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
-                  <th>&nbsp;@lang('menu.searchurl', array(),Session::get('language_val'))</th>
+                  <th>&nbsp; Search Criteria</th>
                   
                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
                  
@@ -124,11 +128,13 @@ foreach($usersql as $userdata){ ?>
                 <?php    
                $userid=Request::segment(2);
 $searchsql=DB::table('searchresult')->where('uesrid',$userid)->get();
-foreach($searchsql as $searchdata){ ?>
+foreach($searchsql as $searchdata){ 
+     $searchdatak=explode("=",$searchdata->serchurl);
+    ?>
                 
                 <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>
-                   <td>{{ $searchdata->serchurl }}</td>
+                   <td>{{ $searchdatak[2] }}</td>
                    
            
                   <td>
@@ -144,7 +150,7 @@ foreach($searchsql as $searchdata){ ?>
 
 </tr>
 <?php } ?>                
-                    </form
+</form>
                           
 
                
