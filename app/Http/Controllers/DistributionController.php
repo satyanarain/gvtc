@@ -138,10 +138,11 @@ class DistributionController extends Controller {
 
         $inpute = $request->all();
         $specieid = $request['specie_id'];
+        if($specieid!=''){
         $specie_arra = explode('|', $specieid);
         $inpute['specie_id'] = $specie_arra[0];
         $inpute['specie_data'] = $specie_arra[1];
-
+        }
         Distribution::create($inpute);
         Session::flash('flash_message', "Distribution Created Successfully."); //Snippet in Master.blade.php
         return redirect()->route('distribution.index');
