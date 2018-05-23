@@ -47,13 +47,15 @@ function adminapprovalUpdate(id,tablename,lang)
 var txt;
 var r = confirm("Are you sure want to change status?");
 if (r == true) {
-    txt = "You pressed OK!";
+    txt = "You pressed OK!";   
+    $("#loading").show();
 $.ajax({
    type:'get',
    url:'/searchresult/adminapprovalupdate/'+id,
    data:"tablename="+tablename,
 success:function(data)
    {
+       
       // alert(data);
    if(data==1)
    {
@@ -76,7 +78,7 @@ success:function(data)
     $("#ai"+id).html('<i class="fa fa-times-circle"></i> Rejeter');
     }
    }
-   
+   $("#loading").hide();
    }
 });
 } else {

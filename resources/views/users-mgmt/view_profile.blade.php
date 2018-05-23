@@ -140,7 +140,9 @@
                                         <strong>{{ $errors->first('photoid') }}</strong>
                                     </span>
                                 @endif
-                  <img src="{{ asset("userdocument/$user->photoid") }}" height="80px" width="80px" /> 
+<!--                <img src="{{ asset("userdocument/$user->photoid") }}" height="80px" width="80px" /> -->
+                 <a href="{{ asset("userdocument/$user->photoid") }}">Document</a>
+                 
                   <input type="hidden" name="edit_userdocument" value="{{ $user->photoid }}" />
                   </div>  
                  

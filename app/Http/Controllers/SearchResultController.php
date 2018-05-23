@@ -45,9 +45,9 @@ class SearchResultController extends Controller
         
           
     $user_id=Auth::id();
-   $role=Auth::user()->role;
-  $permission_key = "searchresult_view";
-   $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
+    $role=Auth::user()->role;
+    $permission_key = "searchresult_view";
+    $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 //        //print_r($getpermissionstatus);die;
     if($getpermissionstatus==0)
    return redirect()->route('user-management.unauthorized');    
@@ -65,7 +65,7 @@ class SearchResultController extends Controller
     public function create()
     {
      
-    return view('taxons/create');
+    //return view('taxons/create');
     }
 
     /**
@@ -126,10 +126,7 @@ class SearchResultController extends Controller
 
     public function adminapprovalUpdate($id)
    {
-        
-        
-     $tablename=$_REQUEST['tablename'];
-  
+   $tablename=$_REQUEST['tablename'];
    $sql=DB::table($tablename)->where('id',$id)->first();
   // print_r($sql);
    //die;

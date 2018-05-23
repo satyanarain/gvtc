@@ -1,21 +1,9 @@
 @extends('searchresult.base')
-
 @section('action-content')
-
-
-
-
-
-
-
-
-
-
 <section class="content">
-
-      <div class="row">
+ <div class="row">
         <div class="col-md-3">
-
+ 
           <!-- Profile Image -->
           <?php
 $userid=Request::segment(2);
@@ -99,6 +87,7 @@ foreach($usersql as $userdata){ ?>
         </div>
         <!-- /.col -->
         <div class="col-md-9 ">
+            <div style="text-align:center;display:none;opacity: 0.2;z-index:99999;position:absolute;width:100%;height:auto;" id="loading"><img src='{{ asset('../dist/img/gvtc_loader.gif') }}'></div>
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="box box-success"><a href="" style="cursor:default" >Search Request</a></li>
@@ -125,6 +114,7 @@ foreach($usersql as $userdata){ ?>
                 </tr>
                 </thead>
                 <tbody>
+                    
                 <?php    
                $userid=Request::segment(2);
 $searchsql=DB::table('searchresult')->where('uesrid',$userid)->get();
@@ -150,15 +140,9 @@ foreach($searchsql as $searchdata){
 
 </tr>
 <?php } ?>                
-</form>
-                          
 
-               
-             
-             
-            </tbody>
-                
-              </table>
+ </tbody>
+ </table>
                 
                 
                 

@@ -96,7 +96,7 @@ $query=$_REQUEST['q'];
          $n=count($results);
 ?>
 <?php if($n>0 && !Auth::check()) { ?>
-<a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</a>
+<a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</a>
 <?php }else{ ?>
 <?php } ?>
 <?php if (Auth::check()&& Auth::user()->role=="guest") {?>
