@@ -156,6 +156,7 @@ Route::resource('reportcategory','ReportCategoryController');
 
 
 Route::get('search','SearchController@search');
+Route::resource('search','SearchController');
 Route::get('searchresult/adminapprovalupdate/{id}','SearchResultController@adminapprovalUpdate');
 Route::resource('searchresult','SearchResultController');
 

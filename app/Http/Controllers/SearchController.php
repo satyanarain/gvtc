@@ -9,13 +9,21 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Endenism;
 use Input;
 use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 
+
+
+
 class SearchController extends Controller {
+    
+    
+    public function index()
+    {
+        return view('pages.search');
+    }
 
     public function search(Request $request) {
            //return response()->json($request->all()); 
@@ -33,9 +41,25 @@ class SearchController extends Controller {
     }
     
     public function create(Request $request){
+   
+      
         
-        Session::put('searchurl', $searchurl);
-        echo $searchurl;
-        
+    }
+    
+    
+    public function store(Request $request)
+    {
+     $downaloaddtat= $request->downloaddata;
+     $uesrid= $request->uesrid;
+     $username= $request->username;
+      DB::table('searchresult')->insert(array('serchurl' => $downaloaddtat,
+                    'uesrid' => $uesrid,
+                    'username' =>$username,
+                    'status'=>1
+                   
+                ));
+    Session::flash('flash_message', "Search Successfully."); //Snippet in Master.blade.php
+    return redirect('/home');
+      
     }
 }

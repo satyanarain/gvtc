@@ -91,7 +91,7 @@
                 
                  <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required"  id="institution_label" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.institution_name', array(),Session::get('language_val'))</label>
-                  <input type="text" name="institution"  value="{{ old('institution') }}"  required="" class="form-control" id="institution_field"  placeholder="@lang('menu.institution_name', array(),Session::get('language_val'))">
+                  <input type="text" name="institution"  value="{{ old('institution') }}"  required="" onkeydown = "return Check(event)" class="form-control" id="institution_field"  placeholder="@lang('menu.institution_name', array(),Session::get('language_val'))">
                  @if ($errors->has('institution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('institution') }}</strong>

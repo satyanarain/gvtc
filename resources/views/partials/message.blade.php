@@ -1,3 +1,4 @@
+
 <div class="box-header">        
    @if ($message = Session::get('flash_message'))
    <div class="alert alert-success alert-block">

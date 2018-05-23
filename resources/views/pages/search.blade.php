@@ -95,18 +95,38 @@ $query=$_REQUEST['q'];
             ->get();
          $n=count($results);
 ?>
+<!-----Guset USer Already Login after that downlaod ---->
+  <?php
+ $searchurl = \Request::fullUrl();
+ if(Auth::check() && $n>0) { ?>
+ <form role="form" method="POST" action="{{ route('search.store') }}" enctype="multipart/form-data">
+ {{ csrf_field() }}
+ <input type="hidden" name="downloaddata" value="{{$searchurl}}">
+ <input type="hidden" name="uesrid" value="{{Auth::user()->id}}">
+ <input type="hidden" name="username" value="{{Auth::user()->username}}">
+  <button type="submit" style="margin-left: 15px; float:right;" class="btn btn-small btn-success pull"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</button>
+ </form>              
+
+<?php } ?>
 <?php if($n>0 && !Auth::check()) { ?>
 <a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</a>
 <?php }else{ ?>
 <?php } ?>
-<?php if (Auth::check()&& Auth::user()->role=="guest") {?>
+<!--Admin approval-->
+<?php
+$userid=Auth::user()->id;
+$cureenturl = \Request::fullUrl();
+$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
+$reord=count($searchrtsql);
+?>
+<?php if (Auth::check()&& Auth::user()->role=="guest" && $reord > 0) {?>
 <!--<label><a style="color:#1b6b36" href="{{ url('/')}}">Back to Home</a></label>-->
 </br>
 <label>Download As -</label>
 <?php } ?>
 
 <?php
-$searchurl = \Request::fullUrl();
+
 $searchurluniversaldata=Session::put('searchurluniversaldata', $searchurl);
 
 ?>
