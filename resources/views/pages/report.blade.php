@@ -54,7 +54,7 @@ $reporter =DB::table('report')->select('*')->orderBy('order')->where('report_cat
 <div class="panel-body">
       <?php echo $val123->report_title; ?>
       <span style="float:right">
-         <a href="{{ asset("report_document/$val123->uploded_report") }}" style="margin-left: 15px;" target="_blank" class="btn btn-info mini blue-stripe" data-placement="top" data-toggle="tooltip" onclick="openTab(this)" target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download</i></a>
+         <a href="{{ asset("report_document/$val123->uploded_report") }}" style="margin-left: 15px;" target="_blank" class="btn btn-success" data-placement="top" data-toggle="tooltip" onclick="openTab(this)" target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download</i></a>
           
           
           

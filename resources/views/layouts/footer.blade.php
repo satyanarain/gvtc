@@ -271,13 +271,22 @@ success:function(data)
       function isNumberKey(evt)
       {
          var charCode = (evt.which) ? evt.which : event.keyCode
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
+         if (charCode > 31 && (charCode < 48 || charCode > 57)){
             return false;
-
+        }else{
          return true;
+     }
       }
      
-     
+  function Check(evt)
+    {
+        if(evt.keyCode == 32)
+        {
+            alert("Space not allowed");
+            return false;
+        }
+        return true;
+    }   
      
      
    </SCRIPT>

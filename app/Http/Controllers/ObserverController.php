@@ -236,7 +236,7 @@ class ObserverController extends Controller
     private function validateInput($request) {
         $this->validate($request, [
 
-     'mobile' => 'digits:10',
+//     'mobile' => 'digits:10',
 
         
     ]);
