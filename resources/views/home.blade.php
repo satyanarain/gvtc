@@ -305,4 +305,15 @@ $users=DB::table('users')->WHERE('id','1')->get();
     </section>
  <?php } ?>
     <!-- /.content -->
+    <?php  $url='http://'.$_SERVER['HTTP_HOST'].'/'.'home';  ?>
+    <script type="text/javascript">
+function DownloadAndRedirect()
+{
+
+  var RedirectPauseSeconds = 0;
+  location.href = "<?php echo $url; ?>";
+  setTimeout("DoTheRedirect('"+RedirectURL+"')",parseInt(RedirectPauseSeconds*1000));
+}
+function DoTheRedirect(url) { window.location=url; }
+</script>
 @endsection
