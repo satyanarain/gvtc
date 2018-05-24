@@ -19,11 +19,28 @@ $users=DB::table('users')->WHERE('id','1')->get();
 <?php if($roll=="guest") { ?>
 
  <section class="content">
+     
+  
+     <div class="box-header">
+    <div class="row">
+        <div class="col-sm-8">
+          <h3 class="box-title">Search Log</h3>
+        </div>
+         
+        <div class="col-sm-4" >
+          <a class="btn btn-primary btn-template" href="javascript:DownloadAndRedirect()" data-placement="top" data-toggle="tooltip" data-original-title="Refresh"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Refresh</a>
+        </div>
+         
+    </div>
+  </div> 
+     
+  
+  
+     
       <!-- Small boxes (Stat box) -->
-      <section class="content">
-      
+    
  <div class="box-body">
- <table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
@@ -46,7 +63,9 @@ $users=DB::table('users')->WHERE('id','1')->get();
     $searchdatak=explode("=",$searchdata->serchurl);
    
 ?>   
-                     
+       
+                
+              
                   <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>    
                   <td><?php echo $searchdatak[2]; ?></td>
@@ -61,7 +80,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
                   </td>
                   <?php } ?>
                   </tr>
-               
+                
  <?php } } ?>           
               
               
@@ -83,7 +102,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
      
       <!-- /.row (main row) -->
 
-    </section>
+  
  <?php }else{
    
      

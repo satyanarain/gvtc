@@ -293,8 +293,18 @@ success:function(data)
 <script>
 setTimeout(function() {
 $('.alert-success').fadeOut('fast');
-}, 2000);   
-</script>
+}, 2000);
 
+</script>
+<script type="text/javascript">
+function DownloadAndRedirect()
+{
+
+  var RedirectPauseSeconds = 0;
+  location.href = "http://127.0.0.1:8000/home";
+  setTimeout("DoTheRedirect('"+RedirectURL+"')",parseInt(RedirectPauseSeconds*1000));
+}
+function DoTheRedirect(url) { window.location=url; }
+</script>
 
     

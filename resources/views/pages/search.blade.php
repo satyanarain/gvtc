@@ -114,12 +114,20 @@ $query=$_REQUEST['q'];
 <?php } ?>
 <!--Admin approval-->
 <?php
-$userid=Auth::user()->id;
-$cureenturl = \Request::fullUrl();
-$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
-$reord=count($searchrtsql);
+//$userid=Auth::user()->id;
+//$cureenturl = \Request::fullUrl();
+//$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
+//$reord=count($searchrtsql);
 ?>
-<?php if (Auth::check()&& Auth::user()->role=="guest" && $reord > 0) {?>
+<?php if (Auth::check()&& Auth::user()->role=="guest") {
+ //$userid=Auth::user()->id;
+//$cureenturl = \Request::fullUrl();
+//$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
+//$reord=count($searchrtsql);   
+    
+    
+    
+    ?>
 <!--<label><a style="color:#1b6b36" href="{{ url('/')}}">Back to Home</a></label>-->
 </br>
 <label>Download As -</label>

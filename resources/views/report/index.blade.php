@@ -20,19 +20,19 @@
 Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Distribution</li>-->
-<li role="menuitem"><label class="label_value" ><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" >Taxon </label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="method" value="Method" checked >Method</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observation" value="Observation" checked >Observation</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >Species </label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>Place</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Date" checked>Date</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>Number</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >Observer</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >Age Group</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="abundance" value="Abundance" >Abundance</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specimen_code" value="Specimen Code" >Specimen Code</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="collector_institution" value="Collector Institution" >Collector Institution</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sex" value="Sex" >Sex</label></li>
+<li role="menuitem"><label class="label_value" ><input checked type="checkbox" class="toggle-vis" data-column="tax" value="Taxon" >&nbsp;Taxon </label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="method" value="Method" checked >&nbsp;Method</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observation" value="Observation" checked >&nbsp;Observation</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox"  class="toggle-vis" data-column="species" value="Species" checked >&nbsp;Species </label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="place" value="Place" checked>&nbsp;Place</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="day" value="Date" checked>&nbsp;Date</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis"  data-column="number" value="Number" checked>&nbsp;Number</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" >&nbsp;Observer</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="age_group" value="Age Group" >&nbsp;Age Group</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="abundance" value="Abundance" >&nbsp;Abundance</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specimen_code" value="Specimen Code" >&nbsp;Specimen Code</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="collector_institution" value="Collector Institution" >&nbsp;Collector Institution</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sex" value="Sex" >&nbsp;Sex</label></li>
 <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="specienewid" value="Specienewid" type="checkbox">Specienewid</label></li>-->
       <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>-->
  </ul>
@@ -43,25 +43,25 @@ Distribution Records&nbsp;&nbsp;<span class="caret custom-caret"></span></button
 Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
 <!--<li role="menuitem"><label class="" style="" >Species</li>-->
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_id" value="Species Id" checked>Species Id</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="order" value="Order" checked >Order</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="family" value="Family" checked>Family</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="genus" value="Genus" checked>Genus</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_s" value="Species" checked>Species</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_auth" value="Species Author" checked>Species Author</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species" value="Sub-species" checked>Sub-species</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species_auth" value="Sub-species Author" >Sub-species Author</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name" value="Common Name" >Common Name (English)</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name_fr" value="Common Name (French)" >Common Name (French)</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="iucn_threat_code" value="IUCN Threat Code" >IUCN Threat Code</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="range" value="Range" >Range</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="growth" value="Growth Id" >Growth Id</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="forest_use" value="Forest Use" >Forest Use</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="water_use" value="Water Use" >Water Use</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="endemism" value="Endemism" >Endemism</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="migration" value="Migration" >Migration</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="national_threat_code" value="National Threat Code" >@lang('menu.national_threat_code', array(),Session::get('language_val')) </label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="breeding" value="Breeding" >Breeding</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_id" value="Species Id" checked>&nbsp;Species Id</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="order" value="Order" checked >&nbsp;Order</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="family" value="Family" checked>&nbsp;Family</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="genus" value="Genus" checked>&nbsp;Genus</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_s" value="Species" checked>&nbsp;Species</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="species_auth" value="Species Author" checked>&nbsp;Species Author</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species" value="Sub-species" checked>&nbsp;Sub-species</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="sub_species_auth" value="Sub-species Author" >&nbsp;Sub-species Author</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name" value="Common Name" >&nbsp;Common Name (English)</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="common_name_fr" value="Common Name (French)" >&nbsp;Common Name (French)</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="iucn_threat_code" value="IUCN Threat Code" >&nbsp;IUCN Threat Code</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="range" value="Range" >&nbsp;Range</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="growth" value="Growth Id" >&nbsp;Growth Id</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="forest_use" value="Forest Use" >&nbsp;Forest Use</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="water_use" value="Water Use" >&nbsp;Water Use</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="endemism" value="Endemism" >&nbsp;Endemism</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="migration" value="Migration" >&nbsp;Migration</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="national_threat_code" value="National Threat Code" >&nbsp;@lang('menu.national_threat_code', array(),Session::get('language_val')) </label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="breeding" value="Breeding" >&nbsp;Breeding</label></li>
 
       <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>-->
  </ul>
@@ -71,24 +71,24 @@ Species&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <!--<i class="fa fa-columns"></i>-->
 Gazetteers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="gazeteer" value="Gazeteer" checked >Gazeteer</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="country" value="Country" checked >Country</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="place" value="Place" checked >Place</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="details" value="Details" checked >Details</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="longitude" value="Longitude" checked>Longitude</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="latitude" value="Latitude" checked >Latitude</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="datum" value="Datum" checked  >Datum (DD)</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="zone" value="Zone" checked  >Zone</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="eastings" value="Eastings" checked >Eastings</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="northings" value="Northings" checked >Northings</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="datum_utm" value="Datum (UTM)" checked >Datum (UTM)</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="habitat" value="Habitat"  >Habitat</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="altitude" value="Altitude" >Altitude</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="slope" value="Slope" >Slope</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="aspect" value="Aspect" >Aspect</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="admin_unit" value="Admin Unit">Admin Unit</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="protected_area" value="Protected Area">Protected Area</label></li>
-<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="soil" value="soil">Soil</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="gazeteer" value="Gazeteer" checked >&nbsp;Gazeteer</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="country" value="Country" checked >&nbsp;Country</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="place" value="Place" checked >&nbsp;Place</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="details" value="Details" checked >&nbsp;Details</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="longitude" value="Longitude" checked>&nbsp;Longitude</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="latitude" value="Latitude" checked >&nbsp;Latitude</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="datum" value="Datum" checked  >&nbsp;Datum (DD)</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="zone" value="Zone" checked  >&nbsp;Zone</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="eastings" value="Eastings" checked >&nbsp;Eastings</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="northings" value="Northings" checked >&nbsp;Northings</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="datum_utm" value="Datum (UTM)" checked >&nbsp;Datum (UTM)</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="habitat" value="Habitat"  >&nbsp;Habitat</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="altitude" value="Altitude" >&nbsp;Altitude</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="slope" value="Slope" >&nbsp;Slope</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="aspect" value="Aspect" >&nbsp;Aspect</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="admin_unit" value="Admin Unit">&nbsp;Admin Unit</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="protected_area" value="Protected Area">&nbsp;Protected Area</label></li>
+<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="soil" value="soil">&nbsp;Soil</label></li>
 
       <!--<li role="menuitem"><label class="label_value"><input type="checkbox" class="toggle-vis" data-column="observer" value="Observer" type="checkbox"> Observer</label></li>-->
  </ul>
@@ -99,15 +99,15 @@ Gazetteers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <!--<i class="fa fa-columns"></i>-->
 Observers&nbsp;&nbsp;<span class="caret custom-caret"></span></button>
 <ul class="dropdown-menu scrollable-menu" role="menu" style=" ">
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="title" value="Title" >Title</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="first_name" value="First Name" >First Name</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="last_name" value="Last Name" checked >Last Name</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="address" value="Address"  >Address</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="work_tel_number" value="Work Tel. Number"  >Work Tel. Number</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="mobile" value="Mobile"  >Mobile</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="email" value="Email"  >Email</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="website" value="Website"  >Website</label></li>
-<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="institution_name" value="Institution Name" checked >Institution Name</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="title" value="Title" >&nbsp;Title</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="first_name" value="First Name" >&nbsp;First Name</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="last_name" value="Last Name" checked >&nbsp;Last Name</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="address" value="Address">&nbsp;Address</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="work_tel_number" value="Work Tel. Number"  >&nbsp;Work Tel. Number</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="mobile" value="Mobile">&nbsp;Mobile</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="email" value="Email">&nbsp;Email</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="website" value="Website">&nbsp;Website</label></li>
+<li role="menuitem"><label class="label_value" ><input type="checkbox" class="toggle-vis" data-column="institution_name" value="Institution Name" checked >&nbsp;Institution Name</label></li>
 
 
 

@@ -51,7 +51,7 @@
                         <input type="radio" name="selectioncriteria" class="geniusrecord" <?php if($distribution->selectioncriteria=='commonname'){?> checked <?php } ?> id="inlineCheckbox3" value="commonname">
                         <label for="inlineCheckbox3"> Common Name (English) </label>
                     </div>
-                    <div class="checkbox checkbox-inline">
+                      <div class="checkbox checkbox-inline" style="margin-left: 0px;">
                         <input type="radio" name="selectioncriteria" class="geniusrecord" <?php if($distribution->selectioncriteria=='commonnamefr'){?> checked <?php } ?> id="inlineCheckbox3" value="commonnamefr">
                         <label for="inlineCheckbox3"> Common Name (French) </label>
                     </div>  

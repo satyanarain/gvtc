@@ -311,10 +311,11 @@ class DistributionController extends Controller {
             echo '<select class="form-control" required="required" id="species_record" name="specie_id">';
             echo '<option selected="selected" value="">Select Species</option>';
             foreach ($sql2 as $vf) {
+                if ($vf->common_name_fr) {
                 ?>
                 <option value="<?php echo $vf->id; ?>|<?php echo $vf->common_name_fr; ?>"><?php echo $vf->common_name_fr; ?></option>
             <?php
-            }
+                } }
             echo ' </select> ';
         }
     }

@@ -16,6 +16,9 @@ use Auth;
 use Mail;
 
 
+
+
+
 class SearchResultController extends Controller
 {
        /**
@@ -35,6 +38,9 @@ class SearchResultController extends Controller
         $this->middleware('auth');
     }
 
+    
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -42,6 +48,7 @@ class SearchResultController extends Controller
      */
     public function index()
     {
+        
         
           
     $user_id=Auth::id();
