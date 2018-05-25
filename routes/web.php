@@ -154,9 +154,9 @@ Route::resource('offlinerecord','OfflineController');
 Route::post('reportcategory/sortabledatatable','ReportCategoryController@updateOrder')->name('reportcategory/sortabledatatable');
 Route::resource('reportcategory','ReportCategoryController');
 
-
-Route::get('search','SearchController@search');
 Route::resource('search','SearchController');
+Route::get('search','SearchController@search');
+
 Route::get('searchresult/adminapprovalupdate/{id}','SearchResultController@adminapprovalUpdate');
 Route::resource('searchresult','SearchResultController');
 

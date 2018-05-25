@@ -56,12 +56,13 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 <?php
                 $datadate=explode(" ",$val['created_at']);
                 $searchdatak=explode("=",$val['serchurl']);
-                
+                $exdate=explode('-',$datadate[0]);
+                $currentdate= $exdate[2].'-'.$exdate[1].'-'.$exdate[0];
                 ?>
                 <tr>
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
-                   <td>{{ $datadate[0] }}</td>
+                   <td>{{ $currentdate }}</td>
                     <td>{{ $searchdatak[2] }}</td>
             <?php if($getpermissionstatus!=0){?>
                   <td>

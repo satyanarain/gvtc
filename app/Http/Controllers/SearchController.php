@@ -33,7 +33,10 @@ class SearchController extends Controller {
 
     public function search(Request $request) {
            //return response()->json($request->all()); 
-           $query=$request->q;
+        
+        //echo $downloadurl = \Request::fullUrl();
+        //die;
+        $query = preg_replace("/[^a-zA-Z0-9]/", "", $request->q);
         // Perform the query using Query Builder
         $results = DB::table('species')
             ->select(DB::raw("*"))
@@ -43,6 +46,7 @@ class SearchController extends Controller {
             ->orWhere ('species', 'LIKE', '%' . $query . '%' )  
             ->orWhere ('taxons.taxon_code', 'LIKE', '%' . $query . '%' )  
             ->get();
+        
         return view('pages.search', compact('results'));
     }
     

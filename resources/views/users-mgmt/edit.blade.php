@@ -144,7 +144,11 @@ $role=Auth::user()->role;
                   
                   
                    <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6 required">
+                    <?php if($user->role=='guest'){ ?>  
+                    <label for="exampleInputEmail1" class="control-label">Phone Number</label> 
+                    <?php }else{ ?>   
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.mobile_number', array(),Session::get('language_val'))</label>
+                    <?php } ?>
                   <input type="text" name="mobilenumber" readonly="" value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
                  @if ($errors->has('mobilenumber'))
                                     <span class="help-block">

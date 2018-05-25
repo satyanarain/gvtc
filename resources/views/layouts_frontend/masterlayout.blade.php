@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Greater Virunga Transboundary Collaboration | {{ Request::segment(1)}} </title>
+  <title>Greater Virunga Transboundary Collaboration | <?php if(Request::segment(1)=="search"){echo "Search History";}else{ echo ucfirst(Request::segment(1));} ?>  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link  rel="stylesheet" href="{{ asset('/front/bootstrap/css/bootstrap.min.css')}}">   

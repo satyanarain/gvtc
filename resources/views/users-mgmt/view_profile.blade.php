@@ -50,9 +50,64 @@
                   </div> 
                   </div>    
                    
+                
+                   <?php if($user->role=='guest'){ ?> 
+                   <div class="form-row">
                   
+                <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="first_name" class="control-label">First Name</label>
+                  <input type="text" name="first_name" value="{{ $user->first_name }}" required  class="form-control" id="first_name" placeholder="Enter Fisrt Name">
+                 @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                  
+                  <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="last_name" class="control-label">Last Name</label>
+                  <input type="textarea" name="last_name" value="{{ $user->last_name }}" required  class="form-control" id="name" placeholder="Enter Last Name">
+                 @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div> 
+                   <?php } ?> 
+                   
+                   
+                   <?php if($user->role=='guest'){ ?> 
+                   <div class="form-row">
+                  
+                <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="first_name" class="control-label">Institution Type</label>
+                  <input type="text" name="first_name" value="{{ $user->institution_type }}" required  class="form-control" id="first_name" placeholder="Enter Fisrt Name">
+                 @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                  
+                  <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required">
+                  <label for="last_name" class="control-label">Institution / Organization / Company</label>
+                  <input type="textarea" name="last_name" value="{{ $user->institution }}" required  class="form-control" id="name" placeholder="Enter Last Name">
+                 @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                  </div>  
+                  
+                </div> 
+                   <?php } ?>
+                   
                 <div class="form-row">
-                  
+                  <?php if($user->role!='guest'){ ?> 
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.name', array(),Session::get('language_val'))</label>
                   <input type="text" name="name" readonly value="{{ $user->name }}" required  class="form-control" id="name" placeholder="Enter name">
@@ -62,7 +117,7 @@
                                     </span>
                                 @endif
                   </div>  
-                  
+                  <?php } ?>
                   
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.address', array(),Session::get('language_val'))</label>
@@ -72,15 +127,28 @@
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                 @endif
+                  </div> 
+                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }} col-md-6">
+                  <label for="exampleInputEmail1">Purpose of Account</label>
+                  <input type="textarea" name="address" readonly value="{{ $user->account }}" required  class="form-control" id="name" placeholder="Enter address">
+                 @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
                   </div>  
                   
                 </div> 
+                   
+                   
+                   
+                   
                   
                   
                  <div class="form-row"> 
                   
                   
-                  
+                  <?php if($user->role!='guest'){ ?>
                    <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.mobile_number', array(),Session::get('language_val'))</label>
                   <input type="text" name="mobilenumber" readonly value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
@@ -89,8 +157,19 @@
                                         <strong>{{ $errors->first('mobilenumber') }}</strong>
                                     </span>
                                 @endif
-                  </div>  
-                  
+                  </div> 
+                  <?php } ?>
+                  <?php if($user->role=='guest'){ ?>
+                   <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6">
+                  <label for="exampleInputEmail1">Phone Number</label>
+                  <input type="text" name="mobilenumber" readonly value="{{ $user->mobilenumber }}" required  class="form-control" id="name" placeholder="Enter mobile">
+                 @if ($errors->has('mobilenumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('mobilenumber') }}</strong>
+                                    </span>
+                                @endif
+                  </div>   
+                  <?php } ?>  
                   
                   
                   
@@ -106,8 +185,29 @@
                   
                 
                  </div> 
+                   
+                   
+                    <div class="form-row"> 
+                        
+                       <div class="form-group{{ $errors->has('mobilenumber') ? ' has-error' : '' }} col-md-6">
+                  <label for="exampleInputEmail1">Country of Residence</label>
+                  <input type="text" name="mobilenumber" readonly value="{{ $user->country }}" required  class="form-control" id="name" placeholder="Enter mobile">
+                 @if ($errors->has('mobilenumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('mobilenumber') }}</strong>
+                                    </span>
+                                @endif
+                  </div>   
+                    </div>
+                   
+                   
+                   
+
+                   
+                   
+                   
                  
-                  
+                   <?php if($user->role!='guest'){ ?>
                   <div class="form-row"> 
                   <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }} col-md-6">
                   <label for="exampleInputEmail1">@lang('menu.department', array(),Session::get('language_val'))</label>
@@ -160,7 +260,7 @@
                    
                   </div> 
                   </div>
-                  
+                   <?php } ?>
 <!--                   <div class="form-row">
                   
                 <div class=" form-group col-md-6">

@@ -31,23 +31,23 @@ class PageController extends Controller
    
     
     
-    public function liveSearch(Request $request)
-    { 
-         $search = $request->id;
-   
-          
-         if ($search!="")
-        {
-       
-        $posts= DB::table('species')->select('*')->leftjoin('taxons','species.taxon_id','taxons.id')->Where('common_name', 'like', '%'.$search.'%')->get();
-        return view('pages/livesearchajax',compact('posts'));
-           // return view('distributions.index', compact('users')); 
-        }else{
-            
-            return view('pages/index');	 
-            
-        }
-    }
+//    public function liveSearch(Request $request)
+//    { 
+//         $search = $request->id;
+//   
+//          
+//         if ($search!="")
+//        {
+//       
+//        $posts= DB::table('species')->select('*')->leftjoin('taxons','species.taxon_id','taxons.id')->Where('common_name', 'like', '%'.$search.'%')->get();
+//        return view('pages/livesearchajax',compact('posts'));
+//           // return view('distributions.index', compact('users')); 
+//        }else{
+//            
+//            return view('pages/index');	 
+//            
+//        }
+//    }
     
     
     

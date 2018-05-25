@@ -176,7 +176,7 @@ class SearchResultController extends Controller
        $query_user =  (object) $query_email; 
       Mail::send('emails.adminapprovesearch', ['search_data' => $query_user], function ($message) use ($query_user) {
               $message->from('info@opiant.online', 'GVTC');
-             $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Approve By Admin');
+             $message->to($query_user->email,$query_user->username)->subject('GVTC | Search Request Approved');
          });
       // print_r($query_user);
       //die;

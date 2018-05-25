@@ -61,6 +61,10 @@ $users=DB::table('users')->WHERE('id','1')->get();
    if($searchdata->serchurl){
     $datadate=explode(" ",$searchdata->created_at);
     $searchdatak=explode("=",$searchdata->serchurl);
+    $exdate=explode('-',$datadate[0]);
+    $currentdate= $exdate[2].'-'.$exdate[1].'-'.$exdate[0];
+    //echo '<pre>';
+    //print_r($exdate);
    
 ?>   
        
@@ -69,15 +73,12 @@ $users=DB::table('users')->WHERE('id','1')->get();
                   <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>    
                   <td><?php echo $searchdatak[2]; ?></td>
-                  <td><?php echo $datadate[0]; ?></td>
+                  <td><?php echo $currentdate; ?></td>
                   <?php if($searchdata->adminaprovel==1){ ?>
-                  <td>
-                      <a href="<?php echo $searchdata->serchurl; ?>" style="margin-left: 15px;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt">&nbsp;Download</i></a>
+        <td><a href="<?php echo $searchdata->serchurl; ?>" class="btn btn-success" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
                   </td>
                   <?php }else{ ?>
-                  <td>
-                      <a href="#" style="margin-left: 15px;width: 118px;"  class="btn btn-info mini blue-stripe" data-placement="top" ><i class="icon fa fa-ban" style="color:#dd4b39;"></i>&nbsp;&nbsp;pending</a>
-                  </td>
+        <td><a href="#" style="padding-left:20px;padding-right:20px;" class="btn btn-danger"><i class="fa fa-ban glyphicon"></i> Pending</a></td>
                   <?php } ?>
                   </tr>
                 

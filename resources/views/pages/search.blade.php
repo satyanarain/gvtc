@@ -20,7 +20,7 @@
 	</div>
 	<!-- breadcrumb -->
 <!--        <scetion class="body-outer">-->
-<section class="body-outer" oncontextmenu="return false;" onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">
+<!--<section class="body-outer" oncontextmenu="return false;" onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">-->
            
 <div class="container">
 <!--     <h1 style="color:#5dc082">Explore or refine your search below:</h1>-->
@@ -82,8 +82,9 @@
   <div class="col-sm-4">.col-sm-4</div>
   <div class="col-sm-4">.col-sm-4</div>
 </div> -->
+
           <?php
-$query=$_REQUEST['q'];
+$query=preg_replace("/[^a-zA-Z0-9]/", "", $_REQUEST['q']);
 
         // Perform the query using Query Builder
         $results = DB::table('species')
@@ -97,8 +98,10 @@ $query=$_REQUEST['q'];
 ?>
 <!-----Guset USer Already Login after that downlaod ---->
   <?php
+
  $searchurl = \Request::fullUrl();
  if(Auth::check() && $n>0) { ?>
+
  <form role="form" method="POST" action="{{ route('search.store') }}" enctype="multipart/form-data">
  {{ csrf_field() }}
  <input type="hidden" name="downloaddata" value="{{$searchurl}}">
@@ -120,23 +123,21 @@ $query=$_REQUEST['q'];
 //$reord=count($searchrtsql);
 ?>
 <?php if (Auth::check()&& Auth::user()->role=="guest") {
- //$userid=Auth::user()->id;
-//$cureenturl = \Request::fullUrl();
-//$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
-//$reord=count($searchrtsql);   
+ $userid=Auth::user()->id;
+$cureenturl = \Request::fullUrl();
+$searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['status', 1],['serchurl', $cureenturl]])->where('adminaprovel', 1)->get(); 
+ $reord=count($searchrtsql);   
     
     
     
     ?>
 <!--<label><a style="color:#1b6b36" href="{{ url('/')}}">Back to Home</a></label>-->
-</br>
+
 <label>Download As -</label>
 <?php } ?>
 
 <?php
-
-$searchurluniversaldata=Session::put('searchurluniversaldata', $searchurl);
-
+$searchurluniversaldata=Session::put('searchurluniversaldata', str_replace('+','',$searchurl));
 ?>
 <?php if (Auth::check()) {
 $userid=Auth::user()->id;
