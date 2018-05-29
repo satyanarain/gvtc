@@ -50,7 +50,7 @@
                 <div class="form-row " id="div_img" style="display:none;">
                 <div class=" col-md-6 ">
                 <label for="exampleInputEmail1" class="control-label">Upload Distribution Record</label>
-                <span class="badge bg-green"><input accept=".csv" name="documents1" id="documents1" onchange="validFile(this,1)" type="file" required ></span>
+                <span class="badge bg-green"><input accept=".csv" name="documents1" type="file" required ></span>
                 </div>  
                 </div>  
                   
