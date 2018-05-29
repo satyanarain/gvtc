@@ -6,6 +6,31 @@
   </div>
 </section>
 <?php
+ //print_r($genus_info);
+ 
+ foreach($genus_info As $genus){
+     
+     $genus->genus;
+     $genus->total;
+    
+     
+ }
+ //die;
+//$sqlgenus = DB::table('species')->select('genus')
+//            ->groupBy('genus')
+//            ->get();
+//foreach($sqlgenus as $genus){
+//    
+//    //echo $genus->genus.'<br>';
+//}
+//
+//$count = DB::table('species')
+//        ->select('genus')
+//    ->where('status', 1)
+//    ->groupBy('genus')
+//    ->get();
+//
+//var_dump(count($count));
 
 
 ?>
@@ -21,8 +46,154 @@
 	<!-- breadcrumb -->
 <!--        <scetion class="body-outer">-->
 <!--<section class="body-outer" oncontextmenu="return false;" onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">-->
-           
+<!-- Include the plugin's CSS and JS: -->
+<script src="{{ asset ("/front/js/bootstrap-multiselect.js") }}"></script>
+<link rel="stylesheet" href="{{ asset('/front/css/bootstrap-multiselect.css')}}">          
 <div class="container">
+    
+
+    
+     <script type="text/javascript">
+        $(function () {
+            $('#lstFruits').multiselect({
+                includeSelectAllOption: true
+            });
+             $('#2ndFruits').multiselect({
+                includeSelectAllOption: true
+            });
+            
+            $('#3rdFruits').multiselect({
+                includeSelectAllOption: true
+            });
+            
+            
+//            $('#btnSelected').click(function () {
+//                var selected = $("#lstFruits option:selected");
+//                var message = "";
+//                selected.each(function () {
+//                    message += $(this).text() + " " + $(this).val() + "\n";
+//                });
+//                alert(message);
+//            });
+        });
+    </script>
+
+   
+        
+        
+        
+      <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" class="accordion-toggle collapsed">
+                     <div class="panel-heading" style="color:#5dc082">Explore or refine your search below:</div>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+            <div class="panel-body">
+  
+          <div class="container" style="max-width:600px;padding:40px 20px;background:#ebeff2">
+    <form class="form-horizontal" role="form"  action="/advancedsearch" method="post" >
+        <?php
+        $adsearchurl = \Request::fullUrl();
+        $adsearch=explode("=",$adsearchurl);
+        ?>
+        <input type="hidden" name="searchkey" value="<?php echo trim($adsearch[2]); ?>"/>
+        {{ csrf_field() }}
+	   <div class="form-group">
+	      <label for="name" class ="control-label col-sm-3">Genus</label>
+		<div class="col-sm-8">
+	     
+              
+              <select id="lstFruits" name="genusval[]" class="form-control" multiple="multiple">
+        <?php
+        
+    
+        
+    foreach($genus_info As $genus){
+
+    ?>
+        <option value="<?php echo  $genus->genus; ?>"><?php echo  $genus->genus; ?>(<?php echo $genus->total; ?>)</option>
+    <?php } ?>
+    </select>
+              
+		</div>
+	    </div>
+	   <div class="form-group">
+	      <label for="address" class ="control-label col-sm-3">Common Name</label>
+		<div class="col-sm-8">
+	      <select id="2ndFruits" name="commonnameval[]" class="form-control" multiple="multiple">
+        <?php
+        
+    
+        
+    foreach($common_info as $common){
+        if($common->common_name){
+    ?>
+        <option value="<?php echo  $common->common_name; ?>"><?php echo  $common->common_name; ?>(<?php echo $common->total; ?>)</option>
+    <?php } } ?>
+    </select>
+		</div>
+	    </div>
+        
+        
+        <div class="form-group">
+	      <label for="address" class ="control-label col-sm-3">Taxon</label>
+		<div class="col-sm-8">
+                    <select id="3rdFruits" class="form-control" name="taxonval[]" multiple="multiple">
+        <?php foreach($taxon_info as $taxid) {
+           //print_r($taxid);
+               $taxonname = DB::table('species')->select('*')
+                        ->leftjoin('taxons', 'taxons.id', 'species.taxon_id')
+                       ->where('species.taxon_id',$taxid->taxon_id)->first();
+            //echo $taxonname->taxon_code;
+            ?>
+           <option value="<?php echo  $taxid->taxon_id; ?>"><?php echo $taxonname->taxon_code; ?>(<?php echo $taxid->total; ?>)</option>       
+        <?php } ?>
+                    </select>
+            </div>
+	    </div>      
+                  
+<!--	   <div class="form-group">
+	      <label for="email" class ="control-label col-sm-3">Email</label>
+		<div class="col-sm-8">
+	      <input type="email" class="form-control" id="email" placeholder="Enter email">
+		</div>
+	    </div>
+	   <div class="form-group">
+	      <label for="pwd" class ="control-label col-sm-3">Password</label>
+		<div class="col-sm-8">
+	      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+		</div>
+	    </div>-->
+	   <div class="col-sm-offset-2 col-sm-8">
+	     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search </button>
+	   </div>
+	</form>
+</div>         
+                   
+                     
+                </div>
+            </div>
+        </div>                    
+        
+        
+        
+        
+        
+        
+        
+   
+    
+  
+  
+    
+<!--    <input type="button" id="btnSelected" value="Get Selected" />-->
+
+
+
+    
 <!--     <h1 style="color:#5dc082">Explore or refine your search below:</h1>-->
 <!--     <div class="row" style="margin-top:30px; margin-bottom:30px;">
   <div class="col-sm-4">
@@ -87,14 +258,17 @@
 $query=preg_replace("/[^a-zA-Z0-9]/", "", $_REQUEST['q']);
 
         // Perform the query using Query Builder
-        $results = DB::table('species')
+        $resultss =  DB::table('species')
             ->select(DB::raw("*"))
              ->leftjoin('taxons','species.taxon_id','taxons.id')
-            ->where('common_name','LIKE', '%'.$query.'%')
-            ->orWhere ('genus', 'LIKE', '%' . $query . '%' )  
-            ->orWhere ('species', 'LIKE', '%' . $query . '%' )  
+            ->where('species.common_name','LIKE', '%'.$query.'%')
+            ->orWhere ('species.genus', 'LIKE', '%' . $query . '%' )  
+            ->orWhere ('species.species', 'LIKE', '%' . $query . '%' ) 
+                ->orWhere ('species.taxon_id', '=', 'taxons.id' ) 
+            ->orWhere ('taxons.taxon_code', 'LIKE', '%' . $query . '%' )  
+                ->groupby('species.id')
             ->get();
-         $n=count($results);
+         $n=count($resultss);
 ?>
 <!-----Guset USer Already Login after that downlaod ---->
   <?php
@@ -157,6 +331,7 @@ $reord=count($searchrtsql);
 <?php } ?>
     <thead>
                             <tr>
+                                <th>Taxon</th>
                                 <th>Genus</th>
                                 <th>Common Name </th>
                                 <th>Species Name </th>
@@ -166,12 +341,27 @@ $reord=count($searchrtsql);
                             </tr>
                         </thead>
                         <tbody>
-                            
-                    @if(isset($results))
+ <?php
 
-@foreach($results as $result)        
+ //$taxonname =  DB::table('species')->select('*')->leftjoin('taxons', 'taxons.id', 'species.taxon_id')->get();
+// echo '<pre>';
+//print_r($taxonname);
+//echo $taxonname->taxon_code;
+//die;
+//print_r($results);
+ ?>
                             
+<?php if(isset($results))
+ 
+foreach($results as $result) {   
+$taxon_id=$result->taxon_id;    
+$taxonname = DB::table('species')->select('*')
+                        ->leftjoin('taxons', 'taxons.id', 'species.taxon_id')
+                       ->where('species.taxon_id',$taxon_id)->first();
+
+?>
                              <tr> 
+                                       <td><?php echo $taxonname->taxon_code;; ?></td>
 		                        <td>{{$result->genus}}</td>
 		                        <td>{{$result->common_name}}</td>
 		                        <td>{{$result->species}}</td>
@@ -180,10 +370,9 @@ $reord=count($searchrtsql);
                                            
 		             </tr> 
                
-@endforeach
-@else
-echo "not found";
-@endif               
+<?php }else{ ?>
+<?php echo "not found"; ?>
+<?php } ?>               
       
 
  
@@ -195,6 +384,9 @@ echo "not found";
 	</div>
 
 </section>
+<div>
+    
+</div>
 <script>
  /*
 	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
@@ -334,12 +526,3 @@ button {
    
 </style>-->
 @endsection
-
-
-
-
-
-
-
-
-

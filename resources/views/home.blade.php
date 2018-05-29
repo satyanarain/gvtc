@@ -72,7 +72,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
               
                   <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>    
-                  <td><?php echo $searchdatak[2]; ?></td>
+                  <td><?php echo rtrim($searchdatak[2],"%20"); ?></td>
                   <td><?php echo $currentdate; ?></td>
                   <?php if($searchdata->adminaprovel==1){ ?>
         <td><a href="<?php echo $searchdata->serchurl; ?>" class="btn btn-success" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt"></i> Download</a>

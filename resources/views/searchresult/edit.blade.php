@@ -87,10 +87,12 @@ foreach($usersql as $userdata){ ?>
         </div>
         <!-- /.col -->
         <div class="col-md-9 ">
+            
             <div style="text-align:center;display:none;opacity: 0.2;z-index:99999;position:absolute;width:100%;height:auto;" id="loading"><img src='{{ asset('../dist/img/gvtc_loader.gif') }}'></div>
           <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-                <li class="box box-success"><a href="" style="cursor:default" >Search History</a></li>
+              <ul class="nav nav-tabs" >
+                <li class="box box-success" style="pointer-events: none;cursor: default;text-decoration: none;">
+                    <a href="" style="cursor:default" >Search History</a></li>
               <div class="pull-right" style=" margin-top: 10px; margin-bottom: 10px;margin-right: 20px;">
 <a href="{{ route('searchresult.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
@@ -124,7 +126,7 @@ foreach($searchsql as $searchdata){
                 
                 <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>
-                   <td>{{ $searchdatak[2] }}</td>
+                   <td>{{ rtrim($searchdatak[2],"%20")}}</td>
                    
            
                   <td>

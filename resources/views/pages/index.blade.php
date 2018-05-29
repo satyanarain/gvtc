@@ -3,10 +3,10 @@
 <section class="homeBanner coverBack">
   <div class="container">
      <div class="searchBox">
-          <form action="/search" method="GET"  autocomplete="off" class="form-horizontal customForm"  accept-charset="utf-8">
+         <form action="/search" method="GET"  autocomplete="off" onsubmit="return check()" class="form-horizontal customForm"  accept-charset="utf-8">
                {{ csrf_field() }}
             <div class="input-group">
-                <input name="q" value="" class="form-control customTextfield" required="" type="text"  placeholder="Enter search term(s)..." title="Enter a search term (Genus or Species or Common name)"  autocomplete="off">
+                <input name="q" id="serachtext" value="" class="form-control customTextfield" required="" type="text"  placeholder="Enter search term(s)..." title="Enter a search term (Genus or Species or Common name)"  autocomplete="off">
                 <span class="input-group-btn">
                    <button class="btn btn-success text-uppercase customSearchBtn" type="submit" title="Advanced Search">
                        <i class="fa fa-search" aria-hidden="true"></i>
@@ -95,13 +95,22 @@ $(document).ready(function(){
    });  
 }); 
 </script>
+<script type="text/javascript">
+function check(){
+    var serachtext = $("#serachtext").val();
+    if(serachtext.trim() == "")
+        {
+            alert("empty");
+            return false;
+        }else{
+            return true;
+        }
+                
+    
+    
+    }
+//    alert(serachdata);
+//    return false;
+
+</script>
 @endsection
-
-
-
-
-
-
-
-
-

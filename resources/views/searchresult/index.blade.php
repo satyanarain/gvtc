@@ -63,7 +63,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
                    <td>{{ $currentdate }}</td>
-                    <td>{{ $searchdatak[2] }}</td>
+                    <td>{{ rtrim($searchdatak[2],"%20") }} </td>
             <?php if($getpermissionstatus!=0){?>
                   <td>
                

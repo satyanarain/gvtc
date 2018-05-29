@@ -156,6 +156,8 @@ Route::resource('reportcategory','ReportCategoryController');
 
 Route::resource('search','SearchController');
 Route::get('search','SearchController@search');
+//advancex search
+Route::post('advancedsearch','SearchController@advancedsearch');
 
 Route::get('searchresult/adminapprovalupdate/{id}','SearchResultController@adminapprovalUpdate');
 Route::resource('searchresult','SearchResultController');
