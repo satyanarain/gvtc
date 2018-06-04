@@ -85,6 +85,7 @@ return [
     'description'=>'Description',
     'manage_offline_records'=>'Manage Offline Records',
     'distribution_records'=>'Distribution Records',
+    'habitat'=>'Habitat',
     'migration'=>'Migration',
     'birds_migrating_populations'=>"Birds Migrating Populations",
     'method'=>'Method',

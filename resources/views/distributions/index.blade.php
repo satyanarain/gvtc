@@ -55,6 +55,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>@lang('menu.observation', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.age_group', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.place', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.habitat', array(),Session::get('language_val'))</th>
                  <th> @lang('menu.observer', array(),Session::get('language_val'))</th>
                  <th> @lang('menu.remarks', array(),Session::get('language_val'))</th>
                  <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
@@ -109,6 +110,7 @@ $(document).ready(function() {
             {data: 'observationdata', name: 'observationdata'},
             {data: 'age_group', name: 'age_group'},
             {data: 'place', name: 'place'},
+            {data: 'habitat', name: 'habitat'},
             {data: 'last_name', name: 'last_name'},
             {data: 'remark', name: 'remark'},
       {

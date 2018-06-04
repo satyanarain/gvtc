@@ -162,7 +162,7 @@ class DistributionController extends Controller {
             $flag = true;
 
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-//                echo '<pre>';                 echo $data;
+//                echo '<pre>';                // echo $data;
 //                 print_r($data);
 //                 echo $data[1];
 //                 die;
@@ -241,6 +241,7 @@ class DistributionController extends Controller {
                     'collectorinstitution' => ($data[17]) ? $data[17] : '',
                     'Sex' => ($data[18]) ? $data[18] : '',
                     'remark' => ($data[19]) ? $data[19] : '',
+                    'habitat' => ($data[21]) ? $data[21] : '',
                     'status' => 1,
                     'created_by' => Auth::id()
                 ));
@@ -332,7 +333,7 @@ class DistributionController extends Controller {
         //       ->leftjoin('gazetteers','gazetteers.id','distributions.gazetteer_id')->leftjoin('observers','observers.id','distributions.observer_id')->leftjoin('species','species.id','distributions.specie_id')->Where([['distributions.status',1],['distributions.id',$id]])->get();
 
         $distribution = DB::table('distributions')->select('distributions.*', 'distributions.id as id', 'gazetteers.gazeteer_id as ggid', 'distributions.gazetteer_id as dgid', 'species.species', 'methods.method_code', 'methods.code_description', 'observation.observation_code', 'observation.code_description as observationd', 'ages.age_group', 'ages.code_description as agesd'
-                                , 'abundances.abundance_group', 'abundances.code_description as abundancesd', 'observers.last_name', 'observers.institution', 'taxons.taxon_code', 'taxon_code_description', 'gazetteers.place')
+                                , 'abundances.abundance_group', 'abundances.code_description as abundancesd','distributions.habitat as habitat', 'observers.last_name', 'observers.institution', 'taxons.taxon_code', 'taxon_code_description', 'gazetteers.place')
                         ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
                         ->leftjoin('species', 'distributions.specie_id', '=', 'species.id')
                         ->leftjoin('methods', 'distributions.method_id', '=', 'methods.id')
@@ -395,7 +396,7 @@ class DistributionController extends Controller {
     public function showbulkrecord() {
         
       
-     $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','methods.code_description as method_code_description')
+     $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','distributions.habitat as habitat','methods.code_description as method_code_description')
                         ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
                         ->leftjoin('methods', 'methods.id', 'distributions.method_id')
                         ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
