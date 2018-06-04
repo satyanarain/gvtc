@@ -75,7 +75,7 @@ $users=DB::table('users')->WHERE('id','1')->get();
                   <td><?php echo rtrim($searchdatak[2],"%20"); ?></td>
                   <td><?php echo $currentdate; ?></td>
                   <?php if($searchdata->adminaprovel==1){ ?>
-        <td><a href="<?php echo $searchdata->serchurl; ?>" class="btn btn-success" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
+        <td><a href="{{ url('searchdownalod/') }}/{{$searchdata->id}}" class="btn btn-success" data-placement="top" data-toggle="tooltip"  target="_blank"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
                   </td>
                   <?php }else{ ?>
         <td><a href="#" style="padding-left:20px;padding-right:20px;" class="btn btn-danger"><i class="fa fa-ban glyphicon"></i> Pending</a></td>

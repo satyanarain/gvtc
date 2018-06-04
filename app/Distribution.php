@@ -19,7 +19,7 @@ class Distribution extends Model
      * @var array
      */
    protected $fillable = ['taxon_id', 'selectioncriteria', 'specie_id', 'specie_data', 'method_id', 'observation_id', 'gazetteer_id',
-       'day', 'month', 'year', 'number', 'observer_id', 'age_id', 'abundance_id', 'specimendata', 'specimencode', 'collectorinstitution', 'Sex', 'remark', 'status','created_by'
+       'day', 'month', 'year', 'number', 'observer_id', 'age_id', 'abundance_id', 'specimendata', 'specimencode', 'collectorinstitution', 'Sex', 'remark', 'status','habitat','created_by'
     ];
 
     /**

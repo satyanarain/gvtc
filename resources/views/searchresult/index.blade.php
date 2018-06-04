@@ -63,7 +63,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                    <td style="display:none">{{ $val['id'] }}</td>
                    <td>{{ $val['username'] }}</td>
                    <td>{{ $currentdate }}</td>
-                    <td>{{ rtrim($searchdatak[2],"%20") }} </td>
+                    <td><?php $stxt=rtrim($searchdatak[2],"%20") ?> <?php echo str_replace("%20"," ",$stxt) ?></td>
             <?php if($getpermissionstatus!=0){?>
                   <td>
                
@@ -72,7 +72,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
 
 <!--<button type="submit" class="btn-danger btn  mini blue-stripe" id="id_of_your_button" style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp;Delete</button>-->
 
-<a href="{{ route('searchresult.edit', $val['uesrid']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe"   data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>
+<a href="{{ route('searchresult.edit', $val['uesrid']) }}" style="margin-left: 15px;" class="btn btn-bitbucket mini blue-stripe"   data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;@lang('menu.view', array(),Session::get('language_val'))</a>
     <?php if($val['adminaprovel']==1){ ?>
     
 <a href="#" style="margin-left: 15px;" class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip" data-original-title=""><i class="fa fa-check-circle"></i>&nbsp;Approved</a>    

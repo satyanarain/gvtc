@@ -99,6 +99,9 @@ var message="Sorry, right-click has been disabled";
 //return true;
 //}
 </script>
+
+
+
 </head>
 
 <body>

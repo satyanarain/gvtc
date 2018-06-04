@@ -5,6 +5,46 @@
     <h1>Search Result</h1>
   </div>
 </section>
+<?php
+
+ 
+
+
+ print_r($taxoninfo);
+ foreach($taxoninfo As $taxondata){
+     
+     $taxondata->taxon_id;
+     $taxondata->total;
+    
+     
+ }
+ //die;
+ foreach($genus_info As $genus){
+     
+     $genus->genus;
+     $genus->total;
+    
+     
+ }
+ //die;
+//$sqlgenus = DB::table('species')->select('genus')
+//            ->groupBy('genus')
+//            ->get();
+//foreach($sqlgenus as $genus){
+//    
+//    //echo $genus->genus.'<br>';
+//}
+//
+//$count = DB::table('species')
+//        ->select('genus')
+//    ->where('status', 1)
+//    ->groupBy('genus')
+//    ->get();
+//
+//var_dump(count($count));
+
+
+?>
 <!-- breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
@@ -72,19 +112,32 @@
             <div class="panel-body">
   
           <div class="container" style="max-width:600px;padding:40px 20px;background:#ebeff2">
-   
-        <form class="form-horizontal" role="form"  action="/advancedsearch" method="post" >
+    <form class="form-horizontal" role="form"  action="/advancedsearch" method="get" >
         <?php
-        $adsearchurl = urldecode(\Request::fullUrl());
-        $adsearchs=explode("=",$adsearchurl);
-        $adsearch=urldecode($adsearchs[2]);
-       // $urls=explode("%20",$adsearch);
-        //$searchkey= $urls[0].' '.$urls[1];
-       
+        $adsearchurl = \Request::fullUrl();
+        $adsearch=explode("=",$adsearchurl);
         ?>
-        <input type="hidden" name="searchkey" value="<?php echo $adsearch; ?>"/>
+        <input type="text" name="searchkey" value="<?php echo trim($adsearch[2]); ?>"/>
         {{ csrf_field() }}
+	   <div class="form-group">
+	      <label for="name" class ="control-label col-sm-3">Genus</label>
+		<div class="col-sm-8">
+	     
+              
+              <select id="lstFruits" name="genusval[]" class="form-control" multiple="multiple">
+        <?php
+        
+    
+        
+    foreach($genus_info As $genus){
 
+    ?>
+        <option value="<?php echo  $genus->genus; ?>"><?php echo  $genus->genus; ?>(<?php echo $genus->total; ?>)</option>
+    <?php } ?>
+    </select>
+              
+		</div>
+	    </div>
 	   <div class="form-group">
 	      <label for="address" class ="control-label col-sm-3">Common Name</label>
 		<div class="col-sm-8">
@@ -126,7 +179,7 @@
         <div class="form-group">
 	      <label for="address" class ="control-label col-sm-3">Place</label>
 		<div class="col-sm-8">
-                    <select id="4thFruits" class="form-control" name="placeval[]" multiple="multiple">
+                    <select id="4thFruits" class="form-control" name="taxonval[]" multiple="multiple">
         <?php foreach($placeinfo as $placeid) {
            //print_r($taxid);
                $placename = DB::table('distributions')->select('*')
@@ -146,7 +199,7 @@
         <div class="form-group">
 	      <label for="address" class ="control-label col-sm-3">Habitat</label>
 		<div class="col-sm-8">
-                    <select id="5thFruits" class="form-control" name="habitatval[]" multiple="multiple">
+                    <select id="5thFruits" class="form-control" name="taxonval[]" multiple="multiple">
         <?php foreach($habitatinfo as $habitatdata) {
             if($habitatdata){
             ?>
@@ -271,26 +324,23 @@ $query=preg_replace("/[^a-zA-Z0-9]/", "", $_REQUEST['q']);
                 ->groupby('species.id')
             ->get();
          $n=count($resultss);
-         
-         
 ?>
 <!-----Guset USer Already Login after that downlaod ---->
   <?php
 
- $searchurl = urldecode(\Request::fullUrl());
- 
- if(Auth::check() &&  count($results)>0 ) { ?>
+ $searchurl = \Request::fullUrl();
+ if(Auth::check() && $n>0) { ?>
 
  <form role="form" method="POST" action="{{ route('search.store') }}" enctype="multipart/form-data">
  {{ csrf_field() }}
- <input type="text" name="downloaddata" value="{{$searchurl}}">
- <input type="text" name="uesrid" value="{{Auth::user()->id}}">
- <input type="text" name="username" value="{{Auth::user()->username}}">
+ <input type="hidden" name="downloaddata" value="{{$searchurl}}">
+ <input type="hidden" name="uesrid" value="{{Auth::user()->id}}">
+ <input type="hidden" name="username" value="{{Auth::user()->username}}">
   <button type="submit" style="margin-left: 15px; float:right;" class="btn btn-small btn-success pull"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</button>
  </form>              
 
 <?php } ?>
-<?php if(!Auth::check()) { ?>
+<?php if($n>0 && !Auth::check()) { ?>
 <a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</a>
 <?php }else{ ?>
 <?php } ?>
@@ -312,6 +362,7 @@ $searchrtsql= DB::table('searchresult')->where('uesrid', $userid)->where([['stat
     ?>
 <!--<label><a style="color:#1b6b36" href="{{ url('/')}}">Back to Home</a></label>-->
 
+<label>Download As -</label>
 <?php } ?>
 
 <?php
@@ -396,9 +447,6 @@ $gazetteername = DB::table('distributions')->select('*')
 
 </section>
 <div>
-    
-</div>
-<div style="margin-top: 20px;">
     
 </div>
 <script>

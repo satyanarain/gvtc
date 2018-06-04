@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
   <div class="container">
     <div class="navbar-header">
@@ -22,7 +23,7 @@
             <li class="nav-item">
               <a class="nav-link loginBtn" href="{{ url('login/')}}"><i class="fa fa-lock"></i>&nbsp;Login</a>
             </li>
-            <li class="guestUserBtn"><a href="{{ url('guest_register')}}"><i class="fa fa-user"></i> Guest User Registration</a></li> 
+            <li class="guestUserBtn"><a href="{{ url('login/#create')}}"><i class="fa fa-user"></i> Guest User Registration</a></li> 
             <?php }else { ?>
             
             
@@ -47,8 +48,18 @@
                                                       </form>
           </ul>
         </li>
-            <?php } ?>
         
+        
+        
+            <?php } ?>
+<!--        <div id="langgg">
+    <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+</div>-->
       </ul>
     </div>
   </div>

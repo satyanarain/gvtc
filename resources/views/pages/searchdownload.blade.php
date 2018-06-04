@@ -2,7 +2,7 @@
 @section('homeBanner coverBack')
 <section class="commonBanner coverBack">
   <div class="container">
-    <h1>Advanced Search Result</h1>
+    <h1>Download Search Result</h1>
   </div>
 </section>
 
@@ -28,24 +28,9 @@
 <!--<label>Download As -</label>-->
 
 <div style="padding-bottom: 10px;">
-<?php if (Auth::check()) { 
-$searchurl = Session::get('searchurluniversaldata') ;  
-$advsearchdata=Session::get('advsearchdata'); 
- ?> 
- <form role="form" method="POST" action="{{ route('search.store') }}" enctype="multipart/form-data">
- {{ csrf_field() }}
- <input type="hidden" name="downloaddata" value="{{$searchurl}}">
- <input type="hidden" name="uesrid" value="{{Auth::user()->id}}">
- <input type="hidden" name="username" value="{{Auth::user()->username}}">
- <input type="hidden" name="advancedsearch" value="advancedsearch">
-  <button  style="margin-left: 15px; float:right;" class="btn btn-small btn-success pull"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</button>
- </form>      
-<?php }else{ ?>
-<a href="{{ url('login/')}}" style="margin-left: 15px; float:right;"  class="btn btn-small btn-success pull" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</a> 
-<?php } ?>
-</div>
- <div style="margin-bottom: 10px;">&nbsp;</div>    
-<table id="exampledemo" class="table table-bordered table-striped" style="width: 100%">    
+Downlaod as:
+</div>   
+<table id="example" class="table table-bordered table-striped" style="width: 100%">    
 
     <thead>
                             <tr>
@@ -62,7 +47,9 @@ $advsearchdata=Session::get('advsearchdata');
                         <tbody>
 
                             
-<?php if(isset($results))
+<?php 
+
+if(isset($results))
 foreach($results as $result) {   
 $taxon_id=$result->taxon_id;    
 $taxonname = DB::table('distributions')->select('*')
@@ -98,47 +85,6 @@ $taxonname = DB::table('distributions')->select('*')
 <div style="margin-top: 20px;">
     
 </div>
-<script>
- /*
-	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
-	(c) 2013 @ElmahdiMahmoud
-	license: https://www.opensource.org/licenses/mit-license.php
-*/
-
-$(".dropdown dt a").on('click', function() {
-  $(".dropdown dd ul").slideToggle('fast');
-});
-
-$(".dropdown dd ul li a").on('click', function() {
-  $(".dropdown dd ul").hide();
-});
-
-function getSelectedValue(id) {
-  return $("#" + id).find("dt a span.value").html();
-}
-
-$(document).bind('click', function(e) {
-  var $clicked = $(e.target);
-  if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
-});
-
-$('.mutliSelect input[type="checkbox"]').on('click', function() {
-
-  var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
-    title = $(this).val() + ",";
-
-  if ($(this).is(':checked')) {
-    var html = '<span title="' + title + '">' + title + '</span>';
-    $('.multiSel').append(html);
-    $(".hida").hide();
-  } else {
-    $('span[title="' + title + '"]').remove();
-    var ret = $(".hida");
-    $('.dropdown dt a').append(ret);
-
-  }
-});   
-</script> 
 
 @endsection
 

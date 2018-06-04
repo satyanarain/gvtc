@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -162,7 +163,7 @@
                             <div id="usermessage" class="col-sm-12"></div>
 
                             <div class="col-sm-12">
-                                <input id="usernamee" type="text" placeholder="Username" class="form-control username" name="username" value="{{ old('username') }}" required autofocus>
+                                <input id="username" type="text" placeholder="Username" class="form-control username" name="username" value="{{ old('username') }}" required autofocus>
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -252,7 +253,7 @@
                             <label for="ioc" class="col-sm-12">Phone Number</label>
 
                             <div class="col-sm-12">
-                                <input id="mobilenumber" type="text"  placeholder="Phone Number" class="form-control" name="mobilenumber" value="{{ old('mobilenumber') }}"  autofocus>
+                                <input id="mobilenumber" type="number"  placeholder="Phone Number" class="form-control" name="mobilenumber" value="{{ old('mobilenumber') }}"  autofocus>
 
                                 @if ($errors->has('mobilenumber'))
                                     <span class="help-block">
@@ -603,7 +604,8 @@
 <?php
 $rt=Config::get('app.locales');
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script> 
 <script>
 $(document).ready(function(){
   $("#lanuage").change(function(){
@@ -618,7 +620,17 @@ $(document).ready(function(){
      //alert(html);
   });
 });
+$(function(){
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
 
+  $('.nav-tabs a').click(function (e) {
+    $(this).tab('show');
+    //var scrollmem = $('body').scrollTop();
+    window.location.hash = this.hash;
+   // $('html,body').scrollTop(scrollmem);
+  });
+});
 </script>
 <script src="{{ asset ("/js/custom.js") }}"></script>
 <style>

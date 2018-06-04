@@ -156,6 +156,13 @@ Route::resource('reportcategory','ReportCategoryController');
 
 Route::resource('search','SearchController');
 Route::get('search','SearchController@search');
+Route::get('searchdownalod/{id}','SearchController@searchdownalod');
+
+
+
+
+
+
 //advancex search
 Route::post('advancedsearch','SearchController@advancedsearch');
 

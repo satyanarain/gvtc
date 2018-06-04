@@ -249,30 +249,49 @@
                       
                   
                   </div>  
-                  <div class="form-group col-md-6">
-<input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >
-</div>    
+    
                   
                 </div> 
                   
                        
                   
                   
-                  
+                   <div class="form-row">
                   
                 
+       
                  
                   
                 
+                       
+                   <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
+                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label>
+                  <input type="text" name="habitat" value="{{ old('habitat') }}"   class="form-control" id="habitat" placeholder="Habitat">
+                 @if ($errors->has('habitat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('habitat') }}</strong>
+                                    </span>
+                                @endif
+                  </div>       
+                       
+                       
+                 
                  
                   
                  
                   
              
                   
-              </div>    
+              </div> 
+<div class="form-row">                
+<div class="form-group">
+<input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >
+</div>
+</div>
               <!-- /.box-body -->
-                
+                <div class="box-footer">
+               
+            </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
               </div>

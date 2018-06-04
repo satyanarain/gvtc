@@ -126,7 +126,7 @@ foreach($searchsql as $searchdata){
                 
                 <tr>
                    <td style="display:none">{{ $searchdata->id }}</td>
-                   <td>{{ rtrim($searchdatak[2],"%20")}}</td>
+                   <td><?php  $stxt= rtrim($searchdatak[2],"%20")?> <?php echo str_replace("%20"," ",$stxt) ?></td>
                    
            
                   <td>

@@ -53,6 +53,7 @@ class LoginController extends Controller
     }
     
     public function login(Request $request)     {
+
     $this->validate($request, ['username' => 'required', 'password' => 'required']); 
    
         Auth::attempt(['username' => $request['username'], 'password' => $request['password'],'status'=>1]); 
@@ -63,8 +64,8 @@ class LoginController extends Controller
                 
             $username=$request['username'];
            $searchdata=Session::get('searchurluniversaldata');
-           
-          
+           $advdata=Session::get('advsearchdata');
+
             $sqluserid=DB::table('users')->where('username' , $username)->get();
             foreach($sqluserid as $val){
             $val->id;
@@ -92,7 +93,7 @@ class LoginController extends Controller
           // die;
             if($searchdata!=''&& $userrole=="guest"){
             DB::table('searchresult')->insert(
-            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata, 'status' => 1)
+            array('uesrid' => $userid,'username'=>$username,'serchurl'=>$searchdata,'advsearchdata'=>$advdata, 'status' => 1)
             );    
             
             $query_email = array(
@@ -120,6 +121,7 @@ class LoginController extends Controller
           });
           
           $request->session()->forget('searchurluniversaldata');
+          $request->session()->forget('advsearchdata');
            
             }       
                 
@@ -130,6 +132,8 @@ class LoginController extends Controller
              }   
             }
     public function logout(Request $request) {
+        $request->session()->forget('searchurluniversaldata');
+          $request->session()->forget('advsearchdata');
   Auth::logout();
   return redirect('/login');
 }
