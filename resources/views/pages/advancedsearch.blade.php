@@ -27,7 +27,8 @@
 
 <!--<label>Download As -</label>-->
 
-<div style="padding-bottom: 10px;">
+<div style="padding-bottom: 10px; margin-top: 5px;">
+<a  style="margin-left: 0px; float:left;" class="btn btn-small btn-success pull" href="<?php echo $previous = "javascript:history.go(-1)"; ?>"><i class="fa fa-pencil"></i>&nbsp;Edit Search</a>   
 <?php if (Auth::check()) { 
 $searchurl = Session::get('searchurluniversaldata') ;  
 $advsearchdata=Session::get('advsearchdata'); 
