@@ -94,7 +94,8 @@ body:before {
   content:"*";
   color:red;
 }
-@media (max-height:870px) {.tab-body {transform: translate(-50%, 0%);top: 0%;}}
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover{ background:#324b30
 !important;border-color:#324b30
 !important;}
+@media (max-height:870px) {.tab-body {transform: translate(-50%, 0%);top: 0%;}}
+

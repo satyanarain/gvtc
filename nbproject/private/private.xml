@@ -4,14 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/gvtc/resources/views/pages/search.blade.php</file>
-            <file>file:/var/www/html/gvtc/app/Http/Controllers/SearchController.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/pages/advancedsearch.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/pages/index.blade.php</file>
-            <file>file:/var/www/html/gvtc/app/Http/Controllers/Auth/LoginController.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/pages/searchdownload.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/home.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/searchresult/index.blade.php</file>
-            <file>file:/var/www/html/gvtc/routes/web.php</file>
+            <file>file:/var/www/html/gvtc/public/css/style.css</file>
+            <file>file:/var/www/html/gvtc/resources/views/species/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/public/front/css/style.css</file>
         </group>
     </open-files>
 </project-private>

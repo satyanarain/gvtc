@@ -64,14 +64,15 @@
             <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" class="accordion-toggle collapsed">
-                     <div class="panel-heading" style="color:#5dc082">Explore or refine your search below:</div>
+                     <div class="panel-heading" style="color:#5dc082">Refine your search :</div>
+                     
                     </a>
                 </h4>
             </div>
             <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
             <div class="panel-body">
   
-          <div class="container" style="max-width:600px;padding:40px 20px;background:#ebeff2">
+          <div class="container" style="max-width:1000px;padding:40px 20px;background:#ebeff2">
    
         <form class="form-horizontal" role="form"  action="/advancedsearch" method="post" >
         <?php
@@ -169,8 +170,8 @@
 	      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
 		</div>
 	    </div>-->
-	   <div class="col-sm-offset-2 col-sm-8">
-	     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search </button>
+	   <div class="col-sm-offset-6 col-sm-8">
+	     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span> Apply </button>
 	   </div>
 	</form>
 </div>         
@@ -283,9 +284,9 @@ $query=preg_replace("/[^a-zA-Z0-9]/", "", $_REQUEST['q']);
 
  <form role="form" method="POST" action="{{ route('search.store') }}" enctype="multipart/form-data">
  {{ csrf_field() }}
- <input type="text" name="downloaddata" value="{{$searchurl}}">
- <input type="text" name="uesrid" value="{{Auth::user()->id}}">
- <input type="text" name="username" value="{{Auth::user()->username}}">
+ <input type="hidden" name="downloaddata" value="{{$searchurl}}">
+ <input type="hidden" name="uesrid" value="{{Auth::user()->id}}">
+ <input type="hidden" name="username" value="{{Auth::user()->username}}">
   <button type="submit" style="margin-left: 15px; float:right;" class="btn btn-small btn-success pull"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Download Assessment</button>
  </form>              
 

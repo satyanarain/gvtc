@@ -74,7 +74,7 @@ class SearchController extends Controller {
            
         foreach ($commonval as $common){
             //echo $common;
-            $resultr[]= "'".$common."'";
+            $resultr[]= "'".addslashes($common)."'";
         }
         
        }
@@ -86,7 +86,7 @@ class SearchController extends Controller {
            
        foreach($placeval as $place){
            
-          $result1[]= "'".$place."'";
+          $result1[]= "'".addslashes($place)."'";
        }
        
        }
@@ -98,7 +98,7 @@ class SearchController extends Controller {
            
         foreach($taxonval as $taxon){
             //die;
-         $result2[]= "'".$taxon."'";    
+         $result2[]= "'".addslashes($taxon)."'";    
         }
        
        }
@@ -120,6 +120,7 @@ class SearchController extends Controller {
        if($result2)
         
         $qr.= "distributions.taxon_id in (".$result2.") and ";
+       //echo $qr; die;
        $result=substr(trim($qr),0,-4);
       $results = DB::select( DB::raw($result) );
      return view('pages.advancedsearch', compact('results'));

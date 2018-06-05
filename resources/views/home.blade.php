@@ -40,7 +40,9 @@ $users=DB::table('users')->WHERE('id','1')->get();
       <!-- Small boxes (Stat box) -->
     
  <div class="box-body">
-<table id="example1" class="table table-bordered table-striped">
+     
+     
+     <table id="example1" class="table table-bordered table-striped" style="border: 1px solid black;">
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
