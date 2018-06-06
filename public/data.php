@@ -3,10 +3,10 @@
 // storing  request (ie, get/post) global array to a variable 
 /* Database connection start */
 
-$servername = "localhost";
-$username = "root";
-$password = "gvtc";
-$dbname = "gvtc";
+//$servername = "localhost";
+//$username = "root";
+//$password = "root";
+//$dbname = "gvtc";
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
 
 $requestData= $_REQUEST;

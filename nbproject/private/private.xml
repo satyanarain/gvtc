@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/var/www/html/gvtc/resources/views/pages/search.blade.php</file>
-            <file>file:/var/www/html/gvtc/public/css/style.css</file>
-            <file>file:/var/www/html/gvtc/resources/views/species/create.blade.php</file>
-            <file>file:/var/www/html/gvtc/public/front/css/style.css</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
