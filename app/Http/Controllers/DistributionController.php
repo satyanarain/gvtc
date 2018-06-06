@@ -396,21 +396,7 @@ class DistributionController extends Controller {
     public function showbulkrecord() {
         
       
-     $distribution = DB::table('distributions')->select(['distributions.id','distributions.taxon_id','distributions.selectioncriteria','distributions.specie_id','distributions.specie_data', 'distributions.method_id','distributions.observation_id','distributions.gazetteer_id',
-         'distributions.day',
-         'distributions.month',
-         'distributions.year',
-         'distributions.number',
-         'distributions.observer_id',
-         'distributions.age_id',
-         'distributions.abundance_id',
-         'distributions.specimendata',
-         'distributions.specimencode',
-         'distributions.collectorinstitution',
-         'distributions.Sex',
-         'distributions.remark',
-         'distributions.habitat',
-         'distributions.status'],DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','distributions.habitat as habitat','methods.code_description as method_code_description')
+     $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','distributions.habitat as habitat','methods.code_description as method_code_description')
                         ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
                         ->leftjoin('methods', 'methods.id', 'distributions.method_id')
                         ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
