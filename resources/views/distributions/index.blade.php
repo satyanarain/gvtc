@@ -4,45 +4,33 @@
 $(document).ready(function() {
     var token = window.Laravel.csrfToken;
     //alert(token);
-//    var dataTable = $('#employee-grid').DataTable( {
-//        //"sprocessing": '<img src="{{ asset("/adminlte/img/bus_loader.gif") }}">',
-//        oLanguage: {
-//        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
-//        },
-//        processing : true, 
-//        "scrollX": true,
-//        "destroy":true,
-//        "serverSide": true,
-//        //"lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
-//        dom: 'lBfrtip',        
-//        "ajax":{
-//               // url :"/data.php", // json datasource
-//               url :"{{ route('distribution/getdata') }}", // json datasource
-//               //route('distribution/getdata'),
-//                //url :"passes/searchdata", // json datasource
-//                type: "POST",  // method  , by default get
-//                data:{'_token':token},
-//                error: function(){  // error handling
-//                        $(".employee-grid-error").html("");
-//                        $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="4">No data found in the server</th></tr></tbody>');
-//                        $("#employee-grid_processing").css("display","none");
-//
-//                }
-//        }
-//} ).clear();
-    
-    $.ajax({
-   type:'post',
-   url:{{ route('distribution/getdata') }},
-   data:{'_token':token},
-success:function(data)
-   {
-       //alert(data);
-   
-   
-   }
-});
+    var dataTable = $('#employee-grid').DataTable( {
+        //"sprocessing": '<img src="{{ asset("/adminlte/img/bus_loader.gif") }}">',
+        oLanguage: {
+        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
+        },
+        processing : true, 
+        "scrollX": true,
+        "destroy":true,
+        "serverSide": true,
+        //"lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
+        dom: 'lBfrtip',        
+        "ajax":{
+               // url :"/data.php", // json datasource
+               url :"{{ route('distribution/getdata') }}", // json datasource
+               //route('distribution/getdata'),
+                //url :"passes/searchdata", // json datasource
+                type: "POST",  // method  , by default get
+                data:{'_token':token},
+                error: function(){  // error handling
+                        $(".employee-grid-error").html("");
+                        $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="4">No data found in the server</th></tr></tbody>');
+                        $("#employee-grid_processing").css("display","none");
 
+                }
+        }
+} ).clear();
+    
 } );
 </script>
 <!-- Main content -->
