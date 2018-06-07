@@ -29,8 +29,8 @@ $(document).ready(function() {
 
                 }
         }
-} );
-    dataTable.clear().draw();
+} ).clear();
+    
 } );
 </script>
 <!-- Main content -->
