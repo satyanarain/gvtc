@@ -11,6 +11,7 @@ $(document).ready(function() {
         },
         processing : true, 
         "scrollX": true,
+        "destroy":true,
         "serverSide": true,
         //"lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
         dom: 'lBfrtip',        
