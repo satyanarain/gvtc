@@ -30,6 +30,7 @@ $(document).ready(function() {
                 }
         }
 } );
+    dataTable.clear().draw();
 } );
 </script>
 <!-- Main content -->
