@@ -16,6 +16,7 @@ use Auth;
 use DataTables;
 
 class DistributionController extends Controller {
+    
     /**
      * Where to redirect users after registration.
      *
@@ -396,7 +397,7 @@ class DistributionController extends Controller {
     public function showbulkrecord() {
        // echo "sdfs";
         //die;
-        
+        ob_flush();
       
 //     $distribution = DB::table('distributions')->select('*',DB::raw('CONCAT(methods.code_description, " ","(",methods.method_code,")") AS methoddata'),DB::raw('CONCAT(abundances.code_description, " ","(",abundances.abundance_group,")") AS abundancesdata'),DB::raw('CONCAT(observation.code_description, " ","(",observation.observation_code,")") AS observationdata') ,'distributions.id as id', 'distributions.status as status','distributions.day as day','distributions.month as month','distributions.year as year','distributions.habitat as habitat','methods.code_description as method_code_description')
 //                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
