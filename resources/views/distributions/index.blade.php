@@ -2,7 +2,9 @@
 @section('action-content')
 <script type="text/javascript" language="javascript" >
 $(document).ready(function() {
-var dataTable = $('#employee-grid').DataTable( {
+    var token = window.Laravel.csrfToken;
+    //alert(token);
+    var dataTable = $('#employee-grid').DataTable( {
         //"sprocessing": '<img src="{{ asset("/adminlte/img/bus_loader.gif") }}">',
         oLanguage: {
         sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
@@ -17,7 +19,8 @@ var dataTable = $('#employee-grid').DataTable( {
                url :"{{ route('distribution/getdata') }}", // json datasource
                //route('distribution/getdata'),
                 //url :"passes/searchdata", // json datasource
-                type: "GET",  // method  , by default get
+                type: "POST",  // method  , by default get
+                data:{'_token':token},
                 error: function(){  // error handling
                         $(".employee-grid-error").html("");
                         $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="4">No data found in the server</th></tr></tbody>');
