@@ -5,20 +5,19 @@ $(document).ready(function() {
 var dataTable = $('#employee-grid').DataTable( {
         //"sprocessing": '<img src="{{ asset("/adminlte/img/bus_loader.gif") }}">',
         oLanguage: {
-        sProcessing: "<img src='{{ asset('/adminlte/img/bus_loader.gif') }}'>"
+        sProcessing: "<img src='../dist/img/gvtc_loader.gif'>"
         },
         processing : true, 
         "scrollX": true,
         "serverSide": true,
-        dom: 'lBfrtip',
-        buttons: [
-             'csv', 'excel', 'pdf','colvis'
-        ],
-               
+        //"lengthMenu": [[50, 100, 500, 1000, -1], [50, 100, 500, 1000, "All"]],
+        dom: 'lBfrtip',        
         "ajax":{
-                url :"/data.php", // json datasource
+               // url :"/data.php", // json datasource
+               url :"{{ route('distribution/getdata') }}", // json datasource
+               //route('distribution/getdata'),
                 //url :"passes/searchdata", // json datasource
-                type: "POST",  // method  , by default get
+                type: "GET",  // method  , by default get
                 error: function(){  // error handling
                         $(".employee-grid-error").html("");
                         $("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="4">No data found in the server</th></tr></tbody>');

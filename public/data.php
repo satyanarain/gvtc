@@ -5,7 +5,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "gvtc";
+$password = "root";
 $dbname = "gvtc";
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
 
@@ -22,30 +22,36 @@ $columns = array(
 );
 
 // getting total number records without any search
-//$sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.specie_data,distributions.method_id,distributions.day";
-//$sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN  species on species.id=distributions.specie_id ";
-
+//$sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat";
+//$sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN species on species.id=distributions.specie_id  LEFT JOIN methods on methods.id=distributions.method_id LEFT JOIN  abundances ON abundances.id=distributions.abundance_id LEFT JOIN observation on  observation.id=distributions.observation_id LEFT JOIN gazetteers ON gazetteers.id=distributions.gazetteer_id LEFT JOIN observers ON observers.id=distributions.observer_id LEFT JOIN ages ON  ages.id=distributions.age_id  WHERE 1=1";
+//$query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees");
   // when there is no search parameter then total number rows = total number filtered rows.
-
+//$totalFiltered = mysqli_num_rows($query);
 
 $sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat";
 $sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN species on species.id=distributions.specie_id  LEFT JOIN methods on methods.id=distributions.method_id LEFT JOIN  abundances ON abundances.id=distributions.abundance_id LEFT JOIN observation on  observation.id=distributions.observation_id LEFT JOIN gazetteers ON gazetteers.id=distributions.gazetteer_id LEFT JOIN observers ON observers.id=distributions.observer_id LEFT JOIN ages ON  ages.id=distributions.age_id  WHERE 1=1";
 //print_r($sql);die;
-$query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees");
-$totalData = mysqli_num_rows($query);
 
-$totalFiltered = $totalData;
 
-//if( !empty($requestData['search']['value']) ) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
-//	$sql.=" AND ( taxon_id LIKE '".$requestData['search']['value']."%' ";    
-//	$sql.=" OR specie_id LIKE '".$requestData['search']['value']."%' ";
-//	$sql.=" OR specie_data LIKE '".$requestData['search']['value']."%' ";
-//	$sql.=" OR method_id LIKE '".$requestData['search']['value']."%' ";
-//	$sql.=" OR day LIKE '".$requestData['search']['value']."%' )";
-//}
 
+if( !empty($requestData['search']['value']) ) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
+	$sql.=" AND (taxons.taxon_code LIKE '".$requestData['search']['value']."%' ";    
+	$sql.=" OR species.species LIKE '".$requestData['search']['value']."%' ";
+	$sql.=" OR distributions.habitat LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR methods.method_code LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR methods.code_description LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR observation.observation_code LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR observation.code_description LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR gazetteers.place LIKE '".$requestData['search']['value']."%'";
+	$sql.=" OR observers.last_name LIKE '".$requestData['search']['value']."%' )";
+        //methods.method_code,methods.code_description
+        //observation.code_description
+}
+//print_r($sql);
+//die;
 $query=mysqli_query($conn, $sql) or die("data.php: get employees");
-//echo $totalFiltered = mysqli_num_rows($query); // when there is a search parameter then we have to modify total number filtered rows as per search result. 
+$totalFiltered = mysqli_num_rows($query); // when there is a search parameter then we have to modify total number filtered rows as per search result. 
+$totalData = mysqli_num_rows($query);
 //echo $columns[$requestData['order'][0]['column']];
 //echo $requestData['order'][0]['dir'];
 //die;
