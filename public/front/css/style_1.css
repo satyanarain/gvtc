@@ -1,0 +1,88 @@
+body{ background:#f8f9fa;}
+div{box-sizing: border-box;}
+.custom-logo{ width:230px; height:auto;}
+
+.custom-navbar{ background:#212529 !important; border:0px !important; border-radius:0px !important; padding:10px 0px;}
+.navbar-inverse .custom-nav>.active>a, .navbar-inverse .custom-nav>.active>a:focus, .navbar-inverse .custom-nav>.active>a:hover{ background:none;color:#5dc082;}
+.navbar-inverse .custom-nav>li>a:focus, .navbar-inverse .custom-nav>li>a:hover{color:#5dc082;}
+.navbar-inverse .custom-nav>li>a, .navbar-inverse .custom-nav>li>a{ color: #FFF;}
+.loginBtn a{border:1px solid #FFF; background:none; color:#FFF; border-radius:4px;padding:6px 10px 5px 10px !important;margin:9px 3px;}
+.guestUserBtn a{ border:1px solid #1b6b36; background:#1b6b36; color:#FFF; border-radius:4px;padding:6px 10px 5px 10px !important;margin:9px 3px;}
+.loginBtn a:hover,.guestUserBtn a:hover{border:1px solid #FFF; background:#FFF;color:#1b6b36;}
+.homeBanner {background:url(../img/slider/home.jpg) center center no-repeat;height:700px; width:100%;}
+.coverBack {background-repeat: no-repeat!important;background-attachment: scroll!important;background-position: center center!important;-webkit-background-size: cover;
+-moz-background-size: cover;-o-background-size: cover;background-size: cover!important;width:100%;}
+.searchBox {background:rgba(0,0,0,0.4); padding:30px; margin-top:340px;}
+.customTextfield{ padding:20px 15px;}
+.customSearchBtn{ border-radius-top-left:0px;border-radius-top-bottom:0px;padding:8px 15px; background:#1b6b36; border:1px solid #1b6b36;}
+.customSearchBtn i{ font-size:22px;}
+.home-body{ padding:50px 0px;}
+.body-outer{ padding:30px 0px; margin-bottom:79px;}
+.reportBanner{background:url(../img/slider/report.jpg) center center no-repeat; width:100%; color:#FFF;padding:60px 0px;margin-top:70px;}
+.commonBanner{background:url(../img/slider/common.jpg) bottom center no-repeat; width:100%; color:#FFF;padding:60px 0px;margin-top:70px;}
+.reportBanner h1{ color:#FFF;}
+.breadcrumb {padding:7px 0px; margin:0px !important;}
+
+.panel-title > a:before {font-family: FontAwesome, PT Sans;content:"\f056";padding-right:5px; float:right;margin-top: 8px;color:#5dc082;font-size: 20px;}
+.panel-title > a.collapsed:before {content:"\f055";}
+.panel-title > a:hover, .panel-title > a:active, .panel-title > a:focus  {text-decoration:none;}
+
+.navbar-login{padding: 10px 5px 0px 12px; background:rgba(255,255,255) !important;width:305px; border-radius:0px !important;}
+.logoutCustomBtn{ background:#1b6b36 !important;}
+.logoutCustomBtn:hover{background:#4ca858 !important; color:#FFF !important;}
+.forgetPasswordBtn{ color:#39F !important; margin-left:-1px !important; font-size:12px; }
+.forgetPasswordBtn:hover{ text-decoration:none;}
+.default-user{ border:3px solid #FFF; box-shadow:2px 2px 3px #999; border-radius:100%; max-height:80px; width:auto;}
+hr{ margin-bottom:0px !important; }
+
+.section-heading {font-size: 30px;margin-top: 0;margin-bottom: 15px; line-height:40px;}
+.section-subheading {font-size: 16px;font-weight: 400;font-style: italic;margin-bottom: 75px;text-transform: none;}
+.associatDiv{position: relative;}
+.associat-img {display: block;width: 100%;height: auto;}
+.overlay {position: absolute;top: 0;bottom: 0;left: 0;right: 0;height: 100%;width: 100%;opacity: 0;transition: .5s ease;background-color: #1b6b36 ;}
+.associatDiv:hover .overlay {opacity: 1;}
+.associat-icon {color: white;font-size: 20px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;}
+.associat-caption {width:100%;margin: 0 auto;padding: 25px;text-align: center;background-color: #fff;min-height: 95px; margin-bottom:20px;}
+.associat-caption h4 {margin: 0;font-size:18px;font-weight: normal;line-height:27px;}
+.custom-footer {background: #212529;color: #FFF;padding:20px 0px 11px 0px;text-align:center;}
+.fix-footer {position:fixed; bottom:0px; width:100%;}
+.copyright {font-size: 90%;padding-top:10px;text-transform: none;}
+.copyright a{ color:#5dc082;}
+ul.social-buttons li a {font-size: 20px;line-height: 40px;display: block;width: 40px;height: 40px;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;
+color: white;border-radius: 100%;outline: none;background-color: #1b6b36; margin:0px !important;}
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {background-color: #5dc082;}
+
+@media(max-width:991px) and (min-width:768px){.custom-nav>li>a {padding:15px 8px;font-size:12px;}.custom-logo{ width:200px; height:auto; margin-top:4px; margin-left:20px;}.homeBanner{height:500px;}.searchBox{ margin-top:250px;}}
+@media(max-width:768px){.custom-logo{ width:200px; height:auto; margin-top:4px; margin-left:20px;}.homeBanner{height:300px;}.searchBox{ margin-top:135px;}.guestUserBtn,.loginBtn{padding:0px 5px 0px 14px}.section-subheading{ margin-bottom:20px;}}  
+ #example thead tr:first-child {
+   background: #222d32;
+   color:#FFFFFF;
+}
+
+#exampledemo thead tr:first-child {
+   background: #222d32;
+   color:#FFFFFF;
+}
+.breadcrumb-item a { color:#5dc082;}
+/*.panel-title a { color:#5dc082;}*/
+/*@media (max-height:870px) {.tab-body {transform: translate(-50%, 0%);top: 0%;}}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover{ background:#324b30
+!important;border-color:#324b30
+!important;}*/
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+ background: #398439!important;
+}
+.multiselect-container>li>a>label{
+     border-top: 1px solid #333333;   
+    
+}
+select[multiple]:focus option:checked {
+  background: red linear-gradient(0deg, red 0%, red 100%);
+}
+.btn-group>.btn:first-child {
+ width:600px;   
+}
+
+.multiselect[aria-expanded="false"] { color: #333 !important;
+    background-color: #d4d4d4 !important;;
+    border-color: #8c8c8c !important;;}
