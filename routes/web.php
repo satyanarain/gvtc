@@ -32,6 +32,8 @@ Route::resource('reports','DisplayReportController');
 
 Route::get('/livesearch','PageController@liveSearch');  
 Route::resource('/', 'PageController');
+Route::get('/about-us', 'PageController@about');
+Route::get('/contact-us', 'PageController@contact');
 Route::get('/login', function () {
     return view('home');
 })->middleware('auth');
@@ -53,7 +55,8 @@ Route::resource('user-management', 'UserManagementController');
 
 //taxon
 //Route::get('taxons/{id}', 'TaxonController@statusUpdate');
- Route::get('taxons/status_update/{id}','TaxonController@statusUpdate');
+Route::post('/contactus', 'SearchController@conatctus');
+Route::get('taxons/status_update/{id}','TaxonController@statusUpdate');
 Route::resource('taxons','TaxonController');
 Route::get('iucns/index', 'IucnThreatCodeController@index')->name('iucns.index');
 Route::resource('iucns', 'IucnThreatCodeController');

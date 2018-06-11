@@ -14,6 +14,7 @@ use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use DataTables;
+use Lang;
 
 class DistributionController extends Controller {
     
@@ -39,6 +40,10 @@ class DistributionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+       
+ 
+      
+    
         //DB::raw('group_concat(distinct contacts.email separator ", ") AS contact_emails');
         
          
@@ -395,6 +400,7 @@ class DistributionController extends Controller {
     }
 
     public function showbulkrecord() {
+
        // echo "sdfs";
         //die;
         ob_flush();
@@ -422,8 +428,8 @@ class DistributionController extends Controller {
         //	4=> 'distributions.method_id',
         //        5=> 'distributions.day'	
         );
-        $sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat";
-$sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN species on species.id=distributions.specie_id  LEFT JOIN methods on methods.id=distributions.method_id LEFT JOIN  abundances ON abundances.id=distributions.abundance_id LEFT JOIN observation on  observation.id=distributions.observation_id LEFT JOIN gazetteers ON gazetteers.id=distributions.gazetteer_id LEFT JOIN observers ON observers.id=distributions.observer_id LEFT JOIN ages ON  ages.id=distributions.age_id  WHERE 1=1";
+        $sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat ";
+$sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN species on species.id=distributions.specie_id  LEFT JOIN methods on methods.id=distributions.method_id LEFT JOIN  abundances ON abundances.id=distributions.abundance_id LEFT JOIN observation on  observation.id=distributions.observation_id LEFT JOIN gazetteers ON gazetteers.id=distributions.gazetteer_id LEFT JOIN observers ON observers.id=distributions.observer_id LEFT JOIN ages ON  ages.id=distributions.age_id  WHERE distributions.status=1";
 //print_r($sql);die;
 
 
@@ -491,7 +497,7 @@ $data = array();
 foreach($query as $val){
     
 
-    
+  
     
         $id = $val->id;
         $nestedData=array(); 
@@ -513,8 +519,10 @@ foreach($query as $val){
         $nestedData[] = $val->distributionsex;
         $nestedData[] = $val->remark;
         $nestedData[] = $val->habitat;
-	$nestedData[] = "<a href='passinventory/$id/edit' class='btn btn-bitbucket'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp;Edit</a>";
-	
+	$nestedData[] = '<a href="distribution/'.$id.'" style="margin-left:15px;" class="btn btn-info mini blue-stripe"><i class="fa fa-search"></i>&nbsp;'.Lang::get('menu.view',array(),Session::get('language_val')).'</a>&nbsp;
+	<a href="distribution/'.$id.'/edit" style="margin-left:15px;" class="btn btn-bitbucket"><i class="fa fa-pencil"></i></span>&nbsp;'.Lang::get('menu.edit',array(),Session::get('language_val')).'</a>
+        <button  onClick="recordDelete(this.id,\'distributions\',\''.Session::get('language_val').'\')" id='.$id.'  class="btn-danger btn  mini blue-stripe"  style="margin-left: 15px;"><i class="fa fa-trash"></i>&nbsp; '.Lang::get('menu.delete',array(),Session::get('language_val')).' </button>
+                ';
 	$data[] = $nestedData;
     
     
@@ -545,7 +553,7 @@ echo $datajson = json_encode($json_data);  // send data as json format
     }
 
     public function recordDelete($id) {
-
+       
         $tablename = $_REQUEST['tablename'];
         $q = "UPDATE $tablename SET status= '0' WHERE id=$id ";
         DB::update(DB::raw($q));

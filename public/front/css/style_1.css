@@ -52,6 +52,38 @@ ul.social-buttons li a {font-size: 20px;line-height: 40px;display: block;width: 
 color: white;border-radius: 100%;outline: none;background-color: #1b6b36; margin:0px !important;}
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {background-color: #5dc082;}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:991px) and (min-width:768px){.custom-nav>li>a {padding:15px 8px;font-size:12px;}.custom-logo{ width:200px; height:auto; margin-top:4px; margin-left:20px;}.homeBanner{height:500px;}.searchBox{ margin-top:250px;}}
 @media(max-width:768px){.custom-logo{ width:200px; height:auto; margin-top:4px; margin-left:20px;}.homeBanner{height:300px;}.searchBox{ margin-top:135px;}.guestUserBtn,.loginBtn{padding:0px 5px 0px 14px}.section-subheading{ margin-bottom:20px;}}  
  #example thead tr:first-child {

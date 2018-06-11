@@ -12,10 +12,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right custom-nav">
         <li class="{{ Request::segment(1) == '' ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="#">About Us</a></li>
+        <li class="{{ Request::segment(1) == 'about-us' ? 'active' : '' }}"><a href="{{ url('/about-us') }}">About Us</a></li>
         <?php //echo Request::segment(1); die;?>
         <li class="{{ Request::segment(1) == 'reports' ? 'active' : '' }}"><a href="{{ url('reports') }}">Reports</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li class="{{ Request::segment(1) == 'contact-us' ? 'active' : '' }}"><a href="{{ url('contact-us') }}">Contact Us</a></li>
          <?php
             
             if(Auth::guest())

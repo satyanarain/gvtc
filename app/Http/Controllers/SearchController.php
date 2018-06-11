@@ -17,6 +17,30 @@ use Mail;
 class SearchController extends Controller {
 
 
+    public function conatctus(Request $request){
+    $user_name = $request->user_name;
+    $user_email = $request->user_email;
+    $user_subject = $request->user_subject;
+    $user_message = $request->user_message;
+    $query_email = array(
+         'user_name'=> $user_name,
+         'user_email' =>$user_email,  
+         'user_subject' =>$user_subject, 
+         'user_message' => $user_message
+       );
+    $query_contact =  (object) $query_email; 
+//    print_r($query_contact);
+//    die;
+       Mail::send('emails.contactform', ['contact_deatils' => $query_contact], function ($message) use ($query_contact) {
+         $message->from('info@opiant.online', 'GVTC');
+         $message->to('gvtc2018@gmail.com',$query_contact->user_name)->subject('GVTC Conatct Form Details');
+     });
+//     print_r($contact_deatils);
+//     echo 'sdf';
+//     die;
+
+}
+
 
     public function index()
     {

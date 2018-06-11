@@ -4,12 +4,19 @@
   <title>Greater Virunga Transboundary Collaboration | <?php if(Request::segment(1)=="search"){echo "Search History";}else{ echo ucfirst(Request::segment(1));} ?>  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link  rel="stylesheet" href="{{ asset('/front/bootstrap/css/bootstrap.min.css')}}">   
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   <script src="{{ asset ("/front/bootstrap/js/jquery.min3.3.1.js") }}"></script>
   <script src="{{ asset ("/front/bootstrap/js/bootstrap.min.js") }}"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">  
   <link rel="stylesheet" href="{{ asset('/front/css/style.css')}}">
+   <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+    
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118984792-1"></script>
 <script>
@@ -19,7 +26,22 @@
 
   gtag('config', 'UA-118984792-1');
 </script>
-
+<script>
+      $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+    
+  </script>
 
 <script language="JavaScript">
 

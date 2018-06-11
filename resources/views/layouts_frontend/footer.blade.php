@@ -1,28 +1,79 @@
 <!-- Footer -->
-    <footer class="custom-footer">
+   <section class="sub-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 clearfix footerAbout">
+            	<h4 class="footerHead">About GVTC</h4>
+                <p class="footerText">Greater Virunga Transboundary Collaboration is a framework for strategic, transboundary, collaborative management of the Greater Virunga Landscape</p> 
+                 <ul class="list-inline social-buttons">
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul> 
+            </div>
+            <div class="col-md-4 col-xs-12  footerBorderLeft">
+            	<ul class="footerNav">
+                	<h4 class="footerHead">Quick Links</h4>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+       				<li><a href="{{ url('/about-us') }}">About Us</a></li>
+        			<li><a href="{{ url('reports') }}">Reports</a></li>
+        			<li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="col-md-4 col-xs-12 footerBorderLeft">
+            	<h4 class="footerHead">Contact info</h4>
+            	<p class="footerText">Nyarutarama Road- KG 9 Av<br />#60-Building of the Seventh-Day Adventist Church<br />East Central Rwanda Conference<br /> Headquarters-P.O.Box 6626 Kigali Rwanda<br />
+                    <strong>Telephone:</strong> +252 580 429<br /><strong>E-mail:</strong> centerofexcellence@greatervirunga.org</p>
+            </div>
+		</div>
+	</div>
+</section>
+
+<footer class="custom-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 text-left">
-<!--            <span class="copyright">Copyright © 2018 <a href="http://opiant.in/" target="_blank">Opiant</a>. All rights reserved.</span>-->
-          </div>
-          <div class="col-md-6">
-            <ul class="list-inline social-buttons pull-right">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-            </ul>
+          <div class="col-md-12 text-center">
+            <div class="copyright">Copyright © 2018 GVTC | Powered by <a href="http://opiant.in/" target="_blank">Opiant</a></div>
           </div>
         </div>
       </div>
     </footer>
+ <script>
+$(document).ready(function(){
 
+$("#submitbtn").click(function(){
+var token = window.Laravel.csrfToken;
+    //alert(token);    
+var user_name=$("#user_name").val();    
+var user_email=$("#user_email").val(); 
+var user_subject=$("#user_subject").val();    
+var user_message=$("#user_message").val();  
+//var datastring="user_name="+user_name+"&user_email="+user_email+"&user_subject="+user_subject+"&user_message="+user_message;
+//alert(datastring);
+         $.ajax({
+         url: "/contactus",
+         type: "POST",
+         data:{'user_name':user_name,'user_email':user_email,'user_subject':user_subject,'user_message':user_message,'_token':token},
+         //data:{},
+         success: function(data){
+             //alert(data);
+               $("#myElem").show();
+               setTimeout(function() { $("#myElem").hide(); }, 5000);
+               $("form").trigger("reset");
+              //alert("Data Save: " + data);
+              //$('#msg').html(data).fadeIn('slow');
+               //$('#msg').html("data insert successfully").fadeIn('slow') //also show a success message 
+               //$('#msg').delay(5000).fadeOut('slow');
+         }
+         
+         
+         
+         
+});  
+});    
+});    
+</script>
 <script language="JavaScript">
   /**
     * Disable right-click of mouse, F12 key, and save key combinations on page
@@ -117,6 +168,7 @@ jQuery(document).bind("keyup keydown", function(e){
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
 
+ 
 
 
 

@@ -28,9 +28,16 @@ class PageController extends Controller
      return view('pages/index');
     }
     
+   public function about(){
+       
+       return view('pages/about-us');
+   }
+   public function contact(){
+       
+       return view('pages/contact-us');
+   }
+    
    
-    
-    
 //    public function liveSearch(Request $request)
 //    { 
 //         $search = $request->id;
