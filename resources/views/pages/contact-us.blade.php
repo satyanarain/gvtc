@@ -21,7 +21,7 @@
 	</div>
 	<!-- breadcrumb -->
     
-<section class="white-container">
+        <section class="white-container" style="padding-top:10px !important;padding-bottom: 5px !important">
 	<div class="container">
 		<div class="row">
         	<div class="col-lg-12 text-center">
@@ -39,14 +39,7 @@
          	<div class="col-lg-12 text-center">
          		<section id="contact">
   <div class="container">
- <div class="col-lg-12 text-center">
-         		<p class="p-text">
-     Address: 
-Nyarutarama Road- KG 9 Av #60-Building of the Seventh-Day Adventist Church
-East Central Rwanda Conference Headquarters-P.O.Box 6626 Kigali Rwanda
-Telephone +252 580 429 
-E-mail: centerofexcellence@greatervirunga.org<p>
-    </div>
+
 	
 	<div class="row">
 	  <div class="col-md-7">
@@ -56,27 +49,44 @@ E-mail: centerofexcellence@greatervirunga.org<p>
 
       <div class="col-md-5">
           <p id="myElem" class="alert alert-success" style="display:none;">Thank you for contacting GVTC. We'll get back to you as soon as possible.</p>
-          <h4><strong>Get in Touch</strong></h4>
+         <h2 class="section-head head-center">Get in Touch <strong>with us</strong></h2>
           <form method="POST" action=""  id="contacform" name="contacform" >
                {{ csrf_field() }}
-          <div class="form-group">
-              <input type="text"  class="form-control required "  value=""  id="user_name" name="user_name"  placeholder="Name (*)">
+   
+          <div class="form-group required">
+              <label for="name">Name</label>
+              <input type="text"  class="form-control required "  value=""  id="user_name" name="user_name" >
+          </div>
+          <div class="form-group required">
+               <label for="name">Email</label>
+              <input type="email"  class="form-control user_email required " id="user_email" name="Email"  >
           </div>
           <div class="form-group">
-              <input type="email"  class="form-control user_email required " id="user_email" name="Email"  placeholder="E-mail (*)">
+               <label for="name">Subject</label>
+            <input type="text" class="form-control user_subject" name="Subject" id="user_subject" >
           </div>
           <div class="form-group">
-            <input type="text" class="form-control user_subject" name="Subject" id="user_subject" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" id="user_message" name="user_message" rows="3" placeholder="Message"></textarea>
+               <label for="name">Message</label>
+            <textarea class="form-control" id="user_message" name="user_message" rows="3" ></textarea>
           </div>
                <!-- <input type="submit" name="submit" id="Login" value="Login" class="login-button">-->
          <button class="btn btn-success" id="submitbtn" type="button" name="button">
               <i class="fa fa-paper-plane-o "  aria-hidden="true"></i> Submit
           </button>
         </form>
+          
+          
+          
+          
       </div>
+      <div class="col-lg-12 text-center">
+         		<p class="p-text">
+     Address: 
+Nyarutarama Road- KG 9 Av #60-Building of the Seventh-Day Adventist Church
+East Central Rwanda Conference Headquarters-P.O.Box 6626 Kigali Rwanda
+Telephone +252 580 429 
+E-mail: centerofexcellence@greatervirunga.org<p>
+    </div>       
     </div>
   </div>
 </section>

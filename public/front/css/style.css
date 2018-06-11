@@ -133,3 +133,14 @@ select[multiple]:focus option:checked {
 .multiselect[aria-expanded="false"] { color: #333 !important;
     background-color: #d4d4d4 !important;;
     border-color: #8c8c8c !important;;}
+label{
+    float:left;
+}
+.required label {
+    font-weight: bold;
+}
+.required label:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}
