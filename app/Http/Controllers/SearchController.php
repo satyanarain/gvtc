@@ -14,15 +14,32 @@ use Session;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Mail;
+
+
+
+
 class SearchController extends Controller {
 
 
     public function conatctus(Request $request){
+        $validator = Validator::make($request->all(), [
+            'user_name' => 'required',
+            'user_email' => 'required|email',
+           
+        ]);
+        
+        
+        
     $user_name = $request->user_name;
     $user_email = $request->user_email;
     $user_subject = $request->user_subject;
     $user_message = $request->user_message;
-    $query_email = array(
+    
+     if ($validator->passes()) {
+
+
+			
+          $query_email = array(
          'user_name'=> $user_name,
          'user_email' =>$user_email,  
          'user_subject' =>$user_subject, 
@@ -35,6 +52,19 @@ class SearchController extends Controller {
          $message->from('info@opiant.online', 'GVTC');
          $message->to('gvtc2018@gmail.com',$query_contact->user_name)->subject('GVTC Conatct Form Details');
      });
+     return response()->json(['success'=>"Thank you for contacting GVTC. We'll get back to you as soon as possible."]);
+     //Thank you for contacting GVTC. We'll get back to you as soon as possible.
+        }else{
+
+
+    	return response()->json(['error'=>$validator->errors()->all()]);
+    }
+    
+    
+    
+    
+    
+   
 //     print_r($contact_deatils);
 //     echo 'sdf';
 //     die;

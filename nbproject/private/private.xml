@@ -3,18 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/gvtc/resources/views/layouts_frontend/masterlayout.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/layouts/footer.blade.php</file>
-            <file>file:/var/www/html/gvtc/app/Http/Controllers/TaxonController.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/pages/index.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/pages/contact-us.blade.php</file>
-            <file>file:/var/www/html/gvtc/app/Http/Controllers/PageController.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/SearchController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/emails/approvesearchresult.blade.php</file>
             <file>file:/var/www/html/gvtc/public/front/css/style.css</file>
             <file>file:/var/www/html/gvtc/resources/views/layouts_frontend/footer.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/Auth/RegisterController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/layouts_frontend/masterlayout.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/pages/contact-us.blade.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/PageController.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/GuestRegisterController.php</file>
             <file>file:/var/www/html/gvtc/resources/views/layouts_frontend/header.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/distributions/index.blade.php</file>
             <file>file:/var/www/html/gvtc/routes/web.php</file>
             <file>file:/var/www/html/gvtc/resources/views/pages/about-us.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/emails/contactform.blade.php</file>
         </group>
     </open-files>
 </project-private>

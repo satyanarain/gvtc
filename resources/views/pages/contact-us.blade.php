@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="row">
         	<div class="col-lg-12 text-center">
-            	<h2 class="section-head head-center">Contact <strong>GVTC</strong></h2>
+            	<h2 class="section-head head-center">Get in Touch <strong>with us</strong></h2>
           	</div>  
             
  
@@ -49,17 +49,22 @@
 
       <div class="col-md-5">
           <p id="myElem" class="alert alert-success" style="display:none;">Thank you for contacting GVTC. We'll get back to you as soon as possible.</p>
-         <h2 class="section-head head-center">Get in Touch <strong>with us</strong></h2>
+         <div class="alert alert-danger print-error-msg" style="display:none">
+        <ul></ul>
+    </div>
+          <div class="alert alert-success print-success-msg" style="display:none">
+        <ul></ul>
+    </div>
           <form method="POST" action=""  id="contacform" name="contacform" >
                {{ csrf_field() }}
    
           <div class="form-group required">
               <label for="name">Name</label>
-              <input type="text"  class="form-control required "  value=""  id="user_name" name="user_name" >
+              <input type="text"  class="form-control"  value=""  id="user_name" name="user_name" >
           </div>
           <div class="form-group required">
                <label for="name">Email</label>
-              <input type="email"  class="form-control user_email required " id="user_email" name="Email"  >
+              <input type="email"  class="form-control" id="user_email" name="user_email"  >
           </div>
           <div class="form-group">
                <label for="name">Subject</label>
@@ -70,22 +75,22 @@
             <textarea class="form-control" id="user_message" name="user_message" rows="3" ></textarea>
           </div>
                <!-- <input type="submit" name="submit" id="Login" value="Login" class="login-button">-->
-         <button class="btn btn-success" id="submitbtn" type="button" name="button">
+         <button class="btn btn-lg btn-success" id="submitbtn" type="button" name="button">
               <i class="fa fa-paper-plane-o "  aria-hidden="true"></i> Submit
           </button>
         </form>
           
           
           
+
           
       </div>
       <div class="col-lg-12 text-center">
-         		<p class="p-text">
-     Address: 
-Nyarutarama Road- KG 9 Av #60-Building of the Seventh-Day Adventist Church
-East Central Rwanda Conference Headquarters-P.O.Box 6626 Kigali Rwanda
-Telephone +252 580 429 
-E-mail: centerofexcellence@greatervirunga.org<p>
+       <p class="p-text">
+           <span style="font-weight:bold;">Address:</span> Nyarutarama Road- KG 9 Av #60-Building of the Seventh-Day Adventist Church
+           East Central Rwanda Conference Headquarters-P.O.Box 6626 Kigali Rwanda</br>
+<span style="font-weight:bold;">Telephone:</span> +252 580 429</br> 
+<span style="font-weight:bold;">E-mail:</span> centerofexcellence@greatervirunga.org<p>
     </div>       
     </div>
   </div>
@@ -94,16 +99,5 @@ E-mail: centerofexcellence@greatervirunga.org<p>
         </div>
     </div>
 </section>
-  <script>
-		$(document).ready(function(){
-                    
-                    
-                    
-		$('#contacform').validate({
-			rules:{ }
-		});
-		});
-		
-		</script>
-      
+
 @endsection

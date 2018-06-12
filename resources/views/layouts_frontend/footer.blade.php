@@ -56,22 +56,46 @@ var user_message=$("#user_message").val();
          type: "POST",
          data:{'user_name':user_name,'user_email':user_email,'user_subject':user_subject,'user_message':user_message,'_token':token},
          //data:{},
-         success: function(data){
-             //alert(data);
-               $("#myElem").show();
-               setTimeout(function() { $("#myElem").hide(); }, 5000);
-               $("form").trigger("reset");
-              //alert("Data Save: " + data);
-              //$('#msg').html(data).fadeIn('slow');
-               //$('#msg').html("data insert successfully").fadeIn('slow') //also show a success message 
-               //$('#msg').delay(5000).fadeOut('slow');
-         }
+//         success: function(data){
+//             //alert(data);
+//               $("#myElem").show();
+//               setTimeout(function() { $("#myElem").hide(); }, 5000);
+//               $("form").trigger("reset");
+//              //alert("Data Save: " + data);
+//              //$('#msg').html(data).fadeIn('slow');
+//               //$('#msg').html("data insert successfully").fadeIn('slow') //also show a success message 
+//               //$('#msg').delay(5000).fadeOut('slow');
+//         }
          
-         
+         success: function(data) {
+	                if($.isEmptyObject(data.error)){
+                                $(".print-success-msg").find("ul").html('');
+                                $(".print-success-msg").css('display','block');
+                                $(".alert-danger").css('display','none');
+                                $(".print-success-msg").find("ul").append('<li>'+data.success+'</li>');
+                            	$("#contacform").trigger("reset");
+                                setTimeout(function() { $(".alert-success").hide(); }, 5000);
+                                
+	                }else{
+	                	printErrorMsg(data.error);
+	                }
+	            }
          
          
 });  
-});    
+}); 
+
+function printErrorMsg (msg) {
+			$(".print-error-msg").find("ul").html('');
+			$(".print-error-msg").css('display','block');
+			$.each( msg, function( key, value ) {
+				$(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+			});
+		}
+                
+
+
+
 });    
 </script>
 <script language="JavaScript">
