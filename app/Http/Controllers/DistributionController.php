@@ -129,8 +129,9 @@ class DistributionController extends Controller {
         $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $gazetteerrecodsql = DB::table('gazetteers')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('place', 'id');
+        $habitatrecodsql = DB::table('gazetteers')->select('*')->WHERE([['status', 1],['habitat','!=','']])->orderBy('id', 'ASC')->pluck('habitat', 'id');
         $specierecodsql = DB::table('species')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('specienewid', 'id');
-        return view('distributions/create', compact('taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql'));
+        return view('distributions/create', compact('taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql','habitatrecodsql'));
     }
 
     /**
@@ -209,7 +210,7 @@ class DistributionController extends Controller {
                 }
                 $observer_id = '0';
                 if ($data[12] != '') {
-                    $sql12 = DB::table('observers')->select('*')->where('last_name', $data[12])->get()->first();
+                    $sql12 = DB::table('observers')->select('*')->where('last_name', $data[12])->orwhere('institution', $data[12])->get()->first();
                     if (count($sql12))
                         $observer_id = $sql12->id;
                 }
@@ -224,6 +225,11 @@ class DistributionController extends Controller {
                     $sql14 = DB::table('abundances')->select('*')->where('code_description', $data[14])->get()->first();
                     if (count($sql14))
                         $abundance_id = $sql14->id;
+                }
+                if ($data[21]) {
+                    $sql21 = DB::table('gazetteers')->select('*')->where('habitat', $data[21])->get()->first();
+                    if (count($sql21))
+                        $habitat = $sql21->id;
                 }
                 //$data[21]=Auth::id();
                 // echo '<pre>';
@@ -428,7 +434,7 @@ class DistributionController extends Controller {
         //	4=> 'distributions.method_id',
         //        5=> 'distributions.day'	
         );
-        $sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat ";
+        $sql = "SELECT taxons.taxon_code,distributions.taxon_id,species.species,distributions.specie_id,distributions.id,distributions.method_id,distributions.day as distributionsday,distributions.method_id,methods.method_code,methods.code_description as method_description,selectioncriteria,distributions.month as month ,distributions.year as year,number,distributions.abundance_id,abundances.abundance_group,specimencode,collectorinstitution,distributions.observation_id,observation.observation_code,observation.code_description,distributions.gazetteer_id,gazetteers.place,distributions.observer_id,observers.last_name,observers.institution,distributions.age_id,ages.age_group,distributions.Sex as distributionsex,distributions.remark,distributions.habitat ";
 $sql.=" FROM distributions LEFT JOIN taxons on taxons.id=distributions.taxon_id LEFT JOIN species on species.id=distributions.specie_id  LEFT JOIN methods on methods.id=distributions.method_id LEFT JOIN  abundances ON abundances.id=distributions.abundance_id LEFT JOIN observation on  observation.id=distributions.observation_id LEFT JOIN gazetteers ON gazetteers.id=distributions.gazetteer_id LEFT JOIN observers ON observers.id=distributions.observer_id LEFT JOIN ages ON  ages.id=distributions.age_id  WHERE distributions.status=1";
 //print_r($sql);die;
 
@@ -511,7 +517,7 @@ foreach($query as $val){
         $nestedData[] = $val->month;
         $nestedData[] = $val->year;
         $nestedData[] = $val->number;
-        $nestedData[] = $val->last_name;
+        $nestedData[] = $val->last_name .$val->institution;
         $nestedData[] = $val->age_group;
         $nestedData[] = $val->abundance_group;
         $nestedData[] = $val->specimencode;

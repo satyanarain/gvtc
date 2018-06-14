@@ -88,7 +88,7 @@ foreach($usersql as $userdata){ ?>
         <!-- /.col -->
         <div class="col-md-9 ">
             
-            <div style="text-align:center;display:none;opacity: 0.2;z-index:99999;position:absolute;width:100%;height:auto;" id="loading"><img src='{{ asset('../dist/img/gvtc_loader.gif') }}'></div>
+            <div style="text-align:center;display:none;z-index:99999;position:absolute;width:100%;height:auto;" id="loading"><img src='{{ asset('../dist/img/gvtc_loader.gif') }}'></div>
           <div class="nav-tabs-custom">
               <ul class="nav nav-tabs" >
                 <li class="box box-success" style="pointer-events: none;cursor: default;text-decoration: none;">

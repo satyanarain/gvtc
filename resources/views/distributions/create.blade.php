@@ -257,21 +257,17 @@
                   
                   
                    <div class="form-row">
-                  
-                
-       
-                 
-                  
-                
-                       
                    <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
-                  <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label>
-                  <input type="text" name="habitat" value="{{ old('habitat') }}"   class="form-control" id="habitat" placeholder="Habitat">
-                 @if ($errors->has('habitat'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('habitat') }}</strong>
-                                    </span>
-                                @endif
+                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label> 
+                  {!! Form::select('gazetteers.id',$habitatrecodsql,null,['class'=>'form-control','placeholder'=>'Select Habitat','id' => 'gazetteers.id']) !!}    
+      
+                       
+                       
+                       
+                       
+                       
+                  
+                 
                   </div>       
                        
                        
