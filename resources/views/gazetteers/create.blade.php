@@ -95,7 +95,7 @@
                   </div> 
                        <div class="form-group{{ $errors->has('datum_dd') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.datum', array(),$session_lan= Session::get('language_val')) (DD)</label>
-                  <input type="text" name="datum_dd" value="{{ old('datum_dd') }}" required  class="form-control"  id="datum_dd" placeholder="Datum (DD)">
+                  <input type="text" name="datum_dd" value="Arc 1960" required  class="form-control"  id="datum_dd" placeholder="Datum (DD)">
                  @if ($errors->has('datum_dd'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('datum_dd') }}</strong>
@@ -149,7 +149,7 @@
                        
                   <div class="form-group{{ $errors->has('datum') ? ' has-error' : '' }} col-md-2 required">
                   <label for="exampleInputEmail1"  class="control-label">Datum (UTM)</label>
-                  <input type="text" name="datum" value="{{ old('datum') }}" required  class="form-control" id="datum" placeholder="Datum (UTM)">
+                  <input type="text" name="datum" value="WGS 84" required  class="form-control" id="datum" placeholder="Datum (UTM)">
                  @if ($errors->has('datum'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('datum') }}</strong>

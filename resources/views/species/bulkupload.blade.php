@@ -28,15 +28,16 @@
                  
                 </div>
                 
-                <div class="form-group col-md-4 custom-range">
-                 <label for="inlineCheckbox1"> Download Template </label>
-                 <a href="{{ asset('images/distributions.csv') }}" target="_blank"><img src="{{ asset('images/DownloadExcel.png') }}" height="200" width="200"/></a>
+                <div class="form-group col-md-4 custom-range text-center">
+                 
+                 <a href="{{ asset('images/species_template.csv') }}" target="_blank"><img src="{{ asset('images/DownloadExcel.png') }}" height="200" width="200"/></a>
+                 <br /><h2> Download Template </h2>
                 </div>  
                    
                 
-            <div class="form-group col-md-4">
-            <label for="inlineCheckbox1"> Upload Species Records </label>   
+            <div class="form-group col-md-4 text-center">
             <img src="{{ asset('images/uploadExcel.png') }}" height="200" width="200" style="cursor:pointer" id="bulkuploadimg"/>
+            <br /><h2> Upload Species Records </h2> 
             </div>
              <div class="form-group col-md-2 custom-range">
                  

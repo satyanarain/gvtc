@@ -200,20 +200,7 @@
                        
                   
                   
-                  <div class="form-row">
-                  
-                <div class="form-group col-md-6 ">
-                 <label for="exampleInputEmail1" class="control-label">@lang('menu.habitat', array(),Session::get('language_val'))</label>   
-<!--                 {!! Form::label('Sex','Sex',['class'=>'control-label']) !!}-->
-                  <input type="text" readonly  value="{{ $distribution->habitat }}"  class="form-control" >
-                    
-                  
-                  </div>  
-                  
-                  
                  
-                </div>  
-                  
                 
                  
                   

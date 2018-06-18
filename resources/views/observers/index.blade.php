@@ -45,6 +45,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                   <th>@lang('menu.observer_type', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.first_name', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.last_name', array(),Session::get('language_val'))</th>
+                  <th>@lang('menu.institution', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.email', array(),Session::get('language_val'))</th>
                   <th>@lang('menu.mobile_number', array(),Session::get('language_val'))</th>
                   <th class="action">@lang('menu.action', array(),Session::get('language_val'))</th>
@@ -89,6 +90,7 @@ $(document).ready(function() {
             {data: 'observeroption', name: 'observeroption'},
             {data: 'first_name', name: 'first_name',},
             {data: 'last_name', name: 'last_name'},
+            {data: 'institution', name: 'institution'},
             {data: 'email', name: 'email'},
             {data: 'mobile', name: 'mobile'},
             {

@@ -256,29 +256,7 @@
                        
                   
                   
-                   <div class="form-row">
-                   <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }} col-md-6 ">
-                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.habitat', array(),$session_lan= Session::get('language_val'))</label> 
-                  {!! Form::select('gazetteers.id',$habitatrecodsql,null,['class'=>'form-control','placeholder'=>'Select Habitat','id' => 'gazetteers.id']) !!}    
-      
-                       
-                       
-                       
-                       
-                       
                   
-                 
-                  </div>       
-                       
-                       
-                 
-                 
-                  
-                 
-                  
-             
-                  
-              </div> 
 <div class="form-row">                
 <div class="form-group">
 <input type="hidden" id="role"  value="{{Auth::id()}}"  class="form-control" name="created_by" >

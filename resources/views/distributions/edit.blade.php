@@ -298,18 +298,7 @@
                
                   
                   
-                  <div class="form-group col-md-6 ">
-                      
-                   <label for="exampleInputEmail1" class="control-label">@lang('menu.habitat', array(),Session::get('language_val'))</label>
-                  <input type="text" name="habitat" value="{{ $distribution->habitat }}"   class="form-control" id="habitat" placeholder="Habitat">
-                 @if ($errors->has('habitat'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('habitat') }}</strong>
-                                    </span>
-                                @endif
-                      
-                  
-                  </div>  
+                 
                   
                 </div>   
                   

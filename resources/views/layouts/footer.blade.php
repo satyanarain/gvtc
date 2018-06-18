@@ -176,23 +176,15 @@ $(document).ready(function(){
 $(function() {
     $('input[name="observeroption"]').on('click', function() {
         if ($(this).val() == 'Individual') {
-            var newobrv_id = 'GVTCINV'+obrv_id;
-            $('#institution_field').removeAttr('required');
-            $("#institution_label").hide();
-            $('#observer_id').val(newobrv_id);
-             $(".div_individual").show();
-             $("#individual").show();
-             $("#las_tname").show();
-              //$("#institution_label").hide();
-              $("#sub_bt").show();
-               $('#first_name').addAttr('required');
-            $('#last_name').addAttr('required');
-           $('#title').addAttr('required');
-           
-           
-           //$("#institution_field").removeAttr('required');
-          // alert('hi');
-            
+           var newobrv_id = 'GVTCINV'+obrv_id;
+           $(".div_individual").show();
+           $("#individual").show();
+           $("#las_tname").show();
+           $("#sub_bt").show();
+           $("#institution_label").hide();
+         $("#institution_field").prop('required',false);
+          $('#last_name_val').prop('required',true);
+      
           
         }
         else {
@@ -206,16 +198,25 @@ $(function() {
 
 $(function() {
     $('input[name="observeroption"]').on('click', function() {
+       
         if ($(this).val() == 'Institution') {
-           $(".div_individual").show();
-           $("#individual").hide();
-           $("#las_tname").hide();
-           $('#first_name').removeAttr('required');
-           $('#last_name').removeAttr('required');
-           $('#title').removeAttr('required');
-           $("#sub_bt").show();
-           $("#institution_label").show();
-           $("#institution_field").addAttr('required');
+            $(".div_individual").show();
+            $("#individual").hide();
+            $("#institution_label").show();
+             $("#las_tname").hide();
+             $("#sub_bt").show();
+             $('#last_name_val').prop('required',false);
+            // $("#institution_field").addAttr('required');
+             $("#institution_field").prop('required',true);
+             //$('#last_name').removeClass('required');
+//           $("#institution_label").show();
+//           $('#institution_field').addAttr('required');
+//           last_name
+//           $('#last_name').removeAttr('required');
+//           $('#title').removeAttr('required');
+//           $("#sub_bt").show();
+//           
+//           $("#institution_field").addAttr('required');
            
         }
         else {

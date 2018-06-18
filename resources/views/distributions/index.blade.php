@@ -95,7 +95,7 @@ $(document).ready(function() {
         'aTargets' : [ 'action', 'text-holder' ]
     } ] ,
         oLanguage: {
-        sProcessing: "<img  src='../dist/img/gvtc_loader.gif'>"
+        sProcessing: "<img  src='../dist/img/gvtc_loader.gif' style='z-index:9999 !important; position: absolute;'>"
         },
         processing : true, 
         "scrollX": true,

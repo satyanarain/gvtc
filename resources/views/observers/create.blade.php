@@ -91,7 +91,7 @@
                 
                  <div class="form-group{{ $errors->has('institution') ? ' has-error' : '' }} col-md-6 required"  id="institution_label" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.institution_name', array(),Session::get('language_val'))</label>
-                  <input type="text" name="institution"  value="{{ old('institution') }}"  required="" onkeydown = "return Check(event)" class="form-control" id="institution_field"  placeholder="@lang('menu.institution_name', array(),Session::get('language_val'))">
+                  <input type="text" name="institution"  value="{{ old('institution') }}"   onkeydown = "return Check(event)" class="form-control" id="institution_field"  placeholder="@lang('menu.institution_name', array(),Session::get('language_val'))">
                  @if ($errors->has('institution'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('institution') }}</strong>
@@ -101,7 +101,7 @@
                   
                   <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6 required" id="las_tname" style="display:none">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.last_name', array(),Session::get('language_val'))</label>
-                  <input type="textarea" name="last_name" value="{{ old('last_name') }}" required onkeydown = "return Check(event)"  class="form-control" id="last_name" placeholder="@lang('menu.last_name', array(),Session::get('language_val'))">
+                  <input type="text" name="last_name" value="{{ old('last_name') }}"  onkeydown = "return Check(event)"  class="form-control" id="last_name_val" placeholder="@lang('menu.last_name', array(),Session::get('language_val'))"  required="required">
                  @if ($errors->has('last_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
@@ -139,9 +139,9 @@
                   </div>  
                   
                   
-                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 required">
+                  <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }} col-md-6 ">
                   <label for="exampleInputEmail1" class="control-label">@lang('menu.mobile', array(),Session::get('language_val'))</label>
-                  <input type="tel" name="mobile" maxlength="10" value="{{ old('mobile') }}" required  onkeypress="return isNumberKey(event)"  class="form-control" id="taxon_code_description" placeholder="@lang('menu.mobile', array(),Session::get('language_val'))">
+                  <input type="tel" name="mobile" maxlength="10" value="{{ old('mobile') }}"   onkeypress="return isNumberKey(event)"  class="form-control" id="taxon_code_description" placeholder="@lang('menu.mobile', array(),Session::get('language_val'))">
                  @if ($errors->has('mobile'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('mobile') }}</strong>
