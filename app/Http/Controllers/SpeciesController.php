@@ -164,8 +164,159 @@ class SpeciesController extends Controller
 
     }
     
-      
+       public function bulkUpload(Request $request) {
+
+        return view('species.bulkupload');
+    }
     
+public function bulkCreat(Request $request) {
+     if ($request->hasFile('documents1')) {
+            $filename = $_FILES['documents1']['name'];
+            $handle = fopen($_FILES['documents1']['tmp_name'], "r");
+            $flag = true;
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            $speciessql = DB::table('species')->select('*')->get()->last();
+            $spid=$speciessql->id;
+            $spids=$spid+1;
+            
+//                echo '<pre>';                // echo $data;
+//                // print_r($data);
+//                // echo $data[1];
+//                 //echo $data[2];
+//                // echo $data[13];
+//                 
+//                     //print_r($arrvar);
+//                 die;
+                if ($flag) {
+                    $flag = false;
+                    continue;
+                }
+                $taxon_id = '0';
+                if ($data[1]) {
+                    $sql = DB::table('taxons')->select('*')->where('taxon_code', $data[1])->get()->first();
+                    if (count($sql))
+                        $taxon_id = $sql->id;
+                }
+                $specieslastid='GVTCSP'.$spids;
+                $order = $data[3];
+                $family = utf8_encode($data[4]);
+                $genus = $data[5];
+                $species = utf8_encode($data[6]);
+                $species_author = utf8_encode($data[7]);
+                $subspecies = $data[8];
+                $subspecies_author = $data[9];
+                $common_name = $data[10];
+                $common_name_fr = $data[11];
+                $iucn_threat_id = '0';
+                if($data[12]){
+                    $sql12 = DB::table('iucn_threats')->select('*')->where('iucn_threat_code', $data[12])->get()->first();
+                    if (count($sql12))
+                        $iucn_threat_id = $sql12->id;
+                    
+                }
+                $range_id = '0';
+                if($data[13]){
+                  $arra=explode(",",$data[13]);
+                     $arrvar='';
+                    foreach($arra as $k){
+                     $sql13 = DB::table('ranges')->select('*')->where('range_code', $k)->get()->first();
+                    $arrvar.= $sql13->id.',';
+                    
+                     }
+                      
+                    
+                    
+                    
+//                    $sql13 = DB::table('ranges')->select('*')->where('range_code', $data[13])->get()->first();
+//                    if (count($sql13))
+//                        $range_id = $sql13->id;
+                    
+                }
+                $growth_id='0';
+                if($data[14]){
+                    $sql14 = DB::table('growths')->select('*')->where('growth_form', $data[14])->get()->first();
+                    if (count($sql14))
+                        $growth_id = $sql14->id;
+                    
+                }
+                $forestuse_id='0';
+                if($data[15]){
+                    $sql15 = DB::table('forestuse')->select('*')->where('forest_use', $data[15])->get()->first();
+                    if (count($sql15))
+                        $forestuse_id = $sql15->id;
+                    
+                }
+                $wateruse_id='0';
+                if($data[16]){
+                    $sql16 = DB::table('wateruse')->select('*')->where('water_habitat_usage', $data[16])->get()->first();
+                    if (count($sql16))
+                        $wateruse_id = $sql16->id;
+                    
+                }
+                 $endenisms_id='0';
+                if($data[17]){
+                    $sql17 = DB::table('endenisms')->select('*')->where('endenism', $data[17])->get()->first();
+                    if (count($sql17))
+                        $endenisms_id = $sql17->id;
+                    
+                }
+                $migration_id='0';
+                if($data[18]){
+                    $sql18 = DB::table('migration_tbl')->select('*')->where('migration_title', $data[18])->get()->first();
+                    if (count($sql18))
+                        $migration_id = $sql18->id;
+                  
+                }
+                $national_id='0';
+                if($data[19]){
+                    $sql19 = DB::table('national_threat_codes')->select('*')->where('national_threat_code', $data[19])->get()->first();
+                    if (count($sql19))
+                        $national_id = $sql19->id;
+                  
+                }
+                $breedings_id='0';
+                
+                if($data[20]){
+                    $sql20 = DB::table('breedings')->select('*')->where('breeding_code', $data[20])->get()->first();
+                    if (count($sql20))
+                        $breedings_id = $sql20->id;
+                  
+                }
+                
+                
+                DB::table('species')->insert(array('taxon_id' => $taxon_id,
+                    'specienewid' => $specieslastid,
+                    'order' => $order,
+                    'family' => $family,
+                    'genus' => $genus,
+                    'species' => $species,
+                    'species_author' => $species_author,
+                    'subspecies' => $subspecies,
+                    'subspecies_author' =>$subspecies_author,
+                    'common_name' => $common_name,
+                    'common_name_fr' => $common_name_fr,
+                    'iucn_threat_id' => $iucn_threat_id,
+                    'range_id' => rtrim($arrvar),
+                    'growth_id' =>$growth_id,
+                    'forestuse_id' => $forestuse_id,
+                    'wateruse_id' => $wateruse_id,
+                    'endenisms_id' => $endenisms_id,
+                    'migration_tbl_id' =>$migration_id,
+                    'national_threat_code_id' => $national_id,
+                    'breeding_id' => $breedings_id,
+                    'status' => 1,
+                    'created_by' => Auth::id()
+                ));
+            }
+            
+    
+      Session::flash('flash_message', "Species Uploded Successfully."); //Snippet in Master.blade.php
+        }else {
+            Session::flash('flash_message', "There is no file to upload."); //Snippet in Master.blade.php
+        }
+     
+      return redirect()->route('species.index');
+    }
 
     /**
      * Display the specified resource.

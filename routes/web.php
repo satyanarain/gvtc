@@ -107,6 +107,8 @@ Route::resource('abundance','AbundanceController');
 Route::get('observer/getdata', 'ObserverController@showbulkrecord')->name('observer/getdata');
 Route::resource('observer','ObserverController');
 //specie
+Route::get('/species/bulkupload/', 'SpeciesController@bulkUpload')->name('species.bulkupload');
+Route::post('/species/bulkupload/', 'SpeciesController@bulkCreat')->name('species.bulkcreat');
 Route::get('species/getdata', 'SpeciesController@showbulkrecord')->name('species/getdata');
 Route::resource('species','SpeciesController');
 //gazetteer

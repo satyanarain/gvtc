@@ -348,6 +348,7 @@ $reord=count($searchrtsql);
                         </thead>
                         <tbody>
  <?php
+//print_r($results);
 
  //$taxonname =  DB::table('species')->select('*')->leftjoin('taxons', 'taxons.id', 'species.taxon_id')->get();
 // echo '<pre>';
@@ -357,34 +358,46 @@ $reord=count($searchrtsql);
 //print_r($results);
  ?>
                             
-<?php if(isset($results))
- 
-foreach($results as $result) {   
-$taxon_id=$result->taxon_id;    
-$taxonname = DB::table('distributions')->select('*')
-                        ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
-                       ->where('distributions.taxon_id',$taxon_id)->first();
-$gazetteer_id=$result->gazetteer_id;  
-$gazetteername = DB::table('distributions')->select('*')
-                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
-                       ->where('distributions.gazetteer_id',$gazetteer_id)->first();
+<?php
 
+foreach($results as $result)
+{   
+    //echo '<pre>';print_r($result);die;
+    //echo $result->taxon_id; 
+    //echo $result->common_name;die;
+    //echo $result->gazetteer_id;die;
+    $taxonname = array();
+    if($result->taxon_id){
+        $taxonname = DB::table('distributions')->select('*')
+                            ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+                           ->where('distributions.taxon_id',$result->taxon_id)->first();
+    }else{
+        $taxonname->taxon_code = '';
+    }
+    $gazetteername =array();
+    if($result->gazetteer_id){
+        $gazetteername = DB::table('distributions')->select('*')
+                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+                       ->where('distributions.gazetteer_id',$result->gazetteer_id)->first();
+    }else{
+        $gazetteername = '';
+    }
+    
+  
 
 ?>
                              <tr> 
                                        <td><?php echo $taxonname->taxon_code; ?></td>
-                                       <td>{{$result->common_name}}</td>
+                                       <td><?php if(isset($result->common_name) && $result->common_name){echo $result->common_name;}?></td>
                                          <td>{{$result->species}}</td>
-                                         <td><?php echo $gazetteername->place; ?></td>
+                                         <td><?php if(count($gazetteername)){echo $gazetteername->place;} ?></td>
 		                        <td>{{$result->genus}}</td>
 		                        <td>{{$result->order}}</td>
 		                        <td>{{$result->family}}</td>
                                            
 		             </tr> 
                
-<?php }else{ ?>
-<?php echo "not found"; ?>
-<?php } ?>               
+<?php }?>               
       
 
  
