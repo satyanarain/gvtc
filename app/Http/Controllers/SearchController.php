@@ -238,7 +238,7 @@ class SearchController extends Controller {
             ->get();
         
         $habitatinfo=DB::table('distributions')
-            ->select('habitat', DB::raw('count(*) as total'))
+            ->select('gazetteer_id', DB::raw('count(*) as total'))
              ->leftjoin('taxons','distributions.taxon_id','taxons.id')
              ->leftjoin('species','distributions.specie_id','species.id')
               ->orWhere ('distributions.taxon_id', '=', 'taxons.id' )
@@ -246,8 +246,13 @@ class SearchController extends Controller {
               ->orWhere ('taxons.taxon_code', 'LIKE', '%' . $query . '%' )
               ->orWhere ('species.species', 'LIKE', '%' . $query . '%' )
                ->orwhere('species.common_name','LIKE', '%'.$query.'%')
-               ->groupBy('habitat') 
+               ->groupBy('gazetteer_id') 
             ->get();
+//        echo '<pre>';
+//        print_r($placeinfo);
+//        echo '<pre>';
+//        print_r($habitatinfo);
+//        die;
         
         $taxoninfo=DB::table('distributions')
             ->select('distributions.taxon_id as taxon_id', DB::raw('count(*) as total'))

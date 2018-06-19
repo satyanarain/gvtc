@@ -144,3 +144,5 @@ label{
     content: ' *';
     display:inline;
 }
+.container > li > a > label { color:#333 !important; }
+.multiselect-container > li > a > label { color:#333 !important; }

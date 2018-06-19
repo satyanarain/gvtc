@@ -37,7 +37,7 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
   
             <div class="box-body">
              
-               <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
+               <table class="table table-hover table-bordered table-striped datatable">
                 <thead>
                 <tr>
                   <th style="display:none">id</th> 
@@ -58,6 +58,14 @@ $getpermissionstatus = getpermissionstatus($user_id,$role,$permission_key);
                 </tbody>
                 
               </table>
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
             <!-- /.box-body -->
   

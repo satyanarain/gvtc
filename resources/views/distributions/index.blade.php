@@ -88,6 +88,7 @@ $(document).ready(function() {
     var token = window.Laravel.csrfToken;
     //alert(token);
     var dataTable = $('#employee-grid').DataTable( {
+        "pageLength": 1000,
          "order": [[ 0, "desc" ]],
          "aoColumnDefs": [
         {

@@ -149,9 +149,15 @@
 		<div class="col-sm-8">
                     <select id="5thFruits" class="form-control" name="habitatval[]" multiple="multiple">
         <?php foreach($habitatinfo as $habitatdata) {
-            if($habitatdata){
+            $habitatdata->gazetteer_id;
+             $habitatdata->total;
+            $habitatname = DB::table('distributions')->select('*')
+                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+                       ->where('distributions.gazetteer_id',$habitatdata->gazetteer_id)->first();
+            //print_r($habitatdata);
+            if($habitatname->habitat){
             ?>
-           <option value="<?php echo  $habitatdata->habitat; ?>"><?php  echo $habitatdata->habitat; ?>(<?php echo $habitatdata->total; ?>)</option>       
+           <option value="<?php echo $habitatdata->gazetteer_id ?>"><?php echo $habitatname->habitat; ?>(<?php echo $habitatdata->total ?>)</option>       
         <?php }} ?>
                     </select>
             </div>
@@ -339,6 +345,7 @@ $reord=count($searchrtsql);
                                 <th>Taxon</th>
                                 <th>Common Name </th>
                                 <th>Species Name </th>
+                                <th>Habitat</th>
                                 <th>Place</th>
                                 <th>Genus</th>
                                 <th>Order</th>
@@ -368,29 +375,34 @@ foreach($results as $result)
     //echo $result->gazetteer_id;die;
     $taxonname = array();
     if($result->taxon_id){
-        $taxonname = DB::table('distributions')->select('*')
-                            ->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
-                           ->where('distributions.taxon_id',$result->taxon_id)->first();
+        $taxonname = DB::table('taxons')->select('taxon_code')
+                            //->leftjoin('taxons', 'taxons.id', 'distributions.taxon_id')
+                           ->where('id',$result->taxon_id)->first();
+        $taxon_code = $taxonname->taxon_code;
     }else{
-        $taxonname->taxon_code = '';
+        $taxon_code = '';
     }
     $gazetteername =array();
     if($result->gazetteer_id){
-        $gazetteername = DB::table('distributions')->select('*')
-                        ->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
-                       ->where('distributions.gazetteer_id',$result->gazetteer_id)->first();
+        $gazetteername = DB::table('gazetteers')->select('place','habitat')
+                        //->leftjoin('gazetteers', 'gazetteers.id', 'distributions.gazetteer_id')
+                       ->where('id',$result->gazetteer_id)->first();
+        $place = $gazetteername->place;
+        $habitat = $gazetteername->habitat;
     }else{
-        $gazetteername = '';
+        $habitat = '';
+        $place = '';
     }
     
   
 
 ?>
                              <tr> 
-                                       <td><?php echo $taxonname->taxon_code; ?></td>
+                                       <td><?php echo $taxon_code; ?></td>
                                        <td><?php if(isset($result->common_name) && $result->common_name){echo $result->common_name;}?></td>
                                          <td>{{$result->species}}</td>
-                                         <td><?php if(count($gazetteername)){echo $gazetteername->place;} ?></td>
+                                         <td>{{$result->habitat}}</td>
+                                         <td>{{$place}}</td>
 		                        <td>{{$result->genus}}</td>
 		                        <td>{{$result->order}}</td>
 		                        <td>{{$result->family}}</td>
