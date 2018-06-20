@@ -87,12 +87,12 @@
   })
 </script>
 <script type="text/javascript">
-  window.onbeforeunload = function(e){
-      alert('hi');
+  //window.onbeforeunload = function(e){
+     // alert('hi');
    //e.preventDefault();
    //checkFormFilled('btn_back');
  //return false;
-};
+//};
 //window.onbeforeunload = function(e) {
 //  var dialogText = 'Dialog text here';
 //  e.returnValue = dialogText;

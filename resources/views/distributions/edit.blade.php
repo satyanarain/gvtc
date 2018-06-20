@@ -346,9 +346,38 @@
       </div>
       <!-- /.row -->
     </section>
+<script>
+$(document).ready(function(){ 
+   $( "input" ).click(function() {
+    var d = $("input").val();
+    window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+    //alert(d);
+}); 
+    
+   
+  $('input:radio').change(function(){
+   //var value = $("form input[type='radio']:checked").val();
+     window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+});
 
+ $('select').change(function(){
+    window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+});
 
-
+    
+// $("form").each(function(){
+//   var raju = $(this).find(':input') //<-- Should return all input elements in that specific form.
+//   alert(raju);
+//});     
+//    
+ });         
+</script> 
 @endsection
 
 

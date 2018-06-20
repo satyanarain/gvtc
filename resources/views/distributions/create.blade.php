@@ -11,7 +11,7 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">@lang('menu.add', array(),Session::get('language_val')) @lang('menu.distribution_records', array(),Session::get('language_val'))</h3>
-              <div class="pull-right">
+              <div class="pull-right" id="backlink">
 <a href="{{ route('distribution.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
@@ -287,7 +287,8 @@
                
             </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
+                <button type="submit" id="save-button" class="btn btn-primary btn-sub">@lang('menu.save', array(),Session::get('language_val'))</button>
+                
               </div>
             </form>
           </div>
@@ -298,8 +299,38 @@
       </div>
       <!-- /.row -->
     </section>
+<script>
+$(document).ready(function(){ 
+   $( "input" ).click(function() {
+    var d = $("input").val();
+    window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+    //alert(d);
+}); 
+    
+   
+  $('input:radio').change(function(){
+   //var value = $("form input[type='radio']:checked").val();
+     window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+});
 
+ $('select').change(function(){
+    window.onbeforeunload = function(e) { 
+            return "You have unsaved changes, please save them."
+        };
+});
 
+    
+// $("form").each(function(){
+//   var raju = $(this).find(':input') //<-- Should return all input elements in that specific form.
+//   alert(raju);
+//});     
+//    
+ });         
+</script>  
 
 @endsection
 
