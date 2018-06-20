@@ -351,7 +351,7 @@ $(document).ready(function(){
    $( "input" ).click(function() {
     var d = $("input").val();
     window.onbeforeunload = function(e) { 
-            return "You have unsaved changes, please save them."
+            return "Leaving this page will lose your data. Are you sure you want to leave this page ?"
         };
     //alert(d);
 }); 
@@ -360,13 +360,13 @@ $(document).ready(function(){
   $('input:radio').change(function(){
    //var value = $("form input[type='radio']:checked").val();
      window.onbeforeunload = function(e) { 
-            return "You have unsaved changes, please save them."
+            return "Leaving this page will lose your data. Are you sure you want to leave this page ?"
         };
 });
 
  $('select').change(function(){
     window.onbeforeunload = function(e) { 
-            return "You have unsaved changes, please save them."
+            return "Leaving this page will lose your data. Are you sure you want to leave this page ?"
         };
 });
 
