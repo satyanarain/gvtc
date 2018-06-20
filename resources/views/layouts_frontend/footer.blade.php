@@ -23,8 +23,8 @@
            
             <div class="col-md-4 col-xs-12 footerBorderLeft">
             	<h4 class="footerHead">Contact info</h4>
-            	<p class="footerText">Nyarutarama Road- KG 9 Av<br />#60-Building of the Seventh-Day Adventist Church<br />East Central Rwanda Conference<br /> Headquarters-P.O.Box 6626 Kigali Rwanda<br />
-                    <strong>Telephone:</strong> +252 580 429<br /><strong>E-mail:</strong> centerofexcellence@greatervirunga.org</p>
+            	<p class="footerText">KG 6 AV. #18, plot #954<br />Gasabo District, Kimihurura, Rugando<br /> P.O.Box 6626 Kigali Rwanda<br />
+                    <strong>Telephone:</strong> +250 252-580-429<br /><strong>Mobile:</strong> +250 788-573-965<br /><strong>E-mail:</strong> centerofexcellence@greatervirunga.org</p>
             </div>
 		</div>
 	</div>

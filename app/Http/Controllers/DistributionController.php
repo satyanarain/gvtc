@@ -121,17 +121,20 @@ class DistributionController extends Controller {
             return redirect()->route('user-management.unauthorized');
         //  CONCAT( full_name, ':', IF (ship_to='shipping', shipping_address, business_address )) as    contact FROM TableName
         $observerrecodsql = DB::table('observers')->selectRaw('id, CONCAT(first_name," ",last_name) as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
-
         $taxonrecodsql = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description," ","(",taxon_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $taxonrecodsql_fr = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description_fr," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
         $methodrecodsql = DB::table('methods')->selectRaw('id, CONCAT(code_description," ","(",method_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
-
+        $methodrecodsql_fr = DB::table('methods')->selectRaw('id, CONCAT(code_description_fr," ","(",method_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $agerecodsql = DB::table('ages')->selectRaw('id, CONCAT(code_description," ","(",age_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $agerecodsql_fr = DB::table('ages')->selectRaw('id, CONCAT(code_description_fr," ","(",age_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $observationrecodsql_fr = DB::table('observation')->selectRaw('id, CONCAT(code_description_fr," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $abundancerecodsql_fr = DB::table('abundances')->selectRaw('id, CONCAT(code_description_fr," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $gazetteerrecodsql = DB::table('gazetteers')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('place', 'id');
         $habitatrecodsql = DB::table('gazetteers')->select('*')->WHERE([['status', 1],['habitat','!=','']])->orderBy('id', 'ASC')->pluck('habitat', 'id');
         $specierecodsql = DB::table('species')->orderBy('id', 'ASC')->WHERE('status', '=', 1)->pluck('specienewid', 'id');
-        return view('distributions/create', compact('taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql','habitatrecodsql'));
+        return view('distributions/create', compact('taxonrecodsql','taxonrecodsql_fr', 'methodrecodsql','methodrecodsql_fr', 'observationrecodsql','observationrecodsql_fr', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql','agerecodsql_fr','abundancerecodsql','abundancerecodsql_fr', 'specierecodsql','habitatrecodsql'));
     }
 
     /**
@@ -373,11 +376,17 @@ class DistributionController extends Controller {
         $observationrecodsql = DB::table('observation')->selectRaw('id, CONCAT(code_description," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $abundancerecodsql = DB::table('abundances')->selectRaw('id, CONCAT(code_description," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
         $gazetteerrecodsql = DB::table('gazetteers')->orderBy('id', 'ASC')->pluck('place', 'id');
+        
+        $taxonrecodsql_fr = DB::table('taxons')->selectRaw('id, CONCAT(taxon_code_description_fr," ","(",taxon_code,")") as full_name')->WHERE('status','=',1)->pluck('full_name', 'id');
+        $methodrecodsql_fr = DB::table('methods')->selectRaw('id, CONCAT(code_description_fr," ","(",method_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $agerecodsql_fr = DB::table('ages')->selectRaw('id, CONCAT(code_description_fr," ","(",age_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $observationrecodsql_fr = DB::table('observation')->selectRaw('id, CONCAT(code_description_fr," ","(",observation_code,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
+        $abundancerecodsql_fr = DB::table('abundances')->selectRaw('id, CONCAT(code_description_fr," ","(",abundance_group,")") as full_name')->WHERE('status', '=', 1)->pluck('full_name', 'id');
 
 
         $distribution = Distribution::find($id);
         //return view('distributions/edit', ['distribution' => $distribution]);
-        return view('distributions.edit', compact('distribution', 'taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql'));
+        return view('distributions.edit', compact('distribution','taxonrecodsql_fr','methodrecodsql_fr','agerecodsql_fr','observationrecodsql_fr','abundancerecodsql_fr', 'taxonrecodsql', 'methodrecodsql', 'observationrecodsql', 'observerrecodsql', 'gazetteerrecodsql', 'agerecodsql', 'abundancerecodsql', 'specierecodsql'));
     }
 
     /**

@@ -35,8 +35,12 @@
                 <div class="form-group col-md-6 required">
 
                    <label for="exampleInputEmail1"  class="control-label">@lang('menu.taxon', array(),Session::get('language_val'))</label>
-                  {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}
-                  </div>  
+                  <?php if(Session::get('language_val')=='en'){ ?>  
+                   {!! Form::select('taxon_id',$taxonrecodsql,null,['class'=>'form-control','placeholder'=>'Select Taxon','required'=>'required','id' => 'taxon_id']) !!}
+                <?php }else{ ?>
+                 {!! Form::select('taxon_id',$taxonrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Sélectionner un taxon','required'=>'required','id' => 'taxon_id']) !!}  
+               <?php } ?>     
+                </div>  
                   
                   
                   <div class="form-group col-md-4 required">
@@ -97,15 +101,23 @@
                 <div class="form-group col-md-6 required">
                     <label for="exampleInputEmail1"  class="control-label">@lang('menu.method', array(),Session::get('language_val'))</label>
 <!--                  {!! Form::label('Method','Method',['class'=>'control-label']) !!}-->
-                  {!! Form::select('method_id',$methodrecodsql,null,['class'=>'form-control','placeholder'=>'Select Method','required'=>'required','id' => 'method_id']) !!}
-                  </div>  
+                   <?php if(Session::get('language_val')=='en'){ ?>
+     {!! Form::select('method_id',$methodrecodsql,null,['class'=>'form-control','placeholder'=>'Select Method','required'=>'required','id' => 'method_id']) !!}
+      <?php }else{ ?>
+                  {!! Form::select('method_id',$methodrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Select, méthode','required'=>'required','id' => 'method_id']) !!}
+                 <?php } ?>         
+                </div>  
                   
                   
                   <div class="form-group  col-md-6 ">
                   <label for="exampleInputEmail1"  class="control-label">@lang('menu.observation', array(),Session::get('language_val'))</label>    
 <!--                 {!! Form::label('Observation','Observation',['class'=>'control-label']) !!}-->
-                  {!! Form::select('observation_id',$observationrecodsql,null,['class'=>'form-control','placeholder'=>'Select Observation','required'=>'required','id' => 'observation_id']) !!}
-              
+                <?php if(Session::get('language_val')=='en'){ ?>   
+                {!! Form::select('observation_id',$observationrecodsql,null,['class'=>'form-control','placeholder'=>'Select Observation','required'=>'required','id' => 'observation_id']) !!}
+              <?php }else{ ?>
+                     {!! Form::select('observation_id',$observationrecodsql_fr,null,['class'=>'form-control','placeholder'=>'Sélectionnez observation','required'=>'required','id' => 'observation_id']) !!}
+                    
+                    <?php } ?>
                       
                       
                       
@@ -185,7 +197,7 @@
                       ?>
                       <?php
                        echo $distribution->observer_id;
-                          echo "f";
+                         
                       
                       ?>
                       <?php if($val->first_name!='' && $val->last_name!=''){ ?>
@@ -209,8 +221,11 @@
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range">
                  {!! Form::label('AgeGroup',Lang::get('menu.age_group', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                  {!! Form::select('age_id',$agerecodsql,null,['class'=>'form-control','placeholder'=>'Select Age Group','id' => 'age_id']) !!}
-                
+                  <?php if(Session::get('language_val')=='en'){ ?>    
+                 {!! Form::select('age_id',$agerecodsql,null,['class'=>'form-control','placeholder'=>'Select Age Group','id' => 'age_id']) !!}
+                <?php }else{ ?>
+                  {!! Form::select('age_id',$agerecodsql_fr,null,['class'=>'form-control','placeholder'=>"Sélectionner un groupe d'âge",'id' => 'age_id']) !!}  
+                 <?php } ?>
                   
                   </div>  
                  
@@ -219,8 +234,11 @@
                   <div class="form-group col-md-6 ">
                       <label for="exampleInputEmail1" class="control-label">@lang('menu.abundance', array(),Session::get('language_val'))</label>    
 <!--                  {!! Form::label('AbundanceCode','Abundance',['class'=>'control-label']) !!}-->
-                  {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance','id' => 'abundance_id']) !!}
-                 
+              <?php if(Session::get('language_val')=='en'){ ?>      
+            {!! Form::select('abundance_id',$abundancerecodsql,null,['class'=>'form-control','placeholder'=>'Select Abundance','id' => 'abundance_id']) !!}
+             <?php }else{ ?>   
+                {!! Form::select('abundance_id',$abundancerecodsql_fr,null,['class'=>'form-control','placeholder'=>"Sélectionner l'abondance",'id' => 'abundance_id']) !!}
+                <?php } ?>    
                    </div>  
                   
                 </div> 

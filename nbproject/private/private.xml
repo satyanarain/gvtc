@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/gvtc/app/Http/Controllers/DistributionController.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/gazetteers/create.blade.php</file>
             <file>file:/var/www/html/gvtc/resources/views/layouts/footer.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/taxons/index.blade.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/observers/index.blade.php</file>
-            <file>file:/var/www/html/gvtc/app/Http/Controllers/ObserverController.php</file>
-            <file>file:/var/www/html/gvtc/resources/views/observers/create.blade.php</file>
-            <file>file:/var/www/html/gvtc/routes/web.php</file>
+            <file>file:/var/www/html/gvtc/app/Http/Controllers/SpeciesController.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/distributions/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/species/create.blade.php</file>
+            <file>file:/var/www/html/gvtc/resources/views/distributions/index.blade.php</file>
         </group>
     </open-files>
 </project-private>
