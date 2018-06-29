@@ -12,7 +12,6 @@ $users_record=count($users);
 $roll=Auth::user()->role;
 $users=DB::table('users')->WHERE('id','1')->get();
 //$roll=="guest";
-
 ?>
 @include('partials.message')
  <!-- Main content -->
