@@ -6,8 +6,8 @@
             	<h4 class="footerHead">About GVTC</h4>
                 <p class="footerText">Greater Virunga Transboundary Collaboration is a framework for strategic, transboundary, collaborative management of the Greater Virunga Landscape</p> 
                  <ul class="list-inline social-buttons">
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="https://www.facebook.com/Gvtc-Greater-Virunga-Collaboration-729921550501684/" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                  <li class="list-inline-item"><a href="https://twitter.com/GreaterVirunga" target="_blank"><i class="fa fa-twitter"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul> 
             </div>

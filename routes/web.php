@@ -119,10 +119,12 @@ Route::resource('gazetteer','GazetteerController');
 //report
 
 //Route::get('/uploadreport/view/','ReportController@UploadReport')->name('uploadreport.view');
+Route::post('report/getdata', 'ReportController@showbulkrecord')->name('report/getdata');
+
 Route::post('report/sortabledatatable','ReportController@updateOrder')->name('report/sortabledatatable');
 Route::get('report/uploadreport', 'ReportController@UploadReport')->name('ReportController.uploadreport');
 Route::resource('report','ReportController');
-//
+//Route::get('/report/{index}', 'CustomerController@index');
 
 Route::get('distribution/recordDelete/{id}','DistributionController@recordDelete');
 Route::post('distribution/getdata', 'DistributionController@showbulkrecord')->name('distribution/getdata');

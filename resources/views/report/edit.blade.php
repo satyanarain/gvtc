@@ -66,7 +66,7 @@
                   <div class="form-group col-md-6 custom-range required">
                  {!! Form::label('Uplaod Report',Lang::get('menu.upload_report', array(),Session::get('language_val')),['class'=>'control-label']) !!}
                  <input type="file"  accept=".pdf"  onchange="validdocument(this,1)" name="uploded_report" id="documents3">
-                 
+                 <input type="hidden" name="edituploded_report" value="{{ $reportval->uploded_report }}" />
                  <?php $docname=$reportval['uploded_report']; ?>
                  </br>
                  <a  onClick="openTab(this)"  href="{{ asset("report_document/$docname") }}" target="_blank"><img src="{{ asset('images/pdf_download.png') }}"/></a>
