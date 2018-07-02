@@ -137,7 +137,11 @@ $segment2 =  Request::segment(2);
       <li class="{{ Request::segment(1) == 'searchresult' ? 'active' : '' }}"><a href="{{ url('searchresult') }}"><i class="glyphicon glyphicon-search"></i>  <span> @lang('menu.managesearchresult', array(),$session_lan)</span></a></li> 
        <?php } ?>
       <li class="{{ Request::segment(1) == 'changepasswords' ? 'active' : '' }}"><a href="{{ url('changepasswords/create') }}"><i class="glyphicon glyphicon-lock"></i>  <span> @lang('menu.change_password', array(),$session_lan)</span></a></li> 
+      <?php if($role!='guest'){?>
       <li class=""><a href="{{ asset('gvtc_userManual.pdf') }}" target="_blank"><i class="glyphicon glyphicon-list-alt"></i>  <span> User Manual</span></a></li> 
+      <?php }else{ ?>
+       <li class=""><a href="{{ asset('gvtc_guestuser manual.pdf') }}" target="_blank"><i class="glyphicon glyphicon-list-alt"></i>  <span> Guest Manual</span></a></li> 
+      <?php } ?>
       <li class=""><a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="glyphicon glyphicon-log-out"></i>  <span>@lang('menu.sign_out', array(),$session_lan) </span></a></li> 
       
    
