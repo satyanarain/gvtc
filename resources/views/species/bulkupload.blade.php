@@ -11,7 +11,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Bulk Upload Species Records</h3>
               <div class="pull-right">
-<a href="{{ route('distribution.index') }}" class="btn btn-default">
+<a href="{{ route('species.index') }}" class="btn btn-default">
 <span class="glyphicon glyphicon-circle-arrow-left"></span>
 &nbsp; @lang('menu.back', array(),Session::get('language_val'))</a>
 </div>

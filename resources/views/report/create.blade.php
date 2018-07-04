@@ -56,7 +56,7 @@
                   <div class="form-row">
                   <div class="form-group col-md-6 custom-range required">
                  {!! Form::label('upload Report',Lang::get('menu.upload_report', array(),Session::get('language_val')),['class'=>'control-label']) !!}
-                 <input type="file"  accept=".pdf" required=""  name="uploded_report" id="documents3">
+                 <input type="file"  accept=".pdf" required="" onchange="validdocument(this,1)"  name="uploded_report" id="documents3">
                 
                 
                   </div>  
